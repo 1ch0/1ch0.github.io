@@ -179,7 +179,7 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/21/%E4%BF%AE%E6%94%B9ubuntu18%E7%BD%91%E7%BB%9C%E4%B8%BA%E9%9D%99%E6%80%81IP/"></a>
+        <a href="/2020/10/21/%E4%BF%AE%E6%94%B9ubuntu18%E7%BD%91%E7%BB%9C%E4%B8%BA%E9%9D%99%E6%80%81IP/">修改ubuntu18网络为静态IP</a>
       </h1>
 
       <p class="index-excerpt">
@@ -188,16 +188,18 @@
           
             
           
-          network:
+          
+切换为root用户执行（具体配置文件用tab自动补全）
+
+vi /etc/netplan/00***.yml
+
+
+编辑配置文件内容如下所示，addresses处填入所要设置ip地址，dhcp4 no代表不适用dhcp协议获取ip，gateway代表网关地址。nameservers代表DNS域名解析服务器
+
+network:
   ethernets:
     ens3:
-      addresses:
-      - 192.168.122.10/24
-      dhcp4: true
-      gateway4: 192.168.122.1
-      nameservers:
-          addresses: [&#x27;114.114.114.114&#x27;]
-  versi
+      address
         </a>
       </p>
 
@@ -211,6 +213,13 @@
           </div>
         
         
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/linux/">linux</a>
+            
+          </div>
         
       </div>
     </article>
@@ -231,16 +240,10 @@
           
             
           
-          Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
+          
+重启linux系统按e
 
-More info: Writing
-Run server$ hexo server
 
-More info: Server
-Generate static files$ hexo generate
-
-More info: Generating
-Deploy to remo
         </a>
       </p>
 
@@ -254,6 +257,13 @@ Deploy to remo
           </div>
         
         
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/linux/">linux</a>
+            
+          </div>
         
       </div>
     </article>

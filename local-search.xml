@@ -4,13 +4,19 @@
   
   
   <entry>
-    <title></title>
+    <title>修改ubuntu18网络为静态IP</title>
     <link href="/2020/10/21/%E4%BF%AE%E6%94%B9ubuntu18%E7%BD%91%E7%BB%9C%E4%B8%BA%E9%9D%99%E6%80%81IP/"/>
     <url>/2020/10/21/%E4%BF%AE%E6%94%B9ubuntu18%E7%BD%91%E7%BB%9C%E4%B8%BA%E9%9D%99%E6%80%81IP/</url>
     
-    <content type="html"><![CDATA[<pre><code class="hljs shell">network:  ethernets:    ens3:      addresses:      - 192.168.122.10/24      dhcp4: true      gateway4: 192.168.122.1      nameservers:          addresses: [&#x27;114.114.114.114&#x27;]  version: 2</code></pre>]]></content>
+    <content type="html"><![CDATA[<ol><li>切换为root用户执行（具体配置文件用tab自动补全）</li></ol><pre><code class="hljs shell">vi /etc/netplan/00***.yml</code></pre><ol start="2"><li>编辑配置文件内容如下所示，addresses处填入所要设置ip地址，dhcp4 no代表不适用dhcp协议获取ip，gateway代表网关地址。nameservers代表DNS域名解析服务器</li></ol><pre><code class="hljs shell">network:  ethernets:    ens3:      addresses:      - 192.168.1.10/24      dhcp4: no      gateway4: 192.168.1.1      nameservers:          addresses: [&#x27;114.114.114.114&#x27;]  version: 2</code></pre><ol start="3"><li>执行以下命令是配置生效</li></ol><pre><code class="hljs shell">netplan apply</code></pre><ol start="4"><li>使用ifconfig查看配置是否成功</li></ol>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+    </tags>
     
   </entry>
   
@@ -21,9 +27,15 @@
     <link href="/2020/10/21/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/"/>
     <url>/2020/10/21/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</url>
     
-    <content type="html"><![CDATA[<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="hljs bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="hljs bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="hljs bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<ol><li>重启linux系统按e</li></ol>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+    </tags>
     
   </entry>
   
