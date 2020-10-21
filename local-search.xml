@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title></title>
+    <link href="/2020/10/21/%E4%BF%AE%E6%94%B9ubuntu18%E7%BD%91%E7%BB%9C%E4%B8%BA%E9%9D%99%E6%80%81IP/"/>
+    <url>/2020/10/21/%E4%BF%AE%E6%94%B9ubuntu18%E7%BD%91%E7%BB%9C%E4%B8%BA%E9%9D%99%E6%80%81IP/</url>
+    
+    <content type="html"><![CDATA[<pre><code class="hljs shell">network:  ethernets:    ens3:      addresses:      - 192.168.122.10/24      dhcp4: true      gateway4: 192.168.122.1      nameservers:          addresses: [&#x27;114.114.114.114&#x27;]  version: 2</code></pre>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Centos8修改密码</title>
     <link href="/2020/10/21/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/"/>
     <url>/2020/10/21/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</url>
