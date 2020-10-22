@@ -240,10 +240,14 @@ network:
           
             
           
-          
-重启linux系统按e
+          1. 重启linux系统按e2. 开头为linux($root)那行末尾加 rd.break3. mount | grep sysroot4. mount -o remount,rw /sysroot/mount | grep sysroot
 
 
+
+5. 切换系统的根目录位置为chroot /sysroot
+
+6. 输入passwd修改密码注意：新密码需符合centos8密码复杂度要求
+7. to
         </a>
       </p>
 
