@@ -54,5 +54,32 @@
   
   
   
+  <entry>
+    <title>docker安装导致网卡丢失</title>
+    <link href="/2020/10/10/demo/"/>
+    <url>/2020/10/10/demo/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>k8s安装中的坑</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+      <tag>ubuntu18.04</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
   
 </search>
