@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="1ch0">
   <meta name="keywords" content="">
-  <title>修改ubuntu18网络为静态IP - 1ch0&#39;s blog</title>
+  <title>kvm安装虚拟机 - 1ch0&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-21 14:30" pubdate>
-        2020年10月21日 下午
+      <time datetime="2020-10-10 10:00" pubdate>
+        2020年10月10日 上午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      125 字
+      63 字
     </span>
   
 
@@ -232,53 +232,39 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">修改ubuntu18网络为静态IP</h1>
+            <h1 style="display: none">kvm安装虚拟机</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 天前
+                  本文最后更新于：21 分钟前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <ol>
-<li>切换为root用户执行（具体配置文件用tab自动补全）</li>
-</ol>
-<pre><code class="hljs shell">vi /etc/netplan/00***.yml</code></pre>
+              <h3 id="virt-install安装虚拟机"><a href="#virt-install安装虚拟机" class="headerlink" title="virt-install安装虚拟机"></a>virt-install安装虚拟机</h3><pre><code class="hljs shell">virt-install --connect  qemu:///system --virt-type kvm --name ubuntu3 --ram=8192  --disk path=/data/b/KVM/images/ubuntu3.img,size=200,sparse --os-type=linux --accelerate -c /data/b/KVM/ubuntu-18.04.5-live-server-amd64.iso  --network bridge=virbr0,model=virtio --vnc  --vncport=6993 --vnclisten=0.0.0.0 --force</code></pre>
 
-<ol start="2">
-<li>编辑配置文件内容如下所示，addresses处填入所要设置ip地址，dhcp4 no代表不适用dhcp协议获取ip，gateway代表网关地址。nameservers代表DNS域名解析服务器</li>
-</ol>
-<pre><code class="hljs shell">network:
-  ethernets:
-    ens3:
-      addresses:
-      - 192.168.1.10/24
-      dhcp4: no
-      gateway4: 192.168.1.1
-      nameservers:
-          addresses: [&#x27;114.114.114.114&#x27;]
-  version: 2</code></pre>
+<h4 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h4><pre><code class="hljs plain"></code></pre>
 
-<ol start="3">
-<li>执行以下命令是配置生效</li>
-</ol>
-<pre><code class="hljs shell">netplan apply</code></pre>
-
-<ol start="4">
-<li>使用ifconfig查看配置是否成功</li>
-</ol>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/KVM/">KVM</a>
+                    
+                  </div>
+                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/linux/">linux</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ubuntu18-04/">ubuntu18.04</a>
                     
                   </div>
                 
@@ -291,12 +277,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2020/10/10/Nmap%E4%BD%BF%E7%94%A8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Nmap使用</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/21/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/">
-                        <span class="hidden-mobile">Centos8修改密码</span>
+                      <a href="/2020/10/10/demo/">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -434,7 +426,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "修改ubuntu18网络为静态IP&nbsp;",
+        "kvm安装虚拟机&nbsp;",
       ],
       cursorChar: ".",
       typeSpeed: 100,
