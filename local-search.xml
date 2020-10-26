@@ -69,6 +69,44 @@
   
   
   <entry>
+    <title>The Chrome Extensions I&#39;d like to use</title>
+    <link href="/2020/10/10/Chrome%20Extensions/"/>
+    <url>/2020/10/10/Chrome%20Extensions/</url>
+    
+    <content type="html"><![CDATA[<h3 id="DARK-READER"><a href="#DARK-READER" class="headerlink" title="DARK READER"></a>DARK READER</h3><h3 id="Wappalyzer"><a href="#Wappalyzer" class="headerlink" title="Wappalyzer"></a>Wappalyzer</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>Daily</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Chrome Extensions</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2020/10/10/demo/"/>
+    <url>/2020/10/10/demo/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>kvm安装虚拟机</title>
     <link href="/2020/10/10/kvm%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     <url>/2020/10/10/kvm%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
@@ -96,13 +134,27 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2020/10/10/demo/"/>
-    <url>/2020/10/10/demo/</url>
+    <title>Pentest Jottings</title>
+    <link href="/2020/10/10/jottings/Pentest%20Jottings/"/>
+    <url>/2020/10/10/jottings/Pentest%20Jottings/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h3 id="渗透随想"><a href="#渗透随想" class="headerlink" title="渗透随想"></a>渗透随想</h3>]]></content>
     
     
+    <categories>
+      
+      <category>Jottings</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Network Security</tag>
+      
+      <tag>Web Pentest</tag>
+      
+    </tags>
     
   </entry>
   
