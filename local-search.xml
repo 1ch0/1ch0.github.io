@@ -54,6 +54,31 @@
   
   
   <entry>
+    <title>The Chrome Extensions I&#39;d like to use</title>
+    <link href="/2020/10/10/Daily/Chrome%20Extensions/"/>
+    <url>/2020/10/10/Daily/Chrome%20Extensions/</url>
+    
+    <content type="html"><![CDATA[<h3 id="DARK-READER"><a href="#DARK-READER" class="headerlink" title="DARK READER"></a>DARK READER</h3><!--切换背景--><h3 id="Wappalyzer"><a href="#Wappalyzer" class="headerlink" title="Wappalyzer"></a>Wappalyzer</h3><!--用于探测网站版本，结果可能不准确--><h3 id="Proxy-SwitchyOmega"><a href="#Proxy-SwitchyOmega" class="headerlink" title="Proxy SwitchyOmega"></a>Proxy SwitchyOmega</h3><!--代理切换软件-->]]></content>
+    
+    
+    <categories>
+      
+      <category>Daily</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Chrome Extensions</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Nmap使用</title>
     <link href="/2020/10/10/Hack/Nmap%E4%BD%BF%E7%94%A8/"/>
     <url>/2020/10/10/Hack/Nmap%E4%BD%BF%E7%94%A8/</url>
@@ -75,31 +100,6 @@
       <tag>信息搜集</tag>
       
       <tag>端口探测</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>The Chrome Extensions I&#39;d like to use</title>
-    <link href="/2020/10/10/Daily/Chrome%20Extensions/"/>
-    <url>/2020/10/10/Daily/Chrome%20Extensions/</url>
-    
-    <content type="html"><![CDATA[<h3 id="DARK-READER"><a href="#DARK-READER" class="headerlink" title="DARK READER"></a>DARK READER</h3><!--切换背景--><h3 id="Wappalyzer"><a href="#Wappalyzer" class="headerlink" title="Wappalyzer"></a>Wappalyzer</h3><!--用于探测网站版本，结果可能不准确--><h3 id="Proxy-SwitchyOmega"><a href="#Proxy-SwitchyOmega" class="headerlink" title="Proxy SwitchyOmega"></a>Proxy SwitchyOmega</h3><!--代理切换软件-->]]></content>
-    
-    
-    <categories>
-      
-      <category>Daily</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Chrome Extensions</tag>
       
     </tags>
     
@@ -222,7 +222,7 @@
     <link href="/1996/07/07/demo/"/>
     <url>/1996/07/07/demo/</url>
     
-    <content type="html"><![CDATA[<p><img src="https://tool.lu/netcard/" alt="IP签名"></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="https://tool.lu/netcard/" alt="IP签名"></p><p><a href="https://tool.lu/todayonhistory/">https://tool.lu/todayonhistory/</a></p>]]></content>
     
     
     
