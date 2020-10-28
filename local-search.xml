@@ -135,35 +135,6 @@
   
   
   <entry>
-    <title>kali工具</title>
-    <link href="/2020/10/10/Linux/kali/"/>
-    <url>/2020/10/10/Linux/kali/</url>
-    
-    <content type="html"><![CDATA[<h1 id="dirb"><a href="#dirb" class="headerlink" title="dirb"></a>dirb</h1><pre><code class="hljs shell">dirb https://x.x.x.x/</code></pre><p>[^目录扫描工具]: </p><p><a href="https://sourceforge.net/projects/dirbuster/files/latest/download">https://sourceforge.net/projects/dirbuster/files/latest/download</a></p><h3 id="参数介绍"><a href="#参数介绍" class="headerlink" title="参数介绍"></a>参数介绍</h3><pre><code class="hljs shell">-a 设置ua-c 设置cookie带cookie扫描-N 忽略某些响应码-o 输出结果-p 使用代理-X 在每个测试目录上附加后缀-z 设置毫秒延迟</code></pre>]]></content>
-    
-    
-    <categories>
-      
-      <category>Linux</category>
-      
-      <category>Hack</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Linux</tag>
-      
-      <tag>kali</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>kvm安装虚拟机</title>
     <link href="/2020/10/10/Linux/kvm%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     <url>/2020/10/10/Linux/kvm%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
@@ -185,6 +156,35 @@
       <tag>ubuntu18.04</tag>
       
       <tag>KVM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>kali工具</title>
+    <link href="/2020/10/10/Linux/kali/"/>
+    <url>/2020/10/10/Linux/kali/</url>
+    
+    <content type="html"><![CDATA[<h1 id="dirb"><a href="#dirb" class="headerlink" title="dirb"></a>dirb</h1><pre><code class="hljs shell">dirb https://x.x.x.x/</code></pre><p>[^目录扫描工具]: </p><p><a href="https://sourceforge.net/projects/dirbuster/files/latest/download">https://sourceforge.net/projects/dirbuster/files/latest/download</a></p><h3 id="参数介绍"><a href="#参数介绍" class="headerlink" title="参数介绍"></a>参数介绍</h3><pre><code class="hljs shell">-a 设置ua-c 设置cookie带cookie扫描-N 忽略某些响应码-o 输出结果-p 使用代理-X 在每个测试目录上附加后缀-z 设置毫秒延迟</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+      <category>Hack</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>kali</tag>
       
     </tags>
     
@@ -222,7 +222,7 @@
     <link href="/1996/07/07/demo/"/>
     <url>/1996/07/07/demo/</url>
     
-    <content type="html"><![CDATA[<p><img src="https://tool.lu/netcard/" alt="IP签名"></p><p><a href="https://tool.lu/todayonhistory/">https://tool.lu/todayonhistory/</a></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="https://tool.lu/netcard/" alt="IP签名"></p>]]></content>
     
     
     
