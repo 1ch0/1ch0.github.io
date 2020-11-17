@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      59 字
+      113 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      2
        分钟
     </span>
   
@@ -236,12 +236,17 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：5 天前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h3 id="virt-install安装虚拟机"><a href="#virt-install安装虚拟机" class="headerlink" title="virt-install安装虚拟机"></a>virt-install安装虚拟机</h3><pre><code class="hljs shell">virt-install --connect  qemu:///system --virt-type kvm --name Centos8 --ram=4096  --disk path=/data/b/KVM/images/Centos8.img,size=20,sparse --os-type=linux --accelerate -c /data/b/KVM/CentOS-8.2.iso  --network bridge=virbr0,model=virtio --vnc  --vncport=6991 --vnclisten=0.0.0.0 --force</code></pre>
+              <h3 id="virt-install安装虚拟机"><a href="#virt-install安装虚拟机" class="headerlink" title="virt-install安装虚拟机"></a>virt-install安装虚拟机</h3><pre><code class="hljs shell">virt-install --connect  qemu:///system --virt-type kvm --name Centos8 --ram=4096  --disk path=/data/b/KVM/images/xxx.img,size=20,sparse --os-type=linux --accelerate -c /data/b/KVM/CentOS-8.2.iso  --network bridge=virbr0,model=virtio --vnc  --vncport=6991 --vnclisten=0.0.0.0 --force</code></pre>
+
+<p>安装winserver-2016</p>
+<pre><code class="hljs shell">virt-install --name w16 --ram 32768 --vcpus 4 --os-type windows --os-variant win2k8 --network bridge=virbr0 --accelerate --disk path=/data/b/KVM/images/xxx.img,format=qcow2,size=300 --cdrom=/data/b/KVM/win-ser-2016.iso --graphics vnc,listen=0.0.0.0,password=hm123,port=5910 --noautoconsole</code></pre>
+
+
 
 <h4 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h4><pre><code class="hljs plain"></code></pre>
 
@@ -279,9 +284,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/10/10/Daily/Chrome%20Extensions/">
+                      <a href="/2020/10/10/Linux/kali/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">The Chrome Extensions I'd like to use</span>
+                        <span class="hidden-mobile">kali工具</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
