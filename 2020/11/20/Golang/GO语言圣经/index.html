@@ -1,0 +1,1459 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="1ch0">
+  <meta name="keywords" content="">
+  <title>GO语言圣经--学习笔记 - 1ch0&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>1ch0's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                联系我
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      1ch0
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-11-20 10:00" pubdate>
+        2020年11月20日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      10.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      123
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">GO语言圣经--学习笔记</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：几秒前
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="GO语言圣经–学习笔记"><a href="#GO语言圣经–学习笔记" class="headerlink" title="GO语言圣经–学习笔记"></a>GO语言圣经–学习笔记</h1><h2 id="ch0前言"><a href="#ch0前言" class="headerlink" title="ch0前言"></a>ch0前言</h2><h3 id="0-1Go语言起源"><a href="#0-1Go语言起源" class="headerlink" title="0.1Go语言起源"></a>0.1Go语言起源</h3><h3 id="0-2项目"><a href="#0-2项目" class="headerlink" title="0.2项目"></a>0.2项目</h3><h2 id="ch1入门"><a href="#ch1入门" class="headerlink" title="ch1入门"></a>ch1入门</h2><h3 id="1-1helloworld"><a href="#1-1helloworld" class="headerlink" title="1.1helloworld"></a>1.1helloworld</h3><p>编译器会主动把特定符号后的换行符转换为分号，因此换行符添加的位置会影响Go代码的正确解析。<br>比如行末是标识符、整数、浮点数、虚数、字符或字符串文字、关键字<code>break</code>、<code>continue</code>、<code>fallthrough</code>或<code>return</code>中的一个、运算符和分隔符<code>++</code>、<code>--</code>、<code>)</code>、<code>]</code>或<code>&#125;</code>中的一个<br>以+结尾的话不会被插入分号分隔符，但是以x结尾的话则会被分号分隔符，从而导致编译错误。<br><code>goimports</code>，可以根据代码需要，自动地添加或删除<code>import</code>声明。这个工具并没有包含在标准的分发包中，可以用下面的命令安装：</p>
+<pre><code class="hljs awk">$ go get golang.org<span class="hljs-regexp">/x/</span>tools<span class="hljs-regexp">/cmd/g</span>oimports</code></pre>
+
+<p>对于大多数用户来说，下载、编译包、运行测试用例、察看Go语言的文档等等常用功能都可以用go的工具完成。10.7节详细介绍这些知识。</p>
+<h3 id="1-2命令行参数"><a href="#1-2命令行参数" class="headerlink" title="1.2命令行参数"></a>1.2命令行参数</h3><ul>
+<li><p>区间索引，左闭右开</p>
+<ul>
+<li>a = [1, 2, 3, 4, 5], a[0:3] = [1, 2, 3]<br>s[m:n]这个切片，0 ≤ m ≤ n ≤ len(s)，包含n-m个元素</li>
+</ul>
+</li>
+<li><p>os.Args[1:len(os.Args)]</p>
+<ul>
+<li>如果省略切片表达式的m或n，会默认传入0或len(s)</li>
+</ul>
+</li>
+<li><p>变量在声明时直接初始化</p>
+<ul>
+<li>如果变量没有显式初始化，则被隐式地赋予其类型的<em>零值</em>（zero value），数值类型是0，字符串类型是空字符串””</li>
+</ul>
+</li>
+<li><p>s += sep + os.Args[i]</p>
+<ul>
+<li>运算符<code>+=</code>是赋值运算符（assignment operator），每种数值运算符或逻辑运算符，如<code>+</code>或<code>*</code>，都有对应的赋值运算符</li>
+</ul>
+</li>
+<li><p>:=</p>
+<ul>
+<li>符号<code>:=</code>是<em>短变量声明</em>（short variable declaration）</li>
+</ul>
+</li>
+<li><p>i++</p>
+<ul>
+<li><code>j = i++</code>非法，而且++和–都只能放在变量名后面，因此<code>--i</code>也非法</li>
+</ul>
+</li>
+<li><p>for</p>
+<ul>
+<li>for initialization; condition; post {<br>// zero or more statements<br>}</li>
+<li>// a traditional infinite loop<br>for {<br>// …<br>}</li>
+</ul>
+</li>
+<li><p>range</p>
+<ul>
+<li>range产生一堆值</li>
+<li>索引以及在该索引处的元素值</li>
+</ul>
+</li>
+<li><p>_   空标识符（blank identifier）</p>
+<ul>
+<li>空标识符可用于在任何语法需要变量名但程序逻辑不需要的时候丢弃不需要的循环索引，并保留元素值。</li>
+</ul>
+</li>
+<li><p>短变量声明</p>
+<ul>
+<li>s := “”  //只能用在函数内部<br>var s string //被初始化为零值<br>var s = “” //同时声明多个变量<br>var s string = “” //显示声明</li>
+</ul>
+</li>
+<li><p>strings包的Join函数</p>
+</li>
+</ul>
+<h3 id="1-3查找重复的行"><a href="#1-3查找重复的行" class="headerlink" title="1.3查找重复的行"></a>1.3查找重复的行</h3><ul>
+<li><p>文件操作</p>
+<ul>
+<li>一个处理输入的循环，在每个元素上执行计算处理，在处理的同时或最后产生输出。</li>
+</ul>
+</li>
+<li><p>if</p>
+<ul>
+<li>if语句条件连变更不加括号，但是主体部分需要加</li>
+<li>if语句的else部分是可选的，在if的条件为false时执行</li>
+</ul>
+</li>
+<li><p>map</p>
+<ul>
+<li>map存储了键/值（key/value）的集合</li>
+<li>对集合元素，提供常数时间的存取或测试操作</li>
+<li>键可以是任意类型，只要其值能用==运算符比较，最常见的例子是字符串</li>
+<li>值则可以是任意类型</li>
+<li>map的迭代顺序并不确定，从实践来看，其顺序随机，每次运行都会变化，这种设计为了防止程序依赖特定遍历顺序，但是这种遍历无法保证</li>
+<li>map是一个由make函数创建的数据结构的引用。</li>
+<li>map作为参数传递给某函数时，该函数接收这个引用的一份拷贝copy，被调用函数对map底层数据结构的任何修改，调用者函数都可以通过持有的mao引用看到。</li>
+</ul>
+</li>
+<li><p>counts[input.Text()]++</p>
+<ul>
+<li>line := input.Text()<br>counts[line] = counts[line] + 1</li>
+</ul>
+</li>
+<li><p>bufio</p>
+<ul>
+<li><p>使处理输入和输出方便又高效</p>
+</li>
+<li><p>Scanner</p>
+<ul>
+<li><p>Scanner类型使该包最有用的特性之一，它读取输入并将其拆成行或单词</p>
+</li>
+<li><p>通常是处理行形式的输入最简单的方法</p>
+</li>
+<li><p>input := bufio.NewScanner(os.Stdin)</p>
+<ul>
+<li><p>input.Scan</p>
+<ul>
+<li>调用读取下一行，并移出行末的换行符</li>
+</ul>
+</li>
+<li><p>input.Text()</p>
+<ul>
+<li>获取读取的内容</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Scan函数</p>
+<ul>
+<li>在读到一行时返回true</li>
+<li>不再有输入时返回false</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>fmt.printf</p>
+<ul>
+<li><p>对一些表达式产生格式化输出</p>
+</li>
+<li><p>首个参数时个格式字符串，指定后续参数如何被格式化</p>
+</li>
+<li><p>各个参数的格式取决于“转换字符”(conversion character)，形式为百分号后跟一个字母</p>
+</li>
+<li><p>%d          十进制整数<br>%x, %o, %b  十六进制，八进制，二进制整数。<br>%f, %g, %e  浮点数： 3.141593 3.141592653589793 3.141593e+00<br>%t          布尔：true或false<br>%c          字符（rune） (Unicode码点)<br>%s          字符串<br>%q          带双引号的字符串”abc”或带单引号的字符’c’<br>%v          变量的自然形式（natural format）<br>%T          变量的类型<br>%%          字面上的百分号标志（无操作数）</p>
+</li>
+<li><p>转义字符（escape sequences）</p>
+</li>
+<li><p>默认Printf不会换行</p>
+</li>
+<li><p>以 f 结尾的格式化函数都采用fmt.Printf的格式化准则</p>
+<ul>
+<li>log.Printf</li>
+<li>fmt.Errorf</li>
+</ul>
+</li>
+<li><p>以ln结尾的格式化函数遵循Println的方式，以跟$v差不多的方式格式化蚕食，并在最后添加一个换行符</p>
+</li>
+<li><p>后缀f指format,ln指line</p>
+</li>
+</ul>
+</li>
+<li><p>os.Open</p>
+<ul>
+<li><p>返回两个值</p>
+<ul>
+<li><p>第一个值时被打开的文件（*os.File)，其后被Scanner读取</p>
+</li>
+<li><p>第二个值是内置error类型的值</p>
+<ul>
+<li><p>如果err等于内置值nil，那么文件被成功打开。</p>
+<ul>
+<li>读取文件知道文件结束，然后调用Close关闭该文件，并释放占用的所有资源。</li>
+</ul>
+</li>
+<li><p>如果err的值不是nil，说明打开文件时出错了</p>
+<ul>
+<li>这种情况下，错误值描述了所遇到的问莪媞，我们的错误处理非常简单，只是使用Fprintf与表示任意类型默认格式值得动词%v，向标准错误流打印一条信息，然后dup继续处理下一个文件</li>
+<li>continue语句直接跳到for循环得下个迭代开始执行</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>countLines函数</p>
+<ul>
+<li>在其声明前被调用</li>
+<li>函数和包级别的变量（package-level entities）可以任意顺序声明，并不影响啊其被调用，最好还是遵循一定的规范</li>
+</ul>
+</li>
+<li><p>dup3</p>
+<ul>
+<li>一次把全部输入数据读取到内存中，一次分隔为多行，然后处理它们</li>
+</ul>
+</li>
+<li><p>ReadFile函数</p>
+<ul>
+<li>io/ioutil包</li>
+<li>读取指定文件的全部内容</li>
+<li>返回一个字节切片（byte slice），必须把它转换为string，才能用strings.Split分割。</li>
+</ul>
+</li>
+<li><p>strings.Split函数</p>
+<ul>
+<li>把字符串分割成字串的切片</li>
+<li>Split的作用与之前的strings.Join相反</li>
+</ul>
+</li>
+<li><p>总结</p>
+<ul>
+<li>实现上，bufio.Scanner、ioutil.ReadFile和ioutil.WriteFile都使用 *os.File的Read和Write方法，但是大多数程序员很少需要直接调用哪些低级（lower-level）函数。高级（higher-level）函数，像bufio和io/ioutil包中所提供的那些，用起来要容易点。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-4GIF动画"><a href="#1-4GIF动画" class="headerlink" title="1.4GIF动画"></a>1.4GIF动画</h3><ul>
+<li><p>image包</p>
+</li>
+<li><p>Lissajous figures,莉萨如图形</p>
+<ul>
+<li>1960年代老电影出现的视觉特效</li>
+<li>协振子在两个纬度上震动所产生的曲线</li>
+</ul>
+</li>
+<li><p>输出到一个GIF图像文件</p>
+<ul>
+<li>./lissajous &gt; output.gif</li>
+</ul>
+</li>
+<li><p>import</p>
+<ul>
+<li><p>imaeg/color</p>
+<ul>
+<li>当import了一个包路径包含有多个单词的package时，通常我们只需要用最后那个单词表示这个包就行</li>
+<li>当我们写color.White时，这个变量指向的是image/color包里的变量，同理gif.GIF是属于image/gif包里的变量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>const声明</p>
+<ul>
+<li>常量是指在程序编译后运行时始终都不会变化的值</li>
+<li>常量声明和变量声明一般都会出现在包级别，所以这些常量在整个包中都是可以共享的，或者你也可以把常量声明定义在函数体内部，那么这种常量就只能在函数体内用</li>
+<li>目前常量声明的值必须是一个数字值、字符串或者一个固定的boolean值</li>
+</ul>
+</li>
+<li><p>struct结构体类型</p>
+<ul>
+<li><p>是一组值或者叫字段的集合，不同的类型集合在一个struct可以让我们以一个同一的单元进行处理</p>
+</li>
+<li><p>anim := gif.GIF{LoopCount: nframes}</p>
+<ul>
+<li>anim是一个gif.GIF类型的struct变量。这种写法会生成一个struct变量，并且其内部变量LoopCount字段会被设置为nframes；而其它的字段会被设置为各自类型默认的零值。</li>
+</ul>
+</li>
+<li><p>struct内部的变量可以以一个点（.）来进行访问，就像在最后两个赋值语句中显示地更新了anim这个struct地Delay和Image字段</p>
+</li>
+</ul>
+</li>
+<li><p>复合声明</p>
+<ul>
+<li>[]color.Color{…}</li>
+<li>gif.GIF{…}</li>
+</ul>
+</li>
+<li><p>lissajous函数</p>
+<ul>
+<li><p>外层循环</p>
+<ul>
+<li>外层循环会循环64次，每一次都会生成一个单独的动画帧。它生成了一个包含两种颜色的201*201大小的图片，白色和黑色。所有像素点都会被默认设置为其零值（也就是调色板palette里的第0个值），这里我们设置的是白色。每次外层循环都会生成一张新图片，并将一些像素设置为黑色。其结果会append到之前结果之后。这里我们用到了append(参考4.2.1)内置函数，将结果append到anim中的帧列表末尾，并设置一个默认的80ms的延迟值。循环结束后所有的延迟值被编码进了GIF图片中，并将结果写入到输出流。out这个变量是io.Writer类型，这个类型支持把输出结果写到很多目标，很快我们就可以看到例子。</li>
+</ul>
+</li>
+<li><p>内层循环</p>
+<ul>
+<li><p>两个偏振值</p>
+<ul>
+<li>x轴偏振使用sin函数</li>
+<li>y轴偏振也是正弦波，但其相对x轴的偏振是一个0-3的随机值，初始偏振值是一个零值，随着动画的每一帧逐渐增加。循环会一直跑到x轴完成五次完整的循环。每一步它都会调用SetColorIndex来为(x,y)点来染黑色。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-5获取URL"><a href="#1-5获取URL" class="headerlink" title="1.5获取URL"></a>1.5获取URL</h3><ul>
+<li><p>net</p>
+<ul>
+<li><p>http</p>
+<ul>
+<li><p>http.Get</p>
+<ul>
+<li>创建HTTP请求地函数，如果获取过程没有出错，那么会在resp这个结构体中得到访问的请求结果。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>resp</p>
+<ul>
+<li><p>resp的Body字段包括一个可读的服务器响应流。</p>
+</li>
+<li><p>resp.Body.Close</p>
+<ul>
+<li>关闭resp的Body流，防止资源泄露，Printf函数会将结果b写出到标准输出流中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ioutil.ReadAll函数</p>
+<ul>
+<li>从response中读取到全部内容</li>
+<li>结果保存在变量b中。</li>
+</ul>
+</li>
+<li><p>错误</p>
+<ul>
+<li>无论哪种失败原因，我们的程序都用了os.Exit函数来终止进程，并且返回一个status错误码，其值为1。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-6并发获取多个URL"><a href="#1-6并发获取多个URL" class="headerlink" title="1.6并发获取多个URL"></a>1.6并发获取多个URL</h3><ul>
+<li><p>并发编程</p>
+<ul>
+<li>goroutine是一种函数的并发执行方式，而channel是用来在goroutine之间进行参数传递。</li>
+</ul>
+</li>
+<li><p>goroutine</p>
+<ul>
+<li>main函数本身也运行在一个goroutine中，而go  function则表示创建要给新的goroutine，并在这个新的goroutine中执行这个函数</li>
+<li>当一个goroutine尝试在一个channel上做send或者receive操作时，这个goroutine会阻塞在调用处，知道另一个goroutine从这个channel里接收或者写入值，这样两个goroutine才会继续执行channel操作之后的逻辑</li>
+</ul>
+</li>
+<li><p>channel</p>
+</li>
+<li><p>main函数</p>
+<ul>
+<li><p>func main() {<br>start := time.Now()<br>ch := make(chan string)<br>for _, url := range os.Args[1:]{<br>  go fetch(url, ch)<br>}<br>for range os.Args[1:]{<br>  fmt.Println(&lt;-ch)<br>}<br>fmt.Printf(“%.2fs elapsed\n”, time.Since(start).Seconds())<br>}</p>
+</li>
+<li><p>main函数中用make函数创建了一个传递string类型参数的channel，对每一个命令行参数，我们都用go这个关键字来创建一个goroutine，并且让函数在这个goroutine异步执行http.Get方法。</p>
+</li>
+<li><p>io.Copy</p>
+<ul>
+<li>这个程序里的io.Copy会把响应的Body内容拷贝到ioutil.Discard输出流中</li>
+<li>可以把这个变量看作一个垃圾桶，可以向里面写一些不需要的数据</li>
+</ul>
+</li>
+<li><p>这个程序中我们用main函数来接收所有fetch函数传回的字符串，可以避免在goroutine异步执行还没有完成时main函数提前退出。</p>
+</li>
+</ul>
+</li>
+<li><p>fetch函数</p>
+<ul>
+<li>func fetch(url string, ch chan&lt;- string){<br>start := time.Now()<br>resp, err := http.Get(url)<br>if err != nil{<br>  ch &lt;- fmt.Sprint(err)<br>  return<br>}<br>nbytes, err := io.Copy(ioutil.Discard, resp.Body)<br>resp.Body.Close()<br>if err != nil{<br>  ch &lt;- fmt.Sprint(“while reading %s : %v”, url, err)<br>  return<br>}<br>secs := time.Since(start).Seconds()<br>ch &lt;- fmt.Sprintf(“%.2fs %7d %s”, secs, nbytes, url)<br>}</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-7Web服务"><a href="#1-7Web服务" class="headerlink" title="1.7Web服务"></a>1.7Web服务</h3><ul>
+<li><p>if err := r.ParseForm(); err != nil{<br>  log.Print(err)<br>}</p>
+<ul>
+<li>err := r.ParseForm()<br>if err != nil {<br>log.Print(err)<br>}</li>
+<li>用if和ParseForm结合可以让代码更加简单，并且可以限制err这个变量的作用域，这么做是很不错的。</li>
+</ul>
+</li>
+<li><p>handler := func(w http.ResponseWriter, r *http.Request) {<br>  lissajous(w)<br>}<br>http.HandleFunc(“/“, handler)</p>
+<ul>
+<li>http.HandleFunc(“/“, func(w http.ResponseWriter, r *http.Request) {<br>lissajous(w)<br>})</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-8总结"><a href="#1-8总结" class="headerlink" title="1.8总结"></a>1.8总结</h3><ul>
+<li><p>控制流</p>
+<ul>
+<li><p>switch</p>
+<ul>
+<li><p>switch coinflip() {<br>case “heads”:<br>heads++<br>case “tails”:<br>tails++<br>default:<br>fmt.Println(“landed on edge!”)<br>}</p>
+<ul>
+<li>Go语言并不需要显式地在每一个case后写break，语言默认执行完case后的逻辑语句会自动退出。</li>
+<li>当然了，如果你想要相邻的几个case都执行同一逻辑的话，需要自己显式地写上一个fallthrough语句来覆盖这种默认行为。不过fallthrough语句在一般的程序中很少用到。</li>
+</ul>
+</li>
+<li><p>无tag switch(tagless switch)</p>
+<ul>
+<li><p>和 switch true等价</p>
+</li>
+<li><p>Go语言里的switch还可以不带操作对象</p>
+<ul>
+<li>func Signum(x int) int {<br>switch {<br>case x &gt; 0:<br>return +1<br>default:<br>return 0<br>case x &lt; 0:<br>return -1<br>}<br>}</li>
+<li>switch不带操作对象时默认用true值代替，然后将每个case的表达式和true值进行比较</li>
+<li>可以直接罗列多种条件，像其它语言里面的多个if else一样</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>witch也可以紧跟一个简短的变量声明，一个自增表达式、赋值语句，或者一个函数调用</p>
+</li>
+</ul>
+</li>
+<li><p>break会中断当前的循环，并开始执行循环之后的内容，而continue会跳过当前循环，并开始执行下一次循环。</p>
+<ul>
+<li>如果我们想跳过的是更外层的循环的话，我们可以在相应的位置加上label，这样break和continue就可以根据我们的想法来continue和break任意循环。</li>
+<li>这看起来甚至有点像goto语句的作用了。当然，一般程序员也不会用到这种操作。这两种行为更多地被用到机器生成的代码中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>命令类型</p>
+<ul>
+<li>type Point struct {<br>X, Y int<br>}<br>var p Point</li>
+</ul>
+</li>
+<li><p>指针</p>
+<ul>
+<li>指针是一种直接存储了变量的内存地址的数据类型</li>
+<li>指针是可见的内存地址，&amp;操作符可以返回一个变量的内存地址，并且*操作符可以获取指针指向的变量内容</li>
+<li>，但是在Go语言里没有指针运算，也就是不能像c语言里可以对指针进行加或减操作</li>
+</ul>
+</li>
+<li><p>方法和接口</p>
+<ul>
+<li>方法是和命名类型关联的一类函数</li>
+<li>Go语言里比较特殊的是方法可以被关联到任意一种命名类型。</li>
+<li>接口是一种抽象类型，这种类型可以让我们以同样的方式来处理不同的固有类型，不用关心它们的具体实现，而只需要关注它们提供的方法。</li>
+</ul>
+</li>
+<li><p>包</p>
+<ul>
+<li><p>Go语言提供了一些很好用的package，并且这些package是可以扩展的。</p>
+</li>
+<li><p>在你开始写一个新程序之前，最好先去检查一下是不是已经有了现成的库可以帮助你更高效地完成这件事情。</p>
+</li>
+<li><p>你可以在 <a target="_blank" rel="noopener" href="https://golang.org/pkg">https://golang.org/pkg</a> 和 <a target="_blank" rel="noopener" href="https://godoc.org/">https://godoc.org</a> 中找到标准库和社区写的package。</p>
+</li>
+<li><p>godoc这个工具可以让你直接在本地命令行阅读标准库的文档。</p>
+<ul>
+<li>$ go doc http.ListenAndServe<br>package http // import “net/http”<br>func ListenAndServe(addr string, handler Handler) error<br>ListenAndServe listens on the TCP network address addr and then<br>calls Serve with handler to handle requests on incoming connections.<br>…</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注释</p>
+<ul>
+<li>在每一个函数之前写一个说明函数行为的注释也是一个好习惯。</li>
+<li>因为这些内容会被像godoc这样的工具检测到，并且在执行命令时显示这些注释。</li>
+<li>多行注释可以用 <code>/* ... */</code> 来包裹，和其它大多数语言一样。在文件一开头的注释一般都是这种形式，或者一大段的解释性的注释文字也会被这符号包住，来避免每一行都需要加//。</li>
+<li>在注释中//和/*是没什么意义的，所以不要在注释中再嵌入注释。</li>
+</ul>
+</li>
+</ul>
+<h2 id="ch2程序结构"><a href="#ch2程序结构" class="headerlink" title="ch2程序结构"></a>ch2程序结构</h2><h3 id="2-1命名"><a href="#2-1命名" class="headerlink" title="2.1命名"></a>2.1命名</h3><ul>
+<li><p>命名规则</p>
+<ul>
+<li>一个名字必须以一个字母（Unicode字母）或下划线开头，后面可以跟任意数量的字母、数字或下划线。</li>
+<li>大写字母和小写字母是不同的：heapSort和Heapsort是两个不同的名字。</li>
+</ul>
+</li>
+<li><p>关键字</p>
+<ul>
+<li>break      default       func     interface   select<br>case       defer         go       map         struct<br>chan       else          goto     package     switch<br>const      fallthrough   if       range       type<br>continue   for           import   return      var</li>
+<li>关键字不能用于自定义名字，只能在特定语法结构中使用。</li>
+</ul>
+</li>
+<li><p>预定义名字</p>
+<ul>
+<li><p>内建常量</p>
+<ul>
+<li>true false iota nil</li>
+</ul>
+</li>
+<li><p>内建类型</p>
+<ul>
+<li>int int8 int16 int32 int64<br>uint uint8 uint16 uint32 uint64 uintptr<br>float32 float64 complex128 complex64<br>bool byte rune string error</li>
+</ul>
+</li>
+<li><p>内建函数</p>
+<ul>
+<li>make len cap new append copy close delete<br>complex real imag<br>panic recover</li>
+</ul>
+</li>
+<li><p>这些内部预先定义的名字并不是关键字，你可以在定义中重新使用它们。在一些特殊的场景中重新定义它们也是有意义的，但是也要注意避免过度而引起语义混乱。</p>
+</li>
+</ul>
+</li>
+<li><p>作用域</p>
+<ul>
+<li><p>如果一个名字是在函数内部定义，那么它就只在函数内部有效。</p>
+</li>
+<li><p>如果是在函数外部定义，那么将在当前包的所有文件中都可以访问。</p>
+</li>
+<li><p>名字的开头字母的大小写决定了名字在包外的可见性。</p>
+<ul>
+<li>如果一个名字是大写字母开头的（译注：必须是在函数外部定义的包级名字；包级函数名本身也是包级名字），那么它将是导出的，也就是说可以被外部的包访问</li>
+<li>包本身的名字一般总是用小写字母。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>长度</p>
+<ul>
+<li>名字的长度没有逻辑限制</li>
+<li>但是Go语言的风格是尽量使用短小的名字，对于局部变量尤其是这样</li>
+<li>你会经常看到i之类的短名字，而不是冗长的theLoopIndex命名</li>
+<li>通常来说，如果一个名字的作用域比较大，生命周期也比较长，那么用长的名字将会更有意义。</li>
+</ul>
+</li>
+<li><p>驼峰命名</p>
+<ul>
+<li>当名字由几个单词组成时优先使用大小写分隔，而不是优先用下划线分隔。</li>
+<li>在标准库有QuoteRuneToASCII和parseRequestLine这样的函数命名，但是一般不会用quote_rune_to_ASCII和parse_request_line这样的命名。</li>
+<li>而像ASCII和HTML这样的缩略词则避免使用大小写混合的写法，它们可能被称为htmlEscape、HTMLEscape或escapeHTML，但不会是escapeHtml。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2声明"><a href="#2-2声明" class="headerlink" title="2.2声明"></a>2.2声明</h3><ul>
+<li><p>4种类型</p>
+<ul>
+<li><p>var、const、type和func</p>
+<ul>
+<li>分别对应变量、常量、类型和函数实体对象的声明</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>一个Go语言编写的程序对应一个或多个以.go为文件后缀名的源文件</p>
+</li>
+<li><p>每个源文件中以包的声明语句开始，说明该源文件是属于哪个包</p>
+</li>
+<li><p>包声明语句之后是import语句导入依赖的其它包，然后是包一级的类型、变量、常量、函数的声明语句，包一级的各种类型的声明语句的顺序无关紧要</p>
+<ul>
+<li>// Boiling prints the boiling point of water.<br>package main</li>
+</ul>
+</li>
+</ul>
+<p>import “fmt”</p>
+<p>const boilingF = 212.0</p>
+<p>func main() {<br>    var f = boilingF<br>    var c = (f - 32) * 5 / 9<br>    fmt.Printf(“boiling point = %g°F or %g°C\n”, f, c)<br>    // Output:<br>    // boiling point = 212°F or 100°C<br>}</p>
+<pre><code>    - 声明了一个常量、一个函数和两个变量
+    - 其中常量boilingF是在包一级范围声明语句声明的，然后f和c两个变量是在main函数内部声明的声明语句声明的。
+    - 在包一级声明语句声明的名字可在整个包对应的每个源文件中访问，而不是仅仅在其声明语句所在的源文件中访问。
+    - 相比之下，局部声明的名字就只能在函数内部很小的范围被访问。</code></pre>
+<ul>
+<li><p>函数内部的名字则必须先声明之后才能使用</p>
+</li>
+<li><p>函数</p>
+<ul>
+<li>一个函数的声明由一个函数名字、参数列表（由函数的调用者提供参数变量的具体值）、一个可选的返回值列表和包含函数定义的函数体组成。</li>
+<li>如果函数没有返回值，那么返回值列表是省略的。</li>
+<li>执行函数从函数的第一个语句开始，依次顺序执行直到遇到return返回语句，如果没有返回语句则是执行到函数末尾，然后返回到函数调用者。</li>
+<li>// Ftoc prints two Fahrenheit-to-Celsius conversions.<br>package main</li>
+</ul>
+</li>
+</ul>
+<p>import “fmt”</p>
+<p>func main() {<br>    const freezingF, boilingF = 32.0, 212.0<br>    fmt.Printf(“%g°F = %g°C\n”, freezingF, fToC(freezingF)) // “32°F = 0°C”<br>    fmt.Printf(“%g°F = %g°C\n”, boilingF, fToC(boilingF))   // “212°F = 100°C”<br>}</p>
+<p>func fToC(f float64) float64 {<br>    return (f - 32) * 5 / 9<br>}</p>
+<pre><code>    - fToC函数封装了温度转换的处理逻辑，这样它只需要被定义一次，就可以在多个地方多次被使用。在这个例子中，main函数就调用了两次fToC函数，分别使用在局部定义的两个常量作为调用函数的参数。</code></pre>
+<h3 id="2-3变量"><a href="#2-3变量" class="headerlink" title="2.3变量"></a>2.3变量</h3><ul>
+<li><p>2.3.0简介</p>
+<ul>
+<li><p>var 变量名字 类型 = 表达式</p>
+<ul>
+<li><p>其中“<em>类型</em>”或“*= 表达式*”两个部分可以省略其中的一个</p>
+<ul>
+<li><p>如果省略的是类型信息，那么将根据初始化表达式来推导变量的类型信息。</p>
+</li>
+<li><p>如果初始化表达式被省略，那么将用零值初始化该变量。</p>
+<ul>
+<li><p>数值类型变量对应的零值是0，布尔类型变量对应的零值是false，字符串类型对应的零值是空字符串，接口或引用类型（包括slice、指针、map、chan和函数）变量对应的零值是nil。</p>
+</li>
+<li><p>数组或结构体等聚合类型对应的零值是每个元素或字段都是对应该类型的零值。</p>
+</li>
+<li><p>零值初始化机制可以确保每个声明的变量总是有一个良好定义的值，因此在Go语言中不存在未初始化的变量。</p>
+<ul>
+<li><p>var s string<br>fmt.Println(s) // “”</p>
+<ul>
+<li>这个特性可以简化很多代码，而且可以在没有增加额外工作的前提下确保边界条件下的合理行为。</li>
+<li>这段代码将打印一个空字符串，而不是导致错误或产生不可预知的行为。</li>
+</ul>
+</li>
+<li><p>Go语言程序员应该让一些聚合类型的零值也具有意义，这样可以保证不管任何类型的变量总是有一个合理有效的零值状态。</p>
+</li>
+</ul>
+</li>
+<li><p>也可以在一个声明语句中同时声明一组变量，或用一组初始化表达式声明并初始化一组变量。</p>
+<ul>
+<li>var i, j, k int                 // int, int, int<br>var b, f, s = true, 2.3, “four” // bool, float64, string</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>初始化表达式可以是字面量或任意的表达式。</p>
+<ul>
+<li><p>在包级别声明的变量会在main入口函数执行前完成初始化（§2.6.2），局部变量将在声明语句被执行到的时候完成初始化。</p>
+</li>
+<li><p>一组变量也可以通过调用一个函数，由函数返回的多个返回值初始化：</p>
+<ul>
+<li>var f, err = os.Open(name) // os.Open returns a file and an error</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>2.3.1简短变量声明</p>
+<ul>
+<li><p>用于声明和初始化局部变量</p>
+</li>
+<li><p>名字 := 表达式</p>
+</li>
+<li><p>变量的类型根据表达式来自动推导</p>
+</li>
+<li><p>var形式的声明语句往往是用于需要显式指定变量类型的地方，或者因为变量稍后会被重新赋值而初始值无关紧要的地方。</p>
+<ul>
+<li>i := 100                  // an int<br>var boiling float64 = 100 // a float64<br>var names []string<br>var err error<br>var p Point</li>
+</ul>
+</li>
+<li><p>和var形式声明语句一样，简短变量声明语句也可以用来声明和初始化一组变量</p>
+<ul>
+<li><p>i, j := 0, 1</p>
+<ul>
+<li>但是这种同时声明多个变量的方式应该限制只在可以提高代码可读性的地方使用，比如for语句的循环的初始化语句部分。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>“:=”是一个变量声明语句，而“=”是一个变量赋值操作</p>
+<ul>
+<li>也不要混淆多个变量的声明和元组的多重赋值（§2.4.1），后者是将右边各个表达式的值赋值给左边对应位置的各个变量</li>
+</ul>
+</li>
+<li><p>简短变量声明语句也可以用函数的返回值来声明和初始化变量</p>
+<ul>
+<li>f, err := os.Open(name)<br>if err != nil {<br>return err<br>}<br>// …use f…<br>f.Close()</li>
+</ul>
+</li>
+<li><p>简短变量声明左边的变量可能并不是全部都是刚刚声明的</p>
+<ul>
+<li><p>那么简短变量声明语句对这些已经声明过的变量就只有赋值行为了</p>
+<ul>
+<li><p>in, err := os.Open(infile)<br>// …<br>out, err := os.Create(outfile)</p>
+<ul>
+<li>第一个语句声明了in和err两个变量。在第二个语句只声明了out一个变量，然后对已经声明的err进行了赋值操作。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>简短变量声明语句中必须至少要声明一个新的变量</p>
+<ul>
+<li><p>f, err := os.Open(infile)<br>// …<br>f, err := os.Create(outfile) // compile error: no new variables题 1</p>
+<ul>
+<li>不能编译通过</li>
+<li>解决的方法是第二个简短变量声明语句改用普通的多重赋值语句</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>简短变量声明语句只有对已经在同级词法域声明过的变量才和赋值操作语句等价</p>
+</li>
+<li><p>如果变量是在外部词法域声明的，那么简短变量声明语句将会在当前词法域重新声明一个新的变量</p>
+</li>
+</ul>
+</li>
+<li><p>2.3.2指针</p>
+<ul>
+<li><p>一个指针的值是另一个变量的地址。</p>
+</li>
+<li><p>一个指针对应变量在内存中的存储位置。</p>
+</li>
+<li><p>并不是每一个值都会有一个内存地址，但是对于每一个变量必然有对应的内存地址。</p>
+</li>
+<li><p>通过指针，我们可以直接读或更新对应变量的值，而不需要知道该变量的名字</p>
+</li>
+<li><p>var x int</p>
+<ul>
+<li>&amp;x表达式（取x变量的内存地址）将产生一个指向该整数变量的指针</li>
+<li>指针对应的数据类型是<code>*int</code>，指针被称之为“指向int类型的指针”</li>
+<li>如果指针名字为p，那么可以说“p指针指向变量x”，或者说“p指针保存了x变量的内存地址”</li>
+<li>同时<code>*p</code>表达式对应p指针指向的变量的值</li>
+<li>x := 1<br>p := &amp;x         // p, of type *int, points to x<br>fmt.Println(*p) // “1”</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>*p = 2          // equivalent to x = 2<br>fmt.Println(x)  // “2”</p>
+<pre><code>- 聚合类型每个成员
+
+    - 比如结构体的每个字段、或者是数组的每个元素——也都是对应一个变量，因此可以被取地址。
+
+- 变量有时候被称为可寻址的值。即使变量由表达式临时生成，那么表达式也必须能接受`&amp;`取地址操作。
+- 任何类型的指针的零值都是nil
+
+    - 如果p指向某个有效变量，那么`p != nil`测试为真。
+    - 指针之间也是可以进行相等测试的，只有当它们指向同一个变量或全部是nil时才相等。
+
+        - var x, y int</code></pre>
+<p>fmt.Println(&amp;x == &amp;x, &amp;x == &amp;y, &amp;x == nil) // “true false false”</p>
+<pre><code>- 返回函数中局部变量的地址也是安全的
+
+    - var p = f()</code></pre>
+<p>func f() *int {<br>    v := 1<br>    return &amp;v<br>}</p>
+<pre><code>        - 调用f函数时创建局部变量v，在局部变量地址被返回之后依然有效，因为指针p依然引用这个变量
+        - 每次调用f函数都将返回不同的结果
+
+            - fmt.Println(f() == f()) // &quot;false&quot;
+
+- 指针包含了一个变量的地址，因此如果将指针作为参数调用函数，那将可以在函数中通过该指针来更新变量的值
+
+    - func incr(p *int) int &#123;
+*p++ // 非常重要：只是增加p指向的变量的值，并不改变p指针！！！
+return *p</code></pre>
+<p>}</p>
+<p>v := 1<br>incr(&amp;v)              // side effect: v is now 2<br>fmt.Println(incr(&amp;v)) // “3” (and v is 3)</p>
+<pre><code>        - 通过指针来更新变量的值，然后返回更新后的值，可用在一个表达式中
+
+- 每次我们对一个变量取地址，或者复制指针，我们都是为原变量创建了新的别名
+- 指针特别有价值的地方在于我们可以不用名字而访问一个变量，但是这是一把双刃剑：要找到一个变量的所有访问者并不容易，我们必须知道变量全部的别名
+
+    - 这是Go语言的垃圾回收器所做的工作
+
+- 不仅仅是指针会创建别名，很多其他引用类型也会创建别名
+
+    - 例如slice、map和chan，甚至结构体、数组和接口都会创建所引用变量的别名
+
+- 指针是实现标准库中flag包的关键技术
+
+    - 它使用命令行参数来设置对应变量的值，而这些对应命令行标志参数的变量可能会零散分布在整个程序中
+    - `-n`用于忽略行尾的换行符，`-s sep`用于指定分隔字符（默认是空格）
+
+        - // Echo4 prints its command-line arguments.</code></pre>
+<p>package main</p>
+<p>import (<br>    “flag”<br>    “fmt”<br>    “strings”<br>)</p>
+<p>var n = flag.Bool(“n”, false, “omit trailing newline”)<br>var sep = flag.String(“s”, “ “, “separator”)</p>
+<p>func main() {<br>    flag.Parse()<br>    fmt.Print(strings.Join(flag.Args(), *sep))<br>    if !*n {<br>        fmt.Println()<br>    }<br>}</p>
+<pre><code>            - 调用flag.Bool函数会创建一个新的对应布尔型标志参数的变量。
+
+                - 它有三个属性：第一个是命令行标志参数的名字“n”，
+                - 然后是该标志参数的默认值（这里是false），
+                - 最后是该标志参数对应的描述信息。
+                - 如果用户在命令行输入了一个无效的标志参数，或者输入`-h`或`-help`参数，那么将打印所有标志参数的名字、默认值和描述信息。
+
+            - 调用flag.String函数将创建一个对应字符串类型的标志参数变量。
+
+                - 同样包含命令行标志参数对应的参数名、默认值、和描述信息。
+
+            - 程序中的`sep`和`n`变量分别是指向对应命令行标志参数变量的指针，因此必须用`*sep`和`*n`形式的指针语法间接引用它们
+            - 当程序运行时，必须在使用标志参数对应的变量之前先调用flag.Parse函数，用于更新每个标志参数对应变量的值（之前是默认值）
+            - 对于非标志参数的普通命令行参数可以通过调用flag.Args()函数来访问，返回值对应一个字符串类型的slice。
+            - 如果在flag.Parse函数解析命令行参数时遇到错误，默认将打印相关的提示信息，然后调用os.Exit(2)终止程序。</code></pre>
+<ul>
+<li><p>2.3.3new函数</p>
+<ul>
+<li><p>new(T)</p>
+<ul>
+<li>表达式new(T)将创建一个T类型的匿名变量</li>
+<li>初始化为T类型的零值</li>
+<li>然后返回变量地址，返回的指针类型为<code>*T</code></li>
+<li>p := new(int)   // p, *int 类型, 指向匿名的 int 变量<br>fmt.Println(*p) // “0”</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>*p = 2          // 设置 int 匿名变量的值为 2<br>fmt.Println(*p) // “2”<br>        - 子主题 5</p>
+<pre><code>- func newInt() *int &#123;
+return new(int)</code></pre>
+<p>}</p>
+<p>func newInt() *int {<br>    var dummy int<br>    return &amp;dummy<br>}</p>
+<pre><code>    - 两个newInt函数有着相同的行为
+
+- 每次调用new函数都是返回一个新的变量的地址
+
+    - p := new(int)</code></pre>
+<p>q := new(int)<br>fmt.Println(p == q) // “false”</p>
+<pre><code>        - 下面两个地址是不同的
+
+- 如果两个类型都是空的，也就是说类型的大小是0，例如`struct&#123;&#125;`和`[0]int`，有可能有相同的地址
+
+    - 请谨慎使用大小为0的类型，因为如果类型的大小为0的话，可能导致Go语言的自动垃圾回收器有不同的行为，具体请查看`runtime.SetFinalizer`函数相关文档
+
+- new函数使用通常相对比较少，因为对于结构体来说，直接用字面量语法创建新变量的方法会更灵活（§4.4.1）
+- 由于new只是一个预定义的函数，它并不是一个关键字，因此我们可以将new名字重新定义为别的类型
+
+    - func delta(old, new int) int &#123; return new - old &#125;
+
+        - 由于new被定义为int类型的变量名，因此在delta函数内部是无法使用内置的new函数的</code></pre>
+<ul>
+<li><p>2.3.4变量的生命周期</p>
+<ul>
+<li><p>变量的生命周期指的是在程序运行期间变量有效存在的时间段</p>
+</li>
+<li><p>对于在包一级声明的变量来说，它们的生命周期和整个程序的运行周期是一致的</p>
+</li>
+<li><p>局部变量的生命周期则是动态的：每次从创建一个新变量的声明语句开始，直到该变量不再被引用为止，然后变量的存储空间可能被回收。</p>
+</li>
+<li><p>函数的参数变量和返回值变量都是局部变量。它们在函数每次被调用的时候创建。</p>
+<ul>
+<li>for t := 0.0; t &lt; cycles<em>2</em>math.Pi; t += res {<br>x := math.Sin(t)<br>y := math.Sin(t<em>freq + phase)<br>img.SetColorIndex(size+int(x</em>size+0.5), size+int(y*size+0.5),<br>blackIndex)<br>}</li>
+</ul>
+</li>
+<li><p>函数的右小括弧也可以另起一行缩进，同时为了防止编译器在行尾自动插入分号而导致的编译错误，可以在末尾的参数变量后面显式插入逗号</p>
+<ul>
+<li><p>for t := 0.0; t &lt; cycles<em>2</em>math.Pi; t += res {<br>x := math.Sin(t)<br>y := math.Sin(t<em>freq + phase)<br>img.SetColorIndex(<br>size+int(x</em>size+0.5), size+int(y*size+0.5),<br>blackIndex, // 最后插入的逗号不会导致编译错误，这是Go编译器的一个特性<br>)               // 小括弧另起一行缩进，和大括弧的风格保存一致<br>}</p>
+<ul>
+<li>在每次循环的开始会创建临时变量t，然后在每次循环迭代中创建临时变量x和y。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Go语言的自动垃圾收集器是如何知道一个变量是何时可以被回收</p>
+<ul>
+<li><p>基本的实现思路是，从每个包级的变量和每个当前运行函数的每一个局部变量开始，通过指针或引用的访问路径遍历，是否可以找到该变量。</p>
+<ul>
+<li>如果不存在这样的访问路径，那么说明该变量是不可达的，也就是说它是否存在并不会影响程序后续的计算结果。</li>
+</ul>
+</li>
+<li><p>因为一个变量的有效周期只取决于是否可达，因此一个循环迭代内部的局部变量的生命周期可能超出其局部作用域。</p>
+</li>
+<li><p>同时，局部变量可能在函数返回之后依然存在。</p>
+</li>
+<li><p>编译器会自动选择在栈上还是在堆上分配局部变量的存储空间，但可能令人惊讶的是，这个选择并不是由用var还是new声明变量的方式决定的。</p>
+</li>
+</ul>
+</li>
+<li><p>var global *int</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>func f() {<br>    var x int<br>    x = 1<br>    global = &amp;x<br>}</p>
+<p>func g() {<br>    y := new(int)<br>    *y = 1<br>}</p>
+<pre><code>    - f函数里的x变量必须在堆上分配，因为它在函数退出后依然可以通过包一级的global变量找到，虽然它是在函数内部定义的
+    - 用Go语言的术语说，这个x局部变量从函数f中逃逸了。
+    - 当g函数返回时，变量`*y`将是不可达的，也就是说可以马上被回收的。因此，`*y`并没有从函数g中逃逸，编译器可以选择在栈上分配`*y`的存储空间
+
+        - 也可以选择在堆上分配，然后由Go语言的GC回收这个变量的内存空间
+
+    - 其实在任何时候，你并不需为了编写正确的代码而要考虑变量的逃逸行为，要记住的是，逃逸的变量需要额外分配内存，同时对性能的优化可能会产生细微的影响
+
+- Go语言的自动垃圾收集器对编写正确的代码是一个巨大的帮助，但也并不是说你完全不用考虑内存了。
+- 你虽然不需要显式地分配和释放内存，但是要编写高效的程序你依然需要了解变量的生命周期。
+
+    - 如果将指向短生命周期对象的指针保存到具有长生命周期的对象中，特别是保存到全局变量时，会阻止对短生命周期对象的垃圾回收（从而可能影响程序的性能）</code></pre>
+<h3 id="2-4赋值"><a href="#2-4赋值" class="headerlink" title="2.4赋值"></a>2.4赋值</h3><ul>
+<li><p>2.4.0简介</p>
+<ul>
+<li><p>使用赋值语句可以更新一个变量的值，最简单的赋值语句是将要被赋值的变量放在=的左边，新值的表达式放在=的右边。</p>
+<ul>
+<li>x = 1                       // 命名变量的赋值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>*p = true                   // 通过指针间接赋值<br>person.name = “bob”         // 结构体字段赋值<br>count[x] = count[x] * scale // 数组、slice或map的元素赋值</p>
+<pre><code>- 特定的二元算术运算符和赋值语句的复合操作有一个简洁形式
+
+    - count[x] *= scale
+
+        - count[x] = count[x] * scale
+
+    - 这样可以省去对变量表达式的重复计算
+    - 数值变量也可以支持`++`递增和`--`递减语句
+
+        - 自增和自减是语句，而不是表达式，因此`x = i++`之类的表达式是错误的
+        - v := 1</code></pre>
+<p>v++    // 等价方式 v = v + 1；v 变成 2<br>v–    // 等价方式 v = v - 1；v 变成 1</p>
+<ul>
+<li><p>2.4.1元组赋值</p>
+<ul>
+<li><p>元组赋值是另一种形式的赋值语句，它允许同时更新多个变量的值</p>
+</li>
+<li><p>元组赋值也可以使一系列琐碎赋值更加紧凑</p>
+<ul>
+<li>i, j, k = 2, 3, 5</li>
+<li>特别是在for循环的初始化部分</li>
+</ul>
+</li>
+<li><p>在赋值之前，赋值语句右边的所有表达式将会先进行求值，然后再统一更新左边对应变量的值。</p>
+<ul>
+<li><p>这对于处理有些同时出现在元组赋值语句左右两边的变量很有帮助</p>
+</li>
+<li><p>我们可以这样交换两个变量的值</p>
+<ul>
+<li>x, y = y, x</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>a[i], a[j] = a[j], a[i]</p>
+<pre><code>    - 计算两个整数值的的最大公约数（GCD）
+
+        - func gcd(x, y int) int &#123;
+for y != 0 &#123;
+    x, y = y, x%y
+&#125;
+return x</code></pre>
+<p>}<br>            - GCD不是那个敏感字，而是greatest common divisor的缩写，欧几里德的GCD是最早的非平凡算法</p>
+<pre><code>    - 计算斐波纳契数列（Fibonacci）的第N个数
+
+        - func fib(n int) int &#123;
+x, y := 0, 1
+for i := 0; i &lt; n; i++ &#123;
+    x, y = y, x+y
+&#125;
+return x</code></pre>
+<p>}</p>
+<pre><code>- 如果表达式太复杂的话，应该尽量避免过度使用元组赋值
+
+    - 因为每个变量单独赋值语句的写法可读性会更好。
+    - 有些表达式会产生多个值，左边变量的数目必须和右边一致。
+
+        - f, err = os.Open(&quot;foo.txt&quot;) // function call returns two values
+
+    - 通常，这类函数会用额外的返回值来表达某种错误类型
+
+        - os.Open是用额外的返回值返回一个error类型的错误，还有一些是用来返回布尔值，通常被称为ok
+        - 如果map查找（§4.3）、类型断言（§7.10）或通道接收（§8.4.2）出现在赋值语句的右边，它们都可能会产生两个结果，有一个额外的布尔结果表示操作是否成功
+
+            - v, ok = m[key]             // map lookup</code></pre>
+<p>v, ok = x.(T)              // type assertion<br>v, ok = &lt;-ch               // channel receive<br>                - map查找（§4.3）、类型断言（§7.10）或通道接收（§8.4.2）出现在赋值语句的右边时，并不一定是产生两个结果，也可能只产生一个结果。<br>                - 对于只产生一个结果的情形，map查找失败时会返回零值，类型断言失败时会发生运行时panic异常，通道接收失败时会返回零值（阻塞不算是失败）</p>
+<pre><code>                - v = m[key]                // map查找，失败时返回零值</code></pre>
+<p>v = x.(T)                 // type断言，失败时panic异常<br>v = &lt;-ch                  // 管道接收，失败时返回零值（阻塞不算是失败）</p>
+<p>_, ok = m[key]            // map返回2个值<br>_, ok = mm[“”], false     // map返回1个值<br>_ = mm[“”]                // map返回1个值</p>
+<pre><code>- 和变量声明一样，我们可以用下划线空白标识符`_`来丢弃不需要的值。
+
+    - _, err = io.Copy(dst, src) // 丢弃字节数</code></pre>
+<p>_, ok = x.(T)              // 只检测类型，忽略具体值</p>
+<ul>
+<li><p>2.4.2可赋值性</p>
+<ul>
+<li><p>赋值语句是显式的赋值形式</p>
+</li>
+<li><p>程序中还有很多地方会发生隐式的赋值行为</p>
+<ul>
+<li><p>函数调用会隐式地将调用参数的值赋值给函数的参数变量，一个返回语句会隐式地将返回操作的值赋值给结果变量，一个复合类型的字面量（§4.2）也会产生赋值行为。</p>
+<ul>
+<li>medals := []string{“gold”, “silver”, “bronze”}</li>
+</ul>
+</li>
+<li><p>隐式地对slice的每个元素进行赋值操作</p>
+<ul>
+<li>medals[0] = “gold”<br>medals[1] = “silver”<br>medals[2] = “bronze”</li>
+</ul>
+</li>
+<li><p>map和chan的元素，虽然不是普通的变量，但是也有类似的隐式赋值行为。</p>
+</li>
+</ul>
+</li>
+<li><p>不管是隐式还是显式地赋值，在赋值语句左边的变量和右边最终的求到的值必须有相同的数据类型。</p>
+<ul>
+<li>只有右边的值对于左边的变量是可赋值的，赋值语句才是允许的。</li>
+</ul>
+</li>
+<li><p>可赋值性的规则对于不同类型有着不同要求</p>
+<ul>
+<li>类型必须完全匹配，nil可以赋值给任何指针或引用类型的变量。常量（§3.6）则有更灵活的赋值规则，因为这样可以避免不必要的显式的类型转换。</li>
+</ul>
+</li>
+<li><p>对于两个值是否可以用<code>==</code>或<code>!=</code>进行相等比较的能力也和可赋值能力有关系</p>
+<ul>
+<li>对于任何类型的值的相等比较，第二个值必须是对第一个值类型对应的变量是可赋值的</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-5类型"><a href="#2-5类型" class="headerlink" title="2.5类型"></a>2.5类型</h3><ul>
+<li>子主题 1</li>
+</ul>
+<h3 id="2-6包和文件"><a href="#2-6包和文件" class="headerlink" title="2.6包和文件"></a>2.6包和文件</h3><h3 id="2-7作用域"><a href="#2-7作用域" class="headerlink" title="2.7作用域"></a>2.7作用域</h3><h2 id="基础数据类型"><a href="#基础数据类型" class="headerlink" title="基础数据类型"></a>基础数据类型</h2><h3 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h3><h3 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h3><h3 id="复数"><a href="#复数" class="headerlink" title="复数"></a>复数</h3><h3 id="布尔型"><a href="#布尔型" class="headerlink" title="布尔型"></a>布尔型</h3><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><h2 id="复合数据类型"><a href="#复合数据类型" class="headerlink" title="复合数据类型"></a>复合数据类型</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h3 id="Slice"><a href="#Slice" class="headerlink" title="Slice"></a>Slice</h3><h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><h3 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h3><h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><h3 id="文本和HTML模板"><a href="#文本和HTML模板" class="headerlink" title="文本和HTML模板"></a>文本和HTML模板</h3><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h3><h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><h3 id="多返回值"><a href="#多返回值" class="headerlink" title="多返回值"></a>多返回值</h3><h3 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h3><h3 id="函数值"><a href="#函数值" class="headerlink" title="函数值"></a>函数值</h3><h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><h3 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h3><h3 id="Deferred函数"><a href="#Deferred函数" class="headerlink" title="Deferred函数"></a>Deferred函数</h3><h3 id="Panic异常"><a href="#Panic异常" class="headerlink" title="Panic异常"></a>Panic异常</h3><h3 id="Recover捕获异常"><a href="#Recover捕获异常" class="headerlink" title="Recover捕获异常"></a>Recover捕获异常</h3><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="方法声明"><a href="#方法声明" class="headerlink" title="方法声明"></a>方法声明</h3><h3 id="基于指针对象的方法"><a href="#基于指针对象的方法" class="headerlink" title="基于指针对象的方法"></a>基于指针对象的方法</h3><h3 id="通过嵌入结构体来扩展类型"><a href="#通过嵌入结构体来扩展类型" class="headerlink" title="通过嵌入结构体来扩展类型"></a>通过嵌入结构体来扩展类型</h3><h3 id="方法值和方法表达式"><a href="#方法值和方法表达式" class="headerlink" title="方法值和方法表达式"></a>方法值和方法表达式</h3><h3 id="示例：Bit数组"><a href="#示例：Bit数组" class="headerlink" title="示例：Bit数组"></a>示例：Bit数组</h3><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h3 id="接口是合约"><a href="#接口是合约" class="headerlink" title="接口是合约"></a>接口是合约</h3><h3 id="接口类型"><a href="#接口类型" class="headerlink" title="接口类型"></a>接口类型</h3><h3 id="实现接口的条件"><a href="#实现接口的条件" class="headerlink" title="实现接口的条件"></a>实现接口的条件</h3><h3 id="flag-Value接口"><a href="#flag-Value接口" class="headerlink" title="flag.Value接口"></a>flag.Value接口</h3><h3 id="接口值"><a href="#接口值" class="headerlink" title="接口值"></a>接口值</h3><h3 id="sort-Interface接口"><a href="#sort-Interface接口" class="headerlink" title="sort.Interface接口"></a>sort.Interface接口</h3><h3 id="http-Handler接口"><a href="#http-Handler接口" class="headerlink" title="http.Handler接口"></a>http.Handler接口</h3><h3 id="error接口"><a href="#error接口" class="headerlink" title="error接口"></a>error接口</h3><h3 id="示例：表达式求值"><a href="#示例：表达式求值" class="headerlink" title="示例：表达式求值"></a>示例：表达式求值</h3><h3 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h3><h3 id="基于类型断言识别错误类型"><a href="#基于类型断言识别错误类型" class="headerlink" title="基于类型断言识别错误类型"></a>基于类型断言识别错误类型</h3><h3 id="通过类型断言查询接口"><a href="#通过类型断言查询接口" class="headerlink" title="通过类型断言查询接口"></a>通过类型断言查询接口</h3><h3 id="类型分支"><a href="#类型分支" class="headerlink" title="类型分支"></a>类型分支</h3><h3 id="示例：基于标记的XML解码"><a href="#示例：基于标记的XML解码" class="headerlink" title="示例：基于标记的XML解码"></a>示例：基于标记的XML解码</h3><h3 id="补充几点"><a href="#补充几点" class="headerlink" title="补充几点"></a>补充几点</h3><h2 id="Goroutines和Channels"><a href="#Goroutines和Channels" class="headerlink" title="Goroutines和Channels"></a>Goroutines和Channels</h2><h3 id="Goroutines"><a href="#Goroutines" class="headerlink" title="Goroutines"></a>Goroutines</h3><h3 id="示例：并发的Clock服务"><a href="#示例：并发的Clock服务" class="headerlink" title="示例：并发的Clock服务"></a>示例：并发的Clock服务</h3><h3 id="示例：并发的Echo服务"><a href="#示例：并发的Echo服务" class="headerlink" title="示例：并发的Echo服务"></a>示例：并发的Echo服务</h3><h3 id="Channels"><a href="#Channels" class="headerlink" title="Channels"></a>Channels</h3><h3 id="并发的循环"><a href="#并发的循环" class="headerlink" title="并发的循环"></a>并发的循环</h3><h3 id="示例：并发的Web爬虫"><a href="#示例：并发的Web爬虫" class="headerlink" title="示例：并发的Web爬虫"></a>示例：并发的Web爬虫</h3><h3 id="基于select的多路复用"><a href="#基于select的多路复用" class="headerlink" title="基于select的多路复用"></a>基于select的多路复用</h3><h3 id="示例：并发的字典遍历"><a href="#示例：并发的字典遍历" class="headerlink" title="示例：并发的字典遍历"></a>示例：并发的字典遍历</h3><h3 id="并发的退出"><a href="#并发的退出" class="headerlink" title="并发的退出"></a>并发的退出</h3><h3 id="示例：聊天服务"><a href="#示例：聊天服务" class="headerlink" title="示例：聊天服务"></a>示例：聊天服务</h3><h2 id="基于共享变量的并发"><a href="#基于共享变量的并发" class="headerlink" title="基于共享变量的并发"></a>基于共享变量的并发</h2><h3 id="竞争条件"><a href="#竞争条件" class="headerlink" title="竞争条件"></a>竞争条件</h3><h3 id="sync-Mutex互斥锁"><a href="#sync-Mutex互斥锁" class="headerlink" title="sync.Mutex互斥锁"></a>sync.Mutex互斥锁</h3><h3 id="sync-RWMutex读写锁"><a href="#sync-RWMutex读写锁" class="headerlink" title="sync.RWMutex读写锁"></a>sync.RWMutex读写锁</h3><h3 id="内存同步"><a href="#内存同步" class="headerlink" title="内存同步"></a>内存同步</h3><h3 id="sync-Once初始化"><a href="#sync-Once初始化" class="headerlink" title="sync.Once初始化"></a>sync.Once初始化</h3><h3 id="竞争条件检测"><a href="#竞争条件检测" class="headerlink" title="竞争条件检测"></a>竞争条件检测</h3><h3 id="示例：并发的非阻塞缓存"><a href="#示例：并发的非阻塞缓存" class="headerlink" title="示例：并发的非阻塞缓存"></a>示例：并发的非阻塞缓存</h3><h3 id="Goroutines和线程"><a href="#Goroutines和线程" class="headerlink" title="Goroutines和线程"></a>Goroutines和线程</h3><h2 id="包和工具"><a href="#包和工具" class="headerlink" title="包和工具"></a>包和工具</h2><h3 id="包简介"><a href="#包简介" class="headerlink" title="包简介"></a>包简介</h3><h3 id="导入路径"><a href="#导入路径" class="headerlink" title="导入路径"></a>导入路径</h3><h3 id="包声明"><a href="#包声明" class="headerlink" title="包声明"></a>包声明</h3><h3 id="导入声明"><a href="#导入声明" class="headerlink" title="导入声明"></a>导入声明</h3><h3 id="包的匿名导入"><a href="#包的匿名导入" class="headerlink" title="包的匿名导入"></a>包的匿名导入</h3><h3 id="包和命名"><a href="#包和命名" class="headerlink" title="包和命名"></a>包和命名</h3><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="go-test"><a href="#go-test" class="headerlink" title="go test"></a>go test</h3><h3 id="测试函数"><a href="#测试函数" class="headerlink" title="测试函数"></a>测试函数</h3><h3 id="测试覆盖率"><a href="#测试覆盖率" class="headerlink" title="测试覆盖率"></a>测试覆盖率</h3><h3 id="基准测试"><a href="#基准测试" class="headerlink" title="基准测试"></a>基准测试</h3><h3 id="剖析"><a href="#剖析" class="headerlink" title="剖析"></a>剖析</h3><h3 id="示例函数"><a href="#示例函数" class="headerlink" title="示例函数"></a>示例函数</h3><h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><h3 id="为何需要反射"><a href="#为何需要反射" class="headerlink" title="为何需要反射"></a>为何需要反射</h3><h3 id="reflect-Type和reflect-Value"><a href="#reflect-Type和reflect-Value" class="headerlink" title="reflect.Type和reflect.Value"></a>reflect.Type和reflect.Value</h3><h3 id="Display递归打印"><a href="#Display递归打印" class="headerlink" title="Display递归打印"></a>Display递归打印</h3><h3 id="示例：编码S表达式"><a href="#示例：编码S表达式" class="headerlink" title="示例：编码S表达式"></a>示例：编码S表达式</h3><h3 id="通过reflect-Value修改值"><a href="#通过reflect-Value修改值" class="headerlink" title="通过reflect.Value修改值"></a>通过reflect.Value修改值</h3><h3 id="示例：编码S表达式-1"><a href="#示例：编码S表达式-1" class="headerlink" title="示例：编码S表达式"></a>示例：编码S表达式</h3><h3 id="获取结构体字段标识"><a href="#获取结构体字段标识" class="headerlink" title="获取结构体字段标识"></a>获取结构体字段标识</h3><h3 id="显示一个类型的方法集"><a href="#显示一个类型的方法集" class="headerlink" title="显示一个类型的方法集"></a>显示一个类型的方法集</h3><h3 id="几点忠告"><a href="#几点忠告" class="headerlink" title="几点忠告"></a>几点忠告</h3><h2 id="底层编程"><a href="#底层编程" class="headerlink" title="底层编程"></a>底层编程</h2><h3 id="unsafe-Sizeof-Alignof-和-Offsetof"><a href="#unsafe-Sizeof-Alignof-和-Offsetof" class="headerlink" title="unsafe.Sizeof, Alignof 和 Offsetof"></a>unsafe.Sizeof, Alignof 和 Offsetof</h3><h3 id="unsafe-Pointer"><a href="#unsafe-Pointer" class="headerlink" title="unsafe.Pointer"></a>unsafe.Pointer</h3><h3 id="示例：深度相等判断"><a href="#示例：深度相等判断" class="headerlink" title="示例：深度相等判断"></a>示例：深度相等判断</h3><h3 id="通过cgo调用C代码"><a href="#通过cgo调用C代码" class="headerlink" title="通过cgo调用C代码"></a>通过cgo调用C代码</h3><h3 id="几点忠告-1"><a href="#几点忠告-1" class="headerlink" title="几点忠告"></a>几点忠告</h3><p><em>XMind: ZEN - Trial Version</em></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Golang/">Golang</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/GoLearn/">GoLearn</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/11/07/Golang/go%E6%97%A0%E6%B3%95%E7%BC%96%E8%AF%91/">
+                        <span class="hidden-mobile">go无法编译</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>1ch0</span></a> <i class="iconfont icon-love"></i> <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>Go</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "GO语言圣经--学习笔记&nbsp;",
+      ],
+      cursorChar: ".",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
