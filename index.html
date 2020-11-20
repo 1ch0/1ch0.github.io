@@ -381,61 +381,6 @@ func main() &#123;
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/">Centos8修改密码</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/">
-          
-          
-            
-          
-          1. 重启linux系统按e2. 开头为linux($root)那行末尾加 rd.break3. mount | grep sysroot4. mount -o remount,rw /sysroot/mount | grep sysroot
-
-
-
-5. 切换系统的根目录位置为chroot /sysroot
-
-6. 输入passwd修改密码注意：新密码需符合centos8密码复杂度要求
-7. to
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-23 09:00" pubdate>
-              2020-10-23
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Linux/">Linux</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Linux-Centos8/">Linux,Centos8</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
         <a href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/">Linux配置静态IP</a>
       </h1>
 
@@ -481,6 +426,61 @@ network:
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/Linux-Ubuntu18%EF%BC%8Ccentos/">Linux,Ubuntu18，centos</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/">Centos8修改密码</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/">
+          
+          
+            
+          
+          1. 重启linux系统按e2. 开头为linux($root)那行末尾加 rd.break3. mount | grep sysroot4. mount -o remount,rw /sysroot/mount | grep sysroot
+
+
+
+5. 切换系统的根目录位置为chroot /sysroot
+
+6. 输入passwd修改密码注意：新密码需符合centos8密码复杂度要求
+7. to
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-23 09:00" pubdate>
+              2020-10-23
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux-Centos8/">Linux,Centos8</a>
             
           </div>
         
@@ -650,34 +650,16 @@ Proxy SwitchyOmega
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/10/Linux/kali/">kali工具</a>
+        <a href="/2020/10/10/Linux/kvm%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA/">kvm安装虚拟机</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/10/10/Linux/kali/">
+        <a href="/2020/10/10/Linux/kvm%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA/">
           
           
             
           
-          dirbdirb https://x.x.x.x/
-
-[^目录扫描工具]: 
-https://sourceforge.net/projects/dirbuster/files/latest/download
-参数介绍-a 设置ua
-
--c 设置cookie带cookie扫描
-
--N 忽略某些响应码
-
--o 输出结果
-
--p 使用代理
-
--X 在每个测试目录上附加后缀
-
--z 设置毫秒延迟
-
-hyd
+          virt-install安装虚拟机virt-install --connect  qemu:///system --virt-type kvm --name Centos8 --ram=4096  --disk path=/data/b/KVM/images/xxx.img,size=20,sparse --os-type=linux --accelerate -c /data/b/KVM/Cen
         </a>
       </p>
 
@@ -696,8 +678,6 @@ hyd
             
               <a href="/categories/Linux/">Linux</a>
             
-              <a href="/categories/Linux/Hack/">Hack</a>
-            
           </div>
         
         
@@ -706,7 +686,9 @@ hyd
             
               <a href="/tags/Linux/">Linux</a>
             
-              <a href="/tags/kali/">kali</a>
+              <a href="/tags/ubuntu18-04/">ubuntu18.04</a>
+            
+              <a href="/tags/KVM/">KVM</a>
             
           </div>
         
