@@ -179,59 +179,11 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/11/20/Golang/GO%E8%AF%AD%E8%A8%80%E5%9C%A3%E7%BB%8F/">GO语言圣经--学习笔记--更新</a>
+        <a href="/2020/11/20/Golang/GO%E8%AF%AD%E8%A8%80%E5%9C%A3%E7%BB%8F/">GO语言圣经--学习笔记</a>
       </h1>
 
       <p class="index-excerpt">
         <a href="/2020/11/20/Golang/GO%E8%AF%AD%E8%A8%80%E5%9C%A3%E7%BB%8F/">
-          
-          
-            
-          
-          GO语言圣经–学习笔记ch0前言0.1Go语言起源0.2项目ch1入门1.1helloworld编译器会主动把特定符号后的换行符转换为分号，因此换行符添加的位置会影响Go代码的正确解析。比如行末是标识符、整数、浮点数、虚数、字符或字符串文字、关键字break、continue、fallthrough或return中的一个、运算符和分隔符++、--、)、]或&#125;中的一个以+结尾的话不会被插入
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-20 10:00" pubdate>
-              2020-11-20
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Golang/">Golang</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/GoLearn/">GoLearn</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/11/20/Golang/GO%E8%AF%AD%E8%A8%80%E5%9C%A3%E7%BB%8F1/">GO语言圣经--学习笔记</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/11/20/Golang/GO%E8%AF%AD%E8%A8%80%E5%9C%A3%E7%BB%8F1/">
           
           
             
@@ -429,6 +381,64 @@ func main() &#123;
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/">Linux配置静态IP</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/">
+          
+          
+            
+          
+          Ubuntu18配置静态IP
+切换为root用户执行（具体配置文件用tab自动补全）
+
+vi /etc/netplan/00***.yml
+
+
+编辑配置文件内容如下所示，addresses处填入所要设置ip地址，dhcp4 no代表不适用dhcp协议获取ip，gateway代表网关地址。nameservers代表DNS域名解析服务器
+
+network:
+  ethernets:
+    ens3:
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-23 09:00" pubdate>
+              2020-10-23
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux-Ubuntu18%EF%BC%8Ccentos/">Linux,Ubuntu18，centos</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/">Centos8修改密码</a>
       </h1>
 
@@ -484,26 +494,16 @@ func main() &#123;
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/">Linux配置静态IP</a>
+        <a href="/2020/10/10/Jottings/Pentest%20Jottings/">Pentest Jottings</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/">
+        <a href="/2020/10/10/Jottings/Pentest%20Jottings/">
           
           
             
           
-          Ubuntu18配置静态IP
-切换为root用户执行（具体配置文件用tab自动补全）
-
-vi /etc/netplan/00***.yml
-
-
-编辑配置文件内容如下所示，addresses处填入所要设置ip地址，dhcp4 no代表不适用dhcp协议获取ip，gateway代表网关地址。nameservers代表DNS域名解析服务器
-
-network:
-  ethernets:
-    ens3:
+          渗透随想
         </a>
       </p>
 
@@ -511,8 +511,8 @@ network:
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-23 09:00" pubdate>
-              2020-10-23
+            <time datetime="2020-10-10 10:00" pubdate>
+              2020-10-10
             </time>
           </div>
         
@@ -520,7 +520,7 @@ network:
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Linux/">Linux</a>
+              <a href="/categories/Jottings/">Jottings</a>
             
           </div>
         
@@ -528,7 +528,9 @@ network:
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Linux-Ubuntu18%EF%BC%8Ccentos/">Linux,Ubuntu18，centos</a>
+              <a href="/tags/Network-Security/">Network Security</a>
+            
+              <a href="/tags/Web-Pentest/">Web Pentest</a>
             
           </div>
         
