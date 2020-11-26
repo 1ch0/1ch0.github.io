@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      67k 字
+      71.5k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      819
+      869
        分钟
     </span>
   
@@ -236,16 +236,88 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 小时前
+                  本文最后更新于：几秒前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="GO语言圣经"><a href="#GO语言圣经" class="headerlink" title="GO语言圣经"></a>GO语言圣经</h1><h2 id="ch0前言"><a href="#ch0前言" class="headerlink" title="ch0前言"></a>ch0前言</h2><h3 id="0-1Go语言起源"><a href="#0-1Go语言起源" class="headerlink" title="0.1Go语言起源"></a>0.1Go语言起源</h3><h3 id="0-2项目"><a href="#0-2项目" class="headerlink" title="0.2项目"></a>0.2项目</h3><h2 id="ch1入门"><a href="#ch1入门" class="headerlink" title="ch1入门"></a>ch1入门</h2><h3 id="1-1helloworld"><a href="#1-1helloworld" class="headerlink" title="1.1helloworld"></a>1.1helloworld</h3><p>编译器会主动把特定符号后的换行符转换为分号，因此换行符添加的位置会影响Go代码的正确解析。<br>比如行末是标识符、整数、浮点数、虚数、字符或字符串文字、关键字<code>break</code>、<code>continue</code>、<code>fallthrough</code>或<code>return</code>中的一个、运算符和分隔符<code>++</code>、<code>--</code>、<code>)</code>、<code>]</code>或<code>&#125;</code>中的一个<br>以+结尾的话不会被插入分号分隔符，但是以x结尾的话则会被分号分隔符，从而导致编译错误。<br><code>goimports</code>，可以根据代码需要，自动地添加或删除<code>import</code>声明。这个工具并没有包含在标准的分发包中，可以用下面的命令安装：</p>
+              <h1 id="The-Go-Programming-Language"><a href="#The-Go-Programming-Language" class="headerlink" title="The Go Programming Language"></a>The Go Programming Language</h1><h2 id="https-1tnt1-lanzous-com-iiQA4iss3zc"><a href="#https-1tnt1-lanzous-com-iiQA4iss3zc" class="headerlink" title="https://1tnt1.lanzous.com/iiQA4iss3zc"></a><a target="_blank" rel="noopener" href="https://1tnt1.lanzous.com/iiQA4iss3zc">https://1tnt1.lanzous.com/iiQA4iss3zc</a></h2><h3 id="密码-1ch0"><a href="#密码-1ch0" class="headerlink" title="密码:1ch0"></a>密码:1ch0</h3><h2 id="ch0-前言"><a href="#ch0-前言" class="headerlink" title="ch0  前言"></a>ch0  前言</h2><h3 id="ch0-1-Go语言起源"><a href="#ch0-1-Go语言起源" class="headerlink" title="ch0.1   Go语言起源"></a>ch0.1   Go语言起源</h3><ul>
+<li>编程语言的演化跟生物物种的演化类似，一个成功的编程语言的后代一般都会继承它们祖先的优点；当然有时多种语言杂合也可能会产生令人惊讶的特性；还有一些激进的新特性可能并没有先例。通过观察这些影响，我们可以学到为什么一门语言是这样子的，它已经适应了怎样的环境。</li>
+<li>Go语言有时候被描述为“C类似语言”，或者是“21世纪的C语言”。Go从C语言继承了相似的表达式语法、控制流结构、基础数据类型、调用参数传值、指针等很多思想，还有C语言一直所看中的编译后机器码的运行效率以及和现有操作系统的无缝适配。</li>
+<li>但是在Go语言的家族树中还有其它的祖先。其中一个有影响力的分支来自<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Niklaus_Wirth">Niklaus Wirth</a>所设计的[Pascal][Pascal]语言。然后[Modula-2][Modula-2]语言激发了包的概念。然后[Oberon][Oberon]语言摒弃了模块接口文件和模块实现文件之间的区别。第二代的[Oberon-2][Oberon-2]语言直接影响了包的导入和声明的语法，还有[Oberon][Oberon]语言的面向对象特性所提供的方法的声明语法等。</li>
+<li>Go语言的另一支祖先，带来了Go语言区别其他语言的重要特性，灵感来自于贝尔实验室的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Tony_Hoare">Tony Hoare</a>于1978年发表的鲜为外界所知的关于并发研究的基础文献 <em>顺序通信进程</em> （ <em>[communicating sequential processes][CSP]</em> ，缩写为[CSP][CSP]。在[CSP][CSP]中，程序是一组中间没有共享状态的平行运行的处理过程，它们之间使用管道进行通信和控制同步。不过<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Tony_Hoare">Tony Hoare</a>的[CSP][CSP]只是一个用于描述并发性基本概念的描述语言，并不是一个可以编写可执行程序的通用编程语言。</li>
+<li>接下来，Rob Pike和其他人开始不断尝试将<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Communicating_sequential_processes">CSP</a>引入实际的编程语言中。他们第一次尝试引入<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Communicating_sequential_processes">CSP</a>特性的编程语言叫<a target="_blank" rel="noopener" href="http://doc.cat-v.org/bell_labs/squeak/">Squeak</a>（老鼠间交流的语言），是一个提供鼠标和键盘事件处理的编程语言，它的管道是静态创建的。然后是改进版的<a target="_blank" rel="noopener" href="http://doc.cat-v.org/bell_labs/squeak/">Newsqueak</a>语言，提供了类似C语言语句和表达式的语法和类似[Pascal][Pascal]语言的推导语法。Newsqueak是一个带垃圾回收的纯函数式语言，它再次针对键盘、鼠标和窗口事件管理。但是在Newsqueak语言中管道是动态创建的，属于第一类值，可以保存到变量中。</li>
+<li>在Plan9操作系统中，这些优秀的想法被吸收到了一个叫[Alef][Alef]的编程语言中。Alef试图将Newsqueak语言改造为系统编程语言，但是因为缺少垃圾回收机制而导致并发编程很痛苦。（译注：在Alef之后还有一个叫[Limbo][Limbo]的编程语言，Go语言从其中借鉴了很多特性。 具体请参考Pike的讲稿：<a target="_blank" rel="noopener" href="http://talks.golang.org/2012/concurrency.slide#9">http://talks.golang.org/2012/concurrency.slide#9</a> ）</li>
+<li>Go语言的其他的一些特性零散地来自于其他一些编程语言；比如iota语法是从[APL][APL]语言借鉴，词法作用域与嵌套函数来自于[Scheme][Scheme]语言（和其他很多语言）。当然，我们也可以从Go中发现很多创新的设计。比如Go语言的切片为动态数组提供了有效的随机存取的性能，这可能会让人联想到链表的底层的共享机制。还有Go语言新发明的defer语句。</li>
+</ul>
+<h3 id="ch0-2-Go语言项目"><a href="#ch0-2-Go语言项目" class="headerlink" title="ch0.2   Go语言项目"></a>ch0.2   Go语言项目</h3><ul>
+<li>所有的编程语言都反映了语言设计者对编程哲学的反思，通常包括之前的语言所暴露的一些不足地方的改进。Go项目是在Google公司维护超级复杂的几个软件系统遇到的一些问题的反思（但是这类问题绝不是Google公司所特有的）。</li>
+<li>正如<a target="_blank" rel="noopener" href="http://genius.cat-v.org/rob-pike/">Rob Pike</a>所说，“软件的复杂性是乘法级相关的”，通过增加一个部分的复杂性来修复问题通常将慢慢地增加其他部分的复杂性。通过增加功能、选项和配置是修复问题的最快的途径，但是这很容易让人忘记简洁的内涵，即从长远来看，简洁依然是好软件的关键因素。</li>
+<li>简洁的设计需要在工作开始的时候舍弃不必要的想法，并且在软件的生命周期内严格区别好的改变和坏的改变。通过足够的努力，一个好的改变可以在不破坏原有完整概念的前提下保持自适应，正如<a target="_blank" rel="noopener" href="http://www.cs.unc.edu/~brooks/">Fred Brooks</a>所说的“概念完整性”；而一个坏的改变则不能达到这个效果，它们仅仅是通过肤浅的和简单的妥协来破坏原有设计的一致性。只有通过简洁的设计，才能让一个系统保持稳定、安全和持续的进化。</li>
+<li>Go项目包括编程语言本身，附带了相关的工具和标准库，最后但并非代表不重要的是，关于简洁编程哲学的宣言。就事后诸葛的角度来看，Go语言的这些地方都做的还不错：拥有自动垃圾回收、一个包系统、函数作为一等公民、词法作用域、系统调用接口、只读的UTF8字符串等。但是Go语言本身只有很少的特性，也不太可能添加太多的特性。例如，它没有隐式的数值转换，没有构造函数和析构函数，没有运算符重载，没有默认参数，也没有继承，没有泛型，没有异常，没有宏，没有函数修饰，更没有线程局部存储。但是，语言本身是成熟和稳定的，而且承诺保证向后兼容：用之前的Go语言编写程序可以用新版本的Go语言编译器和标准库直接构建而不需要修改代码。</li>
+<li>Go语言有足够的类型系统以避免动态语言中那些粗心的类型错误，但是，Go语言的类型系统相比传统的强类型语言又要简洁很多。虽然，有时候这会导致一个“无类型”的抽象类型概念，但是Go语言程序员并不需要像C++或Haskell程序员那样纠结于具体类型的安全属性。在实践中，Go语言简洁的类型系统给程序员带来了更多的安全性和更好的运行时性能。</li>
+<li>Go语言鼓励当代计算机系统设计的原则，特别是局部的重要性。它的内置数据类型和大多数的准库数据结构都经过精心设计而避免显式的初始化或隐式的构造函数，因为很少的内存分配和内存初始化代码被隐藏在库代码中了。Go语言的聚合类型（结构体和数组）可以直接操作它们的元素，只需要更少的存储空间、更少的内存写操作，而且指针操作比其他间接操作的语言也更有效率。由于现代计算机是一个并行的机器，Go语言提供了基于CSP的并发特性支持。Go语言的动态栈使得轻量级线程goroutine的初始栈可以很小，因此，创建一个goroutine的代价很小，创建百万级的goroutine完全是可行的。</li>
+<li>Go语言的标准库（通常被称为语言自带的电池），提供了清晰的构建模块和公共接口，包含I/O操作、文本处理、图像、密码学、网络和分布式应用程序等，并支持许多标准化的文件格式和编解码协议。库和工具使用了大量的约定来减少额外的配置和解释，从而最终简化程序的逻辑，而且，每个Go程序结构都是如此的相似，因此，Go程序也很容易学习。使用Go语言自带工具构建Go语言项目只需要使用文件名和标识符名称，一个偶尔的特殊注释来确定所有的库、可执行文件、测试、基准测试、例子、以及特定于平台的变量、项目的文档等；Go语言源代码本身就包含了构建规范。</li>
+</ul>
+<h3 id="ch0-3-本书的组织"><a href="#ch0-3-本书的组织" class="headerlink" title="ch0.3   本书的组织"></a>ch0.3   本书的组织</h3><ul>
+<li><p>我们假设你已经有一种或多种其他编程语言的使用经历，不管是类似C、C++或Java的编译型语言，还是类似Python、Ruby、JavaScript的脚本语言，因此我们不会像对完全的编程语言初学者那样解释所有的细节。因为，Go语言的变量、常量、表达式、控制流和函数等基本语法也是类似的。</p>
+</li>
+<li><p>第一章包含了本教程的基本结构，通过十几个程序介绍了用Go语言如何实现类似读写文件、文本格式化、创建图像、网络客户端和服务器通讯等日常工作。</p>
+</li>
+<li><p>第二章描述了Go语言程序的基本元素结构、变量、新类型定义、包和文件、以及作用域等概念。第三章讨论了数字、布尔值、字符串和常量，并演示了如何显示和处理Unicode字符。第四章描述了复合类型，从简单的数组、字典、切片到动态列表。第五章涵盖了函数，并讨论了错误处理、panic和recover，还有defer语句。</p>
+</li>
+<li><p>第一章到第五章是基础部分，主流命令式编程语言这部分都类似。个别之处，Go语言有自己特色的语法和风格，但是大多数程序员能很快适应。其余章节是Go语言特有的：方法、接口、并发、包、测试和反射等语言特性。</p>
+</li>
+<li><p>Go语言的面向对象机制与一般语言不同。它没有类层次结构，甚至可以说没有类；仅仅通过组合（而不是继承）简单的对象来构建复杂的对象。方法不仅可以定义在结构体上，而且，可以定义在任何用户自定义的类型上；并且，具体类型和抽象类型（接口）之间的关系是隐式的，所以很多类型的设计者可能并不知道该类型到底实现了哪些接口。方法在第六章讨论，接口在第七章讨论。</p>
+</li>
+<li><p>第八章讨论了基于顺序通信进程（CSP）概念的并发编程，使用goroutines和channels处理并发编程。第九章则讨论了传统的基于共享变量的并发编程。</p>
+</li>
+<li><p>第十章描述了包机制和包的组织结构。这一章还展示了如何有效地利用Go自带的工具，使用单个命令完成编译、测试、基准测试、代码格式化、文档以及其他诸多任务。</p>
+</li>
+<li><p>第十一章讨论了单元测试，Go语言的工具和标准库中集成了轻量级的测试功能，避免了强大但复杂的测试框架。测试库提供了一些基本构件，必要时可以用来构建复杂的测试构件。</p>
+</li>
+<li><p>第十二章讨论了反射，一种程序在运行期间审视自己的能力。反射是一个强大的编程工具，不过要谨慎地使用；这一章利用反射机制实现一些重要的Go语言库函数，展示了反射的强大用法。第十三章解释了底层编程的细节，在必要时，可以使用unsafe包绕过Go语言安全的类型系统。</p>
+</li>
+<li><p>每一章都有一些练习题，你可以用来测试你对Go的理解，你也可以探讨书中这些例子的扩展和替代。</p>
+</li>
+<li><p>书中所有的代码都可以从 <a target="_blank" rel="noopener" href="http://gopl.io/">http://gopl.io</a> 上的Git仓库下载。go get命令根据每个例子的导入路径智能地获取、构建并安装。只需要选择一个目录作为工作空间，然后将GOPATH环境变量设置为该路径。</p>
+<ul>
+<li><p>必要时，Go语言工具会创建目录。例如：</p>
+<pre><code class="hljs awk">$ export GOPATH=<span class="hljs-variable">$HOME</span>/gobook    <span class="hljs-comment"># 选择工作目录</span>
+$ go get gopl.io<span class="hljs-regexp">/ch1/</span>helloworld <span class="hljs-comment"># 获取/编译/安装</span>
+$ <span class="hljs-variable">$GOPATH</span><span class="hljs-regexp">/bin/</span>helloworld        <span class="hljs-comment"># 运行程序</span>
+Hello, 世界                     <span class="hljs-comment"># 这是中文</span></code></pre>
+</li>
+<li><p>运行这些例子需要安装Go1.5以上的版本。</p>
+<pre><code class="hljs vim">$ <span class="hljs-keyword">go</span> <span class="hljs-keyword">version</span>
+<span class="hljs-keyword">go</span> <span class="hljs-keyword">version</span> go1.<span class="hljs-number">5</span> linux/amd64</code></pre>
+</li>
+<li><p>如果使用其他的操作系统，请参考 <a target="_blank" rel="noopener" href="https://golang.org/doc/install">https://golang.org/doc/install</a> 提供的说明安装。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ch0-4-更多的信息"><a href="#ch0-4-更多的信息" class="headerlink" title="ch0.4   更多的信息"></a>ch0.4   更多的信息</h3><ul>
+<li>最佳的帮助信息来自Go语言的官方网站，<a target="_blank" rel="noopener" href="https://golang.org/">https://golang.org</a> ，它提供了完善的参考文档，包括编程语言规范和标准库等诸多权威的帮助信息。同时也包含了如何编写更地道的Go程序的基本教程，还有各种各样的在线文本资源和视频资源，它们是本书最有价值的补充。Go语言的官方博客 <a target="_blank" rel="noopener" href="https://blog.golang.org/">https://blog.golang.org</a> 会不定期发布一些Go语言最好的实践文章，包括当前语言的发展状态、未来的计划、会议报告和Go语言相关的各种会议的主题等信息（译注： <a target="_blank" rel="noopener" href="http://talks.golang.org/">http://talks.golang.org/</a> 包含了官方收录的各种报告的讲稿）。</li>
+<li>在线访问的一个有价值的地方是可以从web页面运行Go语言的程序（而纸质书则没有这么便利了）。这个功能由来自 <a target="_blank" rel="noopener" href="https://play.golang.org/">https://play.golang.org</a> 的 Go Playground 提供，并且可以方便地嵌入到其他页面中，例如 <a target="_blank" rel="noopener" href="https://golang.org/">https://golang.org</a> 的主页，或 godoc 提供的文档页面中。</li>
+<li>Playground可以简单的通过执行一个小程序来测试对语法、语义和对程序库的理解，类似其他很多语言提供的REPL即时运行的工具。同时它可以生成对应的url，非常适合共享Go语言代码片段，汇报bug或提供反馈意见等。</li>
+<li>基于 Playground 构建的 Go Tour，<a target="_blank" rel="noopener" href="https://tour.golang.org/">https://tour.golang.org</a> ，是一个系列的Go语言入门教程，它包含了诸多基本概念和结构相关的并可在线运行的互动小程序。</li>
+<li>当然，Playground 和 Tour 也有一些限制，它们只能导入标准库，而且因为安全的原因对一些网络库做了限制。如果要在编译和运行时需要访问互联网，对于一些更复杂的实验，你可能需要在自己的电脑上构建并运行程序。幸运的是下载Go语言的过程很简单，从 <a target="_blank" rel="noopener" href="https://golang.org/">https://golang.org</a> 下载安装包应该不超过几分钟（译注：感谢伟大的长城，让大陆的Gopher们都学会了自己打洞的基本生活技能，下载时间可能会因为洞的大小等因素从几分钟到几天或更久），然后就可以在自己电脑上编写和运行Go程序了。</li>
+<li>Go语言是一个开源项目，你可以在 <a target="_blank" rel="noopener" href="https://golang.org/pkg">https://golang.org/pkg</a> 阅读标准库中任意函数和类型的实现代码，和下载安装包的代码完全一致。这样，你可以知道很多函数是如何工作的， 通过挖掘找出一些答案的细节，或者仅仅是出于欣赏专业级Go代码。</li>
+</ul>
+<h3 id="ch0-5-致谢"><a href="#ch0-5-致谢" class="headerlink" title="ch0.5   致谢"></a>ch0.5   致谢</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://genius.cat-v.org/rob-pike/">Rob Pike</a>和<a target="_blank" rel="noopener" href="http://research.swtch.com/">Russ Cox</a>，以及很多其他Go团队的核心成员多次仔细阅读了本书的手稿，他们对本书的组织结构和表述用词等给出了很多宝贵的建议。在准备日文版翻译的时候，Yoshiki Shibata更是仔细地审阅了本书的每个部分，及时发现了诸多英文和代码的错误。我们非常感谢本书的每一位审阅者，并感谢对本书给出了重要的建议的Brian Goetz、Corey Kosak、Arnold Robbins、Josh Bleecher Snyder和Peter Weinberger等人。</li>
+<li>我们还感谢Sameer Ajmani、Ittai Balaban、David Crawshaw、Billy Donohue、Jonathan Feinberg、Andrew Gerrand、Robert Griesemer、John Linderman、Minux Ma（译注：中国人，Go团队成员。）、Bryan Mills、Bala Natarajan、Cosmos Nicolaou、Paul Staniforth、Nigel Tao（译注：好像是陶哲轩的兄弟）以及Howard Trickey给出的许多有价值的建议。我们还要感谢David Brailsford和Raph Levien关于类型设置的建议。</li>
+<li>我们从来自Addison-Wesley的编辑Greg Doench收到了很多帮助，从最开始就得到了越来越多的帮助。来自AW生产团队的John Fuller、Dayna Isley、Julie Nahil、Chuti Prasertsith到Barbara Wood，感谢你们的热心帮助。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/adonovan">Alan Donovan</a>特别感谢：Sameer Ajmani、Chris Demetriou、Walt Drummond和Google公司的Reid Tatge允许他有充裕的时间去写本书；感谢Stephen Donovan的建议和始终如一的鼓励，以及他的妻子Leila Kazemi并没有让他为了家庭琐事而分心，并热情坚定地支持这个项目。</li>
+<li><a target="_blank" rel="noopener" href="http://www.cs.princeton.edu/~bwk/">Brian Kernighan</a>特别感谢：朋友和同事对他的耐心和宽容，让他慢慢地梳理本书的写作思路。同时感谢他的妻子Meg和其他很多朋友对他写作事业的支持。</li>
+<li>2015年 10月 于 纽约</li>
+</ul>
+<h2 id="ch1-入门"><a href="#ch1-入门" class="headerlink" title="ch1  入门"></a>ch1  入门</h2><h3 id="ch1-1-helloworld"><a href="#ch1-1-helloworld" class="headerlink" title="ch1.1   helloworld"></a>ch1.1   helloworld</h3><p>编译器会主动把特定符号后的换行符转换为分号，因此换行符添加的位置会影响Go代码的正确解析。<br>比如行末是标识符、整数、浮点数、虚数、字符或字符串文字、关键字<code>break</code>、<code>continue</code>、<code>fallthrough</code>或<code>return</code>中的一个、运算符和分隔符<code>++</code>、<code>--</code>、<code>)</code>、<code>]</code>或<code>&#125;</code>中的一个<br>以+结尾的话不会被插入分号分隔符，但是以x结尾的话则会被分号分隔符，从而导致编译错误。<br><code>goimports</code>，可以根据代码需要，自动地添加或删除<code>import</code>声明。这个工具并没有包含在标准的分发包中，可以用下面的命令安装：</p>
 <pre><code class="hljs awk">$ go get golang.org<span class="hljs-regexp">/x/</span>tools<span class="hljs-regexp">/cmd/g</span>oimports</code></pre>
 
 <p>对于大多数用户来说，下载、编译包、运行测试用例、察看Go语言的文档等等常用功能都可以用go的工具完成。10.7节详细介绍这些知识。</p>
-<h3 id="1-2命令行参数"><a href="#1-2命令行参数" class="headerlink" title="1.2命令行参数"></a>1.2命令行参数</h3><ul>
+<h3 id="ch1-2-命令行参数"><a href="#ch1-2-命令行参数" class="headerlink" title="ch1.2   命令行参数"></a>ch1.2   命令行参数</h3><ul>
 <li><p>区间索引，左闭右开</p>
 <ul>
 <li>a = [1, 2, 3, 4, 5], a[0:3] = [1, 2, 3]<br>s[m:n]这个切片，0 ≤ m ≤ n ≤ len(s)，包含n-m个元素</li>
@@ -301,7 +373,7 @@
 <li><p>strings包的Join函数</p>
 </li>
 </ul>
-<h3 id="1-3查找重复的行"><a href="#1-3查找重复的行" class="headerlink" title="1.3查找重复的行"></a>1.3查找重复的行</h3><ul>
+<h3 id="ch1-3-查找重复的行"><a href="#ch1-3-查找重复的行" class="headerlink" title="ch1.3   查找重复的行"></a>ch1.3   查找重复的行</h3><ul>
 <li><p>文件操作</p>
 <ul>
 <li>一个处理输入的循环，在每个元素上执行计算处理，在处理的同时或最后产生输出。</li>
@@ -444,7 +516,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="1-4GIF动画"><a href="#1-4GIF动画" class="headerlink" title="1.4GIF动画"></a>1.4GIF动画</h3><ul>
+<h3 id="ch1-4-GIF动画"><a href="#ch1-4-GIF动画" class="headerlink" title="ch1.4   GIF动画"></a>ch1.4   GIF动画</h3><ul>
 <li><p>image包</p>
 </li>
 <li><p>Lissajous figures,莉萨如图形</p>
@@ -514,7 +586,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="1-5获取URL"><a href="#1-5获取URL" class="headerlink" title="1.5获取URL"></a>1.5获取URL</h3><ul>
+<h3 id="ch1-5-获取URL"><a href="#ch1-5-获取URL" class="headerlink" title="ch1.5   获取URL"></a>ch1.5   获取URL</h3><ul>
 <li><p>net</p>
 <ul>
 <li><p>http</p>
@@ -551,7 +623,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="1-6并发获取多个URL"><a href="#1-6并发获取多个URL" class="headerlink" title="1.6并发获取多个URL"></a>1.6并发获取多个URL</h3><ul>
+<h3 id="ch1-6-并发获取多个URL"><a href="#ch1-6-并发获取多个URL" class="headerlink" title="ch1.6   并发获取多个URL"></a>ch1.6   并发获取多个URL</h3><ul>
 <li><p>并发编程</p>
 <ul>
 <li>goroutine是一种函数的并发执行方式，而channel是用来在goroutine之间进行参数传递。</li>
@@ -587,7 +659,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="1-7Web服务"><a href="#1-7Web服务" class="headerlink" title="1.7Web服务"></a>1.7Web服务</h3><ul>
+<h3 id="ch1-7-Web服务"><a href="#ch1-7-Web服务" class="headerlink" title="ch1.7   Web服务"></a>ch1.7   Web服务</h3><ul>
 <li><p>‘’’go<br>  if err := r.ParseForm(); err != nil{</p>
 <pre><code>  log.Print(err)</code></pre>
 <p>  }<br>‘’’</p>
@@ -602,7 +674,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="1-8总结"><a href="#1-8总结" class="headerlink" title="1.8总结"></a>1.8总结</h3><ul>
+<h3 id="ch1-8-总结"><a href="#ch1-8-总结" class="headerlink" title="ch1.8   总结"></a>ch1.8   总结</h3><ul>
 <li><p>控制流</p>
 <ul>
 <li><p>switch</p>
@@ -681,7 +753,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="ch2程序结构"><a href="#ch2程序结构" class="headerlink" title="ch2程序结构"></a>ch2程序结构</h2><h3 id="2-1命名"><a href="#2-1命名" class="headerlink" title="2.1命名"></a>2.1命名</h3><ul>
+<h2 id="ch2-程序结构"><a href="#ch2-程序结构" class="headerlink" title="ch2  程序结构"></a>ch2  程序结构</h2><h3 id="ch2-1-命名"><a href="#ch2-1-命名" class="headerlink" title="ch2.1   命名"></a>ch2.1   命名</h3><ul>
 <li><p>命名规则</p>
 <ul>
 <li>一个名字必须以一个字母（Unicode字母）或下划线开头，后面可以跟任意数量的字母、数字或下划线。</li>
@@ -745,7 +817,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="2-2声明"><a href="#2-2声明" class="headerlink" title="2.2声明"></a>2.2声明</h3><ul>
+<h3 id="ch2-2-声明"><a href="#ch2-2-声明" class="headerlink" title="ch2.2   声明"></a>ch2.2   声明</h3><ul>
 <li><p>4种类型</p>
 <ul>
 <li><p>var、const、type和func</p>
@@ -788,7 +860,7 @@
 <p>func main() {<br>    const freezingF, boilingF = 32.0, 212.0<br>    fmt.Printf(“%g°F = %g°C\n”, freezingF, fToC(freezingF)) // “32°F = 0°C”<br>    fmt.Printf(“%g°F = %g°C\n”, boilingF, fToC(boilingF))   // “212°F = 100°C”<br>}</p>
 <p>func fToC(f float64) float64 {<br>    return (f - 32) * 5 / 9<br>}</p>
 <pre><code>    - fToC函数封装了温度转换的处理逻辑，这样它只需要被定义一次，就可以在多个地方多次被使用。在这个例子中，main函数就调用了两次fToC函数，分别使用在局部定义的两个常量作为调用函数的参数。</code></pre>
-<h3 id="2-3变量"><a href="#2-3变量" class="headerlink" title="2.3变量"></a>2.3变量</h3><ul>
+<h3 id="ch2-3-变量"><a href="#ch2-3-变量" class="headerlink" title="ch2.3   变量"></a>ch2.3   变量</h3><ul>
 <li><p>2.3.0简介</p>
 <ul>
 <li><p>var 变量名字 类型 = 表达式</p>
@@ -1081,7 +1153,7 @@ return new(int)</code></pre>
 - 你虽然不需要显式地分配和释放内存，但是要编写高效的程序你依然需要了解变量的生命周期。
 
     - 如果将指向短生命周期对象的指针保存到具有长生命周期的对象中，特别是保存到全局变量时，会阻止对短生命周期对象的垃圾回收（从而可能影响程序的性能）</code></pre>
-<h3 id="2-4赋值"><a href="#2-4赋值" class="headerlink" title="2.4赋值"></a>2.4赋值</h3><ul>
+<h3 id="ch2-4-赋值"><a href="#ch2-4-赋值" class="headerlink" title="ch2.4   赋值"></a>ch2.4   赋值</h3><ul>
 <li><p>2.4.0简介</p>
 <ul>
 <li><p>使用赋值语句可以更新一个变量的值，最简单的赋值语句是将要被赋值的变量放在=的左边，新值的表达式放在=的右边。</p>
@@ -1208,7 +1280,7 @@ return x</code></pre>
 </ul>
 </li>
 </ul>
-<h3 id="2-5类型"><a href="#2-5类型" class="headerlink" title="2.5类型"></a>2.5类型</h3><ul>
+<h3 id="ch2-5-类型"><a href="#ch2-5-类型" class="headerlink" title="ch2.5   类型"></a>ch2.5   类型</h3><ul>
 <li><p>变量或表达式的类型定义了对应存储值的属性特征</p>
 <ul>
 <li>数值在内存的存储大小（或者是元素的bit个数）</li>
@@ -1348,7 +1420,7 @@ fmt.Println(<span class="hljs-keyword">float64</span>(c)) <span class="hljs-comm
 
 </li>
 </ul>
-<h3 id="2-6包和文件"><a href="#2-6包和文件" class="headerlink" title="2.6包和文件"></a>2.6包和文件</h3><ul>
+<h3 id="ch2-6-包和文件"><a href="#ch2-6-包和文件" class="headerlink" title="ch2.6   包和文件"></a>ch2.6   包和文件</h3><ul>
 <li><p>2.6.0基础概念</p>
 <ul>
 <li><p>为了支持模块化、封装、单独编译和代码重用</p>
@@ -1542,7 +1614,7 @@ fmt.Println(<span class="hljs-keyword">float64</span>(c)) <span class="hljs-comm
 </ul>
 </li>
 </ul>
-<h3 id="2-7作用域"><a href="#2-7作用域" class="headerlink" title="2.7作用域"></a>2.7作用域</h3><ul>
+<h3 id="ch2-7-作用域"><a href="#ch2-7-作用域" class="headerlink" title="ch2.7   作用域"></a>ch2.7   作用域</h3><ul>
 <li><p>一个声明语句将程序中的实体和一个名字关联，比如一个函数或一个变量。声明语句的作用域是指源代码中可以有效使用这个名字的范围。</p>
 </li>
 <li><p>不要将作用域和生命周期混为一谈。</p>
@@ -1775,7 +1847,7 @@ f.Close()</code></pre>
 </ul>
 </li>
 </ul>
-<h2 id="ch3基础数据类型"><a href="#ch3基础数据类型" class="headerlink" title="ch3基础数据类型"></a>ch3基础数据类型</h2><h3 id="ch3-0引言"><a href="#ch3-0引言" class="headerlink" title="ch3.0引言"></a>ch3.0引言</h3><ul>
+<h2 id="ch3-基础数据类型"><a href="#ch3-基础数据类型" class="headerlink" title="ch3  基础数据类型"></a>ch3  基础数据类型</h2><h3 id="ch3-0-引言"><a href="#ch3-0-引言" class="headerlink" title="ch3.0   引言"></a>ch3.0   引言</h3><ul>
 <li><p>虽然从底层而言，所有的数据都是由比特组成，但计算机一般操作的是固定大小的数</p>
 <ul>
 <li>如整数、浮点数、比特数组、内存地址等。</li>
@@ -1822,7 +1894,7 @@ f.Close()</code></pre>
 </ul>
 </li>
 </ul>
-<h3 id="ch3-1整型"><a href="#ch3-1整型" class="headerlink" title="ch3.1整型"></a>ch3.1整型</h3><ul>
+<h3 id="ch3-1-整型"><a href="#ch3-1-整型" class="headerlink" title="ch3.1   整型"></a>ch3.1   整型</h3><ul>
 <li><p>Go语言的数值类型包括几种不同大小的整数、浮点数和复数，每种数值类型都决定了对应的大小范围和是否支持正负符号。</p>
 </li>
 <li><p>Go语言同时提供了有符号和无符号类型的整数运算</p>
@@ -2078,7 +2150,7 @@ fmt.Printf(<span class="hljs-string">&quot;%d %[1]q\n&quot;</span>, newline)    
 </ul>
 </li>
 </ul>
-<h3 id="ch3-2浮点数"><a href="#ch3-2浮点数" class="headerlink" title="ch3.2浮点数"></a>ch3.2浮点数</h3><ul>
+<h3 id="ch3-2-浮点数"><a href="#ch3-2-浮点数" class="headerlink" title="ch3.2   浮点数"></a>ch3.2   浮点数</h3><ul>
 <li><p>Go语言提供了两种精度的浮点数，float32和float64</p>
 <ul>
 <li>它们的算术规范由IEEE754浮点数国际标准定义，该浮点数规范被所有现代的CPU支持。</li>
@@ -2164,7 +2236,7 @@ fmt.Println(nan == nan, nan &lt; nan, nan &gt; nan) <span class="hljs-comment">/
 </ul>
 </li>
 </ul>
-<h3 id="ch3-3复数"><a href="#ch3-3复数" class="headerlink" title="ch3.3复数"></a>ch3.3复数</h3><ul>
+<h3 id="ch3-3-复数"><a href="#ch3-3-复数" class="headerlink" title="ch3.3   复数"></a>ch3.3   复数</h3><ul>
 <li><p>Go语言提供了两种精度的复数类型：complex64和complex128，分别对应float32和float64两种浮点数精度。内置的complex函数用于构建复数，内建的real和imag函数分别返回复数的实部和虚部</p>
 <pre><code class="hljs Go"><span class="hljs-keyword">var</span> x <span class="hljs-keyword">complex128</span> = <span class="hljs-built_in">complex</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) <span class="hljs-comment">// 1+2i</span>
 <span class="hljs-keyword">var</span> y <span class="hljs-keyword">complex128</span> = <span class="hljs-built_in">complex</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>) <span class="hljs-comment">// 3+4i</span>
@@ -2246,7 +2318,7 @@ y := <span class="hljs-number">3</span> + <span class="hljs-number">4i</span></c
 </ul>
 </li>
 </ul>
-<h3 id="ch3-4布尔型"><a href="#ch3-4布尔型" class="headerlink" title="ch3.4布尔型"></a>ch3.4布尔型</h3><ul>
+<h3 id="ch3-4-布尔型"><a href="#ch3-4-布尔型" class="headerlink" title="ch3.4   布尔型"></a>ch3.4   布尔型</h3><ul>
 <li><p>一个布尔类型的值只有两种：true和false。</p>
 <ul>
 <li><p>if和for语句的条件部分都是布尔类型的值，并且==和&lt;等比较操作也会产生布尔型的值。</p>
@@ -2312,7 +2384,7 @@ y := <span class="hljs-number">3</span> + <span class="hljs-number">4i</span></c
 </ul>
 </li>
 </ul>
-<h3 id="ch3-5字符串"><a href="#ch3-5字符串" class="headerlink" title="ch3.5字符串"></a>ch3.5字符串</h3><ul>
+<h3 id="ch3-5-字符串"><a href="#ch3-5-字符串" class="headerlink" title="ch3.5   字符串"></a>ch3.5   字符串</h3><ul>
 <li><p>ch3.5.0简介</p>
 <ul>
 <li><p>一个字符串是一个不可改变的字节序列。</p>
@@ -2847,7 +2919,7 @@ y, err := strconv.ParseInt(<span class="hljs-string">&quot;123&quot;</span>, <sp
 </ul>
 </li>
 </ul>
-<h3 id="ch3-6常量"><a href="#ch3-6常量" class="headerlink" title="ch3.6常量"></a>ch3.6常量</h3><ul>
+<h3 id="ch3-6-常量"><a href="#ch3-6-常量" class="headerlink" title="ch3.6   常量"></a>ch3.6   常量</h3><ul>
 <li><p>ch3.6.0简介</p>
 <ul>
 <li><p>常量表达式的值在编译期计算，而不是在运行期。</p>
@@ -3077,7 +3149,7 @@ fmt.Printf(<span class="hljs-string">&quot;%T\n&quot;</span>, <span class="hljs-
 </ul>
 </li>
 </ul>
-<h2 id="ch4复合数据类型"><a href="#ch4复合数据类型" class="headerlink" title="ch4复合数据类型"></a>ch4复合数据类型</h2><h3 id="ch4-0简介"><a href="#ch4-0简介" class="headerlink" title="ch4.0简介"></a>ch4.0简介</h3><ul>
+<h2 id="ch4-复合数据类型"><a href="#ch4-复合数据类型" class="headerlink" title="ch4  复合数据类型"></a>ch4  复合数据类型</h2><h3 id="ch4-0-简介"><a href="#ch4-0-简介" class="headerlink" title="ch4.0   简介"></a>ch4.0   简介</h3><ul>
 <li><p>复合数据类型，它是以不同的方式组合基本类型而构造出来的复合数据类型。我们主要讨论四种类型——数组、slice、map和结构体——同时在本章的最后，我们将演示如何使用结构体来解码和编码到对应JSON格式的数据，并且通过结合使用模板来生成HTML页面。</p>
 </li>
 <li><p>数组和结构体是聚合类型；它们的值由许多元素或成员字段的值组成。</p>
@@ -3088,7 +3160,7 @@ fmt.Printf(<span class="hljs-string">&quot;%T\n&quot;</span>, <span class="hljs-
 <li><p>相比之下，slice和map则是动态的数据结构，它们将根据需要动态增长。</p>
 </li>
 </ul>
-<h3 id="ch4-1数组"><a href="#ch4-1数组" class="headerlink" title="ch4.1数组"></a>ch4.1数组</h3><ul>
+<h3 id="ch4-1-数组"><a href="#ch4-1-数组" class="headerlink" title="ch4.1   数组"></a>ch4.1   数组</h3><ul>
 <li><p>数组是一个由固定长度的特定类型元素组成的序列，一个数组可以由零个或多个元素组成。因为数组的长度是固定的，因此在Go语言中很少直接使用数组。和数组对应的类型是Slice（切片），它是可以增长和收缩的动态序列，slice功能也更灵活，但是要理解slice工作原理的话需要先理解数组。</p>
 </li>
 <li><p>数组的每个元素可以通过索引下标来访问，索引下标的范围是从0开始到数组长度减1的位置。内置的len函数将返回数组中元素的个数。</p>
@@ -3218,7 +3290,7 @@ fmt.Println(a == d) <span class="hljs-comment">// compile error: cannot compare 
 </ul>
 </li>
 </ul>
-<h3 id="ch4-2Slice"><a href="#ch4-2Slice" class="headerlink" title="ch4.2Slice"></a>ch4.2Slice</h3><ul>
+<h3 id="ch4-2-Slice"><a href="#ch4-2-Slice" class="headerlink" title="ch4.2   Slice"></a>ch4.2   Slice</h3><ul>
 <li><p>ch4.2.0简介</p>
 <ul>
 <li><p>Slice（切片）代表变长的序列，序列中每个元素都有相同的类型。一个slice类型一般写作[]T，其中T代表slice中元素的类型；slice的语法和数组很像，只是没有固定长度而已。</p>
@@ -3560,7 +3632,7 @@ fmt.Printf(<span class="hljs-string">&quot;%q\n&quot;</span>, data)           <s
 </ul>
 </li>
 </ul>
-<h3 id="ch4-3Map"><a href="#ch4-3Map" class="headerlink" title="ch4.3Map"></a>ch4.3Map</h3><ul>
+<h3 id="ch4-3-Map"><a href="#ch4-3-Map" class="headerlink" title="ch4.3   Map"></a>ch4.3   Map</h3><ul>
 <li><p>哈希表是一种巧妙并且实用的数据结构。它是一个无序的key/value对的集合，其中所有的key都是不同的，然后通过给定的key可以在常数时间复杂度内检索、更新或删除对应的value。</p>
 </li>
 <li><p>在Go语言中，一个map就是一个哈希表的引用，map类型可以写为map[K]V，其中K和V分别对应key和value。</p>
@@ -3663,7 +3735,7 @@ sort.Strings(names)
 </ul>
 </li>
 </ul>
-<h3 id="ch4-4结构体"><a href="#ch4-4结构体" class="headerlink" title="ch4.4结构体"></a>ch4.4结构体</h3><ul>
+<h3 id="ch4-4-结构体"><a href="#ch4-4-结构体" class="headerlink" title="ch4.4   结构体"></a>ch4.4   结构体</h3><ul>
 <li><p>结构体是一种聚合的数据类型，是由零个或多个任意类型的值聚合成的实体。每个值称为结构体的成员。</p>
 <ul>
 <li><p>用结构体的经典案例是处理公司的员工信息，每个员工信息包含一个唯一的员工编号、员工的名字、家庭住址、出生日期、工作岗位、薪资、上级领导等等。所有的这些信息都需要绑定到一个实体中，可以作为一个整体单元被复制，作为函数的参数或返回值，或者是被存储到数组中，等等。</p>
@@ -3768,7 +3840,7 @@ EmployeeByID(id).Salary = <span class="hljs-number">0</span> <span class="hljs-c
 </ul>
 </li>
 </ul>
-<h3 id="ch4-5JSON"><a href="#ch4-5JSON" class="headerlink" title="ch4.5JSON"></a>ch4.5JSON</h3><ul>
+<h3 id="ch4-5-JSON"><a href="#ch4-5-JSON" class="headerlink" title="ch4.5   JSON"></a>ch4.5   JSON</h3><ul>
 <li><p>JavaScript对象表示法（JSON）是一种用于发送和接收结构化信息的标准协议。</p>
 <ul>
 <li>在类似的协议中，JSON并不是唯一的一个标准协议。</li>
@@ -4028,7 +4100,7 @@ $ ./issues repo:golang/go is:open json decoder
 </ul>
 </li>
 </ul>
-<h3 id="ch4-6文本和HTML模板"><a href="#ch4-6文本和HTML模板" class="headerlink" title="ch4.6文本和HTML模板"></a>ch4.6文本和HTML模板</h3><ul>
+<h3 id="ch4-6-文本和HTML模板"><a href="#ch4-6-文本和HTML模板" class="headerlink" title="ch4.6   文本和HTML模板"></a>ch4.6   文本和HTML模板</h3><ul>
 <li><p>有时候会需要复杂的打印格式，这时候一般需要将格式化代码分离出来以便更安全地修改。这些功能是由text/template和html/template等模板包提供的，它们提供了一个将变量值填充到一个文本或HTML格式的模板的机制。</p>
 </li>
 <li><p>一个模板是一个字符串或一个文件，里面包含了一个或多个由双花括号包含的<code>&#123;&#123;action&#125;&#125;</code>对象。</p>
@@ -4198,12 +4270,12 @@ $ go doc html/<span class="hljs-keyword">template</span></code></pre>
 
 </li>
 </ul>
-<h2 id="ch5函数"><a href="#ch5函数" class="headerlink" title="ch5函数"></a>ch5函数</h2><h3 id="ch5-0简介"><a href="#ch5-0简介" class="headerlink" title="ch5.0简介"></a>ch5.0简介</h3><ul>
+<h2 id="ch5-函数"><a href="#ch5-函数" class="headerlink" title="ch5  函数"></a>ch5  函数</h2><h3 id="ch5-0-简介"><a href="#ch5-0-简介" class="headerlink" title="ch5.0   简介"></a>ch5.0   简介</h3><ul>
 <li>函数可以让我们将一个语句序列打包为一个单元，然后可以从程序中其它地方多次调用。</li>
 <li>函数的机制可以让我们将一个大的工作分解为小的任务，这样的小任务可以让不同程序员在不同时间、不同地方独立完成。一个函数同时对用户隐藏了其实现细节。由于这些因素，对于任何编程语言来说，函数都是一个至关重要的部分。</li>
 <li>本章的运行示例是一个网络蜘蛛，也就是web搜索引擎中负责抓取网页部分的组件，它们根据抓取网页中的链接继续抓取链接指向的页面。一个网络蜘蛛的例子给我们足够的机会去探索递归函数、匿名函数、错误处理和函数其它的很多特性。</li>
 </ul>
-<h3 id="ch5-1函数声明"><a href="#ch5-1函数声明" class="headerlink" title="ch5.1函数声明"></a>ch5.1函数声明</h3><ul>
+<h3 id="ch5-1-函数声明"><a href="#ch5-1-函数声明" class="headerlink" title="ch5.1   函数声明"></a>ch5.1   函数声明</h3><ul>
 <li><p>函数声明包括函数名、形式参数列表、返回值列表（可省略）以及函数体。</p>
 <pre><code class="hljs Go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">name</span><span class="hljs-params">(parameter-list)</span> <span class="hljs-params">(result-list)</span></span> &#123;
 	body
@@ -4279,7 +4351,7 @@ fmt.Printf(<span class="hljs-string">&quot;%T\n&quot;</span>, zero)  <span class
 
 </li>
 </ul>
-<h3 id="ch5-2递归"><a href="#ch5-2递归" class="headerlink" title="ch5.2递归"></a>ch5.2递归</h3><ul>
+<h3 id="ch5-2-递归"><a href="#ch5-2-递归" class="headerlink" title="ch5.2   递归"></a>ch5.2   递归</h3><ul>
 <li><p>函数可以是递归的，这意味着函数可以直接或间接的调用自身</p>
 <ul>
 <li>对许多问题而言，递归是一种强有力的技术，例如处理递归的数据结构。在4.4节，我们通过遍历二叉树来实现简单的插入排序，在本章节，我们再次使用它来处理HTML文件。</li>
@@ -4393,7 +4465,7 @@ fmt.Printf(<span class="hljs-string">&quot;%T\n&quot;</span>, zero)  <span class
 </ul>
 </li>
 </ul>
-<h3 id="ch5-3多返回值"><a href="#ch5-3多返回值" class="headerlink" title="ch5.3多返回值"></a>ch5.3多返回值</h3><ul>
+<h3 id="ch5-3-多返回值"><a href="#ch5-3-多返回值" class="headerlink" title="ch5.3   多返回值"></a>ch5.3   多返回值</h3><ul>
 <li><p>在Go中，一个函数可以返回多个值。我们已经在之前例子中看到，许多标准库中的函数返回2个值，一个是期望得到的返回值，另一个是函数出错时的错误信息。</p>
 <ul>
 <li><p>下面的例子会展示如何编写多返回值的函数。</p>
@@ -4527,7 +4599,7 @@ log.Println(links, err)</code></pre>
 </ul>
 </li>
 </ul>
-<h3 id="ch5-4错误"><a href="#ch5-4错误" class="headerlink" title="ch5.4错误"></a>ch5.4错误</h3><ul>
+<h3 id="ch5-4-错误"><a href="#ch5-4-错误" class="headerlink" title="ch5.4   错误"></a>ch5.4   错误</h3><ul>
 <li><p>ch5.4.0简介</p>
 <ul>
 <li><p>在Go中有一部分函数总是能成功的运行。比如strings.Contains和strconv.FormatBool函数，对各种可能的输入都做了良好的处理，使得运行时几乎不会失败，除非遇到灾难性的、不可预料的情况，比如运行时的内存溢出。导致这种错误的原因很复杂，难以处理，从错误中恢复的可能性也很低。</p>
@@ -4772,7 +4844,7 @@ os.RemoveAll(dir) <span class="hljs-comment">// ignore errors; $TMPDIR is cleane
 </ul>
 </li>
 </ul>
-<h3 id="ch5-5函数值"><a href="#ch5-5函数值" class="headerlink" title="ch5.5函数值"></a>ch5.5函数值</h3><ul>
+<h3 id="ch5-5-函数值"><a href="#ch5-5-函数值" class="headerlink" title="ch5.5   函数值"></a>ch5.5   函数值</h3><ul>
 <li><p>在Go中，函数被看作第一类值（first-class values）：函数像其他值一样，拥有类型，可以被赋值给其他变量，传递给函数，从函数返回。对函数值（function value）的调用类似函数调用。</p>
 <ul>
 <li><p>例子如下：</p>
@@ -4890,7 +4962,7 @@ $ ./outline2 http:<span class="hljs-comment">//gopl.io</span>
 </ul>
 </li>
 </ul>
-<h3 id="ch5-6匿名函数"><a href="#ch5-6匿名函数" class="headerlink" title="ch5.6匿名函数"></a>ch5.6匿名函数</h3><ul>
+<h3 id="ch5-6-匿名函数"><a href="#ch5-6-匿名函数" class="headerlink" title="ch5.6   匿名函数"></a>ch5.6   匿名函数</h3><ul>
 <li><p>拥有函数名的函数只能在包级语法块中被声明，通过函数字面量（function literal），我们可绕过这一限制，在任何表达式中表示一个函数值。函数字面量的语法和函数声明相似，区别在于func关键字后没有函数名。函数值字面量是一种表达式，它的值被称为匿名函数（anonymous function）。</p>
 </li>
 <li><p>函数字面量允许我们在使用函数时，再定义它。通过这种技巧，我们可以改写之前对strings.Map的调用</p>
@@ -5123,7 +5195,7 @@ $ ./findlinks3 https:<span class="hljs-comment">//golang.org</span>
 </ul>
 </li>
 </ul>
-<h3 id="ch5-7可变参数"><a href="#ch5-7可变参数" class="headerlink" title="ch5.7可变参数"></a>ch5.7可变参数</h3><ul>
+<h3 id="ch5-7-可变参数"><a href="#ch5-7-可变参数" class="headerlink" title="ch5.7   可变参数"></a>ch5.7   可变参数</h3><ul>
 <li><p>参数数量可变的函数称为可变参数函数。典型的例子就是fmt.Printf和类似函数。Printf首先接收一个必备的参数，之后接收任意个数的后续参数。</p>
 </li>
 <li><p>在声明可变参数函数时，需要在参数列表的最后一个参数类型之前加上省略符号“…”，这表示该函数会接收任意数量的该类型参数。</p>
@@ -5171,7 +5243,7 @@ errorf(linenum, <span class="hljs-string">&quot;undefined: %s&quot;</span>, name
 </ul>
 </li>
 </ul>
-<h3 id="ch5-8Deferred函数"><a href="#ch5-8Deferred函数" class="headerlink" title="ch5.8Deferred函数"></a>ch5.8Deferred函数</h3><ul>
+<h3 id="ch5-8-Deferred函数"><a href="#ch5-8-Deferred函数" class="headerlink" title="ch5.8   Deferred函数"></a>ch5.8   Deferred函数</h3><ul>
 <li><p>在findLinks的例子中，我们用http.Get的输出作为html.Parse的输入。只有url的内容的确是HTML格式的，html.Parse才可以正常工作，但实际上，url指向的内容很丰富，可能是图片，纯文本或是其他。将这些格式的内容传递给html.parse，会产生不良后果。</p>
 </li>
 <li><p>下面的例子获取HTML页面并输出页面的标题。title函数会检查服务器返回的Content-Type字段，如果发现页面不是HTML，将终止函数运行，返回错误。</p>
@@ -5379,7 +5451,7 @@ fmt.Println(triple(<span class="hljs-number">4</span>)) <span class="hljs-commen
 </ul>
 </li>
 </ul>
-<h3 id="ch5-9Panic异常"><a href="#ch5-9Panic异常" class="headerlink" title="ch5.9Panic异常"></a>ch5.9Panic异常</h3><ul>
+<h3 id="ch5-9-Panic异常"><a href="#ch5-9-Panic异常" class="headerlink" title="ch5.9   Panic异常"></a>ch5.9   Panic异常</h3><ul>
 <li><p>Go的类型系统会在编译时捕获很多错误，但有些错误只能在运行时检查，如数组访问越界、空指针引用等。这些运行时错误会引起painc异常。</p>
 </li>
 <li><p>一般而言，当panic异常发生时，程序会中断运行，并立即执行在该goroutine中被延迟的函数（defer 机制）。</p>
@@ -5515,7 +5587,7 @@ src<span class="hljs-regexp">/gopl.io/</span>ch5<span class="hljs-regexp">/defer
 <li><p>将panic机制类比其他语言异常机制的读者可能会惊讶，runtime.Stack为何能输出已经被释放函数的信息？在Go的panic机制中，延迟函数的调用在释放堆栈信息之前。</p>
 </li>
 </ul>
-<h3 id="ch5-10Recover捕获异常"><a href="#ch5-10Recover捕获异常" class="headerlink" title="ch5.10Recover捕获异常"></a>ch5.10Recover捕获异常</h3><ul>
+<h3 id="ch5-10-Recover捕获异常"><a href="#ch5-10-Recover捕获异常" class="headerlink" title="ch5.10   Recover捕获异常"></a>ch5.10   Recover捕获异常</h3><ul>
 <li><p>通常来说，不应该对panic异常做任何处理，但有时，也许我们可以从异常中恢复，至少我们可以在程序崩溃前，做一些操作。</p>
 <ul>
 <li><p>举个例子，当web服务器遇到不可预料的严重问题时，在崩溃前应该将所有的连接关闭；</p>
@@ -6327,7 +6399,7 @@ fmt.Println(day.Seconds()) <span class="hljs-comment">// &quot;86400&quot;</span
 <li><p>在这章中，我们学到了如何将方法与命名类型进行组合，并且知道了如何调用这些方法。尽管方法对于OOP编程来说至关重要，但他们只是OOP编程里的半边天。为了完成OOP，我们还需要接口。Go里的接口会在下一章中介绍。</p>
 </li>
 </ul>
-<h2 id="ch7-接口"><a href="#ch7-接口" class="headerlink" title="ch7  接口"></a>ch7  接口</h2><h3 id="ch7-0-简介"><a href="#ch7-0-简介" class="headerlink" title="ch7.0   简介"></a>ch7.0   简介</h3><h3 id="ch7-1-接口是合约"><a href="#ch7-1-接口是合约" class="headerlink" title="ch7.1   接口是合约"></a>ch7.1   接口是合约</h3><h3 id="ch7-2-接口类型"><a href="#ch7-2-接口类型" class="headerlink" title="ch7.2   接口类型"></a>ch7.2   接口类型</h3><h3 id="ch7-3-实现接口的条件"><a href="#ch7-3-实现接口的条件" class="headerlink" title="ch7.3   实现接口的条件"></a>ch7.3   实现接口的条件</h3><h3 id="ch7-4-flag-Value接口"><a href="#ch7-4-flag-Value接口" class="headerlink" title="ch7.4   flag.Value接口"></a>ch7.4   flag.Value接口</h3><h3 id="ch7-5-接口值"><a href="#ch7-5-接口值" class="headerlink" title="ch7.5   接口值"></a>ch7.5   接口值</h3><h3 id="ch7-6-sort-Interface接口"><a href="#ch7-6-sort-Interface接口" class="headerlink" title="ch7.6   sort.Interface接口"></a>ch7.6   sort.Interface接口</h3><h3 id="ch7-7-http-Handler接口"><a href="#ch7-7-http-Handler接口" class="headerlink" title="ch7.7   http.Handler接口"></a>ch7.7   http.Handler接口</h3><h3 id="ch7-8-error接口"><a href="#ch7-8-error接口" class="headerlink" title="ch7.8   error接口"></a>ch7.8   error接口</h3><h3 id="ch7-9-示例：表达式求值"><a href="#ch7-9-示例：表达式求值" class="headerlink" title="ch7.9   示例：表达式求值"></a>ch7.9   示例：表达式求值</h3><h3 id="ch7-10-类型断言"><a href="#ch7-10-类型断言" class="headerlink" title="ch7.10  类型断言"></a>ch7.10  类型断言</h3><h3 id="ch7-11-基于类型断言识别错误类型"><a href="#ch7-11-基于类型断言识别错误类型" class="headerlink" title="ch7.11  基于类型断言识别错误类型"></a>ch7.11  基于类型断言识别错误类型</h3><h3 id="ch7-12-通过类型断言查询接口"><a href="#ch7-12-通过类型断言查询接口" class="headerlink" title="ch7.12  通过类型断言查询接口"></a>ch7.12  通过类型断言查询接口</h3><h3 id="ch7-13-类型分支"><a href="#ch7-13-类型分支" class="headerlink" title="ch7.13  类型分支"></a>ch7.13  类型分支</h3><h3 id="ch7-14-示例：基于标记的XML解码"><a href="#ch7-14-示例：基于标记的XML解码" class="headerlink" title="ch7.14  示例：基于标记的XML解码"></a>ch7.14  示例：基于标记的XML解码</h3><h3 id="ch7-15-补充几点"><a href="#ch7-15-补充几点" class="headerlink" title="ch7.15  补充几点"></a>ch7.15  补充几点</h3><h2 id="ch8Goroutines和Channels"><a href="#ch8Goroutines和Channels" class="headerlink" title="ch8Goroutines和Channels"></a>ch8Goroutines和Channels</h2><h3 id="Goroutines"><a href="#Goroutines" class="headerlink" title="Goroutines"></a>Goroutines</h3><h3 id="示例：并发的Clock服务"><a href="#示例：并发的Clock服务" class="headerlink" title="示例：并发的Clock服务"></a>示例：并发的Clock服务</h3><h3 id="示例：并发的Echo服务"><a href="#示例：并发的Echo服务" class="headerlink" title="示例：并发的Echo服务"></a>示例：并发的Echo服务</h3><h3 id="Channels"><a href="#Channels" class="headerlink" title="Channels"></a>Channels</h3><h3 id="并发的循环"><a href="#并发的循环" class="headerlink" title="并发的循环"></a>并发的循环</h3><h3 id="示例：并发的Web爬虫"><a href="#示例：并发的Web爬虫" class="headerlink" title="示例：并发的Web爬虫"></a>示例：并发的Web爬虫</h3><h3 id="基于select的多路复用"><a href="#基于select的多路复用" class="headerlink" title="基于select的多路复用"></a>基于select的多路复用</h3><h3 id="示例：并发的字典遍历"><a href="#示例：并发的字典遍历" class="headerlink" title="示例：并发的字典遍历"></a>示例：并发的字典遍历</h3><h3 id="并发的退出"><a href="#并发的退出" class="headerlink" title="并发的退出"></a>并发的退出</h3><h3 id="示例：聊天服务"><a href="#示例：聊天服务" class="headerlink" title="示例：聊天服务"></a>示例：聊天服务</h3><h2 id="ch9基于共享变量的并发"><a href="#ch9基于共享变量的并发" class="headerlink" title="ch9基于共享变量的并发"></a>ch9基于共享变量的并发</h2><h3 id="竞争条件"><a href="#竞争条件" class="headerlink" title="竞争条件"></a>竞争条件</h3><h3 id="sync-Mutex互斥锁"><a href="#sync-Mutex互斥锁" class="headerlink" title="sync.Mutex互斥锁"></a>sync.Mutex互斥锁</h3><h3 id="sync-RWMutex读写锁"><a href="#sync-RWMutex读写锁" class="headerlink" title="sync.RWMutex读写锁"></a>sync.RWMutex读写锁</h3><h3 id="内存同步"><a href="#内存同步" class="headerlink" title="内存同步"></a>内存同步</h3><h3 id="sync-Once初始化"><a href="#sync-Once初始化" class="headerlink" title="sync.Once初始化"></a>sync.Once初始化</h3><h3 id="竞争条件检测"><a href="#竞争条件检测" class="headerlink" title="竞争条件检测"></a>竞争条件检测</h3><h3 id="示例：并发的非阻塞缓存"><a href="#示例：并发的非阻塞缓存" class="headerlink" title="示例：并发的非阻塞缓存"></a>示例：并发的非阻塞缓存</h3><h3 id="Goroutines和线程"><a href="#Goroutines和线程" class="headerlink" title="Goroutines和线程"></a>Goroutines和线程</h3><h2 id="ch10包和工具"><a href="#ch10包和工具" class="headerlink" title="ch10包和工具"></a>ch10包和工具</h2><h3 id="包简介"><a href="#包简介" class="headerlink" title="包简介"></a>包简介</h3><h3 id="导入路径"><a href="#导入路径" class="headerlink" title="导入路径"></a>导入路径</h3><h3 id="包声明"><a href="#包声明" class="headerlink" title="包声明"></a>包声明</h3><h3 id="导入声明"><a href="#导入声明" class="headerlink" title="导入声明"></a>导入声明</h3><h3 id="包的匿名导入"><a href="#包的匿名导入" class="headerlink" title="包的匿名导入"></a>包的匿名导入</h3><h3 id="包和命名"><a href="#包和命名" class="headerlink" title="包和命名"></a>包和命名</h3><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><h2 id="ch11测试"><a href="#ch11测试" class="headerlink" title="ch11测试"></a>ch11测试</h2><h3 id="go-test"><a href="#go-test" class="headerlink" title="go test"></a>go test</h3><h3 id="测试函数"><a href="#测试函数" class="headerlink" title="测试函数"></a>测试函数</h3><h3 id="测试覆盖率"><a href="#测试覆盖率" class="headerlink" title="测试覆盖率"></a>测试覆盖率</h3><h3 id="基准测试"><a href="#基准测试" class="headerlink" title="基准测试"></a>基准测试</h3><h3 id="剖析"><a href="#剖析" class="headerlink" title="剖析"></a>剖析</h3><h3 id="示例函数"><a href="#示例函数" class="headerlink" title="示例函数"></a>示例函数</h3><h2 id="ch12反射"><a href="#ch12反射" class="headerlink" title="ch12反射"></a>ch12反射</h2><h3 id="为何需要反射"><a href="#为何需要反射" class="headerlink" title="为何需要反射"></a>为何需要反射</h3><h3 id="reflect-Type和reflect-Value"><a href="#reflect-Type和reflect-Value" class="headerlink" title="reflect.Type和reflect.Value"></a>reflect.Type和reflect.Value</h3><h3 id="Display递归打印"><a href="#Display递归打印" class="headerlink" title="Display递归打印"></a>Display递归打印</h3><h3 id="示例：编码S表达式"><a href="#示例：编码S表达式" class="headerlink" title="示例：编码S表达式"></a>示例：编码S表达式</h3><h3 id="通过reflect-Value修改值"><a href="#通过reflect-Value修改值" class="headerlink" title="通过reflect.Value修改值"></a>通过reflect.Value修改值</h3><h3 id="示例：编码S表达式-1"><a href="#示例：编码S表达式-1" class="headerlink" title="示例：编码S表达式"></a>示例：编码S表达式</h3><h3 id="获取结构体字段标识"><a href="#获取结构体字段标识" class="headerlink" title="获取结构体字段标识"></a>获取结构体字段标识</h3><h3 id="显示一个类型的方法集"><a href="#显示一个类型的方法集" class="headerlink" title="显示一个类型的方法集"></a>显示一个类型的方法集</h3><h3 id="几点忠告"><a href="#几点忠告" class="headerlink" title="几点忠告"></a>几点忠告</h3><h2 id="ch13底层编程"><a href="#ch13底层编程" class="headerlink" title="ch13底层编程"></a>ch13底层编程</h2><h3 id="unsafe-Sizeof-Alignof-和-Offsetof"><a href="#unsafe-Sizeof-Alignof-和-Offsetof" class="headerlink" title="unsafe.Sizeof, Alignof 和 Offsetof"></a>unsafe.Sizeof, Alignof 和 Offsetof</h3><h3 id="unsafe-Pointer"><a href="#unsafe-Pointer" class="headerlink" title="unsafe.Pointer"></a>unsafe.Pointer</h3><h3 id="示例：深度相等判断"><a href="#示例：深度相等判断" class="headerlink" title="示例：深度相等判断"></a>示例：深度相等判断</h3><h3 id="通过cgo调用C代码"><a href="#通过cgo调用C代码" class="headerlink" title="通过cgo调用C代码"></a>通过cgo调用C代码</h3><h3 id="几点忠告-1"><a href="#几点忠告-1" class="headerlink" title="几点忠告"></a>几点忠告</h3><p><em>XMind: ZEN - Trial Version</em></p>
+<h2 id="ch7-接口"><a href="#ch7-接口" class="headerlink" title="ch7  接口"></a>ch7  接口</h2><h3 id="ch7-0-简介"><a href="#ch7-0-简介" class="headerlink" title="ch7.0   简介"></a>ch7.0   简介</h3><h3 id="ch7-1-接口是合约"><a href="#ch7-1-接口是合约" class="headerlink" title="ch7.1   接口是合约"></a>ch7.1   接口是合约</h3><h3 id="ch7-2-接口类型"><a href="#ch7-2-接口类型" class="headerlink" title="ch7.2   接口类型"></a>ch7.2   接口类型</h3><h3 id="ch7-3-实现接口的条件"><a href="#ch7-3-实现接口的条件" class="headerlink" title="ch7.3   实现接口的条件"></a>ch7.3   实现接口的条件</h3><h3 id="ch7-4-flag-Value接口"><a href="#ch7-4-flag-Value接口" class="headerlink" title="ch7.4   flag.Value接口"></a>ch7.4   flag.Value接口</h3><h3 id="ch7-5-接口值"><a href="#ch7-5-接口值" class="headerlink" title="ch7.5   接口值"></a>ch7.5   接口值</h3><h3 id="ch7-6-sort-Interface接口"><a href="#ch7-6-sort-Interface接口" class="headerlink" title="ch7.6   sort.Interface接口"></a>ch7.6   sort.Interface接口</h3><h3 id="ch7-7-http-Handler接口"><a href="#ch7-7-http-Handler接口" class="headerlink" title="ch7.7   http.Handler接口"></a>ch7.7   http.Handler接口</h3><h3 id="ch7-8-error接口"><a href="#ch7-8-error接口" class="headerlink" title="ch7.8   error接口"></a>ch7.8   error接口</h3><h3 id="ch7-9-示例：表达式求值"><a href="#ch7-9-示例：表达式求值" class="headerlink" title="ch7.9   示例：表达式求值"></a>ch7.9   示例：表达式求值</h3><h3 id="ch7-10-类型断言"><a href="#ch7-10-类型断言" class="headerlink" title="ch7.10  类型断言"></a>ch7.10  类型断言</h3><h3 id="ch7-11-基于类型断言识别错误类型"><a href="#ch7-11-基于类型断言识别错误类型" class="headerlink" title="ch7.11  基于类型断言识别错误类型"></a>ch7.11  基于类型断言识别错误类型</h3><h3 id="ch7-12-通过类型断言查询接口"><a href="#ch7-12-通过类型断言查询接口" class="headerlink" title="ch7.12  通过类型断言查询接口"></a>ch7.12  通过类型断言查询接口</h3><h3 id="ch7-13-类型分支"><a href="#ch7-13-类型分支" class="headerlink" title="ch7.13  类型分支"></a>ch7.13  类型分支</h3><h3 id="ch7-14-示例：基于标记的XML解码"><a href="#ch7-14-示例：基于标记的XML解码" class="headerlink" title="ch7.14  示例：基于标记的XML解码"></a>ch7.14  示例：基于标记的XML解码</h3><h3 id="ch7-15-补充几点"><a href="#ch7-15-补充几点" class="headerlink" title="ch7.15  补充几点"></a>ch7.15  补充几点</h3><h2 id="ch8-Goroutines和Channels"><a href="#ch8-Goroutines和Channels" class="headerlink" title="ch8  Goroutines和Channels"></a>ch8  Goroutines和Channels</h2><h3 id="ch8-0-简介"><a href="#ch8-0-简介" class="headerlink" title="ch8.0   简介"></a>ch8.0   简介</h3><h3 id="ch8-1-Goroutines"><a href="#ch8-1-Goroutines" class="headerlink" title="ch8.1   Goroutines"></a>ch8.1   Goroutines</h3><h3 id="ch8-2-示例：并发的Clock服务"><a href="#ch8-2-示例：并发的Clock服务" class="headerlink" title="ch8.2   示例：并发的Clock服务"></a>ch8.2   示例：并发的Clock服务</h3><h3 id="ch8-3-示例：并发的Echo服务"><a href="#ch8-3-示例：并发的Echo服务" class="headerlink" title="ch8.3   示例：并发的Echo服务"></a>ch8.3   示例：并发的Echo服务</h3><h3 id="ch8-4-Channels"><a href="#ch8-4-Channels" class="headerlink" title="ch8.4   Channels"></a>ch8.4   Channels</h3><h3 id="ch8-5-并发的循环"><a href="#ch8-5-并发的循环" class="headerlink" title="ch8.5   并发的循环"></a>ch8.5   并发的循环</h3><h3 id="ch8-6-示例：并发的Web爬虫"><a href="#ch8-6-示例：并发的Web爬虫" class="headerlink" title="ch8.6   示例：并发的Web爬虫"></a>ch8.6   示例：并发的Web爬虫</h3><h3 id="ch8-7-基于select的多路复用"><a href="#ch8-7-基于select的多路复用" class="headerlink" title="ch8.7   基于select的多路复用"></a>ch8.7   基于select的多路复用</h3><h3 id="ch8-8-示例：并发的字典遍历"><a href="#ch8-8-示例：并发的字典遍历" class="headerlink" title="ch8.8   示例：并发的字典遍历"></a>ch8.8   示例：并发的字典遍历</h3><h3 id="ch8-9-并发的退出"><a href="#ch8-9-并发的退出" class="headerlink" title="ch8.9   并发的退出"></a>ch8.9   并发的退出</h3><h3 id="ch8-10-示例：聊天服务"><a href="#ch8-10-示例：聊天服务" class="headerlink" title="ch8.10  示例：聊天服务"></a>ch8.10  示例：聊天服务</h3><h2 id="ch9-基于共享变量的并发"><a href="#ch9-基于共享变量的并发" class="headerlink" title="ch9  基于共享变量的并发"></a>ch9  基于共享变量的并发</h2><h3 id="ch9-0-简介"><a href="#ch9-0-简介" class="headerlink" title="ch9.0   简介"></a>ch9.0   简介</h3><h3 id="ch9-1-竞争条件"><a href="#ch9-1-竞争条件" class="headerlink" title="ch9.1   竞争条件"></a>ch9.1   竞争条件</h3><h3 id="ch9-2-sync-Mutex互斥锁"><a href="#ch9-2-sync-Mutex互斥锁" class="headerlink" title="ch9.2   sync.Mutex互斥锁"></a>ch9.2   sync.Mutex互斥锁</h3><h3 id="ch9-3-sync-RWMutex读写锁"><a href="#ch9-3-sync-RWMutex读写锁" class="headerlink" title="ch9.3   sync.RWMutex读写锁"></a>ch9.3   sync.RWMutex读写锁</h3><h3 id="ch9-4-内存同步"><a href="#ch9-4-内存同步" class="headerlink" title="ch9.4   内存同步"></a>ch9.4   内存同步</h3><h3 id="ch9-5-sync-Once初始化"><a href="#ch9-5-sync-Once初始化" class="headerlink" title="ch9.5   sync.Once初始化"></a>ch9.5   sync.Once初始化</h3><h3 id="ch9-6-竞争条件检测"><a href="#ch9-6-竞争条件检测" class="headerlink" title="ch9.6   竞争条件检测"></a>ch9.6   竞争条件检测</h3><h3 id="ch9-7-示例：并发的非阻塞缓存"><a href="#ch9-7-示例：并发的非阻塞缓存" class="headerlink" title="ch9.7   示例：并发的非阻塞缓存"></a>ch9.7   示例：并发的非阻塞缓存</h3><h3 id="ch9-8-Goroutines和线程"><a href="#ch9-8-Goroutines和线程" class="headerlink" title="ch9.8   Goroutines和线程"></a>ch9.8   Goroutines和线程</h3><h2 id="ch10-包和工具"><a href="#ch10-包和工具" class="headerlink" title="ch10  包和工具"></a>ch10  包和工具</h2><h3 id="ch10-0-简介"><a href="#ch10-0-简介" class="headerlink" title="ch10.0  简介"></a>ch10.0  简介</h3><h3 id="ch10-1-包简介"><a href="#ch10-1-包简介" class="headerlink" title="ch10.1  包简介"></a>ch10.1  包简介</h3><h3 id="ch10-2-导入路径"><a href="#ch10-2-导入路径" class="headerlink" title="ch10.2  导入路径"></a>ch10.2  导入路径</h3><h3 id="ch10-3-包声明"><a href="#ch10-3-包声明" class="headerlink" title="ch10.3  包声明"></a>ch10.3  包声明</h3><h3 id="ch10-4-导入声明"><a href="#ch10-4-导入声明" class="headerlink" title="ch10.4  导入声明"></a>ch10.4  导入声明</h3><h3 id="ch10-5-包的匿名导入"><a href="#ch10-5-包的匿名导入" class="headerlink" title="ch10.5  包的匿名导入"></a>ch10.5  包的匿名导入</h3><h3 id="ch10-6-包和命名"><a href="#ch10-6-包和命名" class="headerlink" title="ch10.6  包和命名"></a>ch10.6  包和命名</h3><h3 id="ch10-7-工具"><a href="#ch10-7-工具" class="headerlink" title="ch10.7  工具"></a>ch10.7  工具</h3><h2 id="ch11-测试"><a href="#ch11-测试" class="headerlink" title="ch11  测试"></a>ch11  测试</h2><h3 id="ch11-0-简介"><a href="#ch11-0-简介" class="headerlink" title="ch11.0  简介"></a>ch11.0  简介</h3><h3 id="ch11-1-go-test"><a href="#ch11-1-go-test" class="headerlink" title="ch11.1  go test"></a>ch11.1  go test</h3><h3 id="ch11-2-测试函数"><a href="#ch11-2-测试函数" class="headerlink" title="ch11.2  测试函数"></a>ch11.2  测试函数</h3><h3 id="ch11-3-测试覆盖率"><a href="#ch11-3-测试覆盖率" class="headerlink" title="ch11.3  测试覆盖率"></a>ch11.3  测试覆盖率</h3><h3 id="ch11-4-基准测试"><a href="#ch11-4-基准测试" class="headerlink" title="ch11.4  基准测试"></a>ch11.4  基准测试</h3><h3 id="ch11-5-剖析"><a href="#ch11-5-剖析" class="headerlink" title="ch11.5  剖析"></a>ch11.5  剖析</h3><h3 id="ch11-6-示例函数"><a href="#ch11-6-示例函数" class="headerlink" title="ch11.6  示例函数"></a>ch11.6  示例函数</h3><h2 id="ch12-反射"><a href="#ch12-反射" class="headerlink" title="ch12  反射"></a>ch12  反射</h2><h3 id="ch12-0-简介"><a href="#ch12-0-简介" class="headerlink" title="ch12.0  简介"></a>ch12.0  简介</h3><h3 id="ch12-1-为何需要反射"><a href="#ch12-1-为何需要反射" class="headerlink" title="ch12.1  为何需要反射"></a>ch12.1  为何需要反射</h3><h3 id="ch12-2-reflect-Type和reflect-Value"><a href="#ch12-2-reflect-Type和reflect-Value" class="headerlink" title="ch12.2  reflect.Type和reflect.Value"></a>ch12.2  reflect.Type和reflect.Value</h3><h3 id="ch12-3-Display递归打印"><a href="#ch12-3-Display递归打印" class="headerlink" title="ch12.3  Display递归打印"></a>ch12.3  Display递归打印</h3><h3 id="ch12-4-示例：编码S表达式"><a href="#ch12-4-示例：编码S表达式" class="headerlink" title="ch12.4  示例：编码S表达式"></a>ch12.4  示例：编码S表达式</h3><h3 id="ch12-5-通过reflect-Value修改值"><a href="#ch12-5-通过reflect-Value修改值" class="headerlink" title="ch12.5  通过reflect.Value修改值"></a>ch12.5  通过reflect.Value修改值</h3><h3 id="ch12-6-示例：编码S表达式"><a href="#ch12-6-示例：编码S表达式" class="headerlink" title="ch12.6  示例：编码S表达式"></a>ch12.6  示例：编码S表达式</h3><h3 id="ch12-7-获取结构体字段标识"><a href="#ch12-7-获取结构体字段标识" class="headerlink" title="ch12.7  获取结构体字段标识"></a>ch12.7  获取结构体字段标识</h3><h3 id="ch12-8-显示一个类型的方法集"><a href="#ch12-8-显示一个类型的方法集" class="headerlink" title="ch12.8  显示一个类型的方法集"></a>ch12.8  显示一个类型的方法集</h3><h3 id="ch12-9-几点忠告"><a href="#ch12-9-几点忠告" class="headerlink" title="ch12.9  几点忠告"></a>ch12.9  几点忠告</h3><h2 id="ch13-底层编程"><a href="#ch13-底层编程" class="headerlink" title="ch13  底层编程"></a>ch13  底层编程</h2><h3 id="ch13-0-简介"><a href="#ch13-0-简介" class="headerlink" title="ch13.0  简介"></a>ch13.0  简介</h3><h3 id="ch13-1-unsafe-Sizeof-Alignof-和-Offsetof"><a href="#ch13-1-unsafe-Sizeof-Alignof-和-Offsetof" class="headerlink" title="ch13.1  unsafe.Sizeof, Alignof 和 Offsetof"></a>ch13.1  unsafe.Sizeof, Alignof 和 Offsetof</h3><h3 id="ch13-2-unsafe-Pointer"><a href="#ch13-2-unsafe-Pointer" class="headerlink" title="ch13.2  unsafe.Pointer"></a>ch13.2  unsafe.Pointer</h3><h3 id="ch13-3-示例：深度相等判断"><a href="#ch13-3-示例：深度相等判断" class="headerlink" title="ch13.3  示例：深度相等判断"></a>ch13.3  示例：深度相等判断</h3><h3 id="ch13-4-通过cgo调用C代码"><a href="#ch13-4-通过cgo调用C代码" class="headerlink" title="ch13.4  通过cgo调用C代码"></a>ch13.4  通过cgo调用C代码</h3><h3 id="ch13-5-几点忠告"><a href="#ch13-5-几点忠告" class="headerlink" title="ch13.5  几点忠告"></a>ch13.5  几点忠告</h3><p><em>XMind: ZEN - Trial Version</em></p>
 
             </div>
             <hr>
@@ -6358,12 +6430,18 @@ fmt.Println(day.Seconds()) <span class="hljs-comment">// &quot;86400&quot;</span
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2020/11/20/Golang/GO%E8%AF%AD%E8%A8%80%E5%9C%A3%E7%BB%8F/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">GO语言圣经--学习笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/11/20/Golang/The%20Go%20Programming%20Language/">
-                        <span class="hidden-mobile">GO语言圣经--学习笔记</span>
+                      <a href="/2020/11/07/Golang/go%E6%97%A0%E6%B3%95%E7%BC%96%E8%AF%91/">
+                        <span class="hidden-mobile">go无法编译</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
