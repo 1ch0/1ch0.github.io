@@ -172,7 +172,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-22 10:00" pubdate>
+      <time datetime="2020-11-22 09:00" pubdate>
         2020年11月22日 上午
       </time>
     </span>
@@ -266,7 +266,7 @@
 <li><p>尽管Go对并发的支持是众多强力特性之一，但跟踪调试并发程序还是很困难，在线性程序中形成的直觉往往还会使我们误入歧途。如果这是读者第一次接触并发，推荐稍微多花一些时间来思考这两个章节中的样例。</p>
 </li>
 </ul>
-<h3 id="ch8-1-Goroutines"><a href="#ch8-1-Goroutines" class="headerlink" title="ch8.1   Goroutines"></a>ch8.1   Goroutines</h3><ul>
+<h3 id="ch8-1Goroutines"><a href="#ch8-1Goroutines" class="headerlink" title="ch8.1Goroutines"></a>ch8.1Goroutines</h3><ul>
 <li><p>在Go语言中，每一个并发的执行单元叫作一个goroutine。设想这里的一个程序有两个函数，一个函数做计算，另一个输出结果，假设两个函数没有相互之间的调用关系。一个线性的程序会先调用其中的一个函数，然后再调用另一个。如果程序中包含多个goroutine，对两个函数的调用则可能发生在同一时刻。马上就会看到这样的一个程序。</p>
 </li>
 <li><p>如果你使用过操作系统或者其它语言提供的线程，那么你可以简单地把goroutine类比作一个线程，这样你就可以写出一些正确的程序了。goroutine和线程的本质区别会在9.8节中讲。</p>
@@ -581,9 +581,9 @@ $ killall reverb2</code></pre>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/23/Golang/The%20Go%20Programming%20Language%EF%BC%8810-13%EF%BC%89/">
+                      <a href="/2020/11/22/Golang/The%20Go%20Programming%20Language%EF%BC%889%EF%BC%89/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">The Go Programming Language（10-13）</span>
+                        <span class="hidden-mobile">The Go Programming Language（9）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -591,8 +591,8 @@ $ killall reverb2</code></pre>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/11/22/Golang/The%20Go%20Programming%20Language%EF%BC%888%EF%BC%89%20-%20channel/">
-                        <span class="hidden-mobile">The Go Programming Language（8）- channel</span>
+                      <a href="/2020/11/21/Golang/The%20Go%20Programming%20Language%EF%BC%886-7%EF%BC%89/">
+                        <span class="hidden-mobile">The Go Programming Language（6-7）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
