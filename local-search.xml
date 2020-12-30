@@ -223,31 +223,6 @@
   
   
   <entry>
-    <title>Linux配置静态IP</title>
-    <link href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/"/>
-    <url>/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Ubuntu18配置静态IP"><a href="#Ubuntu18配置静态IP" class="headerlink" title="Ubuntu18配置静态IP"></a>Ubuntu18配置静态IP</h1><ol><li>切换为root用户执行（具体配置文件用tab自动补全）</li></ol><pre><code class="hljs shell">vi /etc/netplan/00***.yml</code></pre><ol start="2"><li>编辑配置文件内容如下所示，addresses处填入所要设置ip地址，dhcp4 no代表不适用dhcp协议获取ip，gateway代表网关地址。nameservers代表DNS域名解析服务器</li></ol><pre><code class="hljs shell">network:  ethernets:    ens3:      addresses:      - 192.168.1.10/24      dhcp4: no      gateway4: 192.168.1.1      nameservers:          addresses: [&#x27;114.114.114.114&#x27;]  version: 2</code></pre><ol start="3"><li>执行以下命令是配置生效</li></ol><pre><code class="hljs shell">netplan apply</code></pre><ol start="4"><li>使用ifconfig查看配置是否成功</li></ol><h1 id="Centos8配置静态IP"><a href="#Centos8配置静态IP" class="headerlink" title="Centos8配置静态IP"></a>Centos8配置静态IP</h1><ol><li>vi /etc/sysconfig/network-scripts/ifcfg-ens32</li></ol><pre><code class="hljs ini"><span class="hljs-attr">TYPE</span>=Ethernet<span class="hljs-attr">PROXY_METHOD</span>=none<span class="hljs-attr">BROWSER_ONLY</span>=<span class="hljs-literal">no</span><span class="hljs-attr">BOOTPROTO</span>=static<span class="hljs-attr">DEFROUTE</span>=<span class="hljs-literal">yes</span><span class="hljs-attr">IPV4_FAILURE_FATAL</span>=<span class="hljs-literal">no</span><span class="hljs-attr">IPV6INIT</span>=<span class="hljs-literal">yes</span><span class="hljs-attr">IPV6_AUTOCONF</span>=<span class="hljs-literal">yes</span><span class="hljs-attr">IPV6_DEFROUTE</span>=<span class="hljs-literal">yes</span><span class="hljs-attr">IPV6_FAILURE_FATAL</span>=<span class="hljs-literal">no</span><span class="hljs-attr">IPV6_ADDR_GEN_MODE</span>=stable-privacy<span class="hljs-attr">NAME</span>=ens32<span class="hljs-attr">UUID</span>=<span class="hljs-number">066</span>b4926-b40c-<span class="hljs-number">4</span>c28-a5b4-<span class="hljs-number">2310</span>d2b96613<span class="hljs-attr">DEVICE</span>=ens32<span class="hljs-attr">ONBOOT</span>=<span class="hljs-literal">yes</span><span class="hljs-attr">IPADDR</span>=<span class="hljs-number">192.168</span>.<span class="hljs-number">1.200</span><span class="hljs-attr">NETMASK</span>=<span class="hljs-number">255.255</span>.<span class="hljs-number">255.0</span><span class="hljs-attr">GATEWAY</span>=<span class="hljs-number">192.168</span>.<span class="hljs-number">1.254</span><span class="hljs-attr">DNS1</span>=<span class="hljs-number">223.5</span>.<span class="hljs-number">5.5</span><span class="hljs-attr">PREFIX</span>=<span class="hljs-number">24</span></code></pre><ol start="2"><li>nmcli c reload</li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>Linux</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Linux,Ubuntu18，centos</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Centos8修改密码</title>
     <link href="/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/"/>
     <url>/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</url>
@@ -273,23 +248,23 @@
   
   
   <entry>
-    <title>The Chrome Extensions I&#39;d like to use</title>
-    <link href="/2020/10/10/Daily/Chrome%20Extensions/"/>
-    <url>/2020/10/10/Daily/Chrome%20Extensions/</url>
+    <title>Linux配置静态IP</title>
+    <link href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/"/>
+    <url>/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/</url>
     
-    <content type="html"><![CDATA[<h3 id="DARK-READER"><a href="#DARK-READER" class="headerlink" title="DARK READER"></a>DARK READER</h3><!--切换背景--><h3 id="Wappalyzer"><a href="#Wappalyzer" class="headerlink" title="Wappalyzer"></a>Wappalyzer</h3><!--用于探测网站版本，结果可能不准确--><h3 id="Proxy-SwitchyOmega"><a href="#Proxy-SwitchyOmega" class="headerlink" title="Proxy SwitchyOmega"></a>Proxy SwitchyOmega</h3><!--代理切换软件-->]]></content>
+    <content type="html"><![CDATA[<h1 id="Ubuntu18配置静态IP"><a href="#Ubuntu18配置静态IP" class="headerlink" title="Ubuntu18配置静态IP"></a>Ubuntu18配置静态IP</h1><ol><li>切换为root用户执行（具体配置文件用tab自动补全）</li></ol><pre><code class="hljs shell">vi /etc/netplan/00***.yml</code></pre><ol start="2"><li>编辑配置文件内容如下所示，addresses处填入所要设置ip地址，dhcp4 no代表不适用dhcp协议获取ip，gateway代表网关地址。nameservers代表DNS域名解析服务器</li></ol><pre><code class="hljs shell">network:  ethernets:    ens3:      addresses:      - 192.168.1.10/24      dhcp4: no      gateway4: 192.168.1.1      nameservers:          addresses: [&#x27;114.114.114.114&#x27;]  version: 2</code></pre><ol start="3"><li>执行以下命令是配置生效</li></ol><pre><code class="hljs shell">netplan apply</code></pre><ol start="4"><li>使用ifconfig查看配置是否成功</li></ol><h1 id="Centos8配置静态IP"><a href="#Centos8配置静态IP" class="headerlink" title="Centos8配置静态IP"></a>Centos8配置静态IP</h1><ol><li>vi /etc/sysconfig/network-scripts/ifcfg-ens32</li></ol><pre><code class="hljs ini"><span class="hljs-attr">TYPE</span>=Ethernet<span class="hljs-attr">PROXY_METHOD</span>=none<span class="hljs-attr">BROWSER_ONLY</span>=<span class="hljs-literal">no</span><span class="hljs-attr">BOOTPROTO</span>=static<span class="hljs-attr">DEFROUTE</span>=<span class="hljs-literal">yes</span><span class="hljs-attr">IPV4_FAILURE_FATAL</span>=<span class="hljs-literal">no</span><span class="hljs-attr">IPV6INIT</span>=<span class="hljs-literal">yes</span><span class="hljs-attr">IPV6_AUTOCONF</span>=<span class="hljs-literal">yes</span><span class="hljs-attr">IPV6_DEFROUTE</span>=<span class="hljs-literal">yes</span><span class="hljs-attr">IPV6_FAILURE_FATAL</span>=<span class="hljs-literal">no</span><span class="hljs-attr">IPV6_ADDR_GEN_MODE</span>=stable-privacy<span class="hljs-attr">NAME</span>=ens32<span class="hljs-attr">UUID</span>=<span class="hljs-number">066</span>b4926-b40c-<span class="hljs-number">4</span>c28-a5b4-<span class="hljs-number">2310</span>d2b96613<span class="hljs-attr">DEVICE</span>=ens32<span class="hljs-attr">ONBOOT</span>=<span class="hljs-literal">yes</span><span class="hljs-attr">IPADDR</span>=<span class="hljs-number">192.168</span>.<span class="hljs-number">1.200</span><span class="hljs-attr">NETMASK</span>=<span class="hljs-number">255.255</span>.<span class="hljs-number">255.0</span><span class="hljs-attr">GATEWAY</span>=<span class="hljs-number">192.168</span>.<span class="hljs-number">1.254</span><span class="hljs-attr">DNS1</span>=<span class="hljs-number">223.5</span>.<span class="hljs-number">5.5</span><span class="hljs-attr">PREFIX</span>=<span class="hljs-number">24</span></code></pre><ol start="2"><li>nmcli c reload</li></ol>]]></content>
     
     
     <categories>
       
-      <category>Daily</category>
+      <category>Linux</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Chrome Extensions</tag>
+      <tag>Linux,Ubuntu18，centos</tag>
       
     </tags>
     
@@ -327,25 +302,23 @@
   
   
   <entry>
-    <title>Pentest Jottings</title>
-    <link href="/2020/10/10/Jottings/Pentest%20Jottings/"/>
-    <url>/2020/10/10/Jottings/Pentest%20Jottings/</url>
+    <title>The Chrome Extensions I&#39;d like to use</title>
+    <link href="/2020/10/10/Daily/Chrome%20Extensions/"/>
+    <url>/2020/10/10/Daily/Chrome%20Extensions/</url>
     
-    <content type="html"><![CDATA[<h3 id="渗透随想"><a href="#渗透随想" class="headerlink" title="渗透随想"></a>渗透随想</h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="DARK-READER"><a href="#DARK-READER" class="headerlink" title="DARK READER"></a>DARK READER</h3><!--切换背景--><h3 id="Wappalyzer"><a href="#Wappalyzer" class="headerlink" title="Wappalyzer"></a>Wappalyzer</h3><!--用于探测网站版本，结果可能不准确--><h3 id="Proxy-SwitchyOmega"><a href="#Proxy-SwitchyOmega" class="headerlink" title="Proxy SwitchyOmega"></a>Proxy SwitchyOmega</h3><!--代理切换软件-->]]></content>
     
     
     <categories>
       
-      <category>Jottings</category>
+      <category>Daily</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Web Pentest</tag>
-      
-      <tag>Network Security</tag>
+      <tag>Chrome Extensions</tag>
       
     </tags>
     
@@ -404,6 +377,33 @@
       <tag>ubuntu18.04</tag>
       
       <tag>KVM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Pentest Jottings</title>
+    <link href="/2020/10/10/Jottings/Pentest%20Jottings/"/>
+    <url>/2020/10/10/Jottings/Pentest%20Jottings/</url>
+    
+    <content type="html"><![CDATA[<h3 id="渗透随想"><a href="#渗透随想" class="headerlink" title="渗透随想"></a>渗透随想</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>Jottings</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Web Pentest</tag>
+      
+      <tag>Network Security</tag>
       
     </tags>
     
