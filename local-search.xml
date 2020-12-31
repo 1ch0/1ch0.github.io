@@ -273,6 +273,31 @@
   
   
   <entry>
+    <title>The Chrome Extensions I&#39;d like to use</title>
+    <link href="/2020/10/10/Daily/Chrome%20Extensions/"/>
+    <url>/2020/10/10/Daily/Chrome%20Extensions/</url>
+    
+    <content type="html"><![CDATA[<h3 id="DARK-READER"><a href="#DARK-READER" class="headerlink" title="DARK READER"></a>DARK READER</h3><!--切换背景--><h3 id="Wappalyzer"><a href="#Wappalyzer" class="headerlink" title="Wappalyzer"></a>Wappalyzer</h3><!--用于探测网站版本，结果可能不准确--><h3 id="Proxy-SwitchyOmega"><a href="#Proxy-SwitchyOmega" class="headerlink" title="Proxy SwitchyOmega"></a>Proxy SwitchyOmega</h3><!--代理切换软件-->]]></content>
+    
+    
+    <categories>
+      
+      <category>Daily</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Chrome Extensions</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Nmap使用</title>
     <link href="/2020/10/10/Hack/Nmap%E4%BD%BF%E7%94%A8/"/>
     <url>/2020/10/10/Hack/Nmap%E4%BD%BF%E7%94%A8/</url>
@@ -294,31 +319,6 @@
       <tag>信息搜集</tag>
       
       <tag>端口探测</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>The Chrome Extensions I&#39;d like to use</title>
-    <link href="/2020/10/10/Daily/Chrome%20Extensions/"/>
-    <url>/2020/10/10/Daily/Chrome%20Extensions/</url>
-    
-    <content type="html"><![CDATA[<h3 id="DARK-READER"><a href="#DARK-READER" class="headerlink" title="DARK READER"></a>DARK READER</h3><!--切换背景--><h3 id="Wappalyzer"><a href="#Wappalyzer" class="headerlink" title="Wappalyzer"></a>Wappalyzer</h3><!--用于探测网站版本，结果可能不准确--><h3 id="Proxy-SwitchyOmega"><a href="#Proxy-SwitchyOmega" class="headerlink" title="Proxy SwitchyOmega"></a>Proxy SwitchyOmega</h3><!--代理切换软件-->]]></content>
-    
-    
-    <categories>
-      
-      <category>Daily</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Chrome Extensions</tag>
       
     </tags>
     
@@ -412,31 +412,6 @@
   
   
   <entry>
-    <title>Linux命令</title>
-    <link href="/2020/07/07/Linux/Linux%E5%91%BD%E4%BB%A4/"/>
-    <url>/2020/07/07/Linux/Linux%E5%91%BD%E4%BB%A4/</url>
-    
-    <content type="html"><![CDATA[<pre><code class="hljs awk">cat <span class="hljs-regexp">/etc/</span>redhat-release</code></pre><pre><code class="hljs awk">cat <span class="hljs-regexp">/etc/i</span>ssue</code></pre><h1 id="Linux查看系统版本"><a href="#Linux查看系统版本" class="headerlink" title="Linux查看系统版本"></a>Linux查看系统版本</h1><p>命令: </p><pre><code class="hljs ebnf"><span class="hljs-attribute">uname</span></code></pre><p>英文全称: unix name</p><p>内核名称:<br># </p><pre><code class="hljs ebnf"><span class="hljs-attribute">uname -s</span></code></pre><p>Linux</p><p>主机名:<br># </p><pre><code class="hljs ebnf"><span class="hljs-attribute">uname -n</span></code></pre><p>iZwz7c7Z</p><p>内核发行版(不同的内核打包版本) </p><pre><code class="hljs ebnf"><span class="hljs-attribute">uname -r</span></code></pre><p>2.6.32-573.22.1.el6.x86_64</p><p>内核版本信息(该内核建立的时间和CPU架构)<br># </p><pre><code class="hljs ebnf"><span class="hljs-attribute">uname -v</span></code></pre><p>#1 SMP Wed Mar 23 03:35:39 UTC 2016</p><p>CPU位数<br># </p><pre><code class="hljs ebnf"><span class="hljs-attribute">uname -m</span></code></pre><p>x86_64</p><p>全部(all)<br># </p><pre><code class="hljs ebnf"><span class="hljs-attribute">uname -a</span></code></pre><h1 id="scp拷贝文件"><a href="#scp拷贝文件" class="headerlink" title="scp拷贝文件"></a>scp拷贝文件</h1><pre><code class="hljs bash">scp file user@ip folder</code></pre>]]></content>
-    
-    
-    <categories>
-      
-      <category>Linux</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Linux</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>pip升级问题</title>
     <link href="/2020/07/07/Python/pip%E5%8D%87%E7%BA%A7%E9%97%AE%E9%A2%98/"/>
     <url>/2020/07/07/Python/pip%E5%8D%87%E7%BA%A7%E9%97%AE%E9%A2%98/</url>
@@ -454,6 +429,31 @@
     <tags>
       
       <tag>python,pip</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux命令</title>
+    <link href="/2020/07/07/Linux/Linux%E5%91%BD%E4%BB%A4/"/>
+    <url>/2020/07/07/Linux/Linux%E5%91%BD%E4%BB%A4/</url>
+    
+    <content type="html"><![CDATA[<pre><code class="hljs awk">cat <span class="hljs-regexp">/etc/</span>redhat-release</code></pre><pre><code class="hljs awk">cat <span class="hljs-regexp">/etc/i</span>ssue</code></pre><h1 id="Linux查看系统版本"><a href="#Linux查看系统版本" class="headerlink" title="Linux查看系统版本"></a>Linux查看系统版本</h1><p>命令: </p><pre><code class="hljs ebnf"><span class="hljs-attribute">uname</span></code></pre><p>英文全称: unix name</p><p>内核名称:<br># </p><pre><code class="hljs ebnf"><span class="hljs-attribute">uname -s</span></code></pre><p>Linux</p><p>主机名:<br># </p><pre><code class="hljs ebnf"><span class="hljs-attribute">uname -n</span></code></pre><p>iZwz7c7Z</p><p>内核发行版(不同的内核打包版本) </p><pre><code class="hljs ebnf"><span class="hljs-attribute">uname -r</span></code></pre><p>2.6.32-573.22.1.el6.x86_64</p><p>内核版本信息(该内核建立的时间和CPU架构)<br># </p><pre><code class="hljs ebnf"><span class="hljs-attribute">uname -v</span></code></pre><p>#1 SMP Wed Mar 23 03:35:39 UTC 2016</p><p>CPU位数<br># </p><pre><code class="hljs ebnf"><span class="hljs-attribute">uname -m</span></code></pre><p>x86_64</p><p>全部(all)<br># </p><pre><code class="hljs ebnf"><span class="hljs-attribute">uname -a</span></code></pre><h1 id="scp拷贝文件"><a href="#scp拷贝文件" class="headerlink" title="scp拷贝文件"></a>scp拷贝文件</h1><pre><code class="hljs bash">scp file user@ip folder</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
       
     </tags>
     
