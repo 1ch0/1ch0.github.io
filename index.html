@@ -670,23 +670,26 @@ func main() &#123;
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/">Centos8修改密码</a>
+        <a href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/">Linux配置静态IP</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/">
+        <a href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/">
           
           
             
           
-          1. 重启linux系统按e2. 开头为linux($root)那行末尾加 rd.break3. mount | grep sysroot4. mount -o remount,rw /sysroot/mount | grep sysroot
+          Ubuntu18配置静态IP
+切换为root用户执行（具体配置文件用tab自动补全）
+
+vi /etc/netplan/00***.yml
 
 
+编辑配置文件内容如下所示，addresses处填入所要设置ip地址，dhcp4 no代表不适用dhcp协议获取ip，gateway代表网关地址。nameservers代表DNS域名解析服务器
 
-5. 切换系统的根目录位置为chroot /sysroot
-
-6. 输入passwd修改密码注意：新密码需符合centos8密码复杂度要求
-7. to
+network:
+  ethernets:
+    ens3:
         </a>
       </p>
 
@@ -711,7 +714,7 @@ func main() &#123;
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Linux-Centos8/">Linux,Centos8</a>
+              <a href="/tags/Linux-Ubuntu18%EF%BC%8Ccentos/">Linux,Ubuntu18，centos</a>
             
           </div>
         
@@ -826,7 +829,7 @@ func main() &#123;
         "路漫漫其修远兮 吾将上下而求索&nbsp;",
       ],
       cursorChar: ".",
-      typeSpeed: 200,
+      typeSpeed: 150,
       loop: false,
     });
     typed.stop();
