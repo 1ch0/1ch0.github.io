@@ -241,8 +241,7 @@
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="kvm安装虚拟机"><a href="#kvm安装虚拟机" class="headerlink" title="kvm安装虚拟机"></a>kvm安装虚拟机</h1><p>[TOC]</p>
-<h3 id="1-上传iso文件"><a href="#1-上传iso文件" class="headerlink" title="1. 上传iso文件"></a>1. 上传iso文件</h3><p>建议所有镜像文件统一存放。</p>
+              <h1 id="kvm安装虚拟机"><a href="#kvm安装虚拟机" class="headerlink" title="kvm安装虚拟机"></a>kvm安装虚拟机</h1><h3 id="1-上传iso文件"><a href="#1-上传iso文件" class="headerlink" title="1. 上传iso文件"></a>1. 上传iso文件</h3><p>建议所有镜像文件统一存放。</p>
 <h3 id="2-kvm启动虚拟机安装"><a href="#2-kvm启动虚拟机安装" class="headerlink" title="2.kvm启动虚拟机安装"></a>2.kvm启动虚拟机安装</h3><p>linux安装示例：</p>
 <pre><code class="hljs bash">virt-install --connect  qemu:///system --virt-type kvm --name Centos8 --ram=4096  --disk path=/data/b/KVM/images/xxx.img,size=20,sparse --os-type=linux --accelerate -c /data/b/KVM/CentOS-8.2.iso  --network bridge=virbr0,model=virtio --vnc  --vncport=6991 --vnclisten=0.0.0.0 --force</code></pre>
 <p>windows安装示例：</p>
