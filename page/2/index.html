@@ -179,6 +179,64 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/">Linux配置静态IP</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/">
+          
+          
+            
+          
+          Ubuntu18配置静态IP
+切换为root用户执行（具体配置文件用tab自动补全）
+
+vi /etc/netplan/00***.yml
+
+
+编辑配置文件内容如下所示，addresses处填入所要设置ip地址，dhcp4 no代表不适用dhcp协议获取ip，gateway代表网关地址。nameservers代表DNS域名解析服务器
+
+network:
+  ethernets:
+    ens3:
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-23 09:00" pubdate>
+              2020-10-23
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux-Ubuntu18%EF%BC%8Ccentos/">Linux,Ubuntu18，centos</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/">Centos8修改密码</a>
       </h1>
 
@@ -221,162 +279,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/Linux-Centos8/">Linux,Centos8</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/10/10/Hack/Nmap%E4%BD%BF%E7%94%A8/">Nmap使用</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/10/Hack/Nmap%E4%BD%BF%E7%94%A8/">
-          
-          
-            
-          
-          无ping扫描-disable-arp-ping
-
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-10 10:00" pubdate>
-              2020-10-10
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Hack/">Hack</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Web-Pentest/">Web Pentest</a>
-            
-              <a href="/tags/%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/">信息搜集</a>
-            
-              <a href="/tags/%E7%AB%AF%E5%8F%A3%E6%8E%A2%E6%B5%8B/">端口探测</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/10/10/Daily/Chrome%20Extensions/">The Chrome Extensions I&#39;d like to use</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/10/Daily/Chrome%20Extensions/">
-          
-          
-            
-          
-          DARK READER
-
-Wappalyzer
-
-Proxy SwitchyOmega
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-10 10:00" pubdate>
-              2020-10-10
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Daily/">Daily</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Chrome-Extensions/">Chrome Extensions</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/10/10/Jottings/Pentest%20Jottings/">Pentest Jottings</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/10/Jottings/Pentest%20Jottings/">
-          
-          
-            
-          
-          渗透随想
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-10 10:00" pubdate>
-              2020-10-10
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Jottings/">Jottings</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Web-Pentest/">Web Pentest</a>
-            
-              <a href="/tags/Network-Security/">Network Security</a>
             
           </div>
         
@@ -460,16 +362,16 @@ hyd
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/10/Linux/kvm%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA/">kvm安装虚拟机</a>
+        <a href="/2020/10/10/Jottings/Pentest%20Jottings/">Pentest Jottings</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/10/10/Linux/kvm%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+        <a href="/2020/10/10/Jottings/Pentest%20Jottings/">
           
           
             
           
-          virt-install安装虚拟机virt-install --connect  qemu:///system --virt-type kvm --name Centos8 --ram=4096  --disk path=/data/b/KVM/images/xxx.img,size=20,sparse --os-type=linux --accelerate -c /data/b/KVM/Cen
+          渗透随想
         </a>
       </p>
 
@@ -486,7 +388,7 @@ hyd
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Linux/">Linux</a>
+              <a href="/categories/Jottings/">Jottings</a>
             
           </div>
         
@@ -494,11 +396,9 @@ hyd
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Linux/">Linux</a>
+              <a href="/tags/Network-Security/">Network Security</a>
             
-              <a href="/tags/ubuntu18-04/">ubuntu18.04</a>
-            
-              <a href="/tags/KVM/">KVM</a>
+              <a href="/tags/Web-Pentest/">Web Pentest</a>
             
           </div>
         
@@ -512,17 +412,68 @@ hyd
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/07/07/Python/pip%E5%8D%87%E7%BA%A7%E9%97%AE%E9%A2%98/">pip升级问题</a>
+        <a href="/2020/10/10/Daily/Chrome%20Extensions/">The Chrome Extensions I&#39;d like to use</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/07/07/Python/pip%E5%8D%87%E7%BA%A7%E9%97%AE%E9%A2%98/">
+        <a href="/2020/10/10/Daily/Chrome%20Extensions/">
           
           
             
           
-          pip升级出错使用国内源升级
-python -m pip install --upgrade pip -i https://pypi.douban.com/simple
+          DARK READER
+
+Wappalyzer
+
+Proxy SwitchyOmega
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-10 10:00" pubdate>
+              2020-10-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Daily/">Daily</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Chrome-Extensions/">Chrome Extensions</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/10/10/Hack/Nmap%E4%BD%BF%E7%94%A8/">Nmap使用</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/10/Hack/Nmap%E4%BD%BF%E7%94%A8/">
+          
+          
+            
+          
+          无ping扫描-disable-arp-ping
 
 
         </a>
@@ -532,8 +483,8 @@ python -m pip install --upgrade pip -i https://pypi.douban.com/simple
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-07-07 10:00" pubdate>
-              2020-07-07
+            <time datetime="2020-10-10 10:00" pubdate>
+              2020-10-10
             </time>
           </div>
         
@@ -541,7 +492,7 @@ python -m pip install --upgrade pip -i https://pypi.douban.com/simple
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/python/">python</a>
+              <a href="/categories/Hack/">Hack</a>
             
           </div>
         
@@ -549,7 +500,11 @@ python -m pip install --upgrade pip -i https://pypi.douban.com/simple
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/python-pip/">python,pip</a>
+              <a href="/tags/Web-Pentest/">Web Pentest</a>
+            
+              <a href="/tags/%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/">信息搜集</a>
+            
+              <a href="/tags/%E7%AB%AF%E5%8F%A3%E6%8E%A2%E6%B5%8B/">端口探测</a>
             
           </div>
         
@@ -618,6 +573,57 @@ uname -r
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/Linux/">Linux</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/07/07/Python/pip%E5%8D%87%E7%BA%A7%E9%97%AE%E9%A2%98/">pip升级问题</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/07/07/Python/pip%E5%8D%87%E7%BA%A7%E9%97%AE%E9%A2%98/">
+          
+          
+            
+          
+          pip升级出错使用国内源升级
+python -m pip install --upgrade pip -i https://pypi.douban.com/simple
+
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-07-07 10:00" pubdate>
+              2020-07-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/python/">python</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/python-pip/">python,pip</a>
             
           </div>
         

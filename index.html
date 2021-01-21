@@ -179,6 +179,57 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/01/21/Linux/kvm%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA/">kvm安装虚拟机</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/01/21/Linux/kvm%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+          
+          
+            
+          
+          `kvm安装虚拟机[TOC]
+1. 上传iso文件目前218.30.123.133服务器iso目录为/home/iso/，建议所有镜像文件都存放于此。
+2.kvm启动虚拟机安装linux安装示例：
+virt-install --connect  qemu:///system --virt-type kvm --name Centos8 --ram=4096  --disk path=/data/b
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-01-21 10:00" pubdate>
+              2021-01-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/KVM/">KVM</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/11/24/Golang/The%20Go%20Programming%20Language%EF%BC%8810-13%EF%BC%89/">The Go Programming Language（10-13）</a>
       </h1>
 
@@ -657,64 +708,6 @@ func main() &#123;
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/questions/">questions</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/">Linux配置静态IP</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/">
-          
-          
-            
-          
-          Ubuntu18配置静态IP
-切换为root用户执行（具体配置文件用tab自动补全）
-
-vi /etc/netplan/00***.yml
-
-
-编辑配置文件内容如下所示，addresses处填入所要设置ip地址，dhcp4 no代表不适用dhcp协议获取ip，gateway代表网关地址。nameservers代表DNS域名解析服务器
-
-network:
-  ethernets:
-    ens3:
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-23 09:00" pubdate>
-              2020-10-23
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Linux/">Linux</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Linux-Ubuntu18%EF%BC%8Ccentos/">Linux,Ubuntu18，centos</a>
             
           </div>
         
