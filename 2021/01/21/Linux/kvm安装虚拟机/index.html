@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.2k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17
+      16
        分钟
     </span>
   
@@ -242,7 +242,7 @@
             
             <div class="markdown-body" id="post-body">
               <h1 id="kvm安装虚拟机"><a href="#kvm安装虚拟机" class="headerlink" title="`kvm安装虚拟机"></a>`kvm安装虚拟机</h1><p>[TOC]</p>
-<h3 id="1-上传iso文件"><a href="#1-上传iso文件" class="headerlink" title="1. 上传iso文件"></a>1. 上传iso文件</h3><p>目前218.30.123.133服务器iso目录为/home/iso/，建议所有镜像文件都存放于此。</p>
+<h3 id="1-上传iso文件"><a href="#1-上传iso文件" class="headerlink" title="1. 上传iso文件"></a>1. 上传iso文件</h3><p>建议所有镜像文件统一存放。</p>
 <h3 id="2-kvm启动虚拟机安装"><a href="#2-kvm启动虚拟机安装" class="headerlink" title="2.kvm启动虚拟机安装"></a>2.kvm启动虚拟机安装</h3><p>linux安装示例：</p>
 <pre><code class="hljs bash">virt-install --connect  qemu:///system --virt-type kvm --name Centos8 --ram=4096  --disk path=/data/b/KVM/images/xxx.img,size=20,sparse --os-type=linux --accelerate -c /data/b/KVM/CentOS-8.2.iso  --network bridge=virbr0,model=virtio --vnc  --vncport=6991 --vnclisten=0.0.0.0 --force</code></pre>
 <p>windows安装示例：</p>
@@ -271,7 +271,7 @@ virt-install --name w16 --ram 32768 --vcpus 4 --os-type windows --os-variant win
 </tr>
 <tr>
 <td>–disk</td>
-<td>虚拟机磁盘（磁盘位置，大小（G））（目前218.30.123.133服务器磁盘目录为/home/kvm/images/）</td>
+<td>虚拟机磁盘（磁盘位置，大小（G））</td>
 </tr>
 <tr>
 <td>–os-type</td>
@@ -359,8 +359,8 @@ virt-install --name w16 --ram 32768 --vcpus 4 --os-type windows --os-variant win
 <h3 id="5-虚拟机端口转发"><a href="#5-虚拟机端口转发" class="headerlink" title="5.虚拟机端口转发"></a>5.虚拟机端口转发</h3><blockquote>
 <p> 虚拟机能访问公网，操作系统安装基本结束。后续需要关闭安装系统时开放的vnc端口然后就是做虚拟机的端口转发。</p>
 </blockquote>
-<p>目前218.30.123.133服务器使用HAProxy做端口转发配置</p>
-<p>端口转发配置文件为218.30.123.133服务器上/etc/haproxy/haproxy.cfg</p>
+<p>以下使用HAProxy做端口转发配置</p>
+<p>端口转发配置文件服务器上/etc/haproxy/haproxy.cfg</p>
 <p>启动方式</p>
 <pre><code class="hljs bash">haproxy -f /etc/haproxy/haproxy.cfg</code></pre>
 
@@ -408,7 +408,7 @@ backend tcpunstable_33892
 
 <p>保存配置退出，重启虚拟机即可</p>
 <h5 id="直接修改xml文件，重新定义虚拟机"><a href="#直接修改xml文件，重新定义虚拟机" class="headerlink" title="直接修改xml文件，重新定义虚拟机"></a>直接修改xml文件，重新定义虚拟机</h5><p>修改虚拟机生成后的xml配置文件，</p>
-<p>目前218.30.123.133服务器虚拟机配置文件在/etc/libvirt/qemu/下</p>
+<p>默认服务器虚拟机配置文件在/etc/libvirt/qemu/下</p>
 <ol>
 <li>vim修改xml文件，如<code>vi /etc/libvirt/qemu/ubuntu2.xml</code>按照上述方式修改vnc配置，保存退出</li>
 <li>先取消定义刚刚安装的虚拟机，<code>virsh undefine 虚拟机名称</code></li>
