@@ -241,8 +241,8 @@
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="kvm安装虚拟机"><a href="#kvm安装虚拟机" class="headerlink" title="kvm安装虚拟机"></a>kvm安装虚拟机</h1><h3 id="1-上传iso文件"><a href="#1-上传iso文件" class="headerlink" title="1. 上传iso文件"></a>1. 上传iso文件</h3><p>建议所有镜像文件统一存放。</p>
-<h3 id="2-kvm启动虚拟机安装"><a href="#2-kvm启动虚拟机安装" class="headerlink" title="2.kvm启动虚拟机安装"></a>2.kvm启动虚拟机安装</h3><p>linux安装示例：</p>
+              <h1 id="kvm安装虚拟机"><a href="#kvm安装虚拟机" class="headerlink" title="kvm安装虚拟机"></a>kvm安装虚拟机</h1><h2 id="1-上传iso文件"><a href="#1-上传iso文件" class="headerlink" title="1. 上传iso文件"></a>1. 上传iso文件</h2><p>建议所有镜像文件统一存放。</p>
+<h2 id="2-kvm启动虚拟机安装"><a href="#2-kvm启动虚拟机安装" class="headerlink" title="2.kvm启动虚拟机安装"></a>2.kvm启动虚拟机安装</h2><p>linux安装示例：</p>
 <pre><code class="hljs bash">virt-install --connect  qemu:///system --virt-type kvm --name Centos8 --ram=4096  --disk path=/data/b/KVM/images/xxx.img,size=20,sparse --os-type=linux --accelerate -c /data/b/KVM/CentOS-8.2.iso  --network bridge=virbr0,model=virtio --vnc  --vncport=6991 --vnclisten=0.0.0.0 --force</code></pre>
 <p>windows安装示例：</p>
 <pre><code class="hljs bash">
@@ -297,8 +297,8 @@ virt-install --name w16 --ram 32768 --vcpus 4 --os-type windows --os-variant win
 <td>设置vnc ip(设置为0.0.0.0)，设置vnc连接密码（可选）</td>
 </tr>
 </tbody></table>
-<h3 id="3-vnc安装操作系统"><a href="#3-vnc安装操作系统" class="headerlink" title="3. vnc安装操作系统"></a>3. vnc安装操作系统</h3><p>使用vnc连接客户端进行安装</p>
-<h3 id="4-用vnc配置静态IP"><a href="#4-用vnc配置静态IP" class="headerlink" title="4.用vnc配置静态IP"></a>4.用vnc配置静态IP</h3><p><strong>注意：具体ip参数由实际情况决定</strong></p>
+<h2 id="3-vnc安装操作系统"><a href="#3-vnc安装操作系统" class="headerlink" title="3. vnc安装操作系统"></a>3. vnc安装操作系统</h2><p>使用vnc连接客户端进行安装</p>
+<h2 id="4-用vnc配置静态IP"><a href="#4-用vnc配置静态IP" class="headerlink" title="4.用vnc配置静态IP"></a>4.用vnc配置静态IP</h2><p><strong>注意：具体ip参数由实际情况决定</strong></p>
 <h5 id="Ubuntu18配置静态IP"><a href="#Ubuntu18配置静态IP" class="headerlink" title="Ubuntu18配置静态IP"></a>Ubuntu18配置静态IP</h5><ol>
 <li>切换为root用户执行（具体配置文件用tab自动补全）</li>
 </ol>
@@ -355,7 +355,7 @@ virt-install --name w16 --ram 32768 --vcpus 4 --os-type windows --os-variant win
 <li>ifconfig ens32查看配置是否生效</li>
 <li>ping宿主机地址，ping 公网地址，查看是否能访问公网</li>
 </ol>
-<h3 id="5-虚拟机端口转发"><a href="#5-虚拟机端口转发" class="headerlink" title="5.虚拟机端口转发"></a>5.虚拟机端口转发</h3><blockquote>
+<h2 id="5-虚拟机端口转发"><a href="#5-虚拟机端口转发" class="headerlink" title="5.虚拟机端口转发"></a>5.虚拟机端口转发</h2><blockquote>
 <p> 虚拟机能访问公网，操作系统安装基本结束。后续需要关闭安装系统时开放的vnc端口然后就是做虚拟机的端口转发。</p>
 </blockquote>
 <p>以下使用HAProxy做端口转发配置</p>
@@ -396,7 +396,7 @@ backend tcpunstable_33892
    <span class="hljs-built_in"> server </span>proxy00 192.168.122.81:3389 maxconn 1000
 </code></pre>
 
-<h3 id="6-关闭VNC连接"><a href="#6-关闭VNC连接" class="headerlink" title="6.关闭VNC连接"></a>6.关闭VNC连接</h3><p>出于安全角度，建议虚拟机安装配置完成后建议将VNC关闭</p>
+<h2 id="6-关闭VNC连接"><a href="#6-关闭VNC连接" class="headerlink" title="6.关闭VNC连接"></a>6.关闭VNC连接</h2><p>出于安全角度，建议虚拟机安装配置完成后建议将VNC关闭</p>
 <p>关闭VNC连接需要先关闭虚拟机 <code>virsh shutdown 虚拟机名称（--name参数定义的）</code>后修改虚拟机配置，配置文件为成功安装虚拟机后生成的文件，具体为该虚拟机各项参数详细信息。</p>
 <p>下面介绍两种修改方式：</p>
 <h5 id="virsh-edit"><a href="#virsh-edit" class="headerlink" title="virsh edit"></a>virsh edit</h5><p>virsh edit 虚拟机名称</p>
@@ -414,7 +414,7 @@ backend tcpunstable_33892
 <li>定义新的虚拟机，如<code>virsh define /etc/libvirt/qemu/ubuntu2.xml</code></li>
 <li>启动该虚拟机，<code>virsh start ubuntu2</code></li>
 </ol>
-<h3 id="7-virsh-常用命令"><a href="#7-virsh-常用命令" class="headerlink" title="7. virsh 常用命令"></a>7. virsh 常用命令</h3><p>下面简单介绍几条virsh常用命令：</p>
+<h2 id="7-virsh-常用命令"><a href="#7-virsh-常用命令" class="headerlink" title="7. virsh 常用命令"></a>7. virsh 常用命令</h2><p>下面简单介绍几条virsh常用命令：</p>
 <h5 id="查看虚拟机状态"><a href="#查看虚拟机状态" class="headerlink" title="查看虚拟机状态"></a>查看虚拟机状态</h5><p><code>virsh list --all</code></p>
 <h5 id="启动虚拟机"><a href="#启动虚拟机" class="headerlink" title="启动虚拟机"></a>启动虚拟机</h5><p><code>virsh start name</code></p>
 <h5 id="关闭虚拟机"><a href="#关闭虚拟机" class="headerlink" title="关闭虚拟机"></a>关闭虚拟机</h5><p><code>virsh shutdown name</code></p>
