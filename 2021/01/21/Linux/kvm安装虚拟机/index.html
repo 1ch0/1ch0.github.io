@@ -236,7 +236,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：25 分钟前
+                  本文最后更新于：几秒前
                 
               </p>
             
@@ -327,7 +327,7 @@ virt-install --name w16 --ram 32768 --vcpus 4 --os-type windows --os-variant win
 <li>ping宿主机地址，ping 公网地址，查看是否能访问公网</li>
 </ol>
 <h5 id="Centos8配置静态IP"><a href="#Centos8配置静态IP" class="headerlink" title="Centos8配置静态IP"></a>Centos8配置静态IP</h5><ol>
-<li>vi /etc/sysconfig/network-scripts/ifcfg-ens32</li>
+<li><code>vi /etc/sysconfig/network-scripts/ifcfg-ens32</code></li>
 </ol>
 <pre><code class="hljs ini"><span class="hljs-attr">TYPE</span>=Ethernet
 <span class="hljs-attr">PROXY_METHOD</span>=none
@@ -351,8 +351,8 @@ virt-install --name w16 --ram 32768 --vcpus 4 --os-type windows --os-variant win
 <span class="hljs-attr">PREFIX</span>=<span class="hljs-number">24</span></code></pre>
 
 <ol start="2">
-<li>nmcli c reload</li>
-<li>ifconfig ens32查看配置是否生效</li>
+<li>使网络配置生效<code>nmcli c reload</code></li>
+<li>查看配置是否生效<code>ifconfig ens32</code></li>
 <li>ping宿主机地址，ping 公网地址，查看是否能访问公网</li>
 </ol>
 <h2 id="5-虚拟机端口转发"><a href="#5-虚拟机端口转发" class="headerlink" title="5.虚拟机端口转发"></a>5.虚拟机端口转发</h2><blockquote>
