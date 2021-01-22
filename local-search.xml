@@ -248,31 +248,6 @@
   
   
   <entry>
-    <title>Centos8修改密码</title>
-    <link href="/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/"/>
-    <url>/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</url>
-    
-    <content type="html"><![CDATA[<h3 id="1-重启linux系统按e"><a href="#1-重启linux系统按e" class="headerlink" title="1. 重启linux系统按e"></a>1. 重启linux系统按e</h3><h3 id="2-开头为linux-root-那行末尾加-rd-break"><a href="#2-开头为linux-root-那行末尾加-rd-break" class="headerlink" title="2. 开头为linux($root)那行末尾加 rd.break"></a>2. 开头为linux($root)那行末尾加 rd.break</h3><h3 id="3-mount-grep-sysroot"><a href="#3-mount-grep-sysroot" class="headerlink" title="3. mount | grep sysroot"></a>3. mount | grep sysroot</h3><h3 id="4-mount-o-remount-rw-sysroot"><a href="#4-mount-o-remount-rw-sysroot" class="headerlink" title="4. mount -o remount,rw /sysroot/"></a>4. mount -o remount,rw /sysroot/</h3><pre><code class="hljs shell">mount | grep sysroot</code></pre><h3 id="5-切换系统的根目录位置为"><a href="#5-切换系统的根目录位置为" class="headerlink" title="5. 切换系统的根目录位置为"></a>5. 切换系统的根目录位置为</h3><pre><code class="hljs shell">chroot /sysroot</code></pre><h3 id="6-输入passwd修改密码"><a href="#6-输入passwd修改密码" class="headerlink" title="6. 输入passwd修改密码"></a>6. 输入passwd修改密码</h3><p>注意：新密码需符合centos8密码复杂度要求</p><h3 id="7-touch-autorelabel"><a href="#7-touch-autorelabel" class="headerlink" title="7. touch /.autorelabel"></a>7. touch /.autorelabel</h3><p>执行下面的命令让文件系统强制重新relabeling</p><h3 id="8-exit"><a href="#8-exit" class="headerlink" title="8. exit"></a>8. exit</h3><h3 id="9-logout"><a href="#9-logout" class="headerlink" title="9. logout"></a>9. logout</h3><p>[参照]<a href="https://linuxconfig.org/redhat-8-recover-root-password">https://linuxconfig.org/redhat-8-recover-root-password</a></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Linux</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Linux,Centos8</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Linux配置静态IP</title>
     <link href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/"/>
     <url>/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/</url>
@@ -298,54 +273,23 @@
   
   
   <entry>
-    <title>Pentest Jottings</title>
-    <link href="/2020/10/10/Jottings/Pentest%20Jottings/"/>
-    <url>/2020/10/10/Jottings/Pentest%20Jottings/</url>
+    <title>Centos8修改密码</title>
+    <link href="/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/"/>
+    <url>/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</url>
     
-    <content type="html"><![CDATA[<h3 id="渗透随想"><a href="#渗透随想" class="headerlink" title="渗透随想"></a>渗透随想</h3>]]></content>
-    
-    
-    <categories>
-      
-      <category>Jottings</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Network Security</tag>
-      
-      <tag>Web Pentest</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>kali工具</title>
-    <link href="/2020/10/10/Linux/kali/"/>
-    <url>/2020/10/10/Linux/kali/</url>
-    
-    <content type="html"><![CDATA[<h1 id="dirb"><a href="#dirb" class="headerlink" title="dirb"></a>dirb</h1><pre><code class="hljs shell">dirb https://x.x.x.x/</code></pre><p>[^目录扫描工具]: </p><p><a href="https://sourceforge.net/projects/dirbuster/files/latest/download">https://sourceforge.net/projects/dirbuster/files/latest/download</a></p><h3 id="参数介绍"><a href="#参数介绍" class="headerlink" title="参数介绍"></a>参数介绍</h3><pre><code class="hljs shell">-a 设置ua-c 设置cookie带cookie扫描-N 忽略某些响应码-o 输出结果-p 使用代理-X 在每个测试目录上附加后缀-z 设置毫秒延迟</code></pre><h1 id="hydra"><a href="#hydra" class="headerlink" title="hydra"></a>hydra</h1><p>密码爆破工具</p><pre><code class="hljs css"><span class="hljs-selector-tag">hydra</span> <span class="hljs-selector-tag">-l</span> <span class="hljs-selector-tag">root</span> <span class="hljs-selector-tag">-P</span> <span class="hljs-selector-tag">password</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">save</span><span class="hljs-selector-class">.log</span> <span class="hljs-selector-tag">-vV</span> <span class="hljs-selector-tag">RHOSTS</span> <span class="hljs-selector-tag">ssh</span> <span class="hljs-selector-tag">-t</span> 30</code></pre><h1 id="开启远程连接"><a href="#开启远程连接" class="headerlink" title="开启远程连接"></a>开启远程连接</h1><ol><li>vi /etc/ssh/sshd_config</li><li>PermitRootLogin yes</li><li>PasswordAuthentication yes</li><li>wq</li><li>systemctl restart ssh.service</li><li>systemctl status ssh.service</li></ol>]]></content>
+    <content type="html"><![CDATA[<h3 id="1-重启linux系统按e"><a href="#1-重启linux系统按e" class="headerlink" title="1. 重启linux系统按e"></a>1. 重启linux系统按e</h3><h3 id="2-开头为linux-root-那行末尾加-rd-break"><a href="#2-开头为linux-root-那行末尾加-rd-break" class="headerlink" title="2. 开头为linux($root)那行末尾加 rd.break"></a>2. 开头为linux($root)那行末尾加 rd.break</h3><h3 id="3-mount-grep-sysroot"><a href="#3-mount-grep-sysroot" class="headerlink" title="3. mount | grep sysroot"></a>3. mount | grep sysroot</h3><h3 id="4-mount-o-remount-rw-sysroot"><a href="#4-mount-o-remount-rw-sysroot" class="headerlink" title="4. mount -o remount,rw /sysroot/"></a>4. mount -o remount,rw /sysroot/</h3><pre><code class="hljs shell">mount | grep sysroot</code></pre><h3 id="5-切换系统的根目录位置为"><a href="#5-切换系统的根目录位置为" class="headerlink" title="5. 切换系统的根目录位置为"></a>5. 切换系统的根目录位置为</h3><pre><code class="hljs shell">chroot /sysroot</code></pre><h3 id="6-输入passwd修改密码"><a href="#6-输入passwd修改密码" class="headerlink" title="6. 输入passwd修改密码"></a>6. 输入passwd修改密码</h3><p>注意：新密码需符合centos8密码复杂度要求</p><h3 id="7-touch-autorelabel"><a href="#7-touch-autorelabel" class="headerlink" title="7. touch /.autorelabel"></a>7. touch /.autorelabel</h3><p>执行下面的命令让文件系统强制重新relabeling</p><h3 id="8-exit"><a href="#8-exit" class="headerlink" title="8. exit"></a>8. exit</h3><h3 id="9-logout"><a href="#9-logout" class="headerlink" title="9. logout"></a>9. logout</h3><p>[参照]<a href="https://linuxconfig.org/redhat-8-recover-root-password">https://linuxconfig.org/redhat-8-recover-root-password</a></p>]]></content>
     
     
     <categories>
       
       <category>Linux</category>
       
-      <category>Hack</category>
-      
     </categories>
     
     
     <tags>
       
-      <tag>Linux</tag>
-      
-      <tag>kali</tag>
+      <tag>Linux,Centos8</tag>
       
     </tags>
     
@@ -408,6 +352,62 @@
   
   
   <entry>
+    <title>Pentest Jottings</title>
+    <link href="/2020/10/10/Jottings/Pentest%20Jottings/"/>
+    <url>/2020/10/10/Jottings/Pentest%20Jottings/</url>
+    
+    <content type="html"><![CDATA[<h3 id="渗透随想"><a href="#渗透随想" class="headerlink" title="渗透随想"></a>渗透随想</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>Jottings</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Web Pentest</tag>
+      
+      <tag>Network Security</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>kali工具</title>
+    <link href="/2020/10/10/Linux/kali/"/>
+    <url>/2020/10/10/Linux/kali/</url>
+    
+    <content type="html"><![CDATA[<h1 id="dirb"><a href="#dirb" class="headerlink" title="dirb"></a>dirb</h1><pre><code class="hljs shell">dirb https://x.x.x.x/</code></pre><p>[^目录扫描工具]: </p><p><a href="https://sourceforge.net/projects/dirbuster/files/latest/download">https://sourceforge.net/projects/dirbuster/files/latest/download</a></p><h3 id="参数介绍"><a href="#参数介绍" class="headerlink" title="参数介绍"></a>参数介绍</h3><pre><code class="hljs shell">-a 设置ua-c 设置cookie带cookie扫描-N 忽略某些响应码-o 输出结果-p 使用代理-X 在每个测试目录上附加后缀-z 设置毫秒延迟</code></pre><h1 id="hydra"><a href="#hydra" class="headerlink" title="hydra"></a>hydra</h1><p>密码爆破工具</p><pre><code class="hljs css"><span class="hljs-selector-tag">hydra</span> <span class="hljs-selector-tag">-l</span> <span class="hljs-selector-tag">root</span> <span class="hljs-selector-tag">-P</span> <span class="hljs-selector-tag">password</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">save</span><span class="hljs-selector-class">.log</span> <span class="hljs-selector-tag">-vV</span> <span class="hljs-selector-tag">RHOSTS</span> <span class="hljs-selector-tag">ssh</span> <span class="hljs-selector-tag">-t</span> 30</code></pre><h1 id="开启远程连接"><a href="#开启远程连接" class="headerlink" title="开启远程连接"></a>开启远程连接</h1><ol><li>vi /etc/ssh/sshd_config</li><li>PermitRootLogin yes</li><li>PasswordAuthentication yes</li><li>wq</li><li>systemctl restart ssh.service</li><li>systemctl status ssh.service</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+      <category>Hack</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>kali</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Linux命令</title>
     <link href="/2020/07/07/Linux/Linux%E5%91%BD%E4%BB%A4/"/>
     <url>/2020/07/07/Linux/Linux%E5%91%BD%E4%BB%A4/</url>
@@ -462,7 +462,7 @@
     <link href="/1996/07/07/demo/"/>
     <url>/1996/07/07/demo/</url>
     
-    <content type="html"><![CDATA[<h1 id="Let-life-be-beautiful-like-summer-flowers"><a href="#Let-life-be-beautiful-like-summer-flowers" class="headerlink" title="Let life be beautiful like summer flowers"></a>Let life be beautiful like summer flowers</h1><p>Life, thin and light-off time and time again</p><p>Frivolous tireless</p><h3 id="one"><a href="#one" class="headerlink" title="one"></a><strong>one</strong></h3><p>I heard the echo, from the valleys and the heart</p><p>Open to the lonely soul of sickle harvesting</p><p>Repeat outrightly, but also repeat the well-being of</p><p>Eventually swaying in the desert oasis</p><p>I believe I am</p><p>Born as the bright summer flowers</p><p>Do not withered undefeated fiery demon rule</p><p>Heart rate and breathing to bear the load of the cumbersome</p><p>Bored</p><h3 id="Two"><a href="#Two" class="headerlink" title="Two"></a><strong>Two</strong></h3><p>I heard the music, from the moon and carcass</p><p>Auxiliary extreme aestheticism bait to capture misty</p><p>Filling the intense life, but also filling the pure</p><p>There are always memories throughout the earth</p><p>I believe I am</p><p>Died as the quiet beauty of autumn leaves</p><p>Sheng is not chaos, smoke gesture</p><p>Even wilt also retained bone proudly Qing Feng muscle</p><p>Occult</p><h3 id="Three"><a href="#Three" class="headerlink" title="Three"></a><strong>Three</strong></h3><p>I hear love, I believe in love</p><p>Love is a pool of struggling blue-green algae</p><p>As desolate micro-burst of wind</p><p>Bleeding through my veins</p><p>Years stationed in the belief</p><h3 id="Four"><a href="#Four" class="headerlink" title="Four"></a><strong>Four</strong></h3><p>I believe that all can hear</p><p>Even anticipate discrete, I met the other their own</p><p>Some can not grasp the moment</p><p>Left to the East to go West, the dead must not return to nowhere</p><p>See, I wear Zan Flowers on my head, in full bloom along the way all the way</p><p>Frequently missed some, but also deeply moved by wind, frost, snow or rain</p><h3 id="Five"><a href="#Five" class="headerlink" title="Five"></a>Five</h3><p>Prajna Paramita, soon as soon as</p><p>life be beautiful like summer flowers and death like autumn leaves</p><p>Also care about what has</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Let-life-be-beautiful-like-summer-flowers"><a href="#Let-life-be-beautiful-like-summer-flowers" class="headerlink" title="Let life be beautiful like summer flowers"></a>Let life be beautiful like summer flowers</h1><p>Life, thin and light-off time and time again</p><p>Frivolous tireless</p><h2 id="one"><a href="#one" class="headerlink" title="one"></a><strong>one</strong></h2><p>I heard the echo, from the valleys and the heart</p><p>Open to the lonely soul of sickle harvesting</p><p>Repeat outrightly, but also repeat the well-being of</p><p>Eventually swaying in the desert oasis</p><p>I believe I am</p><p>Born as the bright summer flowers</p><p>Do not withered undefeated fiery demon rule</p><p>Heart rate and breathing to bear the load of the cumbersome</p><p>Bored</p><h2 id="Two"><a href="#Two" class="headerlink" title="Two"></a><strong>Two</strong></h2><p>I heard the music, from the moon and carcass</p><p>Auxiliary extreme aestheticism bait to capture misty</p><p>Filling the intense life, but also filling the pure</p><p>There are always memories throughout the earth</p><p>I believe I am</p><p>Died as the quiet beauty of autumn leaves</p><p>Sheng is not chaos, smoke gesture</p><p>Even wilt also retained bone proudly Qing Feng muscle</p><p>Occult</p><h2 id="Three"><a href="#Three" class="headerlink" title="Three"></a><strong>Three</strong></h2><p>I hear love, I believe in love</p><p>Love is a pool of struggling blue-green algae</p><p>As desolate micro-burst of wind</p><p>Bleeding through my veins</p><p>Years stationed in the belief</p><h2 id="Four"><a href="#Four" class="headerlink" title="Four"></a><strong>Four</strong></h2><p>I believe that all can hear</p><p>Even anticipate discrete, I met the other their own</p><p>Some can not grasp the moment</p><p>Left to the East to go West, the dead must not return to nowhere</p><p>See, I wear Zan Flowers on my head, in full bloom along the way all the way</p><p>Frequently missed some, but also deeply moved by wind, frost, snow or rain</p><h2 id="Five"><a href="#Five" class="headerlink" title="Five"></a>Five</h2><p>Prajna Paramita, soon as soon as</p><p>life be beautiful like summer flowers and death like autumn leaves</p><p>Also care about what has</p>]]></content>
     
     
     <categories>
