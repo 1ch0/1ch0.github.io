@@ -299,7 +299,7 @@ virt-install --name w16 --ram 32768 --vcpus 4 --os-type windows --os-variant win
 </tbody></table>
 <h2 id="3-vnc安装操作系统"><a href="#3-vnc安装操作系统" class="headerlink" title="3. vnc安装操作系统"></a>3. vnc安装操作系统</h2><p>使用vnc连接客户端进行安装</p>
 <h2 id="4-用vnc配置静态IP"><a href="#4-用vnc配置静态IP" class="headerlink" title="4.用vnc配置静态IP"></a>4.用vnc配置静态IP</h2><p><strong>注意：具体ip参数由实际情况决定</strong></p>
-<h5 id="Ubuntu18配置静态IP"><a href="#Ubuntu18配置静态IP" class="headerlink" title="Ubuntu18配置静态IP"></a>Ubuntu18配置静态IP</h5><ol>
+<h3 id="Ubuntu18配置静态IP"><a href="#Ubuntu18配置静态IP" class="headerlink" title="Ubuntu18配置静态IP"></a>Ubuntu18配置静态IP</h3><ol>
 <li>切换为root用户执行（具体配置文件用tab自动补全）</li>
 </ol>
 <pre><code class="hljs shell">vi /etc/netplan/00***.yml</code></pre>
@@ -326,7 +326,7 @@ virt-install --name w16 --ram 32768 --vcpus 4 --os-type windows --os-variant win
 <li>使用ifconfig查看配置是否成功</li>
 <li>ping宿主机地址，ping 公网地址，查看是否能访问公网</li>
 </ol>
-<h5 id="Centos8配置静态IP"><a href="#Centos8配置静态IP" class="headerlink" title="Centos8配置静态IP"></a>Centos8配置静态IP</h5><ol>
+<h3 id="Centos8配置静态IP"><a href="#Centos8配置静态IP" class="headerlink" title="Centos8配置静态IP"></a>Centos8配置静态IP</h3><ol>
 <li><code>vi /etc/sysconfig/network-scripts/ifcfg-ens32</code></li>
 </ol>
 <pre><code class="hljs ini"><span class="hljs-attr">TYPE</span>=Ethernet
@@ -399,14 +399,14 @@ backend tcpunstable_33892
 <h2 id="6-关闭VNC连接"><a href="#6-关闭VNC连接" class="headerlink" title="6.关闭VNC连接"></a>6.关闭VNC连接</h2><p>出于安全角度，建议虚拟机安装配置完成后建议将VNC关闭</p>
 <p>关闭VNC连接需要先关闭虚拟机 <code>virsh shutdown 虚拟机名称（--name参数定义的）</code>后修改虚拟机配置，配置文件为成功安装虚拟机后生成的文件，具体为该虚拟机各项参数详细信息。</p>
 <p>下面介绍两种修改方式：</p>
-<h5 id="virsh-edit"><a href="#virsh-edit" class="headerlink" title="virsh edit"></a>virsh edit</h5><p>virsh edit 虚拟机名称</p>
+<h3 id="virsh-edit"><a href="#virsh-edit" class="headerlink" title="virsh edit"></a>virsh edit</h3><p>virsh edit 虚拟机名称</p>
 <p>后将vnc配置修改为</p>
 <pre><code class="hljs pgsql">&lt;graphics <span class="hljs-keyword">type</span>=<span class="hljs-string">&#x27;vnc&#x27;</span> port=<span class="hljs-string">&#x27;-1&#x27;</span> autoport=<span class="hljs-string">&#x27;yes&#x27;</span> <span class="hljs-keyword">listen</span>=<span class="hljs-string">&#x27;0.0.0.0&#x27;</span>&gt;
       &lt;<span class="hljs-keyword">listen</span> <span class="hljs-keyword">type</span>=<span class="hljs-string">&#x27;address&#x27;</span> address=<span class="hljs-string">&#x27;0.0.0.0&#x27;</span>/&gt;
 &lt;/graphics&gt;</code></pre>
 
 <p>保存配置退出，重启虚拟机即可</p>
-<h5 id="直接修改xml文件，重新定义虚拟机"><a href="#直接修改xml文件，重新定义虚拟机" class="headerlink" title="直接修改xml文件，重新定义虚拟机"></a>直接修改xml文件，重新定义虚拟机</h5><p>修改虚拟机生成后的xml配置文件，</p>
+<h3 id="直接修改xml文件，重新定义虚拟机"><a href="#直接修改xml文件，重新定义虚拟机" class="headerlink" title="直接修改xml文件，重新定义虚拟机"></a>直接修改xml文件，重新定义虚拟机</h3><p>修改虚拟机生成后的xml配置文件，</p>
 <p>默认服务器虚拟机配置文件在/etc/libvirt/qemu/下</p>
 <ol>
 <li>vim修改xml文件，如<code>vi /etc/libvirt/qemu/ubuntu2.xml</code>按照上述方式修改vnc配置，保存退出</li>
@@ -415,10 +415,10 @@ backend tcpunstable_33892
 <li>启动该虚拟机，<code>virsh start ubuntu2</code></li>
 </ol>
 <h2 id="7-virsh-常用命令"><a href="#7-virsh-常用命令" class="headerlink" title="7. virsh 常用命令"></a>7. virsh 常用命令</h2><p>下面简单介绍几条virsh常用命令：</p>
-<h5 id="查看虚拟机状态"><a href="#查看虚拟机状态" class="headerlink" title="查看虚拟机状态"></a>查看虚拟机状态</h5><p><code>virsh list --all</code></p>
-<h5 id="启动虚拟机"><a href="#启动虚拟机" class="headerlink" title="启动虚拟机"></a>启动虚拟机</h5><p><code>virsh start name</code></p>
-<h5 id="关闭虚拟机"><a href="#关闭虚拟机" class="headerlink" title="关闭虚拟机"></a>关闭虚拟机</h5><p><code>virsh shutdown name</code></p>
-<h5 id="强制关闭虚拟机"><a href="#强制关闭虚拟机" class="headerlink" title="强制关闭虚拟机"></a>强制关闭虚拟机</h5><p><strong>注意该名称非销毁虚拟机，只是强制关闭，undefine才是销毁虚拟机</strong></p>
+<h3 id="查看虚拟机状态"><a href="#查看虚拟机状态" class="headerlink" title="查看虚拟机状态"></a>查看虚拟机状态</h3><p><code>virsh list --all</code></p>
+<h3 id="启动虚拟机"><a href="#启动虚拟机" class="headerlink" title="启动虚拟机"></a>启动虚拟机</h3><p><code>virsh start name</code></p>
+<h3 id="关闭虚拟机"><a href="#关闭虚拟机" class="headerlink" title="关闭虚拟机"></a>关闭虚拟机</h3><p><code>virsh shutdown name</code></p>
+<h3 id="强制关闭虚拟机"><a href="#强制关闭虚拟机" class="headerlink" title="强制关闭虚拟机"></a>强制关闭虚拟机</h3><p><strong>注意该名称非销毁虚拟机，只是强制关闭，undefine才是销毁虚拟机</strong></p>
 <p><code>virsh destroy name</code></p>
 <blockquote>
 <p>后续可自行按需查找命令，如虚拟机快照，虚拟机扩容，虚拟机克隆复制等等</p>
