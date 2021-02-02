@@ -179,6 +179,66 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/11/05/Golang/Golang-100-days/">Golang-100-days</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/05/Golang/Golang-100-days/">
+          
+          
+            
+          
+          cap（）函数的计算值package main
+
+import &quot;fmt&quot;
+
+func main() &#123;
+   var numbers []int
+   printSlice(numbers)
+
+   /* 允许追加空切片 */
+   numbers = append(numbers, 0)
+   printSlice(numbers)
+
+   /* 向切片添加一个元
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-05 10:00" pubdate>
+              2020-11-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Golang/">Golang</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/questions/">questions</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/10/23/Linux/Linux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81IP/">Linux配置静态IP</a>
       </h1>
 
@@ -292,20 +352,21 @@ network:
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/10/Daily/Chrome%20Extensions/">The Chrome Extensions I&#39;d like to use</a>
+        <a href="/2020/10/23/Linux/centos7%E7%A6%81%E6%AD%A2ip/">Centos7防止暴力破解</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/10/10/Daily/Chrome%20Extensions/">
+        <a href="/2020/10/23/Linux/centos7%E7%A6%81%E6%AD%A2ip/">
           
           
             
           
-          DARK READER
+          Centos7禁止ip访问
+编写脚本禁止ip访问
 
-Wappalyzer
-
-Proxy SwitchyOmega
+#!/bin/bash
+cat /var/log/secure|awk &#x27;/Failed/&#123;print $(NF-3)&#125;&#x27;|sort|uniq -c|awk &#x27;&#123;print $2&quot;=&quot;$1;&#125;&#x27; &gt; /root/black.txt
+DEFIN
         </a>
       </p>
 
@@ -313,8 +374,8 @@ Proxy SwitchyOmega
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-10 10:00" pubdate>
-              2020-10-10
+            <time datetime="2020-10-23 09:00" pubdate>
+              2020-10-23
             </time>
           </div>
         
@@ -322,7 +383,7 @@ Proxy SwitchyOmega
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Daily/">Daily</a>
+              <a href="/categories/Linux/">Linux</a>
             
           </div>
         
@@ -330,7 +391,7 @@ Proxy SwitchyOmega
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Chrome-Extensions/">Chrome Extensions</a>
+              <a href="/tags/Linux-centos7/">Linux,centos7</a>
             
           </div>
         
@@ -385,6 +446,58 @@ Proxy SwitchyOmega
               <a href="/tags/%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/">信息搜集</a>
             
               <a href="/tags/%E7%AB%AF%E5%8F%A3%E6%8E%A2%E6%B5%8B/">端口探测</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/10/10/Daily/Chrome%20Extensions/">The Chrome Extensions I&#39;d like to use</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/10/Daily/Chrome%20Extensions/">
+          
+          
+            
+          
+          DARK READER
+
+Wappalyzer
+
+Proxy SwitchyOmega
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-10 10:00" pubdate>
+              2020-10-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Daily/">Daily</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Chrome-Extensions/">Chrome Extensions</a>
             
           </div>
         
@@ -518,6 +631,57 @@ hyd
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/07/07/Python/pip%E5%8D%87%E7%BA%A7%E9%97%AE%E9%A2%98/">pip升级问题</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/07/07/Python/pip%E5%8D%87%E7%BA%A7%E9%97%AE%E9%A2%98/">
+          
+          
+            
+          
+          pip升级出错使用国内源升级
+python -m pip install --upgrade pip -i https://pypi.douban.com/simple
+
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-07-07 10:00" pubdate>
+              2020-07-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/python/">python</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/python-pip/">python,pip</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/07/07/Linux/Linux%E5%91%BD%E4%BB%A4/">Linux命令</a>
       </h1>
 
@@ -580,106 +744,11 @@ uname -r
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/07/07/Python/pip%E5%8D%87%E7%BA%A7%E9%97%AE%E9%A2%98/">pip升级问题</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/07/07/Python/pip%E5%8D%87%E7%BA%A7%E9%97%AE%E9%A2%98/">
-          
-          
-            
-          
-          pip升级出错使用国内源升级
-python -m pip install --upgrade pip -i https://pypi.douban.com/simple
-
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-07-07 10:00" pubdate>
-              2020-07-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/python/">python</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/python-pip/">python,pip</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/1996/07/07/demo/">Let life be beautiful like summer flowers</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/1996/07/07/demo/">
-          
-          
-            
-          
-          Let life be beautiful like summer flowersLife, thin and light-off time and time again
-Frivolous tireless
-oneI heard the echo, from the valleys and the heart
-Open to the lonely soul of sickle harvestin
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="1996-07-07 10:00" pubdate>
-              1996-07-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/xiaoxia/">xiaoxia</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   
