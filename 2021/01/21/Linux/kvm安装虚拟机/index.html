@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1.3k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16
+      17
        分钟
     </span>
   
@@ -236,7 +236,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：11 天前
+                  本文最后更新于：几秒前
                 
               </p>
             
@@ -356,14 +356,19 @@ virt-install --name w16 --ram 32768 --vcpus 4 --os-type windows --os-variant win
 <li>ping宿主机地址，ping 公网地址，查看是否能访问公网</li>
 </ol>
 <h2 id="5-虚拟机端口转发"><a href="#5-虚拟机端口转发" class="headerlink" title="5.虚拟机端口转发"></a>5.虚拟机端口转发</h2><blockquote>
-<p> 虚拟机能访问公网，操作系统安装基本结束。后续需要做虚拟机的端口转发、关闭安装系统时开放的vnc端口。</p>
+<p> 虚拟机能访问公网，操作系统安装基本结束。后续需要做虚拟机的端口转发、关闭安装系统时开放的vnc端口。<br> 下面分别介绍</p>
 </blockquote>
-<p>以下使用HAProxy做端口转发配置</p>
-<p>端口转发配置文件服务器上/etc/haproxy/haproxy.cfg</p>
+<h3 id="使用iptables做端口转发"><a href="#使用iptables做端口转发" class="headerlink" title="使用iptables做端口转发"></a>使用iptables做端口转发</h3><ol>
+<li>启用iptables</li>
+<li>执行规则库，下面命令将虚拟机22端口转发到宿主机20022端口<pre><code class="hljs bash">iptables -t nat -A PREROUTING -p tcp --dport 20022 -j DNAT --to-destination 192.168.122.10:22
+iptables -t nat -A POSTROUTING -d 192.168.122.10 -p tcp --dport 20022 -j SNAT --to-source x.x.x.x</code></pre></li>
+<li>保存iptables规则，设置开机启动iptables</li>
+</ol>
+<h3 id="使用HAProxy做端口转发"><a href="#使用HAProxy做端口转发" class="headerlink" title="使用HAProxy做端口转发"></a>使用HAProxy做端口转发</h3><p>端口转发配置文件服务器上/etc/haproxy/haproxy.cfg</p>
 <p>启动方式</p>
 <pre><code class="hljs bash">haproxy -f /etc/haproxy/haproxy.cfg</code></pre>
 
-<p>您可以直接查看/etc/haproxy/haproxy.cfg然后参照相关内容做相关配置。</p>
+<p>可以直接查看/etc/haproxy/haproxy.cfg然后参照相关内容做相关配置。</p>
 <p>配置文件示例如下：</p>
 <pre><code class="hljs routeros">global
     daemon
@@ -414,6 +419,7 @@ backend tcpunstable_33892
 <li>定义新的虚拟机，如<code>virsh define /etc/libvirt/qemu/ubuntu2.xml</code></li>
 <li>启动该虚拟机，<code>virsh start ubuntu2</code></li>
 </ol>
+<h2 id="设置虚拟机自启动"><a href="#设置虚拟机自启动" class="headerlink" title="设置虚拟机自启动"></a>设置虚拟机自启动</h2><p>xxx处修改为虚拟机名称<br><code>virsh autostart xxx</code></p>
 <h2 id="7-virsh-常用命令"><a href="#7-virsh-常用命令" class="headerlink" title="7. virsh 常用命令"></a>7. virsh 常用命令</h2><p>下面简单介绍几条virsh常用命令：</p>
 <h3 id="查看虚拟机状态"><a href="#查看虚拟机状态" class="headerlink" title="查看虚拟机状态"></a>查看虚拟机状态</h3><p><code>virsh list --all</code></p>
 <h3 id="启动虚拟机"><a href="#启动虚拟机" class="headerlink" title="启动虚拟机"></a>启动虚拟机</h3><p><code>virsh start name</code></p>
