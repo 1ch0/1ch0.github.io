@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="1ch0">
   <meta name="keywords" content="">
-  <title>Centos7防止暴力破解 - 1ch0&#39;s blog</title>
+  <title>1ch0&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-23 09:00" pubdate>
-        2020年10月23日 上午
+      <time datetime="2019-05-27 17:08" pubdate>
+        2019年5月27日 下午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      146 字
+      401 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      4
        分钟
     </span>
   
@@ -232,62 +232,24 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Centos7防止暴力破解</h1>
+            <h1 style="display: none"></h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：25 天前
+                  本文最后更新于：13 天前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="Centos7禁止ip访问"><a href="#Centos7禁止ip访问" class="headerlink" title="Centos7禁止ip访问"></a>Centos7禁止ip访问</h1><ol>
-<li>编写脚本禁止ip访问</li>
-</ol>
-<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/bash</span>
-cat /var/log/secure|awk &#x27;/Failed/&#123;print $(NF-3)&#125;&#x27;|sort|uniq -c|awk &#x27;&#123;print $2&quot;=&quot;$1;&#125;&#x27; &gt; /root/black.txt
-DEFINE=&quot;10&quot;
-for i in `cat  /root/black.txt`
-do
-        IP=`echo $i |awk -F= &#x27;&#123;print $1&#125;&#x27;`
-        NUM=`echo $i|awk -F= &#x27;&#123;print $2&#125;&#x27;`
-        if [ $NUM -gt $DEFINE ];
-        then
-         grep $IP /etc/hosts.deny &gt; /dev/null
-          if [ $? -gt 0 ];
-          then
-          echo &quot;sshd:$IP&quot; &gt;&gt; /etc/hosts.deny
-          fi
-        fi
-done
-</code></pre>
-
-<ol start="2">
-<li><p>使用crontabp执行脚本</p>
-<p>清空记录<code>echo &gt; /var/log/wtmp;echo &gt; /var/log/btmp;history -c;</code></p>
-<p>使用lastb命令查看暴力破解情况</p>
-</li>
-</ol>
+              <p>知识化（对一流拦截的研究总结），体系化（对当时waf等的系统归纳），传递化（文章分享）。我把它简称渗透”三板斧”，更像是：学习，归纳，总结，分享的一个完整流程。并非知识太快，并非哪一安全方向领域就一定更有前景，而是这“三板斧”是否完整连接。</p>
+<p>渗透的沉思非常重要，尤其是在后渗透阶段，需要有着一套非常完整周期计划，思考可能遇到的问题，或者通过已知的信息搜集，来推导可能面临的问题，这就是渗透的沉思。招式不在多，在于精，力道不在狠，在于寸。</p>
+<p>渗透的本质是信息搜集，每一次的项目如果碰到迷茫无解的时候，请继续搜集。而信息搜集的本质是渗透的沉思，与线索“链”的关联。每一次真实的攻击演练项目，最难得并非是入侵攻击，也并非是得到域控或最高权限。而是如何把渗透攻击演变成一次对己有利的一个过程。后渗透需要沉淀，而沉淀需要给渗透留下沉思的时间。用“沉思”来化解五彩缤纷的工具，五颜六色的框架，日益骚奇的姿势，当戾气化解时，便形成一套了自我知识体系。<br>    愿每一位读者能找到自己能融合贯通的“武功”，在结合吞噬其他“招式”，如行云<br>流水，石便是器，枝便是剑</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Linux-centos7/">Linux,centos7</a>
-                    
-                  </div>
                 
               </div>
               
@@ -298,9 +260,9 @@ done
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/10/23/Linux/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/">
+                      <a href="/2020/07/07/Linux/Linux%E5%91%BD%E4%BB%A4/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Centos8修改密码</span>
+                        <span class="hidden-mobile">Linux命令</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -308,8 +270,8 @@ done
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/10/Daily/Chrome%20Extensions/">
-                        <span class="hidden-mobile">The Chrome Extensions I'd like to use</span>
+                      <a href="/1996/07/07/demo/">
+                        <span class="hidden-mobile">Let life be beautiful like summer flowers</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -447,7 +409,7 @@ done
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Centos7防止暴力破解&nbsp;",
+        "&nbsp;",
       ],
       cursorChar: ".",
       typeSpeed: 100,
