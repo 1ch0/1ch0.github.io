@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="1ch0">
   <meta name="keywords" content="">
-  <title>Centos8—Stream修改yum源 - 1ch0&#39;s blog</title>
+  <title>Centos8修改密码 - 1ch0&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-27 09:00" pubdate>
-        2021年1月27日 上午
+      <time datetime="2020-10-23 09:00" pubdate>
+        2020年10月23日 上午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      48 字
+      100 字
     </span>
   
 
@@ -232,20 +232,24 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Centos8—Stream修改yum源</h1>
+            <h1 style="display: none">Centos8修改密码</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 个月前
+                  本文最后更新于：3 分钟前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h3 id="Centos8—Stream修改yum源"><a href="#Centos8—Stream修改yum源" class="headerlink" title="Centos8—Stream修改yum源"></a>Centos8—Stream修改yum源</h3><pre><code class="hljs awk">wget -O <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo http:/</span><span class="hljs-regexp">/mirrors.aliyun.com/</span>repo/Centos-<span class="hljs-number">8</span>.repo
-sed -i <span class="hljs-string">&#x27;s/$releasever/8/g&#x27;</span> <span class="hljs-regexp">/etc/yum</span>.repos.d/CentOS-Base.repo
-yum clean all <span class="hljs-comment">#清理缓存</span>
-yum makecache <span class="hljs-comment">#更新源</span></code></pre>
+              <h3 id="1-重启linux系统按e"><a href="#1-重启linux系统按e" class="headerlink" title="1. 重启linux系统按e"></a>1. 重启linux系统按e</h3><h3 id="2-开头为linux-root-那行末尾加-rd-break"><a href="#2-开头为linux-root-那行末尾加-rd-break" class="headerlink" title="2. 开头为linux($root)那行末尾加 rd.break"></a>2. 开头为linux($root)那行末尾加 rd.break</h3><h3 id="3-mount-grep-sysroot"><a href="#3-mount-grep-sysroot" class="headerlink" title="3. mount | grep sysroot"></a>3. mount | grep sysroot</h3><h3 id="4-mount-o-remount-rw-sysroot"><a href="#4-mount-o-remount-rw-sysroot" class="headerlink" title="4. mount -o remount,rw /sysroot/"></a>4. mount -o remount,rw /sysroot/</h3><pre><code class="hljs shell">mount | grep sysroot</code></pre>
 
+
+
+<h3 id="5-切换系统的根目录位置为"><a href="#5-切换系统的根目录位置为" class="headerlink" title="5. 切换系统的根目录位置为"></a>5. 切换系统的根目录位置为</h3><pre><code class="hljs shell">chroot /sysroot</code></pre>
+
+<h3 id="6-输入passwd修改密码"><a href="#6-输入passwd修改密码" class="headerlink" title="6. 输入passwd修改密码"></a>6. 输入passwd修改密码</h3><p>注意：新密码需符合centos8密码复杂度要求</p>
+<h3 id="7-touch-autorelabel"><a href="#7-touch-autorelabel" class="headerlink" title="7. touch /.autorelabel"></a>7. touch /.autorelabel</h3><p>执行下面的命令让文件系统强制重新relabeling</p>
+<h3 id="8-exit"><a href="#8-exit" class="headerlink" title="8. exit"></a>8. exit</h3><h3 id="9-logout"><a href="#9-logout" class="headerlink" title="9. logout"></a>9. logout</h3><p>[参照]<a target="_blank" rel="noopener" href="https://linuxconfig.org/redhat-8-recover-root-password">https://linuxconfig.org/redhat-8-recover-root-password</a></p>
 
             </div>
             <hr>
@@ -276,12 +280,18 @@ yum makecache <span class="hljs-comment">#更新源</span></code></pre>
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2020/10/23/Linux/centos7%E7%A6%81%E6%AD%A2ip/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Centos7防止暴力破解</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/21/Linux/kvm%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA/">
-                        <span class="hidden-mobile">kvm安装虚拟机</span>
+                      <a href="/2020/10/10/Daily/Chrome%20Extensions/">
+                        <span class="hidden-mobile">The Chrome Extensions I'd like to use</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -419,7 +429,7 @@ yum makecache <span class="hljs-comment">#更新源</span></code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Centos8—Stream修改yum源&nbsp;",
+        "Centos8修改密码&nbsp;",
       ],
       cursorChar: ".",
       typeSpeed: 100,
