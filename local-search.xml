@@ -4,31 +4,6 @@
   
   
   <entry>
-    <title>Python 疑问</title>
-    <link href="/2022/01/20/python/Python%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%AE%9E%E6%88%98/note/%E7%96%91%E9%97%AE/"/>
-    <url>/2022/01/20/python/Python%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%AE%9E%E6%88%98/note/%E7%96%91%E9%97%AE/</url>
-    
-    <content type="html"><![CDATA[<h2 id="python疑问"><a href="#python疑问" class="headerlink" title="python疑问"></a>python疑问</h2><ul><li><input disabled="" type="checkbox"> metaclass  @{2022-01-20-星期四} ^wi2ym8</li></ul><p>%% kanban:settings</p><pre><code class="hljs json">&#123;<span class="hljs-attr">&quot;kanban-plugin&quot;</span>:<span class="hljs-string">&quot;basic&quot;</span>&#125;</code></pre><p>%%</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Python</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Python</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>k8s面试资料</title>
     <link href="/2022/01/20/CloudNative/interview/k8s%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/"/>
     <url>/2022/01/20/CloudNative/interview/k8s%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/</url>
