@@ -1,0 +1,684 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="1ch0">
+  <meta name="keywords" content="">
+  <title>kvm安装虚拟机 - 1ch0&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>1ch0's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                联系我
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      1ch0
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-21 10:00" pubdate>
+        2021年1月21日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">kvm安装虚拟机</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：17 天前
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="kvm安装虚拟机"><a href="#kvm安装虚拟机" class="headerlink" title="kvm安装虚拟机"></a>kvm安装虚拟机</h1><h2 id="1-上传iso文件"><a href="#1-上传iso文件" class="headerlink" title="1. 上传iso文件"></a>1. 上传iso文件</h2><p>建议所有镜像文件统一存放。</p>
+<h2 id="2-kvm启动虚拟机安装"><a href="#2-kvm启动虚拟机安装" class="headerlink" title="2.kvm启动虚拟机安装"></a>2.kvm启动虚拟机安装</h2><p>linux安装示例：</p>
+<pre><code class="hljs bash">virt-install --connect  qemu:///system --virt-type kvm --name Centos8 --ram=4096  --disk path=/data/b/KVM/images/xxx.img,size=20,sparse --os-type=linux --accelerate -c /data/b/KVM/CentOS-8.2.iso  --network bridge=virbr0,model=virtio --vnc  --vncport=6991 --vnclisten=0.0.0.0 --force</code></pre>
+<p>windows安装示例：</p>
+<pre><code class="hljs bash">
+virt-install --name w16 --ram 32768 --vcpus 4 --os-type windows --os-variant win2k8 --network bridge=virbr0 --accelerate --disk path=/data/b/KVM/images/w16.img,format=qcow2,size=300 --cdrom=/data/b/KVM/win-ser-2016.iso --graphics vnc,listen=0.0.0.0,password=123,port=5910 --noautoconsole</code></pre>
+
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>–name</td>
+<td>虚拟机名称</td>
+</tr>
+<tr>
+<td>–ram</td>
+<td>虚拟机的内存大小</td>
+</tr>
+<tr>
+<td>–vcpus</td>
+<td>虚拟机的虚拟CPU数</td>
+</tr>
+<tr>
+<td>–disk</td>
+<td>虚拟机磁盘（磁盘位置，大小（G））</td>
+</tr>
+<tr>
+<td>–os-type</td>
+<td>针对操作系统类型优化虚拟机配置（iso是哪种类型就写哪种）</td>
+</tr>
+<tr>
+<td>–accelerate</td>
+<td>KVM内核加速（建议安装时加上这个选项）</td>
+</tr>
+<tr>
+<td>–network</td>
+<td>连接虚拟机到主机网络</td>
+</tr>
+<tr>
+<td>–vnc</td>
+<td>导出虚拟机服务</td>
+</tr>
+<tr>
+<td>–vncport</td>
+<td>vnc端口</td>
+</tr>
+<tr>
+<td>–vnclisten</td>
+<td>设置vnc ip(设置为0.0.0.0)，设置vnc连接密码（可选）</td>
+</tr>
+</tbody></table>
+<h2 id="3-vnc安装操作系统"><a href="#3-vnc安装操作系统" class="headerlink" title="3. vnc安装操作系统"></a>3. vnc安装操作系统</h2><p>使用vnc连接客户端进行安装</p>
+<h2 id="4-用vnc配置静态IP"><a href="#4-用vnc配置静态IP" class="headerlink" title="4.用vnc配置静态IP"></a>4.用vnc配置静态IP</h2><p><strong>注意：具体ip参数由实际情况决定</strong></p>
+<h3 id="Ubuntu18配置静态IP"><a href="#Ubuntu18配置静态IP" class="headerlink" title="Ubuntu18配置静态IP"></a>Ubuntu18配置静态IP</h3><ol>
+<li>切换为root用户执行（具体配置文件用tab自动补全）</li>
+</ol>
+<pre><code class="hljs shell">vi /etc/netplan/00***.yml</code></pre>
+
+<ol start="2">
+<li>编辑配置文件内容如下所示，addresses处填入所要设置ip地址，dhcp4 no代表不适用dhcp协议获取ip，gateway代表网关地址。nameservers代表DNS域名解析服务器</li>
+</ol>
+<pre><code class="hljs bash">network:
+  ethernets:
+    ens3:
+      dhcp4: no
+      addresses: [192.168.122.70/24]
+      gateway4: 192.168.122.1
+      nameservers:
+             addresses: [114.114.114.114]
+  version: 2</code></pre>
+
+<ol start="3">
+<li>执行以下命令是配置生效</li>
+</ol>
+<pre><code class="hljs shell">netplan apply</code></pre>
+
+<ol start="4">
+<li>使用ifconfig查看配置是否成功</li>
+<li>ping宿主机地址，ping 公网地址，查看是否能访问公网</li>
+</ol>
+<h3 id="Centos8配置静态IP"><a href="#Centos8配置静态IP" class="headerlink" title="Centos8配置静态IP"></a>Centos8配置静态IP</h3><ol>
+<li><code>vi /etc/sysconfig/network-scripts/ifcfg-ens32</code></li>
+</ol>
+<pre><code class="hljs ini"><span class="hljs-attr">TYPE</span>=Ethernet
+<span class="hljs-attr">PROXY_METHOD</span>=none
+<span class="hljs-attr">BROWSER_ONLY</span>=<span class="hljs-literal">no</span>
+<span class="hljs-attr">BOOTPROTO</span>=static
+<span class="hljs-attr">DEFROUTE</span>=<span class="hljs-literal">yes</span>
+<span class="hljs-attr">IPV4_FAILURE_FATAL</span>=<span class="hljs-literal">no</span>
+<span class="hljs-attr">IPV6INIT</span>=<span class="hljs-literal">yes</span>
+<span class="hljs-attr">IPV6_AUTOCONF</span>=<span class="hljs-literal">yes</span>
+<span class="hljs-attr">IPV6_DEFROUTE</span>=<span class="hljs-literal">yes</span>
+<span class="hljs-attr">IPV6_FAILURE_FATAL</span>=<span class="hljs-literal">no</span>
+<span class="hljs-attr">IPV6_ADDR_GEN_MODE</span>=stable-privacy
+<span class="hljs-attr">NAME</span>=ens32
+<span class="hljs-attr">UUID</span>=<span class="hljs-number">066</span>b4926-b40c-<span class="hljs-number">4</span>c28-a5b4-<span class="hljs-number">2310</span>d2b96613
+<span class="hljs-attr">DEVICE</span>=ens32
+<span class="hljs-attr">ONBOOT</span>=<span class="hljs-literal">yes</span>
+<span class="hljs-attr">IPADDR</span>=<span class="hljs-number">192.168</span>.<span class="hljs-number">1.200</span>
+<span class="hljs-attr">NETMASK</span>=<span class="hljs-number">255.255</span>.<span class="hljs-number">255.0</span>
+<span class="hljs-attr">GATEWAY</span>=<span class="hljs-number">192.168</span>.<span class="hljs-number">1.254</span>
+<span class="hljs-attr">DNS1</span>=<span class="hljs-number">223.5</span>.<span class="hljs-number">5.5</span>
+<span class="hljs-attr">PREFIX</span>=<span class="hljs-number">24</span></code></pre>
+
+<ol start="2">
+<li>使网络配置生效<code>nmcli c reload</code></li>
+<li>查看配置是否生效<code>ifconfig ens32</code></li>
+<li>ping宿主机地址，ping 公网地址，查看是否能访问公网</li>
+</ol>
+<h2 id="5-虚拟机端口转发"><a href="#5-虚拟机端口转发" class="headerlink" title="5.虚拟机端口转发"></a>5.虚拟机端口转发</h2><blockquote>
+<p> 虚拟机能访问公网，操作系统安装基本结束。后续需要做虚拟机的端口转发、关闭安装系统时开放的vnc端口。<br> 下面分别介绍</p>
+</blockquote>
+<h3 id="使用iptables做端口转发"><a href="#使用iptables做端口转发" class="headerlink" title="使用iptables做端口转发"></a>使用iptables做端口转发</h3><ol>
+<li>启用iptables</li>
+<li>执行规则库，下面命令将虚拟机22端口转发到宿主机20022端口<pre><code class="hljs bash">iptables -t nat -A PREROUTING -p tcp --dport 20022 -j DNAT --to-destination 192.168.122.10:22
+iptables -t nat -A POSTROUTING -d 192.168.122.10 -p tcp --dport 20022 -j SNAT --to-source x.x.x.x</code></pre></li>
+<li>保存iptables规则，设置开机启动iptables</li>
+</ol>
+<h3 id="使用HAProxy做端口转发"><a href="#使用HAProxy做端口转发" class="headerlink" title="使用HAProxy做端口转发"></a>使用HAProxy做端口转发</h3><p>端口转发配置文件服务器上/etc/haproxy/haproxy.cfg</p>
+<p>启动方式</p>
+<pre><code class="hljs bash">haproxy -f /etc/haproxy/haproxy.cfg</code></pre>
+
+<p>可以直接查看/etc/haproxy/haproxy.cfg然后参照相关内容做相关配置。</p>
+<p>配置文件示例如下：</p>
+<pre><code class="hljs routeros">global
+    daemon
+    log 127.0.0.1 local3 info
+    maxconn 1000
+    ulimit-n 4000
+    uid 1001 [[普通用户的uid和gid]]
+    gid 1001
+    quiet
+    nbproc 1
+    pidfile /etc/haproxy/haproxy.pid #普通用户路径权限
+defaults
+    mode tcp #协议
+    timeout connect 5000ms
+    timeout<span class="hljs-built_in"> client </span>50000ms
+    timeout<span class="hljs-built_in"> server </span>50000ms
+
+<span class="hljs-comment">#规则一：</span>
+frontend tcp-in-unstable #名字
+    bind *:33891 #本地端口 ，注本地端口防火墙也要放开
+    default_backend tcpunstable
+backend tcpunstable
+   <span class="hljs-built_in"> server </span>proxy00 192.168.122.27:3389 maxconn 1000
+
+<span class="hljs-comment">#规则二：</span>
+frontend tcp-in-unstable_33892
+    bind *:33892
+    default_backend tcpunstable_33892
+backend tcpunstable_33892
+   <span class="hljs-built_in"> server </span>proxy00 192.168.122.81:3389 maxconn 1000
+</code></pre>
+
+<h2 id="6-关闭VNC连接"><a href="#6-关闭VNC连接" class="headerlink" title="6.关闭VNC连接"></a>6.关闭VNC连接</h2><p>出于安全角度，建议虚拟机安装配置完成后建议将VNC关闭</p>
+<p>关闭VNC连接需要先关闭虚拟机 <code>virsh shutdown 虚拟机名称（--name参数定义的）</code>后修改虚拟机配置，配置文件为成功安装虚拟机后生成的文件，具体为该虚拟机各项参数详细信息。</p>
+<p>下面介绍两种修改方式：</p>
+<h3 id="virsh-edit"><a href="#virsh-edit" class="headerlink" title="virsh edit"></a>virsh edit</h3><p>virsh edit 虚拟机名称</p>
+<p>后将vnc配置修改为</p>
+<pre><code class="hljs pgsql">&lt;graphics <span class="hljs-keyword">type</span>=<span class="hljs-string">&#x27;vnc&#x27;</span> port=<span class="hljs-string">&#x27;-1&#x27;</span> autoport=<span class="hljs-string">&#x27;yes&#x27;</span> <span class="hljs-keyword">listen</span>=<span class="hljs-string">&#x27;0.0.0.0&#x27;</span>&gt;
+      &lt;<span class="hljs-keyword">listen</span> <span class="hljs-keyword">type</span>=<span class="hljs-string">&#x27;address&#x27;</span> address=<span class="hljs-string">&#x27;0.0.0.0&#x27;</span>/&gt;
+&lt;/graphics&gt;</code></pre>
+
+<p>保存配置退出，重启虚拟机即可</p>
+<h3 id="直接修改xml文件，重新定义虚拟机"><a href="#直接修改xml文件，重新定义虚拟机" class="headerlink" title="直接修改xml文件，重新定义虚拟机"></a>直接修改xml文件，重新定义虚拟机</h3><p>修改虚拟机生成后的xml配置文件，</p>
+<p>默认服务器虚拟机配置文件在/etc/libvirt/qemu/下</p>
+<ol>
+<li>vim修改xml文件，如<code>vi /etc/libvirt/qemu/ubuntu2.xml</code>按照上述方式修改vnc配置，保存退出</li>
+<li>先取消定义刚刚安装的虚拟机，<code>virsh undefine 虚拟机名称</code></li>
+<li>定义新的虚拟机，如<code>virsh define /etc/libvirt/qemu/ubuntu2.xml</code></li>
+<li>启动该虚拟机，<code>virsh start ubuntu2</code></li>
+</ol>
+<h2 id="7-设置虚拟机自启动"><a href="#7-设置虚拟机自启动" class="headerlink" title="7. 设置虚拟机自启动"></a>7. 设置虚拟机自启动</h2><p>xxx处修改为虚拟机名称<br><code>virsh autostart xxx</code></p>
+<h2 id="8-virsh-常用命令"><a href="#8-virsh-常用命令" class="headerlink" title="8. virsh 常用命令"></a>8. virsh 常用命令</h2><p>下面简单介绍几条virsh常用命令：</p>
+<h3 id="查看虚拟机状态"><a href="#查看虚拟机状态" class="headerlink" title="查看虚拟机状态"></a>查看虚拟机状态</h3><p><code>virsh list --all</code></p>
+<h3 id="启动虚拟机"><a href="#启动虚拟机" class="headerlink" title="启动虚拟机"></a>启动虚拟机</h3><p><code>virsh start name</code></p>
+<h3 id="关闭虚拟机"><a href="#关闭虚拟机" class="headerlink" title="关闭虚拟机"></a>关闭虚拟机</h3><p><code>virsh shutdown name</code></p>
+<h3 id="强制关闭虚拟机"><a href="#强制关闭虚拟机" class="headerlink" title="强制关闭虚拟机"></a>强制关闭虚拟机</h3><p><strong>注意该名称非销毁虚拟机，只是强制关闭，undefine才是销毁虚拟机</strong></p>
+<p><code>virsh destroy name</code></p>
+<blockquote>
+<p>后续可自行按需查找命令，如虚拟机快照，虚拟机扩容，虚拟机克隆复制等等</p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/KVM/">KVM</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处。</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/04/23/golang/GO%E4%B8%93%E5%AE%B6%E7%BC%96%E7%A8%8B/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">GO专家编程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/11/24/golang/The%20Go%20Programming%20Language/The%20Go%20Programming%20Language%EF%BC%8810-13%EF%BC%89/">
+                        <span class="hidden-mobile">The Go Programming Language（10-13）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>1ch0</span></a> <i class="iconfont icon-love"></i> <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>Go</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "kvm安装虚拟机&nbsp;",
+      ],
+      cursorChar: ".",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

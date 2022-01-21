@@ -1,0 +1,757 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="1ch0">
+  <meta name="keywords" content="">
+  <title>Linux命令 - 1ch0&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>1ch0's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                联系我
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      1ch0
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-01-05 10:33" pubdate>
+        2022年1月5日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      869 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Linux命令</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：14 天前
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <p>[TOC]</p>
+<h1 id="1-Linux-命令-amp-工具"><a href="#1-Linux-命令-amp-工具" class="headerlink" title="1. Linux 命令 &amp; 工具"></a>1. Linux 命令 &amp; 工具</h1><h2 id="汇总表"><a href="#汇总表" class="headerlink" title="汇总表"></a>汇总表</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>curl cip.cc</td>
+<td>查询外网出口 ip</td>
+</tr>
+<tr>
+<td>screenfetch</td>
+<td>查看系统信息</td>
+</tr>
+<tr>
+<td>nohup command &amp;</td>
+<td>后台运行</td>
+</tr>
+<tr>
+<td>&amp; disown</td>
+<td>后台运行命令</td>
+</tr>
+<tr>
+<td>ps -aux | grep</td>
+<td>查看后台命令</td>
+</tr>
+<tr>
+<td>pstree -p</td>
+<td>查看进程父子关系</td>
+</tr>
+<tr>
+<td>sudo tail /proc/<pid>/fd/1 <code>1</code> = stdout, <code>2</code> = stderr</td>
+<td>查看后台进程输出</td>
+</tr>
+<tr>
+<td>reptyr <PID></td>
+<td>查看后台输出</td>
+</tr>
+<tr>
+<td>dmesg | grep -i xeon</td>
+<td></td>
+</tr>
+<tr>
+<td>bash -x</td>
+<td>单步执行</td>
+</tr>
+<tr>
+<td>export</td>
+<td>查看环境变量</td>
+</tr>
+<tr>
+<td>declare -x  (-x=export 可以跟不同选项)</td>
+<td>查看环境变量</td>
+</tr>
+<tr>
+<td>env   或 printenv</td>
+<td>查看环境变量</td>
+</tr>
+<tr>
+<td>free -m</td>
+<td>查看内存</td>
+</tr>
+<tr>
+<td>cat /proc/meminfo</td>
+<td>查看内存,第一行</td>
+</tr>
+<tr>
+<td>hostnamectl</td>
+<td>查看虚拟机的信息</td>
+</tr>
+<tr>
+<td>lspci |grep -i vga</td>
+<td>查看显卡信息</td>
+</tr>
+<tr>
+<td>hostnamectl set-hostname</td>
+<td>修改主机名</td>
+</tr>
+<tr>
+<td>uname -a</td>
+<td>查看系统</td>
+</tr>
+<tr>
+<td>nslookup</td>
+<td></td>
+</tr>
+<tr>
+<td>scp</td>
+<td></td>
+</tr>
+<tr>
+<td>wall</td>
+<td>警报</td>
+</tr>
+<tr>
+<td>ln</td>
+<td>软连接</td>
+</tr>
+<tr>
+<td>rsync</td>
+<td></td>
+</tr>
+<tr>
+<td>wc</td>
+<td>统计总数</td>
+</tr>
+<tr>
+<td>pstree -g</td>
+<td>进程的树状结构</td>
+</tr>
+<tr>
+<td>lscpu</td>
+<td>查看cpu信息</td>
+</tr>
+<tr>
+<td>lsblk</td>
+<td>查看硬盘大小</td>
+</tr>
+<tr>
+<td>lsblk</td>
+<td>查看磁盘情况</td>
+</tr>
+<tr>
+<td>df -hT -x tmpfs -x devtmpfs</td>
+<td>查看磁盘情况</td>
+</tr>
+<tr>
+<td>curl</td>
+<td>curl miyip.ipip.net</td>
+</tr>
+<tr>
+<td>fio 工具</td>
+<td>测试系统盘性能</td>
+</tr>
+<tr>
+<td>iperf3 工具</td>
+<td>网络吞吐能力测试</td>
+</tr>
+<tr>
+<td>ufw</td>
+<td>防火墙</td>
+</tr>
+</tbody></table>
+<ul>
+<li>开启 ssh，关闭密码验证<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43228568/article/details/110824158">https://blog.csdn.net/qq_43228568/article/details/110824158</a></li>
+</ul>
+<h2 id="1-1-curl"><a href="#1-1-curl" class="headerlink" title="1.1 curl"></a>1.1 curl</h2><pre><code class="hljs shell">curl
+-X/--request [GET|POST|PUT|DELETE|…]  指定请求的 HTTP 方法
+-H/--header                           指定请求的 HTTP Header
+-d/--data                             指定请求的 HTTP 消息体（Body）
+-v/--verbose                          输出详细的返回信息
+-u/--user                             指定账号、密码
+-b/--cookie                           读取 cookie</code></pre>
+
+<h2 id="1-2-tee"><a href="#1-2-tee" class="headerlink" title="1.2 tee"></a>1.2 tee</h2><h3 id="1-2-1-追加"><a href="#1-2-1-追加" class="headerlink" title="1.2.1 追加"></a>1.2.1 追加</h3><pre><code class="hljs shell">tee -a $HOME/.bashrc &lt;&lt; &#x27;EOF&#x27;
+<span class="hljs-meta">#</span><span class="bash"> Alias <span class="hljs-keyword">for</span> quick access</span>
+export GOWORK=&quot;$WORKSPACE/golang/src&quot;
+export IAM_ROOT=&quot;$GOWORK/github.com/marmotedu/iam&quot;
+alias mm=&quot;cd $GOWORK/github.com/marmotedu&quot;
+alias i=&quot;cd $GOWORK/github.com/marmotedu/iam&quot;
+EOF</code></pre>
+
+<h3 id="1-2-2-新建"><a href="#1-2-2-新建" class="headerlink" title="1.2.2 新建"></a>1.2.2 新建</h3><pre><code class="hljs shell">tee ca-csr.json &lt;&lt; EOF
+&#123;
+  &quot;CN&quot;: &quot;iam-ca&quot;,
+  &quot;key&quot;: &#123;
+    &quot;algo&quot;: &quot;rsa&quot;,
+    &quot;size&quot;: 2048
+  &#125;,
+  &quot;names&quot;: [
+    &#123;
+      &quot;C&quot;: &quot;CN&quot;,
+      &quot;ST&quot;: &quot;BeiJing&quot;,
+      &quot;L&quot;: &quot;BeiJing&quot;,
+      &quot;O&quot;: &quot;marmotedu&quot;,
+      &quot;OU&quot;: &quot;iam&quot;
+    &#125;
+  ],
+  &quot;ca&quot;: &#123;
+    &quot;expiry&quot;: &quot;876000h&quot;
+  &#125;
+&#125;
+EOF</code></pre>
+
+<h2 id="1-3-Alias-别名永久有效"><a href="#1-3-Alias-别名永久有效" class="headerlink" title="1.3 Alias 别名永久有效"></a>1.3 Alias 别名永久有效</h2><pre><code class="hljs shell">cat &lt;&lt;EOF&gt;&gt; ~/.bashrcalias k=&#x27;kubectl&#x27;EOFsource ~/.bashrc</code></pre>
+
+
+
+<pre><code class="hljs awk">cat <span class="hljs-regexp">/etc/</span>redhat-release</code></pre>
+
+<pre><code class="hljs awk">cat <span class="hljs-regexp">/etc/i</span>ssue</code></pre>
+
+<h2 id="1-4-查看系统版本"><a href="#1-4-查看系统版本" class="headerlink" title="1.4 查看系统版本"></a>1.4 查看系统版本</h2><ul>
+<li>使用  screenfetch 工具</li>
+</ul>
+<pre><code class="hljs livecodeserver">uname  <span class="hljs-comment"># 英文全称: unix name</span>
+uname -<span class="hljs-keyword">a</span>
+uname -s <span class="hljs-comment"># 内核名称</span>
+uname -n <span class="hljs-comment"># 主机名:</span>
+uname -r <span class="hljs-comment"># 内核发行版(不同的内核打包版本) </span>
+uname -v <span class="hljs-comment"># 内核版本信息(该内核建立的时间和CPU架构)</span>
+uname -m <span class="hljs-comment"># CPU位数</span></code></pre>
+
+<h2 id="1-5-scp拷贝文件"><a href="#1-5-scp拷贝文件" class="headerlink" title="1.5 scp拷贝文件"></a>1.5 scp拷贝文件</h2><pre><code class="hljs bash">scp file user@ip folder</code></pre>
+
+
+
+<h1 id="2-ubuntu-20-04"><a href="#2-ubuntu-20-04" class="headerlink" title="2. ubuntu 20.04"></a>2. ubuntu 20.04</h1><h2 id="2-0-安装-k8s"><a href="#2-0-安装-k8s" class="headerlink" title="2.0 安装 k8s"></a><a target="_blank" rel="noopener" href="https://github.com/cncamp/101/blob/master/k8s-install/k8s-by-kubeadm/3.k8s-install.md#add-the-kubernetes-apt-repository">2.0 安装 k8s</a></h2><h3 id="2-0-1-关闭-swapoff"><a href="#2-0-1-关闭-swapoff" class="headerlink" title="2.0.1 关闭 swapoff"></a>2.0.1 关闭 swapoff</h3><pre><code class="hljs shell">swapoff -a
+sed -i &#x27;/ swap / s/^\(.*\)$/#\1/g&#x27; /etc/fstab
+
+vi /etc/fstab
+remove the line with swap keyword</code></pre>
+
+<h3 id="2-0-2-安装-docker"><a href="#2-0-2-安装-docker" class="headerlink" title="2.0.2 安装 docker"></a>2.0.2 安装 docker</h3><pre><code class="hljs shell">apt install -y docker.io
+
+vi /etc/docker/daemon.json
+&#123;
+  &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;]
+&#125;
+systemctl daemon-reload
+systemctl restart docker</code></pre>
+
+<h3 id="2-0-3-安装-k8s"><a href="#2-0-3-安装-k8s" class="headerlink" title="2.0.3 安装 k8s"></a>2.0.3 安装 k8s</h3><h4 id="Letting-iptables-see-bridged-traffic"><a href="#Letting-iptables-see-bridged-traffic" class="headerlink" title="Letting iptables see bridged traffic"></a>Letting iptables see bridged traffic</h4><pre><code class="hljs shell">cat &lt;&lt;EOF | sudo tee /etc/modules-load.d/k8s.conf
+br_netfilter
+EOF
+
+cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+
+sudo sysctl --system</code></pre>
+
+<h4 id="Update-the-apt-package-index-and-install-packages-needed-to-use-the-Kubernetes-apt-repository"><a href="#Update-the-apt-package-index-and-install-packages-needed-to-use-the-Kubernetes-apt-repository" class="headerlink" title="Update the apt package index and install packages needed to use the Kubernetes apt repository"></a>Update the apt package index and install packages needed to use the Kubernetes apt repository</h4><pre><code class="hljs shell">sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl
+</code></pre>
+
+<h4 id="Install-kubeadm"><a href="#Install-kubeadm" class="headerlink" title="Install kubeadm"></a>Install kubeadm</h4><pre><code class="hljs shell">sudo curl -s https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | sudo apt-key add -</code></pre>
+
+
+
+<h4 id="Add-the-Kubernetes-apt-repository"><a href="#Add-the-Kubernetes-apt-repository" class="headerlink" title="Add the Kubernetes apt repository"></a>Add the Kubernetes apt repository</h4><pre><code class="hljs shell">sudo tee /etc/apt/sources.list.d/kubernetes.list &lt;&lt;-&#x27;EOF&#x27;
+deb https://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial main
+EOF</code></pre>
+
+<h4 id="kubeadm-init"><a href="#kubeadm-init" class="headerlink" title="kubeadm init"></a>kubeadm init</h4><pre><code class="hljs shell">echo &quot;192.168.34.2 cncamp.com&quot; &gt;&gt; /etc/hosts
+kubeadm init \
+--image-repository registry.aliyuncs.com/google_containers \
+--kubernetes-version v1.22.2 \
+--pod-network-cidr=192.168.0.0/16 \
+--apiserver-advertise-address=192.168.34.2
+
+</code></pre>
+
+<h4 id="Copy-kubeconfig"><a href="#Copy-kubeconfig" class="headerlink" title="Copy kubeconfig"></a>Copy kubeconfig</h4><pre><code class="hljs shell">mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config</code></pre>
+
+<h4 id="Untaint-master"><a href="#Untaint-master" class="headerlink" title="Untaint master"></a>Untaint master</h4><pre><code class="hljs shell">kubectl taint nodes --all node-role.kubernetes.io/master-</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处。</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/01/05/linux/tmp/shell/shell%E8%84%9A%E6%9C%AC/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">shell脚本</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/01/04/golang/Interview/interview_00/">
+                        <span class="hidden-mobile">Go Interview</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>1ch0</span></a> <i class="iconfont icon-love"></i> <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>Go</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Linux命令&nbsp;",
+      ],
+      cursorChar: ".",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

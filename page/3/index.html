@@ -1,0 +1,938 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="1ch0">
+  <meta name="keywords" content="">
+  <title>1ch0&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>1ch0's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                联系我
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/grypus.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/12/26/CloudNative/mage/1.docker/01-docker/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="K8S-M-Docker">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/12/26/CloudNative/mage/1.docker/01-docker/">K8S-M-Docker</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/12/26/CloudNative/mage/1.docker/01-docker/">
+          
+          
+            
+          
+          01 docker00 introduction
+containerd  1.24 之后使用 containerd 
+
+01 Concept镜像发布
+镜像仓库  harbor   几十 T
+运维 -&gt; Api-server -&gt; ETCD -&gt; NODE 节点 （访问 harbor 下载镜像）-&gt; kubectl 
+Build -&gt; Share -&gt; Run
+
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-12-26 09:38" pubdate>
+              2021-12-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/K8S-M/">K8S-M</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Kubernetes/">Kubernetes</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/12/24/golang/finished/Nacos-sdk-go%20v2.0.0-Beta.1/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/nacos.png" srcset="/img/loading.gif" alt="Nacos-sdk-go v2.0.0-Beta.1 源码结构">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/12/24/golang/finished/Nacos-sdk-go%20v2.0.0-Beta.1/">Nacos-sdk-go v2.0.0-Beta.1 源码结构</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/12/24/golang/finished/Nacos-sdk-go%20v2.0.0-Beta.1/">
+          
+          
+            
+          
+          Nacos-sdk-go v2.0.0-Beta.1 源码结构
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-12-24 14:01" pubdate>
+              2021-12-24
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/source-code-reading/">source code reading</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/go/">go</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/12/14/python/Python/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/python-programming.jpg" srcset="/img/loading.gif" alt="Python">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/12/14/python/Python/">Python</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/12/14/python/Python/">
+          
+          
+            
+          
+          Python数据类型不可变：int、float、str、tuple、bool
+可变：list、set、dict
+可迭代：str、list、dict、tuple、set
+Str 字符串len(s)  # 统计字符串长度
+ord(s)  # 字符 =》ASCII
+cha(s)  # ASCII =》字符
+&#x27; &#x27;.join(s)  # 拼接字符串；
+[::-1]  # 反转字符串
+[
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-12-14 14:01" pubdate>
+              2021-12-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Python/">Python</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">Python</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/12/14/python/Django/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/python-programming.jpg" srcset="/img/loading.gif" alt="Python">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/12/14/python/Django/">Python</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/12/14/python/Django/">
+          
+          
+            
+          
+          项目创建# 创建名为 django01的项目
+django-admin startproject django01 
+# 进入项目目录
+cd django01 
+# 创建名为 app01的app
+django-admin startapp app01 
+# 启动django项目，默认127.0.0.1:8000
+python manage.py runserver 
+# 指定端口启动
+python
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-12-14 14:01" pubdate>
+              2021-12-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Python/">Python</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python-Django/">Python,Django</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/12/07/CloudNative/kubevela/kubevela/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="kubevela">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/12/07/CloudNative/kubevela/kubevela/">kubevela</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/12/07/CloudNative/kubevela/kubevela/">
+          
+          
+            
+          
+          kubevela
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-12-07 13:48" pubdate>
+              2021-12-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CloudNative/">CloudNative</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Kubernetes/">Kubernetes</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/10/25/CloudNative/install/Kubernetes%20Install/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="Kubernetes Install">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/25/CloudNative/install/Kubernetes%20Install/">Kubernetes Install</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/25/CloudNative/install/Kubernetes%20Install/">
+          
+          
+            
+          
+          Kubernetes安装脚本kubernetes-intstall-on-centos7.sh
+
+升级内核
+
+# 升级内核
+# 安装新内核
+wget https://elrepo.org/linux/kernel/el7/x86_64/RPMS/kernel-lt-5.4.114-1.el7.elrepo.x86_64.rpm
+wget https://elrepo.org/linux/kerne
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-25 11:25" pubdate>
+              2021-10-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CloudNative/">CloudNative</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Kubernetes/">Kubernetes</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/10/20/CloudNative/ELK/ELK/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="ELK">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/20/CloudNative/ELK/ELK/">ELK</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/20/CloudNative/ELK/ELK/">
+          
+          
+            
+          
+          [TOC]
+ELK基本what主要功能：
+
+分布式搜索引擎
+大数据实时分析引擎
+
+目标：
+
+开发：产品基本功能，底层工作原理，数据建模最佳实践
+运维：容量规划：性能优化，问题诊断，滚动升级
+方案：搜索与如何解决搜索的相关性问题、大数据分析实践与项目实战，理论知识运用到实际场景
+
+Elastic 认证
+内容：
+
+环境搭建
+数据分析
+集群管理
+实践
+
+简介、历史安装与查看插件docker networ
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-20 10:31" pubdate>
+              2021-10-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CloudNative/">CloudNative</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ELK-Stack/">ELK Stack</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/10/19/CloudNative/k8s%E5%9F%BA%E7%A1%80/Node%20&%20Pod%20&%20Container/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Node & Pod & Container.png" srcset="/img/loading.gif" alt="Node &amp; Pod &amp; Container">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/19/CloudNative/k8s%E5%9F%BA%E7%A1%80/Node%20&%20Pod%20&%20Container/">Node &amp; Pod &amp; Container</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/19/CloudNative/k8s%E5%9F%BA%E7%A1%80/Node%20&%20Pod%20&%20Container/">
+          
+          
+            
+          
+          Node &amp; Pod &amp; ContainerReferencesMulti-Container Pods in Kubernetes
+The Almighty Pause Container
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-19 08:55" pubdate>
+              2021-10-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CloudNative/">CloudNative</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Kubernetes/">Kubernetes</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/10/15/CloudNative/k8s%E5%9F%BA%E7%A1%80/Kubernetes(1-7)/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="Kubernetes(1-7)">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/15/CloudNative/k8s%E5%9F%BA%E7%A1%80/Kubernetes(1-7)/">Kubernetes(1-7)</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/15/CloudNative/k8s%E5%9F%BA%E7%A1%80/Kubernetes(1-7)/">
+          
+          
+            
+          
+          [TOC]
+Kubernetes1. 初体验实验环境
+katacode 
+搭建 Rancher
+
+docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher:v2.0.0
+docker logs -f rancher
+
+
+Windows 安装 minikube
+
+choco install kubernete
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-15 10:51" pubdate>
+              2021-10-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CloudNative/">CloudNative</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Kubernetes/">Kubernetes</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/10/15/CloudNative/install/Docker%20Install/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/docker_icon.jpeg" srcset="/img/loading.gif" alt="Docker">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/10/15/CloudNative/install/Docker%20Install/">Docker</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/10/15/CloudNative/install/Docker%20Install/">
+          
+          
+            
+          
+          Docker安装脚本docker-intstall-on-centos7.sh
+# 查看内核版本
+uname -r
+# 更新 yum 包
+yum -y update
+# 卸载旧版 docker
+yum remove -y docker docker-common docker-selinux docker-engine
+# 安装依赖包
+yum install -y yum-utils device
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-10-15 10:51" pubdate>
+              2021-10-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CloudNative/">CloudNative</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Docker/">Docker</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/2/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>1ch0</span></a> <i class="iconfont icon-love"></i> <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>Go</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "路漫漫其修远兮 吾将上下而求索&nbsp;",
+      ],
+      cursorChar: ".",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
