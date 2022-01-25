@@ -1,0 +1,682 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="1ch0">
+  <meta name="keywords" content="">
+  <title>SQL - 1ch0&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>1ch0's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                联系我
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      1ch0
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-09-09 10:00" pubdate>
+        2021年9月9日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      564 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">SQL</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：4 个月前
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><p>[TOC]</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h3><blockquote>
+<pre><code class="hljs mysql">INSERT INTO table(column1, column2,...)
+VALUES (value1, value2,...);</code></pre>
+
+
+</blockquote>
+<h3 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h3><blockquote>
+<pre><code class="hljs mysql">SELECT * FROM artists LIMIT [Number to Limit By];</code></pre>
+
+<p> 用于规定要返回的记录的数目。</p>
+</blockquote>
+<pre><code class="hljs mysql">select * from table limit 2,1;                 
+
+&#x2F;&#x2F;含义是跳过2条取出1条数据，limit后面是从第2条开始读，读取1条信息，即读取第3条数据</code></pre>
+
+<h3 id="OFFSET"><a href="#OFFSET" class="headerlink" title="OFFSET"></a>OFFSET</h3><blockquote>
+<pre><code class="hljs mysql">SELECT * FROM artists LIMIT 5 OFFSET [Number of rows to skip];</code></pre>
+</blockquote>
+<pre><code class="hljs mysql">select * from table limit 2 offset 1;      
+
+&#x2F;&#x2F;含义是从第1条（不包括）数据开始取出2条数据，limit后面跟的是2条数据，offset后面是从第1条开始读取，即读取第2,3条</code></pre>
+
+<h3 id="gt-gt"><a href="#gt-gt" class="headerlink" title="&gt;  &gt;="></a>&gt;  &gt;=</h3><h3 id="BETWEEN"><a href="#BETWEEN" class="headerlink" title="BETWEEN"></a>BETWEEN</h3><blockquote>
+<pre><code class="hljs mysql">expression BETWEEN low AND high;
+
+expression &gt;&#x3D; low and expression &lt;&#x3D; high</code></pre>
+</blockquote>
+<h3 id="gt-lt-gt"><a href="#gt-lt-gt" class="headerlink" title="!=  -&gt; &lt;&gt;"></a>!=  -&gt; &lt;&gt;</h3><blockquote>
+<p>除..之外</p>
+</blockquote>
+<h3 id="IS-NOT"><a href="#IS-NOT" class="headerlink" title="IS NOT"></a>IS NOT</h3><blockquote>
+<pre><code class="hljs mysql">WHERE expression IS (NOT) NULL</code></pre>
+</blockquote>
+<h3 id="AND-OR"><a href="#AND-OR" class="headerlink" title="AND   OR"></a>AND   OR</h3><h3 id="IN"><a href="#IN" class="headerlink" title="IN"></a>IN</h3><blockquote>
+<pre><code class="hljs mysql">expression IN (value1,value2,...)</code></pre>
+
+</blockquote>
+<h3 id=""><a href="#" class="headerlink" title="()"></a>()</h3><blockquote>
+<pre><code class="hljs mysql">括号内为一个整体</code></pre>
+
+</blockquote>
+<h3 id="LIKE"><a href="#LIKE" class="headerlink" title="LIKE"></a>LIKE</h3><blockquote>
+<pre><code class="hljs mysql">expression LIKE pattern</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">LIKE <code>&#39;Kim%&#39;</code></td>
+<td align="left">Begins with <code>Kim</code></td>
+</tr>
+<tr>
+<td align="left">LIKE <code>&#39;%er&#39;</code></td>
+<td align="left">Ends with er</td>
+</tr>
+<tr>
+<td align="left">LIKE <code>&#39;%ch%&#39;</code></td>
+<td align="left">Contains <code>ch</code></td>
+</tr>
+<tr>
+<td align="left">LIKE <code>&#39;Le_&#39;</code></td>
+<td align="left">Begins with <code>Le</code> and is followed by at most one character e.g., Les, Len…</td>
+</tr>
+<tr>
+<td align="left">LIKE <code>&#39;_uy&#39;</code></td>
+<td align="left">Ends with <code>uy</code> and is preceded by at most one character e.g., guy</td>
+</tr>
+<tr>
+<td align="left">LIKE <code>&#39;%are_&#39;</code></td>
+<td align="left">Contains <code>are</code>, begins with any number of characters and ends with at most one character</td>
+</tr>
+<tr>
+<td align="left">LIKE <code>&#39;_are%&#39;</code></td>
+<td align="left">Contains <code>are</code>, begins with at most one character and ends with any number of characters</td>
+</tr>
+</tbody></table>
+<h3 id="MAX"><a href="#MAX" class="headerlink" title="MAX()"></a>MAX()</h3><blockquote>
+<pre><code class="hljs mysql">MAX(expression)</code></pre>
+</blockquote>
+<h3 id="MIN"><a href="#MIN" class="headerlink" title="MIN()"></a>MIN()</h3><blockquote>
+<pre><code class="hljs mysql">MIN(expression)</code></pre>
+</blockquote>
+<h3 id="AVG"><a href="#AVG" class="headerlink" title="AVG()"></a>AVG()</h3><blockquote>
+<pre><code class="hljs mysql">AVG (ALL | DISTINCT expression)</code></pre>
+
+<p>AVG 会忽略 NULL</p>
+</blockquote>
+<h3 id="ROUND"><a href="#ROUND" class="headerlink" title="ROUND()"></a>ROUND()</h3><blockquote>
+<pre><code class="hljs mysql">SELECT ROUND(column_name,decimals) FROM table_name</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>column_name</td>
+<td>必需。要舍入的字段。</td>
+</tr>
+<tr>
+<td>decimals</td>
+<td>必需。规定要返回的小数位数。</td>
+</tr>
+</tbody></table>
+<h3 id="SUM"><a href="#SUM" class="headerlink" title="SUM"></a>SUM</h3><blockquote>
+<pre><code class="hljs mysql"></code></pre>
+</blockquote>
+<h3 id="COUNT"><a href="#COUNT" class="headerlink" title="COUNT()"></a>COUNT()</h3><blockquote>
+<pre><code class="hljs mysql">SELECT COUNT(column_name) FROM table_name</code></pre>
+</blockquote>
+<h3 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h3><blockquote>
+<pre><code class="hljs mysql">SELECT 
+    column1, column2, aggregate_function(expression)
+FROM
+    table_name
+WHERE
+    condition
+GROUP BY column1;</code></pre>
+</blockquote>
+<p>GROUP BY column1, column2;</p>
+<p><strong>将所有具有相同 1 字段值和 2 字段值的记录放到一个分组里</strong></p>
+<h3 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h3><blockquote>
+<pre><code class="hljs mysql">SELECT 
+    select_list
+FROM
+    table_name
+ORDER BY 
+   (expr | column) ASC,
+   (expr | column) DESC;</code></pre>
+</blockquote>
+<p>ASC 升序，默认为升序</p>
+<p>DESC 降序</p>
+<p><strong>多个字段排序，每个字段后面都要标注，不标默认 ASC</strong></p>
+<h3 id="CASE"><a href="#CASE" class="headerlink" title="CASE"></a>CASE</h3><blockquote>
+<pre><code class="hljs mysql">CASE expr
+  WHEN expr_to_match THEN result
+  [ ... ]
+  [ ELSE else_result ]
+END</code></pre>
+</blockquote>
+<h3 id="IF"><a href="#IF" class="headerlink" title="IF()"></a>IF()</h3><blockquote>
+<pre><code class="hljs mysq;">IF(expr, true_result, else_result)</code></pre>
+</blockquote>
+<h3 id="DAY"><a href="#DAY" class="headerlink" title="DAY()"></a>DAY()</h3><blockquote>
+<pre><code class="hljs mysql">DAY(date)</code></pre>
+</blockquote>
+<h3 id="MONTH"><a href="#MONTH" class="headerlink" title="MONTH()"></a>MONTH()</h3><blockquote>
+<pre><code class="hljs mysql">MONTH(date)</code></pre>
+</blockquote>
+<h3 id="YEAR"><a href="#YEAR" class="headerlink" title="YEAR()"></a>YEAR()</h3><blockquote>
+<pre><code class="hljs mysql">YEAR(date)</code></pre>
+</blockquote>
+<h3 id="SYSDATETIME"><a href="#SYSDATETIME" class="headerlink" title="SYSDATETIME()"></a>SYSDATETIME()</h3><blockquote>
+ <pre><code class="hljs mysql">SYSDATETIME()</code></pre>
+</blockquote>
+<h3 id="ISDATE"><a href="#ISDATE" class="headerlink" title="ISDATE()"></a>ISDATE()</h3><blockquote>
+<pre><code class="hljs mysql">ISDATE()</code></pre>
+
+<p>Check if the expression is a valid date</p>
+</blockquote>
+<h3 id="DATE-SUB"><a href="#DATE-SUB" class="headerlink" title="DATE_SUB()"></a>DATE_SUB()</h3><blockquote>
+<pre><code class="hljs mysql">DATE_SUB(date,INTERVAL expr type)</code></pre>
+
+<p><strong>DATE_SUB() 函数从日期减去指定的时间间隔</strong></p>
+<p><em>date</em> 参数是合法的日期表达式。<em>expr</em> 参数是希望添加的时间间隔。</p>
+</blockquote>
+<h3 id="SUBSTRING-INDEX"><a href="#SUBSTRING-INDEX" class="headerlink" title="SUBSTRING_INDEX()"></a>SUBSTRING_INDEX()</h3><blockquote>
+<pre><code class="hljs mysql">SUBSTRING_INDEX(string, delimiter, number)</code></pre>
+
+<p> substring_index（“待截取有用部分的字符串”，“截取数据依据的字符”，截取字符的位置N）</p>
+</blockquote>
+<h3 id="SUBSTRING"><a href="#SUBSTRING" class="headerlink" title="SUBSTRING()"></a>SUBSTRING()</h3><blockquote>
+<pre><code class="hljs mysql">SUBSTRING(string, start, length)
+
+SUBSTRING(string FROM start FOR length)</code></pre>
+
+
+</blockquote>
+<h3 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h3><p><img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/sql-join.png" srcset="/img/loading.gif" alt="SQL JOINS"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/SQL/">SQL</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/sql/">sql</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处。</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/15/CloudNative/install/Docker%20Install/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Docker</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/09/08/go/go_web/Go%20Web/">
+                        <span class="hidden-mobile">Go Web</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>1ch0</span></a> <i class="iconfont icon-love"></i> <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>Go</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "SQL&nbsp;",
+      ],
+      cursorChar: ".",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

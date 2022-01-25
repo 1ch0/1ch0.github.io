@@ -1,0 +1,806 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="1ch0">
+  <meta name="keywords" content="">
+  <title>The Go Programming Language（8）- goroutine - 1ch0&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>1ch0's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                联系我
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      1ch0
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-11-22 09:00" pubdate>
+        2020年11月22日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      44
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">The Go Programming Language（8）- goroutine</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：6 个月前
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <hr>
+<h1 id="The-Go-Programming-Language（8"><a href="#The-Go-Programming-Language（8" class="headerlink" title="The Go Programming Language（8)"></a>The Go Programming Language（8)</h1><h3 id="源码、PDF版、Markdown、xmind版下载链接"><a href="#源码、PDF版、Markdown、xmind版下载链接" class="headerlink" title="源码、PDF版、Markdown、xmind版下载链接"></a>源码、PDF版、Markdown、xmind版下载链接</h3><pre><code class="hljs apache"><span class="hljs-attribute">https</span>://<span class="hljs-number">1</span>tnt<span class="hljs-number">1</span>.lanzous.com/b<span class="hljs-number">00</span>o<span class="hljs-number">36</span>ytc</code></pre>
+
+<p>密码：</p>
+<pre><code class="hljs angelscript"><span class="hljs-number">1</span>ch0</code></pre>
+
+<hr>
+<h2 id="ch8-Goroutines和Channels"><a href="#ch8-Goroutines和Channels" class="headerlink" title="ch8  Goroutines和Channels"></a>ch8  Goroutines和Channels</h2><h3 id="ch8-0-简介"><a href="#ch8-0-简介" class="headerlink" title="ch8.0   简介"></a>ch8.0   简介</h3><ul>
+<li><p>并发程序指同时进行多个任务的程序，随着硬件的发展，并发程序变得越来越重要。</p>
+<ul>
+<li>Web服务器会一次处理成千上万的请求。平板电脑和手机app在渲染用户画面同时还会后台执行各种计算任务和网络请求。</li>
+</ul>
+</li>
+<li><p>即使是传统的批处理问题——读取数据、计算、写输出，现在也会用并发来隐藏掉I/O的操作延迟以充分利用现代计算机设备的多个核心。计算机的性能每年都在以非线性的速度增长。</p>
+</li>
+<li><p>Go语言中的并发程序可以用两种手段来实现</p>
+<ul>
+<li>本章讲解goroutine和channel，其支持“顺序通信进程”（communicating sequential processes）或被简称为CSP。</li>
+<li>CSP是一种现代的并发编程模型，在这种编程模型中值会在不同的运行实例（goroutine）中传递，尽管大多数情况下仍然是被限制在单一实例中。</li>
+<li>第9章覆盖更为传统的并发模型：多线程共享内存，如果你在其它的主流语言中写过并发程序的话可能会更熟悉一些。第9章也会深入介绍一些并发程序带来的风险和陷阱。</li>
+</ul>
+</li>
+<li><p>尽管Go对并发的支持是众多强力特性之一，但跟踪调试并发程序还是很困难，在线性程序中形成的直觉往往还会使我们误入歧途。如果这是读者第一次接触并发，推荐稍微多花一些时间来思考这两个章节中的样例。</p>
+</li>
+</ul>
+<h3 id="ch8-1Goroutines"><a href="#ch8-1Goroutines" class="headerlink" title="ch8.1Goroutines"></a>ch8.1Goroutines</h3><ul>
+<li><p>在Go语言中，每一个并发的执行单元叫作一个goroutine。设想这里的一个程序有两个函数，一个函数做计算，另一个输出结果，假设两个函数没有相互之间的调用关系。一个线性的程序会先调用其中的一个函数，然后再调用另一个。如果程序中包含多个goroutine，对两个函数的调用则可能发生在同一时刻。马上就会看到这样的一个程序。</p>
+</li>
+<li><p>如果你使用过操作系统或者其它语言提供的线程，那么你可以简单地把goroutine类比作一个线程，这样你就可以写出一些正确的程序了。goroutine和线程的本质区别会在9.8节中讲。</p>
+</li>
+<li><p>当一个程序启动时，其主函数即在一个单独的goroutine中运行，我们叫它main goroutine。新的goroutine会用go语句来创建。在语法上，go语句是一个普通的函数或方法调用前加上关键字go。go语句会使其语句中的函数在一个新创建的goroutine中运行。而go语句本身会迅速地完成。</p>
+<pre><code class="hljs go">f()    <span class="hljs-comment">// call f(); wait for it to return</span>
+<span class="hljs-keyword">go</span> f() <span class="hljs-comment">// create a new goroutine that calls f(); don&#x27;t wait</span></code></pre>
+</li>
+<li><p>下面的例子，main goroutine将计算菲波那契数列的第45个元素值。由于计算函数使用低效的递归，所以会运行相当长时间，在此期间我们想让用户看到一个可见的标识来表明程序依然在正常运行，所以来做一个动画的小图标：</p>
+<p><u><i>gopl.io/ch8/spinner</i><u></p>
+<pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;
+	<span class="hljs-keyword">go</span> spinner(<span class="hljs-number">100</span> * time.Millisecond)
+	<span class="hljs-keyword">const</span> n = <span class="hljs-number">45</span>
+	fibN := fib(n) <span class="hljs-comment">// slow</span>
+	fmt.Printf(<span class="hljs-string">&quot;\rFibonacci(%d) = %d\n&quot;</span>, n, fibN)
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">spinner</span><span class="hljs-params">(delay time.Duration)</span></span> &#123;
+	<span class="hljs-keyword">for</span> &#123;
+		<span class="hljs-keyword">for</span> _, r := <span class="hljs-keyword">range</span> <span class="hljs-string">`-\|/`</span> &#123;
+			fmt.Printf(<span class="hljs-string">&quot;\r%c&quot;</span>, r)
+			time.Sleep(delay)
+		&#125;
+	&#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">fib</span><span class="hljs-params">(x <span class="hljs-keyword">int</span>)</span> <span class="hljs-title">int</span></span> &#123;
+	<span class="hljs-keyword">if</span> x &lt; <span class="hljs-number">2</span> &#123;
+		<span class="hljs-keyword">return</span> x
+	&#125;
+	<span class="hljs-keyword">return</span> fib(x<span class="hljs-number">-1</span>) + fib(x<span class="hljs-number">-2</span>)
+&#125;</code></pre>
+
+<ul>
+<li><p>动画显示了几秒之后，fib(45)的调用成功地返回，并且打印结果：</p>
+<pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">Fibonacci</span><span class="hljs-params">(<span class="hljs-number">45</span>)</span></span> = <span class="hljs-number">1134903170</span></code></pre>
+</li>
+</ul>
+</li>
+<li><p>然后主函数返回。主函数返回时，所有的goroutine都会被直接打断，程序退出。除了从主函数退出或者直接终止程序之外，没有其它的编程方法能够让一个goroutine来打断另一个的执行，但是之后可以看到一种方式来实现这个目的，通过goroutine之间的通信来让一个goroutine请求其它的goroutine，并让被请求的goroutine自行结束执行。</p>
+</li>
+<li><p>留意一下这里的两个独立的单元是如何进行组合的，spinning和菲波那契的计算。分别在独立的函数中，但两个函数会同时执行。</p>
+</li>
+</ul>
+<h3 id="ch8-2-示例：并发的Clock服务"><a href="#ch8-2-示例：并发的Clock服务" class="headerlink" title="ch8.2   示例：并发的Clock服务"></a>ch8.2   示例：并发的Clock服务</h3><ul>
+<li><p>网络编程是并发大显身手的一个领域，由于服务器是最典型的需要同时处理很多连接的程序，这些连接一般来自于彼此独立的客户端。</p>
+</li>
+<li><p>在本小节中，我们会讲解go语言的net包，这个包提供编写一个网络客户端或者服务器程序的基本组件，无论两者间通信是使用TCP、UDP或者Unix domain sockets。在第一章中我们使用过的net/http包里的方法，也算是net包的一部分。</p>
+</li>
+<li><p>我们的第一个例子是一个顺序执行的时钟服务器，它会每隔一秒钟将当前时间写到客户端：</p>
+<p><u><i>gopl.io/ch8/clock1</i></u></p>
+<pre><code class="hljs go"><span class="hljs-comment">// Clock1 is a TCP server that periodically writes the time.</span>
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+	<span class="hljs-string">&quot;io&quot;</span>
+	<span class="hljs-string">&quot;log&quot;</span>
+	<span class="hljs-string">&quot;net&quot;</span>
+	<span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;
+	listener, err := net.Listen(<span class="hljs-string">&quot;tcp&quot;</span>, <span class="hljs-string">&quot;localhost:8000&quot;</span>)
+	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;
+		log.Fatal(err)
+	&#125;
+
+	<span class="hljs-keyword">for</span> &#123;
+		conn, err := listener.Accept()
+		<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;
+			log.Print(err) <span class="hljs-comment">// e.g., connection aborted</span>
+			<span class="hljs-keyword">continue</span>
+		&#125;
+		handleConn(conn) <span class="hljs-comment">// handle one connection at a time</span>
+	&#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">handleConn</span><span class="hljs-params">(c net.Conn)</span></span> &#123;
+	<span class="hljs-keyword">defer</span> c.Close()
+	<span class="hljs-keyword">for</span> &#123;
+		_, err := io.WriteString(c, time.Now().Format(<span class="hljs-string">&quot;15:04:05\n&quot;</span>))
+		<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;
+			<span class="hljs-keyword">return</span> <span class="hljs-comment">// e.g., client disconnected</span>
+		&#125;
+		time.Sleep(<span class="hljs-number">1</span> * time.Second)
+	&#125;
+&#125;
+</code></pre>
+
+<ul>
+<li>Listen函数创建了一个net.Listener的对象，这个对象会监听一个网络端口上到来的连接，在这个例子里我们用的是TCP的localhost:8000端口。listener对象的Accept方法会直接阻塞，直到一个新的连接被创建，然后会返回一个net.Conn对象来表示这个连接。</li>
+<li>handleConn函数会处理一个完整的客户端连接。在一个for死循环中，用time.Now()获取当前时刻，然后写到客户端。由于net.Conn实现了io.Writer接口，我们可以直接向其写入内容。这个死循环会一直执行，直到写入失败。最可能的原因是客户端主动断开连接。这种情况下handleConn函数会用defer调用关闭服务器侧的连接，然后返回到主函数，继续等待下一个连接请求。</li>
+</ul>
+</li>
+<li><p>time.Time.Format方法提供了一种格式化日期和时间信息的方式。它的参数是一个格式化模板，标识如何来格式化时间，而这个格式化模板限定为Mon Jan 2 03:04:05PM 2006 UTC-0700。有8个部分（周几、月份、一个月的第几天……）。可以以任意的形式来组合前面这个模板；出现在模板中的部分会作为参考来对时间格式进行输出。</p>
+<ul>
+<li><p>在上面的例子中我们只用到了小时、分钟和秒。time包里定义了很多标准时间格式，比如time.RFC1123。在进行格式化的逆向操作time.Parse时，也会用到同样的策略。</p>
+</li>
+<li><p>这是go语言和其它语言相比比较奇葩的一个地方。你需要记住格式化字符串是1月2日下午3点4分5秒零六年UTC-0700，而不像其它语言那样Y-m-d H:i:s一样，当然了这里可以用1234567的方式来记忆，倒是也不麻烦。</p>
+</li>
+<li><p>为了连接例子里的服务器，我们需要一个客户端程序，比如netcat这个工具（nc命令），这个工具可以用来执行网络连接操作。</p>
+<pre><code class="hljs angelscript">$ go build gopl.io/ch8/clock1
+$ ./clock1 &amp;
+$ nc localhost <span class="hljs-number">8000</span>
+<span class="hljs-number">13</span>:<span class="hljs-number">58</span>:<span class="hljs-number">54</span>
+<span class="hljs-number">13</span>:<span class="hljs-number">58</span>:<span class="hljs-number">55</span>
+<span class="hljs-number">13</span>:<span class="hljs-number">58</span>:<span class="hljs-number">56</span>
+<span class="hljs-number">13</span>:<span class="hljs-number">58</span>:<span class="hljs-number">57</span>
+^C</code></pre>
+</li>
+<li><p>客户端将服务器发来的时间显示了出来，我们用Control+C来中断客户端的执行，在Unix系统上，你会看到^C这样的响应。如果你的系统没有装nc这个工具，你可以用telnet来实现同样的效果，或者也可以用我们下面的这个用go写的简单的telnet程序，用net.Dial就可以简单地创建一个TCP连接：</p>
+<p><u><i>gopl.io/ch8/netcat1</i></u></p>
+<pre><code class="hljs go"><span class="hljs-comment">// Netcat1 is a read-only TCP client.</span>
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+	<span class="hljs-string">&quot;io&quot;</span>
+	<span class="hljs-string">&quot;log&quot;</span>
+	<span class="hljs-string">&quot;net&quot;</span>
+	<span class="hljs-string">&quot;os&quot;</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;
+	conn, err := net.Dial(<span class="hljs-string">&quot;tcp&quot;</span>, <span class="hljs-string">&quot;localhost:8000&quot;</span>)
+	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;
+		log.Fatal(err)
+	&#125;
+	<span class="hljs-keyword">defer</span> conn.Close()
+	mustCopy(os.Stdout, conn)
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">mustCopy</span><span class="hljs-params">(dst io.Writer, src io.Reader)</span></span> &#123;
+	<span class="hljs-keyword">if</span> _, err := io.Copy(dst, src); err != <span class="hljs-literal">nil</span> &#123;
+		log.Fatal(err)
+	&#125;
+&#125;</code></pre>
+</li>
+<li><p>这个程序会从连接中读取数据，并将读到的内容写到标准输出中，直到遇到end of file的条件或者发生错误。mustCopy这个函数我们在本节的几个例子中都会用到。让我们同时运行两个客户端来进行一个测试，这里可以开两个终端窗口，下面左边的是其中的一个的输出，右边的是另一个的输出：</p>
+<pre><code class="hljs angelscript">$ go build gopl.io/ch8/netcat1
+$ ./netcat1
+<span class="hljs-number">13</span>:<span class="hljs-number">58</span>:<span class="hljs-number">54</span>                               $ ./netcat1
+<span class="hljs-number">13</span>:<span class="hljs-number">58</span>:<span class="hljs-number">55</span>
+<span class="hljs-number">13</span>:<span class="hljs-number">58</span>:<span class="hljs-number">56</span>
+^C
+                                       <span class="hljs-number">13</span>:<span class="hljs-number">58</span>:<span class="hljs-number">57</span>
+                                       <span class="hljs-number">13</span>:<span class="hljs-number">58</span>:<span class="hljs-number">58</span>
+                                       <span class="hljs-number">13</span>:<span class="hljs-number">58</span>:<span class="hljs-number">59</span>
+                                       ^C
+$ killall clock1</code></pre>
+</li>
+<li><p>killall命令是一个Unix命令行工具，可以用给定的进程名来杀掉所有名字匹配的进程。</p>
+</li>
+</ul>
+</li>
+<li><p>第二个客户端必须等待第一个客户端完成工作，这样服务端才能继续向后执行；因为我们这里的服务器程序同一时间只能处理一个客户端连接。我们这里对服务端程序做一点小改动，使其支持并发：在handleConn函数调用的地方增加go关键字，让每一次handleConn的调用都进入一个独立的goroutine。</p>
+<p><u><i>gopl.io/ch8/clock2</i></u></p>
+<pre><code class="hljs go"><span class="hljs-keyword">for</span> &#123;
+	conn, err := listener.Accept()
+	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;
+		log.Print(err) <span class="hljs-comment">// e.g., connection aborted</span>
+		<span class="hljs-keyword">continue</span>
+	&#125;
+	<span class="hljs-keyword">go</span> handleConn(conn) <span class="hljs-comment">// handle connections concurrently</span>
+&#125;
+</code></pre>
+
+<ul>
+<li><p>现在多个客户端可以同时接收到时间了：</p>
+<pre><code class="hljs angelscript">$ go build gopl.io/ch8/clock2
+$ ./clock2 &amp;
+$ go build gopl.io/ch8/netcat1
+$ ./netcat1
+<span class="hljs-number">14</span>:<span class="hljs-number">02</span>:<span class="hljs-number">54</span>                               $ ./netcat1
+<span class="hljs-number">14</span>:<span class="hljs-number">02</span>:<span class="hljs-number">55</span>                               <span class="hljs-number">14</span>:<span class="hljs-number">02</span>:<span class="hljs-number">55</span>
+<span class="hljs-number">14</span>:<span class="hljs-number">02</span>:<span class="hljs-number">56</span>                               <span class="hljs-number">14</span>:<span class="hljs-number">02</span>:<span class="hljs-number">56</span>
+<span class="hljs-number">14</span>:<span class="hljs-number">02</span>:<span class="hljs-number">57</span>                               ^C
+<span class="hljs-number">14</span>:<span class="hljs-number">02</span>:<span class="hljs-number">58</span>
+<span class="hljs-number">14</span>:<span class="hljs-number">02</span>:<span class="hljs-number">59</span>                               $ ./netcat1
+<span class="hljs-number">14</span>:<span class="hljs-number">03</span>:<span class="hljs-number">00</span>                               <span class="hljs-number">14</span>:<span class="hljs-number">03</span>:<span class="hljs-number">00</span>
+<span class="hljs-number">14</span>:<span class="hljs-number">03</span>:<span class="hljs-number">01</span>                               <span class="hljs-number">14</span>:<span class="hljs-number">03</span>:<span class="hljs-number">01</span>
+^C                                     <span class="hljs-number">14</span>:<span class="hljs-number">03</span>:<span class="hljs-number">02</span>
+                                       ^C
+$ killall clock2</code></pre>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ch8-3-示例：并发的Echo服务"><a href="#ch8-3-示例：并发的Echo服务" class="headerlink" title="ch8.3   示例：并发的Echo服务"></a>ch8.3   示例：并发的Echo服务</h3><ul>
+<li><p>clock服务器每一个连接都会起一个goroutine。在本节中我们会创建一个echo服务器，这个服务在每个连接中会有多个goroutine。大多数echo服务仅仅会返回他们读取到的内容，就像下面这个简单的handleConn函数所做的一样：</p>
+<pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">handleConn</span><span class="hljs-params">(c net.Conn)</span></span> &#123;
+	io.Copy(c, c) <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> ignoring errors</span>
+	c.Close()
+&#125;</code></pre>
+</li>
+<li><p>一个更有意思的echo服务应该模拟一个实际的echo的“回响”，并且一开始要用大写HELLO来表示“声音很大”，之后经过一小段延迟返回一个有所缓和的Hello，然后一个全小写字母的hello表示声音渐渐变小直至消失，像下面这个版本的handleConn</p>
+<p><u><i>gopl.io/ch8/reverb1</i></u></p>
+<pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">echo</span><span class="hljs-params">(c net.Conn, shout <span class="hljs-keyword">string</span>, delay time.Duration)</span></span> &#123;
+	fmt.Fprintln(c, <span class="hljs-string">&quot;\t&quot;</span>, strings.ToUpper(shout))
+	time.Sleep(delay)
+	fmt.Fprintln(c, <span class="hljs-string">&quot;\t&quot;</span>, shout)
+	time.Sleep(delay)
+	fmt.Fprintln(c, <span class="hljs-string">&quot;\t&quot;</span>, strings.ToLower(shout))
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">handleConn</span><span class="hljs-params">(c net.Conn)</span></span> &#123;
+	input := bufio.NewScanner(c)
+	<span class="hljs-keyword">for</span> input.Scan() &#123;
+		echo(c, input.Text(), <span class="hljs-number">1</span>*time.Second)
+	&#125;
+	<span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> ignoring potential errors from input.Err()</span>
+	c.Close()
+&#125;</code></pre>
+</li>
+<li><p>我们需要升级我们的客户端程序，这样它就可以发送终端的输入到服务器，并把服务端的返回输出到终端上，这使我们有了使用并发的另一个好机会：</p>
+<p><u><i>gopl.io/ch8/netcat2</i></u></p>
+<pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;
+	conn, err := net.Dial(<span class="hljs-string">&quot;tcp&quot;</span>, <span class="hljs-string">&quot;localhost:8000&quot;</span>)
+	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;
+		log.Fatal(err)
+	&#125;
+	<span class="hljs-keyword">defer</span> conn.Close()
+	<span class="hljs-keyword">go</span> mustCopy(os.Stdout, conn)
+	mustCopy(conn, os.Stdin)
+&#125;</code></pre>
+</li>
+<li><p>当main goroutine从标准输入流中读取内容并将其发送给服务器时，另一个goroutine会读取并打印服务端的响应。当main goroutine碰到输入终止时，例如，用户在终端中按了Control-D(^D)，在windows上是Control-Z，这时程序就会被终止，尽管其它goroutine中还有进行中的任务。（在8.4.1中引入了channels后我们会明白如何让程序等待两边都结束。）</p>
+</li>
+<li><p>下面这个会话中，客户端的输入是左对齐的，服务端的响应会用缩进来区别显示。</p>
+</li>
+<li><p>客户端会向服务器“喊三次话”：</p>
+<pre><code class="hljs n1ql">$ go <span class="hljs-keyword">build</span> gopl.io/ch8/reverb1
+$ ./reverb1 &amp;
+$ go <span class="hljs-keyword">build</span> gopl.io/ch8/netcat2
+$ ./netcat2
+Hello?
+    HELLO?
+    Hello?
+    hello?
+<span class="hljs-keyword">Is</span> there anybody there?
+    <span class="hljs-keyword">IS</span> THERE ANYBODY THERE?
+Yooo-hooo!
+    <span class="hljs-keyword">Is</span> there anybody there?
+    <span class="hljs-keyword">is</span> there anybody there?
+    YOOO-HOOO!
+    Yooo-hooo!
+    yooo-hooo!
+^D
+$ killall reverb1</code></pre>
+</li>
+<li><p>注意客户端的第三次shout在前一个shout处理完成之前一直没有被处理，这貌似看起来不是特别“现实”。真实世界里的回响应该是会由三次shout的回声组合而成的。为了模拟真实世界的回响，我们需要更多的goroutine来做这件事情。这样我们就再一次地需要go这个关键词了，这次我们用它来调用echo：</p>
+<p><u><i>gopl.io/ch8/reverb2</i></u></p>
+<pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">handleConn</span><span class="hljs-params">(c net.Conn)</span></span> &#123;
+	input := bufio.NewScanner(c)
+	<span class="hljs-keyword">for</span> input.Scan() &#123;
+		<span class="hljs-keyword">go</span> echo(c, input.Text(), <span class="hljs-number">1</span>*time.Second)
+	&#125;
+	<span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> ignoring potential errors from input.Err()</span>
+	c.Close()
+&#125;</code></pre>
+
+<ul>
+<li><p>go后跟的函数的参数会在go语句自身执行时被求值；因此input.Text()会在main goroutine中被求值。</p>
+</li>
+<li><p>现在回响是并发并且会按时间来覆盖掉其它响应了：</p>
+<pre><code class="hljs n1ql">$ go <span class="hljs-keyword">build</span> gopl.io/ch8/reverb2
+$ ./reverb2 &amp;
+$ ./netcat2
+<span class="hljs-keyword">Is</span> there anybody there?
+    <span class="hljs-keyword">IS</span> THERE ANYBODY THERE?
+Yooo-hooo!
+    <span class="hljs-keyword">Is</span> there anybody there?
+    YOOO-HOOO!
+    <span class="hljs-keyword">is</span> there anybody there?
+    Yooo-hooo!
+    yooo-hooo!
+^D
+$ killall reverb2</code></pre>
+</li>
+</ul>
+</li>
+<li><p>让服务使用并发不只是处理多个客户端的请求，甚至在处理单个连接时也可能会用到，就像我们上面的两个go关键词的用法。然而在我们使用go关键词的同时，需要慎重地考虑net.Conn中的方法在并发地调用时是否安全，事实上对于大多数类型来说也确实不安全。我们会在下一章中详细地探讨并发安全性。</p>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Golang/">Golang</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/GoLearn/">GoLearn</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处。</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/11/22/go/The%20Go%20Programming%20Language/The%20Go%20Programming%20Language%EF%BC%888%EF%BC%89-%20channel/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">The Go Programming Language（8）- channel</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/11/21/go/The%20Go%20Programming%20Language/The%20Go%20Programming%20Language%EF%BC%886-7%EF%BC%89/">
+                        <span class="hidden-mobile">The Go Programming Language（6-7）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>1ch0</span></a> <i class="iconfont icon-love"></i> <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>Go</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "The Go Programming Language（8）- goroutine&nbsp;",
+      ],
+      cursorChar: ".",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
