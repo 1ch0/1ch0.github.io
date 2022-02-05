@@ -1004,31 +1004,6 @@
   
   
   <entry>
-    <title>Centos7防止暴力破解</title>
-    <link href="/2020/10/23/linux/tmp/Centos7/centos7%E7%A6%81%E6%AD%A2ip/"/>
-    <url>/2020/10/23/linux/tmp/Centos7/centos7%E7%A6%81%E6%AD%A2ip/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Centos7禁止ip访问"><a href="#Centos7禁止ip访问" class="headerlink" title="Centos7禁止ip访问"></a>Centos7禁止ip访问</h1><ol><li>编写脚本禁止ip访问</li></ol><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/bash</span>cat /var/log/secure|awk &#x27;/Failed/&#123;print $(NF-3)&#125;&#x27;|sort|uniq -c|awk &#x27;&#123;print $2&quot;=&quot;$1;&#125;&#x27; &gt; /root/black.txtDEFINE=&quot;10&quot;for i in `cat  /root/black.txt`do        IP=`echo $i |awk -F= &#x27;&#123;print $1&#125;&#x27;`        NUM=`echo $i|awk -F= &#x27;&#123;print $2&#125;&#x27;`        if [ $NUM -gt $DEFINE ];        then         grep $IP /etc/hosts.deny &gt; /dev/null          if [ $? -gt 0 ];          then          echo &quot;sshd:$IP&quot; &gt;&gt; /etc/hosts.deny          fi        fidone</code></pre><ol start="2"><li><p>使用crontabp执行脚本</p><p>清空记录<code>echo &gt; /var/log/wtmp;echo &gt; /var/log/btmp;history -c;</code></p><p>使用lastb命令查看暴力破解情况</p></li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>Linux</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Linux,centos7,shell</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Centos8修改密码</title>
     <link href="/2020/10/23/linux/tmp/Centos8/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/"/>
     <url>/2020/10/23/linux/tmp/Centos8/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</url>
@@ -1046,6 +1021,31 @@
     <tags>
       
       <tag>Linux,Centos8</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Centos7防止暴力破解</title>
+    <link href="/2020/10/23/linux/tmp/Centos7/centos7%E7%A6%81%E6%AD%A2ip/"/>
+    <url>/2020/10/23/linux/tmp/Centos7/centos7%E7%A6%81%E6%AD%A2ip/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Centos7禁止ip访问"><a href="#Centos7禁止ip访问" class="headerlink" title="Centos7禁止ip访问"></a>Centos7禁止ip访问</h1><ol><li>编写脚本禁止ip访问</li></ol><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/bash</span>cat /var/log/secure|awk &#x27;/Failed/&#123;print $(NF-3)&#125;&#x27;|sort|uniq -c|awk &#x27;&#123;print $2&quot;=&quot;$1;&#125;&#x27; &gt; /root/black.txtDEFINE=&quot;10&quot;for i in `cat  /root/black.txt`do        IP=`echo $i |awk -F= &#x27;&#123;print $1&#125;&#x27;`        NUM=`echo $i|awk -F= &#x27;&#123;print $2&#125;&#x27;`        if [ $NUM -gt $DEFINE ];        then         grep $IP /etc/hosts.deny &gt; /dev/null          if [ $? -gt 0 ];          then          echo &quot;sshd:$IP&quot; &gt;&gt; /etc/hosts.deny          fi        fidone</code></pre><ol start="2"><li><p>使用crontabp执行脚本</p><p>清空记录<code>echo &gt; /var/log/wtmp;echo &gt; /var/log/btmp;history -c;</code></p><p>使用lastb命令查看暴力破解情况</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux,centos7,shell</tag>
       
     </tags>
     
