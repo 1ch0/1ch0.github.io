@@ -1,0 +1,966 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="1ch0">
+  <meta name="keywords" content="">
+  <title>01 Docker - 1ch0&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>1ch0's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                联系我
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      1ch0
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-27 09:57" pubdate>
+        2021年12月27日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      59
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">01 Docker</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：43 分钟前
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="01-Docker"><a href="#01-Docker" class="headerlink" title="01 Docker"></a>01 Docker</h1><h2 id="1-Namespace"><a href="#1-Namespace" class="headerlink" title="1. Namespace"></a>1. Namespace</h2><blockquote>
+<p>namespace 是 linux 系统的底层概念，在内核层实现，即有一些不同类型的命名空间被部署在内核，各个 docker 容器运行在同一个 docker 主进程并且共用同一个宿主机系统内核，各 docker 容器运行在宿主机的用户空间，每个容器都要有类似于虚拟机一样的相互隔离的运行空间，但容器技术是在一个进程内是在哪运行指定服务的运行环境，并且还可以保护宿主机不受其他进程的干扰和影响，如文件系统空间、网络空间、进程空间等，目前主要通过以下技术实现容器运行空间的相互隔离。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">隔离类型</th>
+<th align="center">功能</th>
+<th align="center">系统调用参数</th>
+<th align="center">内核版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">MNT Namespace(mount)</td>
+<td align="center">提供磁盘挂载点和文件系统的隔离能力</td>
+<td align="center">CLONE_NEWNS</td>
+<td align="center">Linux 2.4.19</td>
+</tr>
+<tr>
+<td align="center">IPC Namespace(Inter-Process Communication)</td>
+<td align="center">提供进程间通信的隔离能力</td>
+<td align="center">CLONE_NEWIPC</td>
+<td align="center">Linux 2.6.19</td>
+</tr>
+<tr>
+<td align="center">UTS Namespace(UNIX Timesharing System)</td>
+<td align="center">提供主机名隔离能力</td>
+<td align="center">CLONE_NEWUTS</td>
+<td align="center">Linux 2.6.19</td>
+</tr>
+<tr>
+<td align="center">PID Namespace(Process Identification)</td>
+<td align="center">提供进程隔离能力</td>
+<td align="center">CLONE_NEWPID</td>
+<td align="center">Linux 2.6.24</td>
+</tr>
+<tr>
+<td align="center">Net Namespace(network)</td>
+<td align="center">提供网络隔离能力</td>
+<td align="center">CLONE_NEWNET</td>
+<td align="center">Linux 2.6.29</td>
+</tr>
+<tr>
+<td align="center">User Namespace(user)</td>
+<td align="center">提供用户隔离能力</td>
+<td align="center">CLONE_NEWUSER</td>
+<td align="center">Linux 3.8</td>
+</tr>
+</tbody></table>
+<h3 id="1-1-MNT-Namespace"><a href="#1-1-MNT-Namespace" class="headerlink" title="1.1 MNT Namespace"></a>1.1 MNT Namespace</h3><ul>
+<li><p>每个容器都要有独立的根文件系统、独立的用户空间，以实现在容器内启动服务并且使用容器的运行环境。</p>
+</li>
+<li><p>即一个宿主机是 Ubuntu 的服务器，可以在里面启动一个 centos 运行环境的容器并且在容器里面启动个 Nginx 服务，此 Nginx 运行时使用的运行环境就是 centos 系统目录的运行环境，但是在容器里面是不能访问主机的资源，宿主机是使用了 <strong>chroot</strong> 技术把容器锁定到一个指定的运行目录里面并作为容器的根运行环境。</p>
+</li>
+</ul>
+<h3 id="1-2-IPC-Namespace"><a href="#1-2-IPC-Namespace" class="headerlink" title="1.2 IPC Namespace"></a>1.2 IPC Namespace</h3><ul>
+<li>容器内的进程间通信，允许容器内的不同进程的访问。</li>
+</ul>
+<h3 id="1-3-UTS-Namespace"><a href="#1-3-UTS-Namespace" class="headerlink" title="1.3 UTS Namespace"></a>1.3 UTS Namespace</h3><ul>
+<li><p>UNIX Timesharing System 包含了运行内核的名称、版本、底层体系结构类型等信息</p>
+</li>
+<li><p>用于系统标识，其中包含了 hostname 和 域名 domainname，它使得一个容器拥有属于自己 hostname 标识，这个主机名标识独立于宿主机系统和其上的其他容器。</p>
+</li>
+</ul>
+<h3 id="1-4-PID-Namespace"><a href="#1-4-PID-Namespace" class="headerlink" title="1.4 PID Namespace"></a>1.4 PID Namespace</h3><ul>
+<li>Linux 系统中，有一个 PID 为 1 的进程（init/systemd）是其他所有进程的父进程，那么在每个容器内也要有一个父进程来管理其下属的自己成，那么多个容器的进程通过 PID Namespace 进程隔离（如 PID 编号重复、容器内的主进程生成与回收子进程等）。</li>
+</ul>
+<h3 id="1-5-Net-Namespace"><a href="#1-5-Net-Namespace" class="headerlink" title="1.5 Net Namespace"></a>1.5 Net Namespace</h3><ul>
+<li>每个容器都类似于虚拟机一个样有自己的网卡、监听端口、TCP/IP 协议栈等，Docker 使用 network namespace 启动一个 vethX 接口，这样你的容器将拥有它自己的桥接 ip 地址，通常是 docker0，而docker0 实质就是 Linux 的虚拟网桥，网桥是在 OSI 七层模型的数据链路层的网络设备，通过 MAC 地址对网络进行划分，并且在不同网络直接传递数据。</li>
+</ul>
+<h3 id="1-6-User-Namespace"><a href="#1-6-User-Namespace" class="headerlink" title="1.6 User Namespace"></a>1.6 User Namespace</h3><ul>
+<li><p>各个容器内可能会出现重名的用户和用户组名称，或重复的用户 UID 或 GID，那么怎么隔离各个容器内的用户空间。</p>
+</li>
+<li><p>User Namespace 允许在各个宿主机的各个容器空间内创建相同的用户名以及相同的用户 UID 和 GID，只是会把用户的作用范围限制在每个容器内，即 A 容器和 B 容器可以有相同的用户名称和 ID 的账户，但是此用户的有效范围仅是当前容器内，不能访问另一个容器内的文件系统，即相互隔离、互不影响、永不相见。</p>
+</li>
+</ul>
+<h2 id="2-Cgroup"><a href="#2-Cgroup" class="headerlink" title="2. Cgroup"></a>2. Cgroup</h2><blockquote>
+<p>在一个容器内，如果不对其做任何资源限制，则宿主机会允许其占用无限大的内存空间，有时候会因为代码 BUG 导致程序一直申请内存，直到把宿主机内存占尽，为了避免此类的问题集出现，宿主机有必要对容器进行资源分配限制，比如 CPU、内存等。</p>
+<p>Linxu Cgroups，全称 Linux Control Groups，限制一个进程组能够使用的资源上限，包括 CPU、内存、磁盘、网络带宽等等，此外，还能够对进程进行优先级设置，以及将进程挂起和恢复等操作。</p>
+<p>Cgroups 在内核层默认已经开启，从 centos 和 ubuntu 对比结果来看，显然内核较新的 ubuntu 支持的功能更多。</p>
+</blockquote>
+<h3 id="2-1-查看命令"><a href="#2-1-查看命令" class="headerlink" title="2.1 查看命令"></a>2.1 查看命令</h3><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 具体查看 /boot 目录</span>
+<span class="hljs-meta">#</span><span class="bash"> 具体内核版本自行 TAB 补全</span>
+
+cat /boot/config-5.4.0-51-generic |grep CGROUP | grep -v &quot;^#&quot;
+cat /boot/config-5.4.0-51-generic |grep CGROUP | grep -v &quot;^#&quot; |wc -l
+
+<span class="hljs-meta">#</span><span class="bash"> 查看内存限制</span>
+cat /boot/config-5.4.0-51-generic |grep MEM |grep CG |grep -v &quot;^#&quot;</code></pre>
+
+<h3 id="2-2-具体实现"><a href="#2-2-具体实现" class="headerlink" title="2.2 具体实现"></a>2.2 具体实现</h3><ul>
+<li>blkio: 块设备 IO  限制</li>
+<li>cpu: 使用调度程序为 cgroup 任务提供 CPU 的访问</li>
+<li>cpuacct: 产生 cgroup 任务的 CPU 资源报告</li>
+<li>cpuet: 入股欧式多核心的 CPU，这个子系统会为 cgroup 任务分配单独的 CPU 和内存</li>
+<li>devices: 允许或拒绝 cgroup 任务对设备的访问</li>
+<li>freezer: 暂停和恢复 cgroup 任务</li>
+<li>memory: 设置每个 cgroup 的内存限制以及产生内存资源报告</li>
+<li>net_cls: 标记每个网络包以供 cgroup 仿版使员工</li>
+<li>ns: 命名空间子系统</li>
+<li>perf_event: 增加了对每个 cgroup 的监测跟踪的能力，可以监测属于某个特定的 cgroup 的所有线程以及运行在特定 CPU 上的线程</li>
+</ul>
+<h2 id="3-Docker-Install"><a href="#3-Docker-Install" class="headerlink" title="3. Docker Install"></a>3. Docker Install</h2><h3 id="3-1-Install-On-Centos-7"><a href="#3-1-Install-On-Centos-7" class="headerlink" title="3.1 Install On Centos 7"></a>3.1 Install On Centos 7</h3><blockquote>
+<p>注意 ：<br>yum -y update：升级所有包同时也升级软件和系统内核；<br>yum -y upgrade：只升级所有包，不升级软件和系统内核。</p>
+</blockquote>
+<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 查看内核版本</span>
+uname -r
+<span class="hljs-meta">#</span><span class="bash"> 更新 yum 包</span>
+yum -y update
+<span class="hljs-meta">#</span><span class="bash"> 卸载旧版 docker</span>
+yum remove -y docker docker-common docker-selinux docker-engine
+<span class="hljs-meta">#</span><span class="bash"> 安装依赖包</span>
+yum install -y yum-utils device-mapper-persistent-data lvm2
+<span class="hljs-meta">#</span><span class="bash"> 添加 yum 源</span>
+yum-config-manager --add-repo http://download.docker.com/linux/centos/docker-ce.repo
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+<span class="hljs-meta">#</span><span class="bash"> 查看docker 版本</span>
+yum list docker-ce --showduplicates | sort -r
+<span class="hljs-meta">#</span><span class="bash"> 选择 docker 版本安装</span>
+yum -y install docker-ce-3:20.10.9-3.el7
+<span class="hljs-meta">#</span><span class="bash"> 启动 Docker</span>
+systemctl start docker
+<span class="hljs-meta">#</span><span class="bash"> 开机启动 docker</span>
+systemctl enable docker
+<span class="hljs-meta">#</span><span class="bash"> 安装 docker compose</span>
+curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+docker-compose -v
+
+systemctl daemon-reload
+service docker restart
+service docker status</code></pre>
+
+
+
+<h3 id="3-2-Install-On-Ubuntu"><a href="#3-2-Install-On-Ubuntu" class="headerlink" title="3.2 Install On Ubuntu"></a>3.2 Install On Ubuntu</h3><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 备份初始源</span>
+cp /etc/apt/sources.list /etc/apt/sources.list_backup
+
+tee /etc/apt/sources.list &lt;&lt; EOF
+<span class="hljs-meta">#</span><span class="bash">  阿里源</span>
+deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+EOF
+<span class="hljs-meta">#</span><span class="bash"> 添加公钥</span>
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 40976EAF437D05B5
+
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32
+
+
+apt-get -y update 
+apt-get -y upgrade
+apt-get -y install build-essential
+apt -y autoremove
+
+<span class="hljs-meta">#</span><span class="bash"> 卸载旧版</span>
+sudo apt-get remove docker docker-engine docker.io containerd runc
+<span class="hljs-meta">#</span><span class="bash"> 安装 docker 1</span>
+curl -fsSL https://get.docker.com | bash -s docker --mirror aliyun
+<span class="hljs-meta">#</span><span class="bash"> 安装 docker 2</span>
+curl -sSL https://get.daocloud.io/docker | sh
+
+<span class="hljs-meta">#</span><span class="bash"> 安装 docker compose</span>
+curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+docker-compose -v
+systemctl daemon-reload
+service docker restart
+service docker status</code></pre>
+
+
+<h3 id="3-3-Install-bash-completion"><a href="#3-3-Install-bash-completion" class="headerlink" title="3.3 Install bash-completion"></a>3.3 Install bash-completion</h3><pre><code class="hljs shell">yum install -y bash-completion
+apt install -y bash-completion
+source /usr/share/bash-completion/bash_completion
+source /usr/share/bash-completion/completions/docker</code></pre>
+
+
+
+<h2 id="4-Docker-Command"><a href="#4-Docker-Command" class="headerlink" title="4. Docker Command"></a>4. Docker Command</h2><blockquote>
+<p>官方手册</p>
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/run/">Docker 基础命令</a></p>
+</blockquote>
+<h3 id="4-0-build-脚本"><a href="#4-0-build-脚本" class="headerlink" title="4.0 build 脚本"></a>4.0 build 脚本</h3><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/usr/bin/env bash</span>
+
+images=(
+    &#x27;harbor.test.com/1ch0/centos-app:7.6&#x27;
+    &#x27;harbor.test.com/1ch0/centos-app&#x27;
+)
+for image in $&#123;images[@]&#125;; do
+    docker build -t &quot;$image&quot; .
+    docker push &quot;$image&quot;
+done
+</code></pre>
+
+
+
+<h3 id="4-1-容器信息"><a href="#4-1-容器信息" class="headerlink" title="4.1 容器信息"></a>4.1 容器信息</h3><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">[[查看docker]]容器版本</span>
+docker version
+<span class="hljs-meta">#</span><span class="bash">[[查看docker]]容器信息</span>
+docker info
+<span class="hljs-meta">#</span><span class="bash">[[查看docker]]容器帮助</span>
+docker --help</code></pre>
+
+<h3 id="4-2-镜像操作"><a href="#4-2-镜像操作" class="headerlink" title="4.2 镜像操作"></a>4.2 镜像操作</h3><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 删除 tag 为 none 的镜像</span>
+docker images|grep none|awk &#x27;&#123;print $3&#125;&#x27;|xargs docker rmi -f
+
+<span class="hljs-meta">#</span><span class="bash">[[列出本地images]]</span>
+docker images
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#含中间映像层</span></span>
+docker images -a
+<span class="hljs-meta">#</span><span class="bash">[[只显示镜像ID]]</span>
+docker images -q
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#含中间映像层</span></span>
+docker images -qa   
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#显示镜像摘要信息(DIGEST列)</span></span>
+docker images --digests
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#显示镜像完整信息</span></span>
+docker images --no-trunc
+<span class="hljs-meta">#</span><span class="bash">[[搜索仓库MySQL]]镜像</span>
+docker search mysql
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># --filter=stars=600：只显示 starts&gt;=600 的镜像</span></span>
+docker search --filter=stars=600 mysql
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># --no-trunc 显示镜像完整 DESCRIPTION 描述</span></span>
+docker search --no-trunc mysql
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># --automated ：只列出 AUTOMATED=OK 的镜像</span></span>
+docker search  --automated mysql
+<span class="hljs-meta">#</span><span class="bash">[[搜索仓库MySQL]]镜像</span>
+docker search mysql
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># --filter=stars=600：只显示 starts&gt;=600 的镜像</span></span>
+docker search --filter=stars=600 mysql
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># --no-trunc 显示镜像完整 DESCRIPTION 描述</span></span>
+docker search --no-trunc mysql
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># --automated ：只列出 AUTOMATED=OK 的镜像</span></span>
+docker search  --automated mysql
+<span class="hljs-meta">#</span><span class="bash">[[下载Redis官方最新镜像，相当于：docker]] pull redis:latest</span>
+docker pull redis
+<span class="hljs-meta">#</span><span class="bash">[[下载仓库所有Redis]]镜像</span>
+docker pull -a redis
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#下载私人仓库镜像</span></span>
+docker pull bitnami/redis
+<span class="hljs-meta">#</span><span class="bash">[[单个镜像删除，相当于：docker]] rmi redis:latest</span>
+docker rmi redis
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#强制删除(针对基于镜像有运行的容器进程)</span></span>
+docker rmi -f redis
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#多个镜像删除，不同镜像间以空格间隔</span></span>
+docker rmi -f redis tomcat nginx
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#删除本地全部镜像</span></span>
+docker rmi -f $(docker images -q)
+
+<span class="hljs-meta">#</span><span class="bash">[[（1）编写dockerfile]]</span>
+cd /docker/dockerfile
+vim mycentos
+<span class="hljs-meta">#</span><span class="bash">[[（2）构建docker]]镜像</span>
+docker build -f /docker/dockerfile/mycentos -t mycentos:1.1</code></pre>
+
+<h3 id="4-3-容器操作"><a href="#4-3-容器操作" class="headerlink" title="4.3 容器操作"></a>4.3 容器操作</h3><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">[[新建并启动容器，参数：-i]]  以交互模式运行容器；-t  为容器重新分配一个伪输入终端；--name  为容器指定一个名称</span>
+docker run -i -t --name mycentos
+<span class="hljs-meta">#</span><span class="bash">[[后台启动容器，参数：-d]]  已守护方式启动容器</span>
+docker run -d mycentos
+
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#启动一个或多个已经被停止的容器</span></span>
+docker start redis
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#重启容器</span></span>
+docker restart redis
+
+[[top]]支持 ps 命令参数，格式：docker top [OPTIONS] CONTAINER [ps OPTIONS]
+<span class="hljs-meta">#</span><span class="bash">[[列出redis]]容器中运行进程</span>
+docker top redis
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#查看所有运行容器的进程信息</span></span>
+for i in  `docker ps |grep Up|awk &#x27;&#123;print $1&#125;&#x27;`;do echo \ &amp;&amp;docker top $i; done
+
+<span class="hljs-meta">#</span><span class="bash">[[查看redis]]容器日志，默认参数</span>
+docker logs rabbitmq
+<span class="hljs-meta">#</span><span class="bash">[[查看redis容器日志，参数：-f]]  跟踪日志输出；-t   显示时间戳；--tail  仅列出最新N条容器日志；</span>
+docker logs -f -t --tail=20 redis
+<span class="hljs-meta">#</span><span class="bash">[[查看容器redis从2019年05月21日后的最新10]]条日志。</span>
+docker logs --since=&quot;2019-05-21&quot; --tail=10 redis
+
+<span class="hljs-meta">#</span><span class="bash">[[使用run]]方式在创建时进入</span>
+docker run -it centos /bin/bash
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#关闭容器并退出</span></span>
+exit
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#仅退出容器，不关闭</span></span>
+快捷键：Ctrl + P + Q
+<span class="hljs-meta">#</span><span class="bash">[[直接进入centos]] 容器启动命令的终端，不会启动新进程，多个attach连接共享容器屏幕，参数：--sig-proxy=<span class="hljs-literal">false</span>  确保CTRL-D或CTRL-C不会关闭容器</span>
+docker attach --sig-proxy=false centos 
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#在 centos 容器中打开新的交互模式终端，可以启动新进程，参数：-i  即使没有附加也保持STDIN 打开；-t  分配一个伪终端</span></span>
+docker exec -i -t  centos /bin/bash
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#以交互模式在容器中执行命令，结果返回到当前终端屏幕</span></span>
+docker exec -i -t centos ls -l /tmp
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#以分离模式在容器中执行命令，程序后台运行，结果不会反馈到当前终端</span></span>
+docker exec -d centos  touch cache.txt 
+
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#查看正在运行的容器</span></span>
+docker ps
+<span class="hljs-meta">#</span><span class="bash">[[查看正在运行的容器的ID]]</span>
+docker ps -q
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#查看正在运行+历史运行过的容器</span></span>
+docker ps -a
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#显示运行容器总文件大小</span></span>
+docker ps -s
+
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#显示最近创建容器</span></span>
+docker ps -l
+<span class="hljs-meta">#</span><span class="bash">[[显示最近创建的3]]个容器</span>
+docker ps -n 3
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#不截断输出</span></span>
+docker ps --no-trunc 
+
+<span class="hljs-meta">#</span><span class="bash">[[获取镜像redis]]的元信息</span>
+docker inspect redis
+<span class="hljs-meta">#</span><span class="bash">[[获取正在运行的容器redis]]的 IP</span>
+docker inspect --format=&#x27;&#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27; redis
+
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#停止一个运行中的容器</span></span>
+docker stop redis
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#杀掉一个运行中的容器</span></span>
+docker kill redis
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#删除一个已停止的容器</span></span>
+docker rm redis
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#删除一个运行中的容器</span></span>
+docker rm -f redis
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#删除多个容器</span></span>
+docker rm -f $(docker ps -a -q)
+docker ps -a -q | xargs docker rm
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># -l 移除容器间的网络连接，连接名为 db</span></span>
+docker rm -l db 
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># -v 删除容器，并删除容器挂载的数据卷</span></span>
+docker rm -v redis
+
+<span class="hljs-meta">#</span><span class="bash">[[基于当前redis容器创建一个新的镜像；参数：-a]] 提交的镜像作者；-c 使用Dockerfile指令来创建镜像；-m :提交时的说明文字；-p :在commit时，将容器暂停</span>
+docker commit -a=&quot;DeepInThought&quot; -m=&quot;my redis&quot; [redis容器ID]  myredis:v1.1
+
+<span class="hljs-meta">#</span><span class="bash">[[将rabbitmq容器中的文件copy]]至本地路径</span>
+docker cp rabbitmq:/[container_path] [local_path]
+<span class="hljs-meta">#</span><span class="bash">[[将主机文件copy至rabbitmq]]容器</span>
+docker cp [local_path] rabbitmq:/[container_path]/
+<span class="hljs-meta">#</span><span class="bash">[[将主机文件copy至rabbitmq]]容器，目录重命名为[container_path]（注意与非重命名copy的区别）</span>
+docker cp [local_path] rabbitmq:/[container_path]</code></pre>
+
+<h2 id="5-Harbor-Install"><a href="#5-Harbor-Install" class="headerlink" title="5. Harbor Install"></a><a target="_blank" rel="noopener" href="https://k8scat.com/posts/harbor/install-single-instance/">5. Harbor Install</a></h2><h3 id="5-1-生成证书"><a href="#5-1-生成证书" class="headerlink" title="5.1 生成证书"></a>5.1 生成证书</h3><pre><code class="hljs shell">apt install openssl
+
+curl -LO https://github.com/goharbor/harbor/releases/download/v2.2.2/harbor-online-installer-v2.2.2.tgz
+tar -zxvf harbor-online-installer-v2.2.2.tgz &amp;&amp; rm -f harbor-online-installer-v2.2.2.tgz
+cd harbor &amp;&amp; ls -la
+
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># 自建 CA</span></span>
+openssl genrsa -out ca.key 4096
+
+openssl req -x509 -new -nodes -sha512 -days 3650 \
+    -subj &quot;/C=CN/ST=Shenzhen/L=Shenzhen/O=example/OU=Personal/CN=k8scat.com&quot; \
+    -key ca.key \
+    -out ca.crt
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># 生成域名证书</span></span>
+openssl genrsa -out harbor.k8scat.com.key 4096
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># 生成证书签名请求文件 CSR（Certificate Signing Request）</span></span>
+openssl req -sha512 -new \
+    -subj &quot;/C=CN/ST=Shenzhen/L=Shenzhen/O=example/OU=Personal/CN=harbor.k8scat.com&quot; \
+    -key harbor.k8scat.com.key \
+    -out harbor.k8scat.com.csr
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># 生成 x509 v3 扩展文件，以此来满足 SAN（Subject Alternative Name） 和 x509 v3 扩展的要求</span></span>
+cat &gt; v3.ext &lt;&lt;-EOF
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1=harbor.k8scat.com
+EOF
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># 使用 ca.crt、ca.key、harbor.k8scat.com.csr 和 v3.ext 来生成我们需要的域名证书</span></span>
+openssl x509 -req -sha512 -days 3650 \
+    -extfile v3.ext \
+    -CA ca.crt -CAkey ca.key -CAcreateserial \
+    -in harbor.k8scat.com.csr \
+    -out harbor.k8scat.com.crt</code></pre>
+
+<h3 id="5-2-配置证书"><a href="#5-2-配置证书" class="headerlink" title="5.2 配置证书"></a>5.2 配置证书</h3><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># 配置 Harbor 和 Docker 的证书</span></span>
+mkdir -p /data/cert/
+cp harbor.k8scat.com.crt /data/cert/
+cp harbor.k8scat.com.key /data/cert/
+
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># Docker</span></span>
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># 转换</span></span>
+openssl x509 -inform PEM -in harbor.k8scat.com.crt -out harbor.k8scat.com.cert
+mkdir -p /etc/docker/certs.d/harbor.k8scat.com/
+cp harbor.k8scat.com.cert /etc/docker/certs.d/harbor.k8scat.com/
+cp harbor.k8scat.com.key /etc/docker/certs.d/harbor.k8scat.com/
+cp ca.crt /etc/docker/certs.d/harbor.k8scat.com/
+systemctl restart docker
+</code></pre>
+
+<h3 id="5-3-配置-harbor-yml"><a href="#5-3-配置-harbor-yml" class="headerlink" title="5.3 配置 harbor.yml"></a>5.3 配置 harbor.yml</h3><ol>
+<li>cp harbor.yml.tmpl harbor.yml</li>
+<li>修改<ul>
+<li>hostname : harbor.k8scat.com</li>
+<li>https<ul>
+<li>certificate: /data/cert/harbor.k8scat.com.crt</li>
+<li>private_key: /data/cert/harbor.k8scat.com.key</li>
+</ul>
+</li>
+<li>harbor_admin_password: xxx</li>
+<li>database.password: xxx</li>
+</ul>
+</li>
+<li>./install.sh</li>
+<li>harbor 搭建成功(<a target="_blank" rel="noopener" href="https://139.198.166.89/">点击访问</a>)</li>
+</ol>
+<h3 id="5-4-up-amp-amp-down"><a href="#5-4-up-amp-amp-down" class="headerlink" title="5.4 up &amp;&amp; down"></a>5.4 up &amp;&amp; down</h3><pre><code class="hljs shell">cd harbor
+docker-compose up
+docker-compose down</code></pre>
+
+
+<h2 id="6-Harbor-HA"><a href="#6-Harbor-HA" class="headerlink" title="6. Harbor HA"></a><a target="_blank" rel="noopener" href="https://blog.51cto.com/qsyj/3246708">6. Harbor HA</a></h2><h2 id="7-docker-打包"><a href="#7-docker-打包" class="headerlink" title="7. docker 打包"></a>7. docker 打包</h2><pre><code class="hljs markdown">打包容器为镜像：
+ docker commit 65cbaa57fe08  alg<span class="hljs-emphasis">_324</span>
+<span class="hljs-emphasis">镜像迁移到其他服务器：</span>
+<span class="hljs-emphasis">docker image ls # 找到对应docker</span>
+<span class="hljs-emphasis">docker save XXX:latest &gt; XXX.tar # 保存docker镜像为tar文件</span>
+<span class="hljs-emphasis">scp /etc/share/test.js root@123.123.123.123:/opt/soft/test.js  # scp传输，将本机镜像传输到其他服务器</span>
+<span class="hljs-emphasis">docker load <span class="xml"><span class="hljs-tag">&lt; <span class="hljs-attr">XXX.tar</span>  # 解压镜像</span></span></span>
+<span class="hljs-emphasis"><span class="xml">服务器之间传输文件－scp命令</span></span>
+<span class="hljs-emphasis"><span class="xml">在工作中遇到一个需求，需要在两台服务器之间传输文件，用到了scp命令，用着还挺方便。</span></span>
+<span class="hljs-emphasis"></span>
+<span class="hljs-emphasis"><span class="xml">scp是secure copy的简写，用于在Linux下进行远程拷贝文件的命令，和它类似的命令有cp，不过cp只是在本机进行拷贝不能跨服务器，而且scp传输是加密的。</span></span>
+<span class="hljs-emphasis"></span>
+<span class="hljs-emphasis"><span class="xml">使用方式：</span></span>
+<span class="hljs-emphasis"></span>
+<span class="hljs-emphasis"><span class="xml">scp [参数] [原路径] [目标路径]</span></span>
+<span class="hljs-emphasis"></span>
+<span class="hljs-emphasis"><span class="xml">常用可选参数：</span></span>
+<span class="hljs-emphasis"></span>
+<span class="hljs-emphasis"><span class="xml">-B 使用批处理模式（传输过程中不询问传输口令或短语）</span></span>
+<span class="hljs-emphasis"><span class="xml">-C 允许压缩。（将-C标志传递给ssh，从而打开压缩功能）</span></span>
+<span class="hljs-emphasis"><span class="xml">-p 保留原文件的修改时间，访问时间和访问权限。</span></span>
+<span class="hljs-emphasis"><span class="xml">-r 递归复制整个目录。</span></span>
+<span class="hljs-emphasis"><span class="xml">-P port 注意是大写的P, port是指定数据传输用到的端口号</span></span>
+<span class="hljs-emphasis"><span class="xml">路径规则：</span></span>
+<span class="hljs-emphasis"></span>
+<span class="hljs-emphasis"><span class="xml">user@IP:dirname</span></span>
+<span class="hljs-emphasis"><span class="xml">user:登录用户名</span></span>
+<span class="hljs-emphasis"><span class="xml">IP:登录服务器地址</span></span>
+<span class="hljs-emphasis"><span class="xml">dirname:文件路径</span></span>
+<span class="hljs-emphasis"><span class="xml">例如： root@123.123.123.123:/etc/share/test.js 表示123.123.123.123服务器上，root用户/etc/share/下的test.js文件</span></span>
+<span class="hljs-emphasis"></span>
+<span class="hljs-emphasis"><span class="xml">注意：</span></span>
+<span class="hljs-emphasis"></span>
+<span class="hljs-emphasis"><span class="xml">执行scp命令之后，会要求输入user的登录密码，（如果两台机器之前已部署ssh身份验证，则不需要）；</span></span>
+<span class="hljs-emphasis"><span class="xml">如果是从服务器获取文件，则目标路径直接填写本地存放路径即可。</span></span>
+<span class="hljs-emphasis"><span class="xml">如果是上传文件到服务器，则原路径填写本地文件路径即可。</span></span>
+<span class="hljs-emphasis"><span class="xml">从远程服务器复制文件到本机目录</span></span>
+<span class="hljs-emphasis"><span class="xml">$scp root@123.123.123.123:/opt/soft/test.js /etc/share/</span></span>
+<span class="hljs-emphasis"><span class="xml">表示：复制123.123.123.123机器上/opt/soft/目录下test.js文件到本机/etc/share/下。</span></span>
+<span class="hljs-emphasis"></span>
+<span class="hljs-emphasis"><span class="xml">传输本机文件到远程机器指定目录</span></span>
+<span class="hljs-emphasis"><span class="xml">$scp /etc/share/test.js root@123.123.123.123:/opt/soft/test.js</span></span>
+<span class="hljs-emphasis"><span class="xml">表示：复制本机器/etc/share/目录下test.js文件到远程123.123.123.123机器上的/opt/soft/目录下。</span></span></code></pre>
+
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://k8scat.com/posts/harbor/install-single-instance">https://k8scat.com/posts/harbor/install-single-instance</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.51cto.com/qsyj/3246708">https://blog.51cto.com/qsyj/3246708</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/yXJxTR_sPdEMt56cf7JPhQ">https://mp.weixin.qq.com/s/yXJxTR_sPdEMt56cf7JPhQ</a></li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Cloud-Native/">Cloud Native</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Docker/">Docker</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处。</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/29/go/Go_perf/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Go_perf</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/24/go/finished/Nacos-sdk-go%20v2.0.0-Beta.1/">
+                        <span class="hidden-mobile">Nacos-sdk-go v2.0.0-Beta.1 源码结构</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>1ch0</span></a> <i class="iconfont icon-love"></i> <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>Go</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "01 Docker&nbsp;",
+      ],
+      cursorChar: ".",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

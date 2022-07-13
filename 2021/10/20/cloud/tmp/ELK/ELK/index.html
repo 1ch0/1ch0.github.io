@@ -1,0 +1,1056 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="1ch0">
+  <meta name="keywords" content="">
+  <title>ELK - 1ch0&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>1ch0's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                联系我
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      1ch0
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-20 10:31" pubdate>
+        2021年10月20日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      41
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">ELK</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：43 分钟前
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <p>[TOC]</p>
+<h1 id="ELK"><a href="#ELK" class="headerlink" title="ELK"></a>ELK</h1><h2 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h2><h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>主要功能：</p>
+<ul>
+<li>分布式搜索引擎</li>
+<li>大数据实时分析引擎</li>
+</ul>
+<p>目标：</p>
+<ul>
+<li>开发：产品基本功能，底层工作原理，数据建模最佳实践</li>
+<li>运维：容量规划：性能优化，问题诊断，滚动升级</li>
+<li>方案：搜索与如何解决搜索的相关性问题、大数据分析实践与项目实战，理论知识运用到实际场景</li>
+</ul>
+<p>Elastic 认证</p>
+<p>内容：</p>
+<ul>
+<li>环境搭建</li>
+<li>数据分析</li>
+<li>集群管理</li>
+<li>实践</li>
+</ul>
+<h2 id="简介、历史"><a href="#简介、历史" class="headerlink" title="简介、历史"></a>简介、历史</h2><h3 id="安装与查看插件"><a href="#安装与查看插件" class="headerlink" title="安装与查看插件"></a>安装与查看插件</h3><pre><code class="hljs shell">docker network create elastic
+docker pull docker.elastic.co/elasticsearch/elasticsearch:7.15.1
+docker run --name es01-test --net elastic -p 9200:9200 -p 9300:9300 -e &quot;discovery.type=single-node&quot; docker.elastic.co/elasticsearch/elasticsearch:7.15.1
+docker pull docker.elastic.co/kibana/kibana:7.15.1
+docker run --name kib01-test --net elastic -p 5601:5601 -e &quot;ELASTICSEARCH_HOSTS=http://es01-test:9200&quot; docker.elastic.co/kibana/kibana:7.15.1</code></pre>
+
+
+
+<pre><code class="hljs sh">docker pull docker.elastic.co/logstash/logstash:7.15.1</code></pre>
+
+<pre><code class="hljs shell">bin/elasticsearch-plugin list
+bin/elasticsearch-plugin install</code></pre>
+
+<h3 id="运行多个-Elasticsearch-实例"><a href="#运行多个-Elasticsearch-实例" class="headerlink" title="运行多个 Elasticsearch 实例"></a>运行多个 Elasticsearch 实例</h3><pre><code class="hljs shell">/bin/elasticsearch -E node.name=node1 -E cluster.name=test -E path.data=node1_data -d
+/bin/elasticsearch -E node.name=node1 -E cluster.name=test -E path.data=node2_data -d
+/bin/elasticsearch -E node.name=node1 -E cluster.name=test -E path.data=node3_data -d</code></pre>
+
+<p>删除进程</p>
+<pre><code class="hljs shell">ps |grep elasticsearch
+
+kill pid</code></pre>
+
+<p>查看节点</p>
+<p>_cat/nodes</p>
+<h3 id="Kibana"><a href="#Kibana" class="headerlink" title="Kibana"></a>Kibana</h3><h4 id="Dev-Tools"><a href="#Dev-Tools" class="headerlink" title="Dev Tools"></a>Dev Tools</h4><p>快捷键</p>
+<p>kibana-plugin install plugin_location</p>
+<h4 id="在-Docker-中运行-Elasticsearch-Kibana-和-Cerebro"><a href="#在-Docker-中运行-Elasticsearch-Kibana-和-Cerebro" class="headerlink" title="在 Docker 中运行 Elasticsearch Kibana 和 Cerebro"></a>在 Docker 中运行 Elasticsearch Kibana 和 Cerebro</h4><h3 id="Logstash"><a href="#Logstash" class="headerlink" title="Logstash"></a>Logstash</h3><p>bin/logstash -f logstash.conf</p>
+<h2 id="基本概念：索引、文档和-RESTFul-API"><a href="#基本概念：索引、文档和-RESTFul-API" class="headerlink" title="基本概念：索引、文档和 RESTFul API"></a>基本概念：索引、文档和 RESTFul API</h2><h3 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h3><ul>
+<li>Elasticsearch 是面向文档的，文档是所有可搜索数据的最小单位</li>
+<li></li>
+</ul>
+<p>文档的元数据</p>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><ul>
+<li>Index - 文档的容器，是一类文档的结合</li>
+<li>索引的 Mapping 和 Settings</li>
+</ul>
+<p>索引的不同语义</p>
+<ul>
+<li>名词：</li>
+<li>动词 保存文档</li>
+<li>名称：一个 B 树索引，一个倒排索引</li>
+</ul>
+<p>TYPE：7.0 一个 Index 可以设置成多个 Types</p>
+<h3 id="REST-API"><a href="#REST-API" class="headerlink" title="REST API"></a>REST API</h3><p>通过 HTTP 请求</p>
+<p>基本 API</p>
+<h2 id="基本概念：节点、集群、分片"><a href="#基本概念：节点、集群、分片" class="headerlink" title="基本概念：节点、集群、分片"></a>基本概念：节点、集群、分片</h2><h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><ul>
+<li>是一个 Elasticsearch  的实例<ul>
+<li>本质上就是一个 Java 进程</li>
+</ul>
+</li>
+<li>每个节点都有名字，通过配置文件配置，或者启动时候 -E node.name=node1 指定</li>
+<li>每个节点在启动之后，会分配一个 UID，保存在 data 目录下</li>
+</ul>
+<h4 id="Master-eligible-nodes-和-Master-Node"><a href="#Master-eligible-nodes-和-Master-Node" class="headerlink" title="Master-eligible nodes 和 Master Node"></a>Master-eligible nodes 和 Master Node</h4><ul>
+<li>每个节点启动后，默认就是一个 Master eligible 节点，可以设置 node.master: false 禁止</li>
+<li>Master-eligible 节点可以参加选主流程，成为 Master 节点</li>
+<li>当第一个节点启动时，自动被选举成为 Master 节点</li>
+<li>每个节点上都保存了集群的状态，只有 Master 节点才能修改集群的状态信息<ul>
+<li>集群状态（Cluster State），维护了一个集群中，必要的信息<ul>
+<li>所有的节点信息</li>
+<li>所有的索引和其相关的 Mapping 与 Setting 信息</li>
+<li>分片的路由信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Data-Node"><a href="#Data-Node" class="headerlink" title="Data Node"></a>Data Node</h4><p>保存分片数据</p>
+<h4 id="Coordinating-Node"><a href="#Coordinating-Node" class="headerlink" title="Coordinating Node"></a>Coordinating Node</h4><p>负责接收 Client 的请求，将请求分发到合适的界定啊，最终把结果汇集到一起</p>
+<p>每个节点默认都起到了 Coordinating Node 的职责</p>
+<h4 id="其他节点"><a href="#其他节点" class="headerlink" title="其他节点"></a>其他节点</h4><ul>
+<li>Hot &amp; Warm Node<ul>
+<li>冷热节点</li>
+</ul>
+</li>
+<li>Machine Learning Node<ul>
+<li>用来跑机器学习的 Job，异常检测</li>
+</ul>
+</li>
+<li>Tribe Node<ul>
+<li>Tribe Node 连接到不同的 Elasticsearch 集群，并且支持将这些集群当成一个单独的集群处理</li>
+</ul>
+</li>
+</ul>
+<h4 id="配置节点类型"><a href="#配置节点类型" class="headerlink" title="配置节点类型"></a>配置节点类型</h4><ul>
+<li>开发环境中一个节点可设置多种类型</li>
+<li>生产环境中建议设置为单一节点</li>
+</ul>
+<h3 id="分片（Primary-Shard-amp-Replica-Shard）"><a href="#分片（Primary-Shard-amp-Replica-Shard）" class="headerlink" title="分片（Primary Shard &amp; Replica Shard）"></a>分片（Primary Shard &amp; Replica Shard）</h3><ul>
+<li>主分片，用以解决数据水平扩展的问题，通过主分片，可以将数据分布到集群内的所有节点上<ul>
+<li>一个分片是一个运行的 Lucene 的实例</li>
+<li>主分片数在索引创建时指定，后续不允许修改，除非 Reindex</li>
+</ul>
+</li>
+<li>副本，用以解决数据高可用的问题。分片是主分片的拷贝<ul>
+<li>副本分片数，可以动态调整</li>
+<li>增加副本数，可以在一定程度上提高服务的可用性（读取的吞吐）</li>
+</ul>
+</li>
+</ul>
+<h4 id="分片的设定"><a href="#分片的设定" class="headerlink" title="分片的设定"></a>分片的设定</h4><ul>
+<li>生产环境分片的设定，需要提前做好容量规划<ul>
+<li>分片数量过小<ul>
+<li>导致后续无法增加节点实现水平扩展</li>
+<li>单个分片的数据量太大，导致数据重新分配耗时</li>
+</ul>
+</li>
+<li>分片数设置过大，7.0 开始，默认主分片设置成 1 ，解决了 over-sharding 的问题<ul>
+<li>影响搜索结果的相关性打分，影响统计结果的准确性</li>
+<li>单个节点上过多的分片，会导致资源浪费，同时也会影响性能</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="查看集群的健康状况"><a href="#查看集群的健康状况" class="headerlink" title="查看集群的健康状况"></a>查看集群的健康状况</h4><p>GET _cluster/health</p>
+<ul>
+<li>Green  主分片与副本都正常分配</li>
+<li>Yellow 主分片正常，有副本分片未能正常分配</li>
+<li>Red    有主分片未能分配 </li>
+</ul>
+<h2 id="11-文档的-CRUD-与批量操作"><a href="#11-文档的-CRUD-与批量操作" class="headerlink" title="11. 文档的 CRUD 与批量操作"></a>11. 文档的 CRUD 与批量操作</h2><h3 id="文档的-CRUD"><a href="#文档的-CRUD" class="headerlink" title="文档的 CRUD"></a>文档的 CRUD</h3><ul>
+<li>Index</li>
+<li>Create</li>
+<li>Read</li>
+<li>Update</li>
+<li>Delete</li>
+</ul>
+<h3 id="Create-一个文档"><a href="#Create-一个文档" class="headerlink" title="Create 一个文档"></a>Create 一个文档</h3><ul>
+<li>支持自动生成文档 ID  和指定文档 ID 两种方式</li>
+<li>通过调用 “post /users/_doc”<ul>
+<li>系统会自动生成 document ID</li>
+</ul>
+</li>
+<li>使用 HTTP PU user/_create/1 创建时，URI 中显示指定 _create，此时如果该 id 的文档已经存在，操作失败</li>
+</ul>
+<h3 id="Get-一个文档"><a href="#Get-一个文档" class="headerlink" title="Get 一个文档"></a>Get 一个文档</h3><ul>
+<li>找到文档，返回 HTTP 200<ul>
+<li>文档元信息<ul>
+<li>_index / _type /</li>
+<li>版本信息，同一个 ID 的文档，即使别删除，Version 号也会不断增加</li>
+<li>_source 中默认包含了文档的所有原始信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>找不到文档，返回 HTTP 404</li>
+</ul>
+<h3 id="Index-文档"><a href="#Index-文档" class="headerlink" title="Index 文档"></a>Index 文档</h3><ul>
+<li>Index 和 Create 不一样的地方：如果文档不存在，就索引新的文档。否则现有文档会被删除，新的文档被索引，版本信息 +1</li>
+</ul>
+<h3 id="Update-文档"><a href="#Update-文档" class="headerlink" title="Update 文档"></a>Update 文档</h3><ul>
+<li>Update 方法不会删除原来的文档，而是实现真正的数据更新</li>
+<li>Post 方法  / Payload 需要包含在 “doc” 中</li>
+</ul>
+<h3 id="Bulk-API"><a href="#Bulk-API" class="headerlink" title="Bulk API"></a>Bulk API</h3><ul>
+<li>支持在一次 API 调用中，对不同的索引进行操作</li>
+<li>支持四种类型操作<ul>
+<li>Index</li>
+<li>Create</li>
+<li>Update</li>
+<li>Delete</li>
+</ul>
+</li>
+<li>可以在 URI 中指定 Index，也可以在请求的 Payload 中进行</li>
+<li>操作中单条操作失败，并不会影响其他操作</li>
+<li>返回结果包括了每一条操作执行的结果</li>
+</ul>
+<h3 id="批量读取-mget"><a href="#批量读取-mget" class="headerlink" title="批量读取 - mget"></a>批量读取 - mget</h3><p>批量操作:，可以减少网络连接所产生的开销，提高性能。</p>
+<pre><code class="hljs json">GET /_mget
+&#123;
+    <span class="hljs-attr">&quot;docs&quot;</span>: [
+    &#123;
+        <span class="hljs-attr">&quot;_index&quot;</span>: <span class="hljs-string">&quot;user&quot;</span>,
+        <span class="hljs-attr">&quot;_id&quot;</span>: <span class="hljs-string">&quot;1&quot;</span>
+    &#125;,
+    &#123;
+        <span class="hljs-attr">&quot;_index&quot;</span>: <span class="hljs-string">&quot;comment&quot;</span>,
+        <span class="hljs-attr">&quot;_id&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>
+    &#125;
+    ]
+&#125;</code></pre>
+
+<h3 id="批量查询-msearch"><a href="#批量查询-msearch" class="headerlink" title="批量查询 - msearch"></a>批量查询 - msearch</h3><h3 id="常见错误返回"><a href="#常见错误返回" class="headerlink" title="常见错误返回"></a>常见错误返回</h3><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无法连接</td>
+<td>网络故障或集群挂了</td>
+</tr>
+<tr>
+<td>连接无法关闭</td>
+<td>网络故障或节点出错</td>
+</tr>
+<tr>
+<td>429</td>
+<td>集群过于繁忙</td>
+</tr>
+<tr>
+<td>4xx</td>
+<td>请求体格式有错</td>
+</tr>
+<tr>
+<td>500</td>
+<td>集群内部错误</td>
+</tr>
+</tbody></table>
+<h3 id="Resume"><a href="#Resume" class="headerlink" title="Resume"></a>Resume</h3><p>注意： 批量操作时不要发送大量数据</p>
+<h2 id="12-倒排索引"><a href="#12-倒排索引" class="headerlink" title="12. 倒排索引"></a>12. 倒排索引</h2><h3 id="正排，倒排"><a href="#正排，倒排" class="headerlink" title="正排，倒排"></a>正排，倒排</h3><ul>
+<li>正排，目录</li>
+<li>倒排，单词 -&gt; 统计次数 -&gt; 文档号：位置</li>
+</ul>
+<h3 id="核心组成"><a href="#核心组成" class="headerlink" title="核心组成"></a>核心组成</h3><ul>
+<li>单词词典（Term Dictionary），记录所有文档的单词，记录单词倒排列表的关联关系<ul>
+<li>单词词典一般比较大，可以通过 B+ 树或哈希拉链法实现，以满足高性能的插入与查询</li>
+</ul>
+</li>
+<li>倒排列表（Posting List），记录了单词对应的文档结合，由倒排索引组成<ul>
+<li>倒排索引项（Posting）<ul>
+<li>文档 ID</li>
+<li>词频 TF ，该单词在文档中出现的次数，用于相关性评分</li>
+<li>位置（Position），单词在文档中分词的位置。用于语句搜索（phrase query）‘</li>
+<li>偏移（Offset），记录单词的开始结束位置，实现高亮显示</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Elasticsearch-的倒排索引"><a href="#Elasticsearch-的倒排索引" class="headerlink" title="Elasticsearch 的倒排索引"></a>Elasticsearch 的倒排索引</h3><ul>
+<li>Elasticsearch 的 JSON 文档中的每个字段，都有自己的倒排索引</li>
+<li>可以指定对某些字段不做索引<ul>
+<li>优点：节省存储空间</li>
+<li>缺点：字段无法被搜索</li>
+</ul>
+</li>
+</ul>
+<h2 id="13-通过-Analyzer-进行分词"><a href="#13-通过-Analyzer-进行分词" class="headerlink" title="13. 通过 Analyzer 进行分词"></a>13. 通过 Analyzer 进行分词</h2><h3 id="Analysis-与-Analyzer"><a href="#Analysis-与-Analyzer" class="headerlink" title="Analysis 与 Analyzer"></a>Analysis 与 Analyzer</h3><ul>
+<li>分词</li>
+</ul>
+<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><ul>
+<li>Character Filters — 针对原始文本处理，去除 HTML</li>
+<li>Tokenizer — 按照规则切分为单词</li>
+<li>Token Filters — 将切分的单词进行加工，小写，删除 stopwords，增加同义词</li>
+</ul>
+<h3 id="Elasticsearch-的内置分词器"><a href="#Elasticsearch-的内置分词器" class="headerlink" title="Elasticsearch 的内置分词器"></a>Elasticsearch 的内置分词器</h3><ul>
+<li>Standard Analyzer — 默认分词器，按词切分，小写处理</li>
+<li>Simple Analyzer — 按照非字母切分（符号被过滤），小写处理</li>
+<li>Stop Analyzer — 小写处理，停用词过滤（the, a, is）</li>
+<li>Whitespace Analyzer – 按照空格切分，不转小写</li>
+<li>Keyword Analyzer — 不分词，直接将输入当作输出</li>
+<li>Patter Analyzer — 正则表达式，默认 \W+ （非字符分隔）</li>
+<li>Language — 提供了 30 多种常见语言的分词器</li>
+<li>Customer Analyzer — 自定义分词器</li>
+</ul>
+<h3 id="使用-analyzer-API"><a href="#使用-analyzer-API" class="headerlink" title="使用 _analyzer API"></a>使用 _analyzer API</h3><ul>
+<li>直接指定 Analyzer 进行测试</li>
+<li>指定索引的字段进行测试</li>
+<li>自定义分词器进行测试</li>
+</ul>
+<h3 id="Standard-Analyzer"><a href="#Standard-Analyzer" class="headerlink" title="Standard Analyzer"></a>Standard Analyzer</h3><ul>
+<li>默认分词器</li>
+<li>按词切分</li>
+<li>小写处理</li>
+</ul>
+<h3 id="Simple-Analyzer"><a href="#Simple-Analyzer" class="headerlink" title="Simple Analyzer"></a>Simple Analyzer</h3><ul>
+<li>按照非字母切分，非字母的都被去除</li>
+<li>小写处理</li>
+</ul>
+<h3 id="Whitespace-Analyzer"><a href="#Whitespace-Analyzer" class="headerlink" title="Whitespace Analyzer"></a>Whitespace Analyzer</h3><ul>
+<li>按照空格切分</li>
+</ul>
+<h3 id="Stop-Analyzer"><a href="#Stop-Analyzer" class="headerlink" title="Stop Analyzer"></a>Stop Analyzer</h3><ul>
+<li>相比 Simple Analyzer 多了 stop filter<ul>
+<li>会把 the, a, is 等修饰性词去除</li>
+</ul>
+</li>
+</ul>
+<h3 id="Keyword-Analyzer"><a href="#Keyword-Analyzer" class="headerlink" title="Keyword Analyzer"></a>Keyword Analyzer</h3><ul>
+<li>不分词，直接将输入当一个 term 输出</li>
+</ul>
+<h3 id="Pattern-Analyzer"><a href="#Pattern-Analyzer" class="headerlink" title="Pattern Analyzer"></a>Pattern Analyzer</h3><ul>
+<li>通过正则表达式进行分词</li>
+<li>默认 \W+ ，非字符的符号进行分割</li>
+<li>小写处理</li>
+</ul>
+<h3 id="Language-Analyzer"><a href="#Language-Analyzer" class="headerlink" title="Language Analyzer"></a>Language Analyzer</h3><ul>
+<li>指定语言</li>
+</ul>
+<h3 id="中文分词"><a href="#中文分词" class="headerlink" title="中文分词"></a>中文分词</h3><ul>
+<li><p>切分为一个词，而不是一个字</p>
+</li>
+<li><p>ICU Analyzer</p>
+<ul>
+<li>需要安装 plugin</li>
+<li>支持 Unicode 支持，对亚洲语言有更好的处理</li>
+</ul>
+</li>
+<li><p>更多的中文分词器</p>
+<ul>
+<li>IK  支持自定义词库</li>
+<li>THULAC  清华</li>
+</ul>
+</li>
+</ul>
+<h2 id="14-Search-API-概览"><a href="#14-Search-API-概览" class="headerlink" title="14. Search API 概览"></a>14. Search API 概览</h2><ul>
+<li>URI Search<ul>
+<li>在 URL 中使用查询参数</li>
+</ul>
+</li>
+<li>Request Body Search<ul>
+<li>使用 Elasticsearch 提供的，基于 JSON 格式的更加完备的 Query Domain Specific Language（DSL）</li>
+</ul>
+</li>
+</ul>
+<h3 id="指定查询的索引"><a href="#指定查询的索引" class="headerlink" title="指定查询的索引"></a>指定查询的索引</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/_search</td>
+<td>集群上所有的索引</td>
+</tr>
+<tr>
+<td>/index1/_search</td>
+<td>index1</td>
+</tr>
+<tr>
+<td>/index1,index-2/_search</td>
+<td>index1 和 index2</td>
+</tr>
+<tr>
+<td>/index*/_search</td>
+<td>以 index 开头的索引</td>
+</tr>
+</tbody></table>
+<h3 id="URI-查询"><a href="#URI-查询" class="headerlink" title="URI 查询"></a>URI 查询</h3><ul>
+<li>使用 “q”，指定查询字符串</li>
+<li>“query string syntax”， KV 键值对</li>
+</ul>
+<pre><code class="hljs shell">curl -XGET &quot;http://elasticsearch:9200/kibana_sample_data_ecommerce/_search?q=customer_first_name:Eddie&quot;</code></pre>
+
+<p>Request Body</p>
+<pre><code class="hljs shell">curl -XGET &quot;http://elasticsearch:9200/kibana_sample_data_ecommerce/_search&quot; -H &quot;&#x27;Content-Type:application/json&#x27; -d&quot;
+&#123;
+  &quot;query&quot;:&#123;
+    &quot;match_all&quot;:&#123;&#125;
+  &#125;
+&#125;</code></pre>
+
+<p>搜索 Reponse</p>
+<ul>
+<li>took 花费的时间</li>
+<li>total 复合条件的总文档数</li>
+<li>hints 结果集，默认前 10 个文档</li>
+<li>_index 索引名</li>
+<li>_id 文档的 id</li>
+<li>_score 相关度评分</li>
+<li>_source 文档原始信息</li>
+</ul>
+<h3 id="搜索的相关性"><a href="#搜索的相关性" class="headerlink" title="搜索的相关性"></a>搜索的相关性</h3><ul>
+<li>搜索是用户和所搜引擎的对话</li>
+<li>用户关心的搜索结果的相关性<ul>
+<li>是否可以找到所有相关的内容</li>
+<li>有多少不相关的内容被返回了</li>
+<li>文档的打分是否合理</li>
+<li>结合业务需求，平衡结果排名</li>
+</ul>
+</li>
+</ul>
+<h3 id="衡量相关性"><a href="#衡量相关性" class="headerlink" title="衡量相关性"></a>衡量相关性</h3><ul>
+<li>information retrieval<ul>
+<li>Percision（查准率）  尽可能返回较少的无关文档</li>
+<li>Recall（查全率）  尽可能返回较多的相关文档</li>
+<li>Ranking  是否能够按照相关度进行排序</li>
+</ul>
+</li>
+</ul>
+<h2 id="15-URI-Search"><a href="#15-URI-Search" class="headerlink" title="15. URI Search"></a>15. URI Search</h2><p>通过 URI query 实现搜索</p>
+<ul>
+<li>q 指定查询语句，使用 Query String Synctax</li>
+<li>df 默认字段，不指定时，会对所有字段进行查询</li>
+<li>Sort 排序 / from 和 size 用于分页</li>
+<li>Profile 可以查看查询是如何被执行的</li>
+</ul>
+<h3 id="Query-String-Synctax（1）"><a href="#Query-String-Synctax（1）" class="headerlink" title="Query String Synctax（1）"></a>Query String Synctax（1）</h3><ul>
+<li>指定字段 v.s 泛查询<ul>
+<li>q=title:2012 / q=2012</li>
+</ul>
+</li>
+<li>Term v.s Phrase<ul>
+<li>Beautiful Mind — 等效于 Beautiful OR Mind</li>
+<li>“Beautiful Mind” — 等效于 Beautiful AND Mind。Phrase 查询，还要求前后保持一致</li>
+</ul>
+</li>
+<li>分组与引号<ul>
+<li>title:(Beautiful AND Mind)</li>
+<li>title=”Beautiful Mind”</li>
+</ul>
+</li>
+</ul>
+<h3 id="Query-String-Synctax（2）"><a href="#Query-String-Synctax（2）" class="headerlink" title="Query String Synctax（2）"></a>Query String Synctax（2）</h3><ul>
+<li>布尔操作</li>
+<li>分组</li>
+</ul>
+<h3 id="Query-String-Synctax（3）"><a href="#Query-String-Synctax（3）" class="headerlink" title="Query String Synctax（3）"></a>Query String Synctax（3）</h3><ul>
+<li>范围查询<ul>
+<li>区间表示：[] 闭区间，{} 开区间<ul>
+<li>year:{2019 TO 2018}</li>
+<li>year:[* TO 2018]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>算术符号<ul>
+<li>year:&gt;2010</li>
+<li>year:(&gt;2010 &amp;&amp; &lt;=2018)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Query-String-Synctax（4）"><a href="#Query-String-Synctax（4）" class="headerlink" title="Query String Synctax（4）"></a>Query String Synctax（4）</h3><ul>
+<li>通配符查询（通配符查询效率低，占用内存大，不建议使用。特别是放在最前面）<ul>
+<li>? 代表 1 个字符， * 代表 0 或多个字符</li>
+</ul>
+</li>
+<li>正则表达<ul>
+<li>title:[bt]oy</li>
+</ul>
+</li>
+<li>模糊匹配与近似度查询<ul>
+<li>tiltle:befutifl~1</li>
+<li>title:”lord rings”~2</li>
+</ul>
+</li>
+</ul>
+<h2 id="16-Request-Body-与-Query-DSL"><a href="#16-Request-Body-与-Query-DSL" class="headerlink" title="16. Request Body 与 Query DSL"></a>16. Request Body 与 Query DSL</h2><h3 id="Request-Body-Search"><a href="#Request-Body-Search" class="headerlink" title="Request Body Search"></a>Request Body Search</h3><ul>
+<li>将查询语句通过 HTTP Request Body 发送给 Elasticsearch </li>
+<li>Query DSL<ul>
+<li>sort</li>
+</ul>
+</li>
+</ul>
+<h3 id="source-filltering"><a href="#source-filltering" class="headerlink" title="_source filltering"></a>_source filltering</h3><h3 id="脚本字段"><a href="#脚本字段" class="headerlink" title="脚本字段"></a>脚本字段</h3><h3 id="使用查询表达式-Match"><a href="#使用查询表达式-Match" class="headerlink" title="使用查询表达式 - Match"></a>使用查询表达式 - Match</h3><h3 id="短语搜索-Match-Phrase"><a href="#短语搜索-Match-Phrase" class="headerlink" title="短语搜索 - Match Phrase"></a>短语搜索 - Match Phrase</h3><p>operator: and、slop</p>
+<h2 id="17-Query-String-与-Simple-Query-String-查询"><a href="#17-Query-String-与-Simple-Query-String-查询" class="headerlink" title="17. Query String 与 Simple Query String 查询"></a>17. Query String 与 Simple Query String 查询</h2><h2 id="18-Dynamic-Mapping-与常见字段类型"><a href="#18-Dynamic-Mapping-与常见字段类型" class="headerlink" title="18. Dynamic Mapping 与常见字段类型"></a>18. Dynamic Mapping 与常见字段类型</h2><ul>
+<li><p>mapping</p>
+<ul>
+<li>定义索引中的字段的名称</li>
+</ul>
+</li>
+<li><p>类型自动识别</p>
+<ul>
+<li>JSON 类型</li>
+</ul>
+</li>
+<li><p>mapping  true  false strict</p>
+</li>
+</ul>
+<h2 id="19-显示-Mapping-设置与常见参数介绍"><a href="#19-显示-Mapping-设置与常见参数介绍" class="headerlink" title="19. 显示 Mapping 设置与常见参数介绍"></a>19. 显示 Mapping 设置与常见参数介绍</h2><ul>
+<li><p>对字段设置 index 为 false，不建立倒排索引</p>
+</li>
+<li><p>copy_to</p>
+</li>
+</ul>
+<h2 id="20-多字段特性及-mapping-中自定义-Analyzer"><a href="#20-多字段特性及-mapping-中自定义-Analyzer" class="headerlink" title="20. 多字段特性及 mapping 中自定义 Analyzer"></a>20. 多字段特性及 mapping 中自定义 Analyzer</h2><h3 id="多字段类型"><a href="#多字段类型" class="headerlink" title="多字段类型"></a>多字段类型</h3><p>keyword</p>
+<p>text</p>
+<p>精确值不需要被分词处理</p>
+<h3 id="自定义分词"><a href="#自定义分词" class="headerlink" title="自定义分词"></a>自定义分词</h3><ul>
+<li>Character Filters</li>
+<li>Tokenizer</li>
+<li>Token Filters</li>
+</ul>
+<h2 id="21-Index-Template-与-Dynamic-Template"><a href="#21-Index-Template-与-Dynamic-Template" class="headerlink" title="21. Index Template 与 Dynamic Template"></a>21. Index Template 与 Dynamic Template</h2><p>Index Template 帮助你设定 mappings 和 Settings，并按照一定的规则，自动匹配到新索引</p>
+<h3 id="Dynamic-Template"><a href="#Dynamic-Template" class="headerlink" title="Dynamic Template"></a>Dynamic Template</h3><h2 id="22-聚合分析"><a href="#22-聚合分析" class="headerlink" title="22. 聚合分析"></a>22. 聚合分析</h2><h3 id="Aggregation"><a href="#Aggregation" class="headerlink" title="Aggregation"></a>Aggregation</h3><ul>
+<li><p>实时性高，性能高</p>
+</li>
+<li><p>得到一个数据的概览</p>
+</li>
+<li><p>可视化报表</p>
+</li>
+<li><p>分类</p>
+<ul>
+<li>Bucket</li>
+<li>Metric</li>
+<li>Pipeline</li>
+<li>Matrix</li>
+</ul>
+</li>
+</ul>
+<h3 id="Bucket-amp-Metric"><a href="#Bucket-amp-Metric" class="headerlink" title="Bucket &amp; Metric"></a>Bucket &amp; Metric</h3><h4 id="Bucket"><a href="#Bucket" class="headerlink" title="Bucket"></a>Bucket</h4><ul>
+<li>分桶</li>
+</ul>
+<h4 id="Metric"><a href="#Metric" class="headerlink" title="Metric"></a>Metric</h4><ul>
+<li>基于数据集计算结果</li>
+<li>avg  min  max</li>
+</ul>
+<h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><h2 id="23-总结一"><a href="#23-总结一" class="headerlink" title="23. 总结一"></a>23. 总结一</h2><h2 id="24-基于词项和基于全文的查询"><a href="#24-基于词项和基于全文的查询" class="headerlink" title="24. 基于词项和基于全文的查询"></a>24. 基于词项和基于全文的查询</h2><h3 id="基于-Term-的查询"><a href="#基于-Term-的查询" class="headerlink" title="基于 Term 的查询"></a>基于 Term 的查询</h3><ul>
+<li>是语义查询的最小单位</li>
+<li>不会做分词</li>
+</ul>
+<p>跳过算分步骤，constant_score，提高系统性能</p>
+<h3 id="基于全文的查询"><a href="#基于全文的查询" class="headerlink" title="基于全文的查询"></a>基于全文的查询</h3><ul>
+<li>会进行分词</li>
+<li>可以加入 Operator</li>
+</ul>
+<h2 id="25-结构化搜索"><a href="#25-结构化搜索" class="headerlink" title="25. 结构化搜索"></a>25. 结构化搜索</h2><p>Term 查询  包含而不是精确匹配</p>
+<p>会算分</p>
+<h2 id="26-搜索的相关性算分"><a href="#26-搜索的相关性算分" class="headerlink" title="26. 搜索的相关性算分"></a>26. 搜索的相关性算分</h2><p>词频 TF  </p>
+<p>Stop World</p>
+<p>DF 检索词在所有文档中出现的频率</p>
+<p>逆文档频率 IDF</p>
+<p>TF-IDF 香农理论</p>
+<p>Lucene 中 TF-IDF 评分公式</p>
+<p>BM 25  当TF 值增加到一定值，影响下降</p>
+<p> Explain API 查看 TF-IDF</p>
+<p>Boosting Relevance 参数</p>
+<h2 id="27-Query-amp-Filtering-与多字符串多字段查询"><a href="#27-Query-amp-Filtering-与多字符串多字段查询" class="headerlink" title="27. Query&amp;Filtering 与多字符串多字段查询"></a>27. Query&amp;Filtering 与多字符串多字段查询</h2><p>bool 查询 must should must_not filter</p>
+<pre><code class="hljs http">POST new/_search
+&#123;
+	&quot;query&quot;
+	 &quot;boosting&quot;:
+	   &quot;match&quot;
+	     &quot;content&quot;
+&#125;</code></pre>
+
+
+
+
+
+<p>支持嵌套</p>
+<p>should 算分，结构会对算分产生影响</p>
+<p>控制字段的 Boosting </p>
+<h2 id="28-单字符串多字段查询"><a href="#28-单字符串多字段查询" class="headerlink" title="28. 单字符串多字段查询"></a>28. 单字符串多字段查询</h2><h2 id="36-配置集群搜索"><a href="#36-配置集群搜索" class="headerlink" title="36. 配置集群搜索"></a>36. 配置集群搜索</h2><h3 id="跨集群搜索-Cross-Cluster-Search"><a href="#跨集群搜索-Cross-Cluster-Search" class="headerlink" title="跨集群搜索 - Cross Cluster Search"></a>跨集群搜索 - Cross Cluster Search</h3><p>配置及查询</p>
+<h2 id="选主与脑裂"><a href="#选主与脑裂" class="headerlink" title="选主与脑裂"></a>选主与脑裂</h2><p>Data Node  </p>
+<p>通过增加数据节点，可以解决水平扩展问题</p>
+<h2 id="分片与故障转移"><a href="#分片与故障转移" class="headerlink" title="分片与故障转移"></a>分片与故障转移</h2>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Cloud-Native/">Cloud Native</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/ELK-Stack/">ELK, Stack</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处。</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/20/cloud/ELK/ELK/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">ELK</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/19/cloud/K8S/k8s%E5%9F%BA%E7%A1%80/Node%20&amp;%20Pod%20&amp;%20Container/">
+                        <span class="hidden-mobile">Node & Pod & Container</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>1ch0</span></a> <i class="iconfont icon-love"></i> <a href="https://1ch0.github.io/" target="_blank" rel="nofollow noopener"><span>Go</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "ELK&nbsp;",
+      ],
+      cursorChar: ".",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
