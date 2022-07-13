@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2k 字
+      2.1k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      28
+      29
        分钟
     </span>
   
@@ -236,7 +236,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：6 个月前
+                  本文最后更新于：16 分钟前
                 
               </p>
             
@@ -281,6 +281,24 @@ yum -y upgrade：只升级所有包，不升级软件和系统内核</code></pre
 chmod +x /usr/local/bin/docker-compose
 docker-compose -v
 </code></pre>
+
+<h3 id="on-ubuntu"><a href="#on-ubuntu" class="headerlink" title="on ubuntu"></a>on ubuntu</h3><pre><code class="hljs sh">curl -sSL https://get.daocloud.io/docker | sh
+<span class="hljs-comment"># 启动 Docker</span>
+systemctl start docker
+<span class="hljs-comment"># 开机启动 docker</span>
+systemctl <span class="hljs-built_in">enable</span> docker
+<span class="hljs-comment"># 安装 docker compose</span>
+curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` &gt; /usr/<span class="hljs-built_in">local</span>/bin/docker-compose
+chmod +x /usr/<span class="hljs-built_in">local</span>/bin/docker-compose
+docker-compose -v
+
+systemctl daemon-reload
+sudo service docker restart
+sudo service docker status</code></pre>
+
+
+
+
 
 
 
@@ -483,7 +501,7 @@ docker cp [local_path] rabbitmq:/[container_path]</code></pre>
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/CloudNative/">CloudNative</a>
+                      <a class="hover-with-bg" href="/categories/Cloud-Native/">Cloud Native</a>
                     
                   </div>
                 
@@ -504,7 +522,7 @@ docker cp [local_path] rabbitmq:/[container_path]</code></pre>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/10/15/CloudNative/k8s%E5%9F%BA%E7%A1%80/Kubernetes(1-7)/">
+                      <a href="/2021/10/15/CloudNative/tmp/k8s%E5%9F%BA%E7%A1%80/Kubernetes(1-7)/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Kubernetes(1-7)</span>
                         <span class="visible-mobile">上一篇</span>

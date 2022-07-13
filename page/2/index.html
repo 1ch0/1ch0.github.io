@@ -177,30 +177,31 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/01/11/CloudNative/mage/2.kubernetes/20220109-day2/" target="_self">
-          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="K8S-M-20220109-day2">
+        <a href="/2022/07/13/CloudNative/mage/1.docker/01-docker/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="K8S-M-Docker">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/01/11/CloudNative/mage/2.kubernetes/20220109-day2/">K8S-M-20220109-day2</a>
+        <a href="/2022/07/13/CloudNative/mage/1.docker/01-docker/">K8S-M-Docker</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/01/11/CloudNative/mage/2.kubernetes/20220109-day2/">
+        <a href="/2022/07/13/CloudNative/mage/1.docker/01-docker/">
           
           
             
           
-          20220109-day21. 云原生cat /etc/system/system/apiserver.service
+          01 docker00 introduction
+containerd  1.24 之后使用 containerd 
 
-kubeproxy 配置修改cat /etc/systmd/system/kube-proxy.service 里的–config 参数
-coredns
-服务发现
+01 Concept镜像发布
+镜像仓库  harbor   几十 T
+运维 -&gt; Api-server -&gt; ETCD -&gt; NODE 节点 （访问 harbor 下载镜像）-&gt; kubectl 
+Build -&gt; Share -&gt; Run
 
-- [ ] ipvs 🔼 🛫 2022-01-12 ⏳ 2022-01-13 📅 2022-01-15
 
         </a>
       </p>
@@ -209,8 +210,8 @@ coredns
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-11 00:00" pubdate>
-              2022-01-11
+            <time datetime="2022-07-13 15:11" pubdate>
+              2022-07-13
             </time>
           </div>
         
@@ -238,31 +239,52 @@ coredns
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/01/07/linux/linux%20init/" target="_self">
-          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/linux01.png" srcset="/img/loading.gif" alt="Linux Init">
+        <a href="/2022/07/13/CloudNative/cncamp/module_03/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="Docker 核心技术">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/01/07/linux/linux%20init/">Linux Init</a>
+        <a href="/2022/07/13/CloudNative/cncamp/module_03/">Docker 核心技术</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/01/07/linux/linux%20init/">
+        <a href="/2022/07/13/CloudNative/cncamp/module_03/">
           
           
             
           
-          Linux Init1. 修改配置1.1 修改  $HOME/.bashrcmkdir $HOME/workspace    
-    
-tee -a $HOME/.bashrc &lt;&lt; EOF
-# User specific environment
-# Basic envs
-alias rm=&#x27;rm -i&#x27;
-alias cp=&#x27;cp -i&#x27;
-al
+          3. Docker 核心技术3.1 从系统架构谈起3.1.1 传统分层架构 vs 微服务架构
+传统分层架构
+优点：
+易部署
+易测试
+易横向拓展
+
+
+缺点：
+难以理解整体
+不易快速维护
+启动慢
+部署慢
+变更引起的回归问题多
+难以做持续集成和持续部署
+
+
+
+
+微服务
+优点：
+高内聚、松耦合
+复杂系统更加可维护
+服务独立部署，易于持续集成和持续部署
+每个微服务独立拓展
+
+
+缺点：
+增加了系统的复杂性，把
         </a>
       </p>
 
@@ -270,71 +292,8 @@ al
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-07 15:39" pubdate>
-              2022-01-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Linux/">Linux</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Linux/">Linux</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/01/07/K8S-M/02%20Kubernetes/" target="_self">
-          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="02 Kubernetes">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/01/07/K8S-M/02%20Kubernetes/">02 Kubernetes</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/01/07/K8S-M/02%20Kubernetes/">
-          
-          
-            
-          
-          02 Kubernetes
-CNCF
-生态图
-
-1. 基于dockerfile构建nginx镜像1.1 编写 dockerfile# Nginx image
-FROM ubuntu:20.04
-
-LABEL &quot;maintainer&quot;=&quot;1ch0 github1ch0@163.com&quot;
-
-# COPY sources.list /etc/apt/sources
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-07 15:33" pubdate>
-              2022-01-07
+            <time datetime="2022-07-13 15:11" pubdate>
+              2022-07-13
             </time>
           </div>
         
@@ -361,71 +320,31 @@ LABEL &quot;maintainer&quot;=&quot;1ch0 github1ch0@163.com&quot;
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/01/05/linux/tmp/shell/shell%E8%84%9A%E6%9C%AC/" target="_self">
-          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/linux01.png" srcset="/img/loading.gif" alt="shell脚本">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
+    <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/01/05/linux/tmp/shell/shell%E8%84%9A%E6%9C%AC/">shell脚本</a>
+        <a href="/2022/07/13/CloudNative/cncamp/module_02/"></a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/01/05/linux/tmp/shell/shell%E8%84%9A%E6%9C%AC/">
+        <a href="/2022/07/13/CloudNative/cncamp/module_02/">
           
           
             
           
-          Shell 脚本1. 基础入门及变量使用1.1 正则元字符
+          Module_022.12.2
+size 命令
+objectdump -x    看二进制文件
 
+2.2.2 Linux 进程的内存使用
+内存页大小 4K
+4级页表，将虚拟地址映射到物理地址
+页交换
 
-符号
-描述
-示例
+2.2.3 CPU 对内存的访问
+CPU 上有个 Memory Management Unit (MMU) 单元
 
-
-
-.
-任意一个字符
-—
-
-
-*
-前面的字符重复任意次
-x*     xxxxx…
-
-
-()*
-字符串重复任意次
-(shell)* shellshell…
-
-
-+ 或 {1,}
-前面字符重复一次以上
-x+
-
-
-?
-前面字符重复0次或1次
-x?
-
-
-^
-行首
-—
-
-
-$
-行尾
-—
-
-
-&lt; 或 \b
-单词词首
-—
+2.3 内存管理2.3.1 堆内存管理的挑战2.3.2 堆内存管理2.4 包引用与
         </a>
       </p>
 
@@ -433,8 +352,111 @@ $
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-05 10:33" pubdate>
-              2022-01-05
+            <time datetime="2022-07-13 15:11" pubdate>
+              2022-07-13
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/28/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">test</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/06/28/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">
+          
+          
+            
+          
+          目录结构示例项目目录结构├── api
+│   ├── v1
+│   │   ├── configCenter
+│   │   └── swagger
+├── build
+│   ├── ci
+│   ├── docker
+│   └── package
+├── CHANGELOG
+├── cmd
+├── configs
+├── deployments
+│   ├── templates
+│   
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-28 13:24" pubdate>
+              2022-06-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/engineer/">engineer</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/06/27/linux/linux%20init/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/linux01.png" srcset="/img/loading.gif" alt="Linux Init">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/27/linux/linux%20init/">Linux Init</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/06/27/linux/linux%20init/">
+          
+          
+            
+          
+          Linux Init1. 修改配置#!/bin/bash
+set -x
+lsb_release -a
+mkdir $HOME/workspace
+mkdir $HOME/workspace/docker-compose
+mkdir $HOME/workspace/yaml
+mkdir $HOME/workspace/scripts
+
+
+tee -a $HOME/.bashrc &lt;&lt; E
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-27 17:57" pubdate>
+              2022-06-27
             </time>
           </div>
         
@@ -462,290 +484,24 @@ $
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/01/05/linux/tmp/shell/Linux%E5%91%BD%E4%BB%A4/" target="_self">
-          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/linux01.png" srcset="/img/loading.gif" alt="Linux命令">
+        <a href="/2022/06/22/go/finished/design_parttern/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/design_parttern.jpg" srcset="/img/loading.gif" alt="design_parttern">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/01/05/linux/tmp/shell/Linux%E5%91%BD%E4%BB%A4/">Linux命令</a>
+        <a href="/2022/06/22/go/finished/design_parttern/">design_parttern</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/01/05/linux/tmp/shell/Linux%E5%91%BD%E4%BB%A4/">
+        <a href="/2022/06/22/go/finished/design_parttern/">
           
           
             
           
-          [TOC]
-1. Linux 命令 &amp; 工具汇总表
-
-
-命令
-解释
-
-
-
-curl cip.cc
-查询外网出口 ip
-
-
-screenfetch
-查看系统信息
-
-
-nohup command &amp;
-后台运行
-
-
-&amp; disown
-后台运行命令
-
-
-ps -aux | grep
-查看后台命令
-
-
-pstree -p
-查看进程父子关系
-
-
-sudo tail /proc//fd/
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-05 10:33" pubdate>
-              2022-01-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Linux/">Linux</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Linux/">Linux</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/01/04/golang/Interview/interview_00/" target="_self">
-          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/go1.jpg" srcset="/img/loading.gif" alt="Go Interview">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/01/04/golang/Interview/interview_00/">Go Interview</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/01/04/golang/Interview/interview_00/">
-          
-          
-            
-          
-          go面试资料整理go语言基础熟悉语法，撸个百十道基础面试题就差不多了。
-go语言进阶go中有哪些锁？
-sync.Mutex 互斥锁sync.RWMutex  读写锁
-CSP并发模型？
-CSP并发模型它并不关注发送消息的实体，而关注的是发送消息时使用的channel，go语言借用了process和channel这两个概念，process表现为go里面的goroutine，是实际并发执行的实体，每个实
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-04 15:17" pubdate>
-              2022-01-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Golang/">Golang</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/interview/">interview</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/01/04/golang/Interview/interview_1ch0/" target="_self">
-          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/go1.jpg" srcset="/img/loading.gif" alt="Go Interview">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/01/04/golang/Interview/interview_1ch0/">Go Interview</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/01/04/golang/Interview/interview_1ch0/">
-          
-          
-            
-          
-          Go Interview  Summarybase conceptmake   newnew(T) make(T, args) 是 Go 语言内建函数,用来分配内存，但适用的类型不同new(T) 会为了 T 类型新建新的内存空间并返回内存地址，即 *T, 用于 数组，结构体make(T, args) 会返回初始化T类型的值，适用于 slice，map，channel
-闭包Go语言中闭包是引用了自由
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-04 15:17" pubdate>
-              2022-01-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Golang/">Golang</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/interview/">interview</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/01/04/tmp/windows/shell/" target="_self">
-          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/windows.jpg" srcset="/img/loading.gif" alt="windows shell">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/01/04/tmp/windows/shell/">windows shell</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/01/04/tmp/windows/shell/">
-          
-          
-            
-          
-          Windows shell# window 编辑shell脚本导致无法执行问题
-set ff=unix
-
-创建软连接
-mklinkCreates a symbolic link.MKLINK [[/D] | [/H] | [/J]] Link Target /D Creates a directory symbolic link. Default is a file symbolic link. 
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-04 10:31" pubdate>
-              2022-01-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/windows/">windows</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/shell/">shell</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/12/31/tmp/github%E5%8A%A0%E9%80%9F/" target="_self">
-          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/github.png" srcset="/img/loading.gif" alt="Github">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/12/31/tmp/github%E5%8A%A0%E9%80%9F/">Github</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/12/31/tmp/github%E5%8A%A0%E9%80%9F/">
-          
-          
-            
-          
-          Github 加速
-github.com.cnpmjs.org
-hub.fastgit.org
-git.sdut.me
-github.wuyanzheshui.workers.dev
-raw.Githubusercontent.Com
-
-
-http://toolwa.com/github
+          design_parttern
 
 
         </a>
@@ -755,8 +511,8 @@ http://toolwa.com/github
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-31 11:17" pubdate>
-              2021-12-31
+            <time datetime="2022-06-22 15:43" pubdate>
+              2022-06-22
             </time>
           </div>
         
@@ -772,7 +528,7 @@ http://toolwa.com/github
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/github/">github</a>
+              <a href="/tags/go/">go</a>
             
           </div>
         
@@ -784,26 +540,26 @@ http://toolwa.com/github
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/12/29/golang/Go_perf/" target="_self">
-          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/go1.jpg" srcset="/img/loading.gif" alt="Go_perf">
+        <a href="/2022/04/24/CloudNative/install/Minikube%20Install/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/docker_icon.jpeg" srcset="/img/loading.gif" alt="Docker">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/12/29/golang/Go_perf/">Go_perf</a>
+        <a href="/2022/04/24/CloudNative/install/Minikube%20Install/">Docker</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/12/29/golang/Go_perf/">
+        <a href="/2022/04/24/CloudNative/install/Minikube%20Install/">
           
           
             
           
-          Go perf1. net1.1 拼接 ipnet.JoinHostPort(s.BindAddress, strconv.Itoa(s.BindPort))
-
-1.2 设置 bodybody := bytes.NewBufferString(`&#123;&quot;nickname&quot;:&quot;admin2&quot;,&quot;email&quot;:&quot;admin2@
+          Minikube1. Install1.1 先决条件安装 Docker：https://www.cnblogs.com/jhxxb/p/11410816.html
+安装 kubectl：https://kubernetes.io/docs/tasks/tools/
+curl -LO &quot;https://dl.k8s.io/release/$(curl -L -s https://dl.k8
         </a>
       </p>
 
@@ -811,8 +567,8 @@ http://toolwa.com/github
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-29 15:09" pubdate>
-              2021-12-29
+            <time datetime="2022-04-24 16:26" pubdate>
+              2022-04-24
             </time>
           </div>
         
@@ -820,7 +576,7 @@ http://toolwa.com/github
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Golang/">Golang</a>
+              <a href="/categories/Cloud-Native/">Cloud Native</a>
             
           </div>
         
@@ -828,7 +584,194 @@ http://toolwa.com/github
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/questions/">questions</a>
+              <a href="/tags/Docker/">Docker</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/01/21/CloudNative/tmp/interview/k8s%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="运维面试题总结">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/21/CloudNative/tmp/interview/k8s%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/">运维面试题总结</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/21/CloudNative/tmp/interview/k8s%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/">
+          
+          
+            
+          
+          运维面试题总结简述 ETCD 及其特点？etcd 是 CoreOS 团队发起的开源项目，是一个管理配置信息和服务发现（service discovery）的项目，它的目标是构建一个高可用的分布式键值（key-value）数据库，基于 Go 语言实现。
+特点：
+
+简单：支持 REST 风格的 HTTP+JSON API
+
+安全：支持 HTTPS 方式的访问
+
+快速：支持并发 1k/s 的写操作
+
+可
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-21 13:48" pubdate>
+              2022-01-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Cloud-Native/">Cloud Native</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Kubernetes-Interview/">Kubernetes,Interview</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/01/20/CloudNative/interview/k8s%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="k8s面试资料">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/20/CloudNative/interview/k8s%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/">k8s面试资料</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/20/CloudNative/interview/k8s%20%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/">
+          
+          
+            
+          
+          K8S面试资料简述 ETCD 及其特点？etcd 是 CoreOS 团队发起的开源项目，是一个管理配置信息和服务发现（service discovery）的项目，它的目标是构建一个高可用的分布式键值（key-value）数据库，基于 Go 语言实现。
+
+特点：
+
+简单：支持 REST 风格的 HTTP+JSON API
+
+安全：支持 HTTPS 方式的访问
+
+快速：支持并发 1k/s 的写操作
+
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-20 13:48" pubdate>
+              2022-01-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CloudNative/">CloudNative</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Kubernetes-Interview/">Kubernetes,Interview</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/01/12/python/Python%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%AE%9E%E6%88%98/note/01%E4%B8%A8Python%20%E5%9F%BA%E7%A1%80/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/python-programming.jpg" srcset="/img/loading.gif" alt="Python核心技术与实战-基础篇">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/12/python/Python%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%AE%9E%E6%88%98/note/01%E4%B8%A8Python%20%E5%9F%BA%E7%A1%80/">Python核心技术与实战-基础篇</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/12/python/Python%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%AE%9E%E6%88%98/note/01%E4%B8%A8Python%20%E5%9F%BA%E7%A1%80/">
+          
+          
+            
+          
+          Python核心技术与实战-基础篇1. 列表和元组1.1 基础
+列表是动态的，长度大小不固定，可以随意地增加、删减或者改变元素（mutable）。
+而元组是静态的，长度大小固定，无法增加删减或者改变（immutable）。
+Python 中的列表和元组都支持负数索引，-1 表示最后一个元素，-2 表示倒数第二个元素，以此类推。
+列表和元组都支持切片操作
+列表和元组都可以随意嵌套
+两者也可以通过 l
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-12 15:37" pubdate>
+              2022-01-12
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Python/">Python</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">Python</a>
             
           </div>
         
@@ -840,7 +783,7 @@ http://toolwa.com/github
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   
