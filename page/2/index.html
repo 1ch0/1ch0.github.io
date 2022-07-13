@@ -176,150 +176,6 @@
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/13/CloudNative/mage/1.docker/01-docker/" target="_self">
-          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="K8S-M-Docker">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/13/CloudNative/mage/1.docker/01-docker/">K8S-M-Docker</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/07/13/CloudNative/mage/1.docker/01-docker/">
-          
-          
-            
-          
-          01 docker00 introduction
-containerd  1.24 之后使用 containerd 
-
-01 Concept镜像发布
-镜像仓库  harbor   几十 T
-运维 -&gt; Api-server -&gt; ETCD -&gt; NODE 节点 （访问 harbor 下载镜像）-&gt; kubectl 
-Build -&gt; Share -&gt; Run
-
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-13 15:11" pubdate>
-              2022-07-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/K8S-M/">K8S-M</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Kubernetes/">Kubernetes</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/13/CloudNative/cncamp/module_03/" target="_self">
-          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="Docker 核心技术">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/13/CloudNative/cncamp/module_03/">Docker 核心技术</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/07/13/CloudNative/cncamp/module_03/">
-          
-          
-            
-          
-          3. Docker 核心技术3.1 从系统架构谈起3.1.1 传统分层架构 vs 微服务架构
-传统分层架构
-优点：
-易部署
-易测试
-易横向拓展
-
-
-缺点：
-难以理解整体
-不易快速维护
-启动慢
-部署慢
-变更引起的回归问题多
-难以做持续集成和持续部署
-
-
-
-
-微服务
-优点：
-高内聚、松耦合
-复杂系统更加可维护
-服务独立部署，易于持续集成和持续部署
-每个微服务独立拓展
-
-
-缺点：
-增加了系统的复杂性，把
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-13 15:11" pubdate>
-              2022-07-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Cloud-Native/">Cloud Native</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Kubernetes/">Kubernetes</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
@@ -412,69 +268,6 @@ CPU 上有个 Memory Management Unit (MMU) 单元
             
           </div>
         
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/06/27/linux/linux%20init/" target="_self">
-          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/linux01.png" srcset="/img/loading.gif" alt="Linux Init">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/27/linux/linux%20init/">Linux Init</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/06/27/linux/linux%20init/">
-          
-          
-            
-          
-          Linux Init1. 修改配置#!/bin/bash
-set -x
-lsb_release -a
-mkdir $HOME/workspace
-mkdir $HOME/workspace/docker-compose
-mkdir $HOME/workspace/yaml
-mkdir $HOME/workspace/scripts
-
-
-tee -a $HOME/.bashrc &lt;&lt; E
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-27 17:57" pubdate>
-              2022-06-27
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Linux/">Linux</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Linux/">Linux</a>
-            
-          </div>
         
       </div>
     </article>
@@ -772,6 +565,190 @@ Python 中的列表和元组都支持负数索引，-1 表示最后一个元素�
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/Python/">Python</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/01/11/CloudNative/mage/2.kubernetes/20220102-day1/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="K8S-M-20220109-day2">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/11/CloudNative/mage/2.kubernetes/20220102-day1/">K8S-M-20220109-day2</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/11/CloudNative/mage/2.kubernetes/20220102-day1/">
+          
+          
+            
+          
+          02-docker+k8s1. Kubernetes1.1 kubectl 常用命令kc get service --all-namespaces -o wide
+kc get pods --all-namespaces -o wide
+kc get nodes --all-namespaces -o wide
+kc get deployment --all-namespaces
+kc get d
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-11 00:00" pubdate>
+              2022-01-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/K8S-M/">K8S-M</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Kubernetes/">Kubernetes</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/01/11/CloudNative/mage/2.kubernetes/20220109-day2/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="K8S-M-20220109-day2">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/11/CloudNative/mage/2.kubernetes/20220109-day2/">K8S-M-20220109-day2</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/11/CloudNative/mage/2.kubernetes/20220109-day2/">
+          
+          
+            
+          
+          20220109-day21. 云原生cat /etc/system/system/apiserver.service
+
+kubeproxy 配置修改cat /etc/systmd/system/kube-proxy.service 里的–config 参数
+coredns
+服务发现
+
+etcdetcdctl member list
+
+etcdctl endpoint health
+--write
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-11 00:00" pubdate>
+              2022-01-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/K8S-M/">K8S-M</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Kubernetes/">Kubernetes</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/01/07/K8S-M/02%20Kubernetes/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="02 Kubernetes">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/07/K8S-M/02%20Kubernetes/">02 Kubernetes</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/07/K8S-M/02%20Kubernetes/">
+          
+          
+            
+          
+          02 Kubernetes
+CNCF
+生态图
+
+1. 基于dockerfile构建nginx镜像1.1 编写 dockerfile# Nginx image
+FROM ubuntu:20.04
+
+LABEL &quot;maintainer&quot;=&quot;1ch0 github1ch0@163.com&quot;
+
+# COPY sources.list /etc/apt/sources
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-07 15:33" pubdate>
+              2022-01-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Cloud-Native/">Cloud Native</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Kubernetes/">Kubernetes</a>
             
           </div>
         
