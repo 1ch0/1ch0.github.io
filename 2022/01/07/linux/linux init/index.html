@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      46
+      45
        分钟
     </span>
   
@@ -236,7 +236,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：5 个月前
+                  本文最后更新于：几秒前
                 
               </p>
             
@@ -261,6 +261,14 @@ alias kc=&#x27;kubectl&#x27;
 alias k=&#x27;kubectl&#x27;
 alias ks=&#x27;kubectl -n kubesystem&#x27;
 
+<span class="hljs-meta">#</span><span class="bash"> Go env</span>
+ export GOROOT=&quot;/root/.g/go&quot;
+ export PATH=&quot;/root/.g/go/bin:/root/.g/go/bin:/root/bin:/root/bin:/root/bin:/    root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/     games:/usr/local/games:/snap/bin&quot;
+ export G_MIRROR=https://golang.google.cn/dl/
+<span class="hljs-meta"> #</span><span class="bash"> Enable the go modules feature</span>
+ export GO111MODULE=on
+<span class="hljs-meta"> #</span><span class="bash"> Set the GOPROXY environment variable</span>
+ export GOPROXY=https://goproxy.io
 
 export LANG=&quot;en_US.UTF-8&quot; # 设置系统语言为 en_US.UTF-8，避免终端出现中文乱码
 export PS1=&#x27;[\u@dev \W]\$ &#x27; # 默认的 PS1 设置会展示全部的路径，为了防止过长，这里只展示：&quot;用户名@dev 最后的目录名&quot;
@@ -269,7 +277,7 @@ export PS1=&#x27;[\u@dev \W]\$ &#x27; # 默认的 PS1 设置会展示全部的�
 export WORKSPACE=&quot;$HOME/workspace&quot; # 设置工作目录
 export PATH=$HOME/bin:$PATH # 将 $HOME/bin 目录加入到 PATH 变量中    
 <span class="hljs-meta">#</span><span class="bash"> Default entry folder</span>
-cd \$WORKSPACE 
+cd $WORKSPACE 
 <span class="hljs-meta">#</span><span class="bash"> 登录系统，默认进入 workspace 目录</span>
 EOF
 
@@ -337,40 +345,14 @@ sed -i &#x27;/^root.*ALL=(ALL).*ALL/a\going\tALL=(ALL) \tALL&#x27; /etc/sudoers<
 <h2 id="2-安装常见软件"><a href="#2-安装常见软件" class="headerlink" title="2. 安装常见软件"></a>2. 安装常见软件</h2><blockquote>
 <p>软件个人选择</p>
 </blockquote>
-<h3 id="2-1-安装常用软件"><a href="#2-1-安装常用软件" class="headerlink" title="2.1 安装常用软件"></a>2.1 安装常用软件</h3><pre><code class="hljs shell">apt install -y screenfetch git wget net-tools vim xclip 
+<h3 id="2-1-安装常用软件"><a href="#2-1-安装常用软件" class="headerlink" title="2.1 安装常用软件"></a>2.1 安装常用软件</h3><pre><code class="hljs shell">apt install -y screenfetch git wget net-tools vim openssh xclip 
 
-apt install -y iproute2 ntpdate tcpdump telnet traceroute nfs-kernel-server nfs-common lrzsz tree openssl libssl-dev libpcre3 libpcre3-dev zlib1g-dev gcc openssh-server iotop unzip zip make selinux-utils sshpass socat  openssh
+apt install -y iproute2 ntpdate tcpdump telnet traceroute nfs-kernel-server nfs-common lrzsz tree openssl libssl-dev libpcre3 libpcre3-dev zlib1g-dev gcc openssh-server iotop unzip zip make selinux-utils sshpass socat
 </code></pre>
 
 
 
-<h3 id="2-2-安装-Go"><a href="#2-2-安装-Go" class="headerlink" title="2.2 安装 Go"></a>2.2 安装 Go</h3><h4 id="安装包安装"><a href="#安装包安装" class="headerlink" title="安装包安装"></a>安装包安装</h4><pre><code class="hljs sh">wget -c https://golang.google.cn/dl/go1.16.5.linux-amd64.tar.gz
-
-tar -C /usr/<span class="hljs-built_in">local</span> -xzf go1.16.5.linux-amd64.tar.gz
-
-rm -f go1.16.5.linux-amd64.tar.gz
-
-tee -a <span class="hljs-variable">$HOME</span>/.profile &lt;&lt; <span class="hljs-string">EOF</span>
-<span class="hljs-string">export PATH=$PATH:/usr/local/go/bin</span>
-<span class="hljs-string">EOF</span>
-<span class="hljs-built_in">source</span> <span class="hljs-variable">$HOME</span>/.profile
-
-tee -a ~/.bashrc &lt;&lt; <span class="hljs-string">EOF</span>
-<span class="hljs-string">export G_MIRROR=https://golang.google.cn/dl/</span>
-<span class="hljs-string"># Enable the go modules feature</span>
-<span class="hljs-string">export GO111MODULE=on</span>
-<span class="hljs-string"># Set the GOPROXY environment variable</span>
-<span class="hljs-string">export GOPROXY=https://goproxy.io</span>
-<span class="hljs-string">EOF</span>
-<span class="hljs-built_in">source</span> ~/.bashrc
-
-go version</code></pre>
-
-
-
-
-
-<h4 id="使用-g-安装"><a href="#使用-g-安装" class="headerlink" title="使用 g 安装"></a>使用 g 安装</h4><pre><code class="hljs shell">curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash
+<h3 id="2-2-安装-Go"><a href="#2-2-安装-Go" class="headerlink" title="2.2 安装 Go"></a>2.2 安装 Go</h3><pre><code class="hljs shell">curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash
 
 tar -zxvf g1.2.1.linux-amd64.tar.gz 
 mv g /usr/local/bin/
@@ -391,8 +373,6 @@ source ~/.bashrc
 
 g ls-remote stable
 g install</code></pre>
-
-
 
 <h3 id="2-3-安装-vim-plug-插件管理器"><a href="#2-3-安装-vim-plug-插件管理器" class="headerlink" title="2.3 安装 vim-plug 插件管理器"></a>2.3 安装 vim-plug 插件管理器</h3><pre><code class="hljs shell">curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 </code></pre>
@@ -696,9 +676,9 @@ source  $HOME&#x2F;.bashrc</code></pre>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/01/12/python/Python%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%AE%9E%E6%88%98/note/01%E4%B8%A8Python%20%E5%9F%BA%E7%A1%80/">
+                      <a href="/2022/01/11/CloudNative/mage/2.kubernetes/20220109-day2/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Python核心技术与实战-基础篇</span>
+                        <span class="hidden-mobile">K8S-M-20220109-day2</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
