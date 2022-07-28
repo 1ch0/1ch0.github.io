@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.9k 字
+      5.1k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      86
+      90
        分钟
     </span>
   
@@ -413,7 +413,7 @@ curl -fsSL https://get.docker.com | bash -s docker --mirror aliyun
 curl -sSL https://get.daocloud.io/docker | sh
 
 <span class="hljs-comment"># 安装 docker compose</span>
-curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` &gt; /usr/<span class="hljs-built_in">local</span>/bin/docker-compose
+curl -L https://get.daocloud.io/docker/compose/releases/download/v2.7.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/<span class="hljs-built_in">local</span>/bin/docker-compose
 chmod +x /usr/<span class="hljs-built_in">local</span>/bin/docker-compose
 docker-compose -v
 systemctl daemon-reload
@@ -889,7 +889,46 @@ source /usr/share/bash-completion/completions/docker
 
 apt install -y bridge-utils # brctl show 查看docker网络</code></pre>
 
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="3-配置"><a href="#3-配置" class="headerlink" title="3. 配置"></a>3. 配置</h2><h3 id="3-1-配置-ssh"><a href="#3-1-配置-ssh" class="headerlink" title="3.1 配置 ssh"></a>3.1 配置 ssh</h3><ul>
+<h3 id="2-8-安装-MongoDB"><a href="#2-8-安装-MongoDB" class="headerlink" title="2.8 安装 MongoDB"></a>2.8 安装 MongoDB</h3><pre><code class="hljs shell">wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+
+sudo apt-get install -y gnupg
+wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+
+echo &quot;deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+
+sudo apt-get update
+
+sudo apt-get install -y mongodb-org
+
+echo &quot;mongodb-org hold&quot; | sudo dpkg --set-selections
+echo &quot;mongodb-org-database hold&quot; | sudo dpkg --set-selections
+echo &quot;mongodb-org-server hold&quot; | sudo dpkg --set-selections
+echo &quot;mongodb-mongosh hold&quot; | sudo dpkg --set-selections
+echo &quot;mongodb-org-mongos hold&quot; | sudo dpkg --set-selections
+echo &quot;mongodb-org-tools hold&quot; | sudo dpkg --set-selections
+
+ps --no-headers -o comm 1
+
+sudo systemctl start mongod
+sudo systemctl daemon-reload
+sudo systemctl status mongod
+sudo systemctl enable mongod
+sudo systemctl stop mongod
+sudo systemctl restart mongod
+
+
+</code></pre>
+
+<h5 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h5><pre><code class="hljs shell">sudo service mongod stop
+
+sudo apt-get purge -y mongodb-org*
+sudo rm -r /var/log/mongodb
+sudo rm -r /var/lib/mongodb
+</code></pre>
+
+
+
+<h2 id="3-配置"><a href="#3-配置" class="headerlink" title="3. 配置"></a>3. 配置</h2><h3 id="3-1-配置-ssh"><a href="#3-1-配置-ssh" class="headerlink" title="3.1 配置 ssh"></a>3.1 配置 ssh</h3><ul>
 <li>配置 root 密码，开启远程登录</li>
 </ul>
 <pre><code class="hljs shell">sudo passwd
