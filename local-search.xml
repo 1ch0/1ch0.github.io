@@ -406,10 +406,10 @@
   
   <entry>
     <title>K8S-M-20220109-day2</title>
-    <link href="/2022/01/11/cloud/mage/2.kubernetes/20220109-day2/"/>
-    <url>/2022/01/11/cloud/mage/2.kubernetes/20220109-day2/</url>
+    <link href="/2022/01/11/cloud/mage/2.kubernetes/20220102-day1/"/>
+    <url>/2022/01/11/cloud/mage/2.kubernetes/20220102-day1/</url>
     
-    <content type="html"><![CDATA[<h1 id="20220109-day2"><a href="#20220109-day2" class="headerlink" title="20220109-day2"></a>20220109-day2</h1><h2 id="1-云原生"><a href="#1-云原生" class="headerlink" title="1. 云原生"></a>1. 云原生</h2><pre><code class="hljs shell">cat /etc/system/system/apiserver.service</code></pre><p>kubeproxy 配置修改<br>cat /etc/systmd/system/kube-proxy.service 里的–config 参数</p><h2 id="coredns"><a href="#coredns" class="headerlink" title="coredns"></a>coredns</h2><ul><li>服务发现</li></ul><h2 id="etcd"><a href="#etcd" class="headerlink" title="etcd"></a>etcd</h2><pre><code class="hljs shell">etcdctl member listetcdctl endpoint health--write-out=tableendpoint statusETCDCTL_API=3 etcdctl get / --prefix --keys-only #以路径的方式显示所有的 key|grep deploy|grep namespace|grep serviceetcdctl get xxxETCDCTL_API=3 etcdctl get /nameETCDCTL_API=3 etcdctl put /name &quot;demo&quot;ETCDCTL_API=3 etcdctl del /nameETCDCTL_API=3 etcdctl watch /dataETCDCTL_API=2 etcdctl --help</code></pre><h4 id="备份恢复"><a href="#备份恢复" class="headerlink" title="备份恢复"></a>备份恢复</h4><p>WAL   write ahead log</p><pre><code class="hljs shell">ETCDCTL_API=3 etcdctl snapshot save snapshot.db # 默认在当前目录下创建备份文件ETCDCTL_API=3 etcdctl snapshot restore 备份文件 --data-dir=/var/lib/etcd # 要求恢复目录不存在</code></pre><p>恢复：</p><ul><li>停止 etcd</li><li>移走 etcd 目录</li><li>恢复</li></ul><p>kubeasz</p><h3 id="ETCD-数据恢复流程"><a href="#ETCD-数据恢复流程" class="headerlink" title="ETCD 数据恢复流程"></a>ETCD 数据恢复流程</h3><p>ezctl</p><p>kubeadm 修改证书时间，证书过期续签问题比较多。</p><h3 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h3><ul><li>pod 驱逐  kubectl drain pod</li><li>删除 node</li></ul><h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><p>不能跨大版本升级，只能小版本升级</p><p>kube tab 存在的 都要升级</p><ul><li>先升级 master 后升级 node</li><li>master<ul><li>kube-apiserver kube-controller-manager kubectl kubelet kube-proxy kube-scheduler</li></ul></li><li>升级 node<ul><li>kubectl kubelet kube-proxy</li></ul></li></ul><ol><li>kubectl stop ***    systemctl status kube-lb</li><li>拷贝新版本二进制文件</li></ol><h3 id="yaml"><a href="#yaml" class="headerlink" title="yaml"></a>yaml</h3><p>kubectl explain namespace<br>kubectl explain namespace.kind</p><pre><code class="hljs ad-summary">- [ ] ipvs 🔼 🛫 2022-01-12 ⏳ 2022-01-13 📅 2022-01-15</code></pre><p>docker run -d -p 59000:9000 -p 9443:9443 -p 8000:8000 –name portainer <br>    –restart=always <br>    -v /var/run/docker.sock:/var/run/docker.sock <br>    -v portainer_data:/data <br>    portainer/portainer-ce:2.11.1</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="02-docker-k8s"><a href="#02-docker-k8s" class="headerlink" title="02-docker+k8s"></a>02-docker+k8s</h1><h2 id="1-Kubernetes"><a href="#1-Kubernetes" class="headerlink" title="1. Kubernetes"></a>1. Kubernetes</h2><h3 id="1-1-kubectl-常用命令"><a href="#1-1-kubectl-常用命令" class="headerlink" title="1.1 kubectl 常用命令"></a>1.1 kubectl 常用命令</h3><pre><code class="hljs shell">kc get service --all-namespaces -o widekc get pods --all-namespaces -o widekc get nodes --all-namespaces -o widekc get deployment --all-namespaceskc get deployment -n test -o widekc describe pods test-api -n wide</code></pre>]]></content>
     
     
     <categories>
@@ -431,10 +431,10 @@
   
   <entry>
     <title>K8S-M-20220109-day2</title>
-    <link href="/2022/01/11/cloud/mage/2.kubernetes/20220102-day1/"/>
-    <url>/2022/01/11/cloud/mage/2.kubernetes/20220102-day1/</url>
+    <link href="/2022/01/11/cloud/mage/2.kubernetes/20220109-day2/"/>
+    <url>/2022/01/11/cloud/mage/2.kubernetes/20220109-day2/</url>
     
-    <content type="html"><![CDATA[<h1 id="02-docker-k8s"><a href="#02-docker-k8s" class="headerlink" title="02-docker+k8s"></a>02-docker+k8s</h1><h2 id="1-Kubernetes"><a href="#1-Kubernetes" class="headerlink" title="1. Kubernetes"></a>1. Kubernetes</h2><h3 id="1-1-kubectl-常用命令"><a href="#1-1-kubectl-常用命令" class="headerlink" title="1.1 kubectl 常用命令"></a>1.1 kubectl 常用命令</h3><pre><code class="hljs shell">kc get service --all-namespaces -o widekc get pods --all-namespaces -o widekc get nodes --all-namespaces -o widekc get deployment --all-namespaceskc get deployment -n test -o widekc describe pods test-api -n wide</code></pre>]]></content>
+    <content type="html"><![CDATA[<h1 id="20220109-day2"><a href="#20220109-day2" class="headerlink" title="20220109-day2"></a>20220109-day2</h1><h2 id="1-云原生"><a href="#1-云原生" class="headerlink" title="1. 云原生"></a>1. 云原生</h2><pre><code class="hljs shell">cat /etc/system/system/apiserver.service</code></pre><p>kubeproxy 配置修改<br>cat /etc/systmd/system/kube-proxy.service 里的–config 参数</p><h2 id="coredns"><a href="#coredns" class="headerlink" title="coredns"></a>coredns</h2><ul><li>服务发现</li></ul><h2 id="etcd"><a href="#etcd" class="headerlink" title="etcd"></a>etcd</h2><pre><code class="hljs shell">etcdctl member listetcdctl endpoint health--write-out=tableendpoint statusETCDCTL_API=3 etcdctl get / --prefix --keys-only #以路径的方式显示所有的 key|grep deploy|grep namespace|grep serviceetcdctl get xxxETCDCTL_API=3 etcdctl get /nameETCDCTL_API=3 etcdctl put /name &quot;demo&quot;ETCDCTL_API=3 etcdctl del /nameETCDCTL_API=3 etcdctl watch /dataETCDCTL_API=2 etcdctl --help</code></pre><h4 id="备份恢复"><a href="#备份恢复" class="headerlink" title="备份恢复"></a>备份恢复</h4><p>WAL   write ahead log</p><pre><code class="hljs shell">ETCDCTL_API=3 etcdctl snapshot save snapshot.db # 默认在当前目录下创建备份文件ETCDCTL_API=3 etcdctl snapshot restore 备份文件 --data-dir=/var/lib/etcd # 要求恢复目录不存在</code></pre><p>恢复：</p><ul><li>停止 etcd</li><li>移走 etcd 目录</li><li>恢复</li></ul><p>kubeasz</p><h3 id="ETCD-数据恢复流程"><a href="#ETCD-数据恢复流程" class="headerlink" title="ETCD 数据恢复流程"></a>ETCD 数据恢复流程</h3><p>ezctl</p><p>kubeadm 修改证书时间，证书过期续签问题比较多。</p><h3 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h3><ul><li>pod 驱逐  kubectl drain pod</li><li>删除 node</li></ul><h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><p>不能跨大版本升级，只能小版本升级</p><p>kube tab 存在的 都要升级</p><ul><li>先升级 master 后升级 node</li><li>master<ul><li>kube-apiserver kube-controller-manager kubectl kubelet kube-proxy kube-scheduler</li></ul></li><li>升级 node<ul><li>kubectl kubelet kube-proxy</li></ul></li></ul><ol><li>kubectl stop ***    systemctl status kube-lb</li><li>拷贝新版本二进制文件</li></ol><h3 id="yaml"><a href="#yaml" class="headerlink" title="yaml"></a>yaml</h3><p>kubectl explain namespace<br>kubectl explain namespace.kind</p><pre><code class="hljs ad-summary">- [ ] ipvs 🔼 🛫 2022-01-12 ⏳ 2022-01-13 📅 2022-01-15</code></pre><p>docker run -d -p 59000:9000 -p 9443:9443 -p 8000:8000 –name portainer <br>    –restart=always <br>    -v /var/run/docker.sock:/var/run/docker.sock <br>    -v portainer_data:/data <br>    portainer/portainer-ce:2.11.1</p>]]></content>
     
     
     <categories>
@@ -1405,6 +1405,31 @@
   
   
   <entry>
+    <title>Centos8修改密码</title>
+    <link href="/2020/10/23/linux/tmp/Centos8/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/"/>
+    <url>/2020/10/23/linux/tmp/Centos8/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</url>
+    
+    <content type="html"><![CDATA[<h3 id="1-重启linux系统按e"><a href="#1-重启linux系统按e" class="headerlink" title="1. 重启linux系统按e"></a>1. 重启linux系统按e</h3><h3 id="2-开头为linux-root-那行末尾加-rd-break"><a href="#2-开头为linux-root-那行末尾加-rd-break" class="headerlink" title="2. 开头为linux($root)那行末尾加 rd.break"></a>2. 开头为linux($root)那行末尾加 rd.break</h3><h3 id="3-mount-grep-sysroot"><a href="#3-mount-grep-sysroot" class="headerlink" title="3. mount | grep sysroot"></a>3. mount | grep sysroot</h3><h3 id="4-mount-o-remount-rw-sysroot"><a href="#4-mount-o-remount-rw-sysroot" class="headerlink" title="4. mount -o remount,rw /sysroot/"></a>4. mount -o remount,rw /sysroot/</h3><pre><code class="hljs shell">mount | grep sysroot</code></pre><h3 id="5-切换系统的根目录位置为"><a href="#5-切换系统的根目录位置为" class="headerlink" title="5. 切换系统的根目录位置为"></a>5. 切换系统的根目录位置为</h3><pre><code class="hljs shell">chroot /sysroot</code></pre><h3 id="6-输入passwd修改密码"><a href="#6-输入passwd修改密码" class="headerlink" title="6. 输入passwd修改密码"></a>6. 输入passwd修改密码</h3><p>注意：新密码需符合centos8密码复杂度要求</p><h3 id="7-touch-autorelabel"><a href="#7-touch-autorelabel" class="headerlink" title="7. touch /.autorelabel"></a>7. touch /.autorelabel</h3><p>执行下面的命令让文件系统强制重新relabeling</p><h3 id="8-exit"><a href="#8-exit" class="headerlink" title="8. exit"></a>8. exit</h3><h3 id="9-logout"><a href="#9-logout" class="headerlink" title="9. logout"></a>9. logout</h3><p>[参照]<a href="https://linuxconfig.org/redhat-8-recover-root-password">https://linuxconfig.org/redhat-8-recover-root-password</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux,Centos8</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Centos7防止暴力破解</title>
     <link href="/2020/10/23/linux/tmp/Centos7/centos7%E7%A6%81%E6%AD%A2ip/"/>
     <url>/2020/10/23/linux/tmp/Centos7/centos7%E7%A6%81%E6%AD%A2ip/</url>
@@ -1430,23 +1455,23 @@
   
   
   <entry>
-    <title>Centos8修改密码</title>
-    <link href="/2020/10/23/linux/tmp/Centos8/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/"/>
-    <url>/2020/10/23/linux/tmp/Centos8/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</url>
+    <title>The Chrome Extensions I&#39;d like to use</title>
+    <link href="/2020/10/10/tmp/Daily/Chrome%20Extensions/"/>
+    <url>/2020/10/10/tmp/Daily/Chrome%20Extensions/</url>
     
-    <content type="html"><![CDATA[<h3 id="1-重启linux系统按e"><a href="#1-重启linux系统按e" class="headerlink" title="1. 重启linux系统按e"></a>1. 重启linux系统按e</h3><h3 id="2-开头为linux-root-那行末尾加-rd-break"><a href="#2-开头为linux-root-那行末尾加-rd-break" class="headerlink" title="2. 开头为linux($root)那行末尾加 rd.break"></a>2. 开头为linux($root)那行末尾加 rd.break</h3><h3 id="3-mount-grep-sysroot"><a href="#3-mount-grep-sysroot" class="headerlink" title="3. mount | grep sysroot"></a>3. mount | grep sysroot</h3><h3 id="4-mount-o-remount-rw-sysroot"><a href="#4-mount-o-remount-rw-sysroot" class="headerlink" title="4. mount -o remount,rw /sysroot/"></a>4. mount -o remount,rw /sysroot/</h3><pre><code class="hljs shell">mount | grep sysroot</code></pre><h3 id="5-切换系统的根目录位置为"><a href="#5-切换系统的根目录位置为" class="headerlink" title="5. 切换系统的根目录位置为"></a>5. 切换系统的根目录位置为</h3><pre><code class="hljs shell">chroot /sysroot</code></pre><h3 id="6-输入passwd修改密码"><a href="#6-输入passwd修改密码" class="headerlink" title="6. 输入passwd修改密码"></a>6. 输入passwd修改密码</h3><p>注意：新密码需符合centos8密码复杂度要求</p><h3 id="7-touch-autorelabel"><a href="#7-touch-autorelabel" class="headerlink" title="7. touch /.autorelabel"></a>7. touch /.autorelabel</h3><p>执行下面的命令让文件系统强制重新relabeling</p><h3 id="8-exit"><a href="#8-exit" class="headerlink" title="8. exit"></a>8. exit</h3><h3 id="9-logout"><a href="#9-logout" class="headerlink" title="9. logout"></a>9. logout</h3><p>[参照]<a href="https://linuxconfig.org/redhat-8-recover-root-password">https://linuxconfig.org/redhat-8-recover-root-password</a></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="DARK-READER"><a href="#DARK-READER" class="headerlink" title="DARK READER"></a>DARK READER</h3><!--切换背景--><h3 id="Wappalyzer"><a href="#Wappalyzer" class="headerlink" title="Wappalyzer"></a>Wappalyzer</h3><!--用于探测网站版本，结果可能不准确--><h3 id="Proxy-SwitchyOmega"><a href="#Proxy-SwitchyOmega" class="headerlink" title="Proxy SwitchyOmega"></a>Proxy SwitchyOmega</h3><!--代理切换软件-->]]></content>
     
     
     <categories>
       
-      <category>Linux</category>
+      <category>Daily</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Linux,Centos8</tag>
+      <tag>Chrome Extensions</tag>
       
     </tags>
     
@@ -1476,31 +1501,6 @@
       <tag>Linux</tag>
       
       <tag>kali</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>The Chrome Extensions I&#39;d like to use</title>
-    <link href="/2020/10/10/tmp/Daily/Chrome%20Extensions/"/>
-    <url>/2020/10/10/tmp/Daily/Chrome%20Extensions/</url>
-    
-    <content type="html"><![CDATA[<h3 id="DARK-READER"><a href="#DARK-READER" class="headerlink" title="DARK READER"></a>DARK READER</h3><!--切换背景--><h3 id="Wappalyzer"><a href="#Wappalyzer" class="headerlink" title="Wappalyzer"></a>Wappalyzer</h3><!--用于探测网站版本，结果可能不准确--><h3 id="Proxy-SwitchyOmega"><a href="#Proxy-SwitchyOmega" class="headerlink" title="Proxy SwitchyOmega"></a>Proxy SwitchyOmega</h3><!--代理切换软件-->]]></content>
-    
-    
-    <categories>
-      
-      <category>Daily</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Chrome Extensions</tag>
       
     </tags>
     
