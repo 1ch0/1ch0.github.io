@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="1ch0">
   <meta name="keywords" content="">
-  <title>Docker - 1ch0&#39;s blog</title>
+  <title>minikube - 1ch0&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -232,11 +232,11 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Docker</h1>
+            <h1 style="display: none">minikube</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：22 天前
+                  本文最后更新于：9 分钟前
                 
               </p>
             
@@ -365,7 +365,7 @@ velapwd=$(kubectl get secret/admin -n vela-system -o yaml|grep &#x27;admin:&#x27
 echo $velapwd | base64 -d
 echo</code></pre>
 
-<h4 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h4><pre><code class="hljs shell">iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 127.0.0.1:32785
+<h4 id="Iptables"><a href="#Iptables" class="headerlink" title="Iptables"></a>Iptables</h4><pre><code class="hljs shell">iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 127.0.0.1:32785
 
 iptables -t nat -A POSTROUTING -p tcp -d 127.0.0.1 --dport 32785 -j SNAT --to-source 0.0.0.0:443
 
@@ -388,7 +388,7 @@ iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 192.16
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Docker/">Docker</a>
+                      <a class="hover-with-bg" href="/tags/minikube/">minikube</a>
                     
                   </div>
                 
@@ -550,7 +550,7 @@ iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 192.16
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Docker&nbsp;",
+        "minikube&nbsp;",
       ],
       cursorChar: ".",
       typeSpeed: 100,

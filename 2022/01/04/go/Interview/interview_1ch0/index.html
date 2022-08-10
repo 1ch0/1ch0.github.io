@@ -236,12 +236,12 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：22 天前
+                  本文最后更新于：15 分钟前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="Go-Interview-Summary"><a href="#Go-Interview-Summary" class="headerlink" title="Go Interview  Summary"></a>Go Interview  Summary</h1><h2 id="base-concept"><a href="#base-concept" class="headerlink" title="base concept"></a>base concept</h2><h3 id="make-new"><a href="#make-new" class="headerlink" title="make   new"></a>make   new</h3><p>new(T) make(T, args) 是 Go 语言内建函数,用来分配内存，但适用的类型不同<br><code>new(T) 会为了 T 类型新建新的内存空间并返回内存地址，即 *T, 用于 数组，结构体</code><br><code>make(T, args) 会返回初始化T类型的值，适用于 slice，map，channel</code></p>
+              <h1 id="Go-Interview-Summary"><a href="#Go-Interview-Summary" class="headerlink" title="Go Interview  Summary"></a>Go Interview  Summary</h1><h2 id="Base-concept"><a href="#Base-concept" class="headerlink" title="Base concept"></a>Base concept</h2><h3 id="Make-new"><a href="#Make-new" class="headerlink" title="Make   new"></a>Make   new</h3><p>new(T) make(T, args) 是 Go 语言内建函数,用来分配内存，但适用的类型不同<br><code>new(T) 会为了 T 类型新建新的内存空间并返回内存地址，即 *T, 用于 数组，结构体</code><br><code>make(T, args) 会返回初始化T类型的值，适用于 slice，map，channel</code></p>
 <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>Go语言中闭包是引用了自由变量的函数，被引用的自由变量和函数一同存在，即使已经离开了自由变量的环境也不会被释放或者删除，在闭包中可以继续使用这个自由变量，因此，简单的说：</p>
 <p>函数 + 引用环境 = 闭包</p>
 <ul>
@@ -312,7 +312,7 @@
 <li>标记, break</li>
 <li>goto</li>
 </ol>
-<h3 id="channel-应用场景"><a href="#channel-应用场景" class="headerlink" title="channel  应用场景"></a>channel  应用场景</h3><blockquote>
+<h3 id="Channel-应用场景"><a href="#Channel-应用场景" class="headerlink" title="Channel  应用场景"></a>Channel  应用场景</h3><blockquote>
 <ul>
 <li>数据交流：当作并发的 buffer 或者 queue，解决生产者 - 消费者问题。多个 goroutine 可以并发当作生产者（Producer）和消费者（Consumer）。</li>
 <li>数据传递：一个 goroutine 将数据交给另一个 goroutine，相当于把数据的拥有权 (引用) 托付出去。</li>
@@ -330,7 +330,7 @@
 <li><strong>slice 的背后数组被重新分配了，因为 append 时可能会超出其容量( cap )。</strong> slice 初始化的地方在编译时是可以知道的，它最开始会在栈上分配。如果切片背后的存储要基于运行时的数据进行扩充，就会在堆上分配。</li>
 <li><strong>在 interface 类型上调用方法。</strong> 在 interface 类型上调用方法都是动态调度的 —— 方法的真正实现只能在运行时知道。想像一个 io.Reader 类型的变量 r , 调用 r.Read(b) 会使得 r 的值和切片b 的背后存储都逃逸掉，所以会在堆上分配。</li>
 </ul>
-<h3 id="append-实现传入切片"><a href="#append-实现传入切片" class="headerlink" title="append 实现传入切片"></a>append 实现传入切片</h3><h3 id="切片扩容"><a href="#切片扩容" class="headerlink" title="切片扩容"></a>切片扩容</h3><p>append的时候发生扩容的动作</p>
+<h3 id="Append-实现传入切片"><a href="#Append-实现传入切片" class="headerlink" title="Append 实现传入切片"></a>Append 实现传入切片</h3><h3 id="切片扩容"><a href="#切片扩容" class="headerlink" title="切片扩容"></a>切片扩容</h3><p>append的时候发生扩容的动作</p>
 <ul>
 <li>append单个元素，或者append少量的多个元素，这里的少量指double之后的容量能容纳，这样就会走以下扩容流程，不足1024，双倍扩容，超过1024的，1.25倍扩容。</li>
 <li>若是append多个元素，且double后的容量不能容纳，直接使用预估的容量。</li>
@@ -573,7 +573,7 @@ Process finished with exit code 0</code></pre>
 </li>
 </ol>
 <p>以上就是我对连接池的理解，如有错误还请大神指出，谢谢～</p>
-<h3 id="gRPC"><a href="#gRPC" class="headerlink" title="gRPC"></a>gRPC</h3><p>1、Simple RPC<br>proto语法 :<br>简单rpc 这就是一般的rpc调用，一个请求对象对应一个返回对象<br>proto语法：</p>
+<h3 id="GRPC"><a href="#GRPC" class="headerlink" title="GRPC"></a>GRPC</h3><p>1、Simple RPC<br>proto语法 :<br>简单rpc 这就是一般的rpc调用，一个请求对象对应一个返回对象<br>proto语法：</p>
 <p>rpc simpleHello(Person) returns (Result) {}<br>1<br>客户端发起一次请求，服务端响应一个数据，即标准RPC通信。<br>这种模式，一个每一次都是发起一个独立的tcp连接，走一次三次握手和四次挥手！</p>
 <p>2、 Server-side streaming RPC<br>服务端流式rpc 一个请求对象，服务端可以传回多个结果对象<br>proto语法 :</p>
 <p>rpc serverStreamHello(Person) returns (stream Result) {}<br>1<br>服务端流 RPC 下，客户端发出一个请求，但不会立即得到一个响应，而是在服务端与客户端之间建立一个单向的流，服务端可以随时向流中写入多个响应消息，最后主动关闭流，而客户端需要监听这个流，不断获取响应直到流关闭</p>
@@ -748,7 +748,7 @@ Process finished with exit code 0</code></pre>
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Golang/">Golang</a>
+                      <a class="hover-with-bg" href="/categories/Go/">Go</a>
                     
                   </div>
                 
@@ -756,7 +756,7 @@ Process finished with exit code 0</code></pre>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/interview/">interview</a>
+                      <a class="hover-with-bg" href="/tags/interview-go/">interview,go</a>
                     
                   </div>
                 
