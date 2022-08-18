@@ -154,19 +154,6 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2022/07/13/cloud/mage/yaml/nginx_note/"/>
-    <url>/2022/07/13/cloud/mage/yaml/nginx_note/</url>
-    
-    <content type="html"><![CDATA[{"kind":"Service","apiVersion":"v1","metadata":{"labels":{"app":"linux36-nginx"},"name":"linux36-nginx-spec","namespace":"linux36"},"spec":{"type":"NodePort","ports":[{"name":"http","port":80,"protocol":"TCP","targetPort":80,"nodePort":30001},{"name":"https","port":443,"protocol":"TCP","targetPort":443,"nodePort":30043}],"selector":{"app":"linux36-nginx"}}}]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Pod 生命周期和探针</title>
     <link href="/2022/07/13/cloud/mage/2.kubernetes/Day3%EF%BC%9APod%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E6%8E%A2%E9%92%88/"/>
     <url>/2022/07/13/cloud/mage/2.kubernetes/Day3%EF%BC%9APod%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E6%8E%A2%E9%92%88/</url>
@@ -843,31 +830,6 @@
   
   <entry>
     <title>Node &amp; Pod &amp; Container</title>
-    <link href="/2021/10/19/cloud/K8S/k8s%E5%9F%BA%E7%A1%80/Node%20&amp;%20Pod%20&amp;%20Container/"/>
-    <url>/2021/10/19/cloud/K8S/k8s%E5%9F%BA%E7%A1%80/Node%20&amp;%20Pod%20&amp;%20Container/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Node-amp-Pod-amp-Container"><a href="#Node-amp-Pod-amp-Container" class="headerlink" title="Node &amp; Pod &amp; Container"></a>Node &amp; Pod &amp; Container</h1><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a href="https://linchpiner.github.io/k8s-multi-container-pods.html">Multi-Container Pods in Kubernetes</a></p><p><a href="https://www.ianlewis.org/en/almighty-pause-container">The Almighty Pause Container</a></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>CloudNative</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Kubernetes</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Node &amp; Pod &amp; Container</title>
     <link href="/2021/10/19/cloud/tmp/k8s%E5%9F%BA%E7%A1%80/Node%20&amp;%20Pod%20&amp;%20Container/"/>
     <url>/2021/10/19/cloud/tmp/k8s%E5%9F%BA%E7%A1%80/Node%20&amp;%20Pod%20&amp;%20Container/</url>
     
@@ -1417,31 +1379,6 @@
   
   
   <entry>
-    <title>Centos7防止暴力破解</title>
-    <link href="/2020/10/23/linux/tmp/Centos7/centos7%E7%A6%81%E6%AD%A2ip/"/>
-    <url>/2020/10/23/linux/tmp/Centos7/centos7%E7%A6%81%E6%AD%A2ip/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Centos7禁止ip访问"><a href="#Centos7禁止ip访问" class="headerlink" title="Centos7禁止ip访问"></a>Centos7禁止ip访问</h1><ol><li>编写脚本禁止ip访问</li></ol><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/bash</span>cat /var/log/secure|awk &#x27;/Failed/&#123;print $(NF-3)&#125;&#x27;|sort|uniq -c|awk &#x27;&#123;print $2&quot;=&quot;$1;&#125;&#x27; &gt; /root/black.txtDEFINE=&quot;10&quot;for i in `cat  /root/black.txt`do        IP=`echo $i |awk -F= &#x27;&#123;print $1&#125;&#x27;`        NUM=`echo $i|awk -F= &#x27;&#123;print $2&#125;&#x27;`        if [ $NUM -gt $DEFINE ];        then         grep $IP /etc/hosts.deny &gt; /dev/null          if [ $? -gt 0 ];          then          echo &quot;sshd:$IP&quot; &gt;&gt; /etc/hosts.deny          fi        fidone</code></pre><ol start="2"><li><p>使用crontabp执行脚本</p><p>清空记录<code>echo &gt; /var/log/wtmp;echo &gt; /var/log/btmp;history -c;</code></p><p>使用lastb命令查看暴力破解情况</p></li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>Linux</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Linux,centos7,shell</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Centos8修改密码</title>
     <link href="/2020/10/23/linux/tmp/Centos8/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/"/>
     <url>/2020/10/23/linux/tmp/Centos8/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</url>
@@ -1459,6 +1396,31 @@
     <tags>
       
       <tag>Linux,Centos8</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Centos7防止暴力破解</title>
+    <link href="/2020/10/23/linux/tmp/Centos7/centos7%E7%A6%81%E6%AD%A2ip/"/>
+    <url>/2020/10/23/linux/tmp/Centos7/centos7%E7%A6%81%E6%AD%A2ip/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Centos7禁止ip访问"><a href="#Centos7禁止ip访问" class="headerlink" title="Centos7禁止ip访问"></a>Centos7禁止ip访问</h1><ol><li>编写脚本禁止ip访问</li></ol><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/bash</span>cat /var/log/secure|awk &#x27;/Failed/&#123;print $(NF-3)&#125;&#x27;|sort|uniq -c|awk &#x27;&#123;print $2&quot;=&quot;$1;&#125;&#x27; &gt; /root/black.txtDEFINE=&quot;10&quot;for i in `cat  /root/black.txt`do        IP=`echo $i |awk -F= &#x27;&#123;print $1&#125;&#x27;`        NUM=`echo $i|awk -F= &#x27;&#123;print $2&#125;&#x27;`        if [ $NUM -gt $DEFINE ];        then         grep $IP /etc/hosts.deny &gt; /dev/null          if [ $? -gt 0 ];          then          echo &quot;sshd:$IP&quot; &gt;&gt; /etc/hosts.deny          fi        fidone</code></pre><ol start="2"><li><p>使用crontabp执行脚本</p><p>清空记录<code>echo &gt; /var/log/wtmp;echo &gt; /var/log/btmp;history -c;</code></p><p>使用lastb命令查看暴力破解情况</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux,centos7,shell</tag>
       
     </tags>
     
