@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="1ch0">
   <meta name="keywords" content="">
-  <title>kali工具 - 1ch0&#39;s blog</title>
+  <title>Go 切片扩容 - 1ch0&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-10 10:00" pubdate>
-        2020年10月10日 上午
+      <time datetime="2022-10-10 18:01" pubdate>
+        2022年10月10日 晚上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      117 字
+      417 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      7
        分钟
     </span>
   
@@ -232,46 +232,120 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">kali工具</h1>
+            <h1 style="display: none">Go 切片扩容</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：3 个月前
+                  本文最后更新于：几秒前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="dirb"><a href="#dirb" class="headerlink" title="dirb"></a>dirb</h1><pre><code class="hljs shell">dirb https://x.x.x.x/</code></pre>
+              <h1 id="Go-切片扩容"><a href="#Go-切片扩容" class="headerlink" title="Go 切片扩容"></a>Go 切片扩容</h1><blockquote>
+<p>分享一个最近遇到的切片扩容问题</p>
+</blockquote>
+<h2 id="Error-code"><a href="#Error-code" class="headerlink" title="Error code"></a>Error code</h2><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><pre><code class="hljs go"><span class="hljs-keyword">package</span> main
 
-<p>[^目录扫描工具]: </p>
-<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/dirbuster/files/latest/download">https://sourceforge.net/projects/dirbuster/files/latest/download</a></p>
-<h3 id="参数介绍"><a href="#参数介绍" class="headerlink" title="参数介绍"></a>参数介绍</h3><pre><code class="hljs shell">-a 设置ua
+<span class="hljs-keyword">import</span> (
+	<span class="hljs-string">&quot;fmt&quot;</span>
+)
 
--c 设置cookie带cookie扫描
+<span class="hljs-keyword">type</span> List[T comparable] <span class="hljs-keyword">struct</span> &#123;
+	l []T
+&#125;
 
--N 忽略某些响应码
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(l *List[T])</span> <span class="hljs-title">Insert</span><span class="hljs-params">(v T)</span></span> &#123;
+	l.InsertAt(<span class="hljs-number">0</span>, v)
+	<span class="hljs-keyword">return</span>
+&#125;
 
--o 输出结果
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(l *List[T])</span> <span class="hljs-title">InsertAt</span><span class="hljs-params">(pos <span class="hljs-keyword">int</span>, v T)</span></span> &#123;
+	l.l, l.l[<span class="hljs-number">0</span>] = <span class="hljs-built_in">append</span>(l.l[:pos+<span class="hljs-number">1</span>], l.l[pos:]...), v
+	<span class="hljs-keyword">return</span>
+&#125;
 
--p 使用代理
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(l *List[T])</span> <span class="hljs-title">Slice</span><span class="hljs-params">()</span> []<span class="hljs-title">T</span></span> &#123;
+	<span class="hljs-keyword">return</span> l.l
+&#125;
 
--X 在每个测试目录上附加后缀
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">NewList</span>[<span class="hljs-title">T</span> <span class="hljs-title">comparable</span>]<span class="hljs-params">(t []T)</span> *<span class="hljs-title">List</span>[<span class="hljs-title">T</span>]</span> &#123;
+	<span class="hljs-keyword">return</span> &amp;List[T]&#123;l: t&#125;
+&#125;
 
--z 设置毫秒延迟</code></pre>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;
+	l := NewList([]<span class="hljs-keyword">int</span>&#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125;)
+	fmt.Println(<span class="hljs-string">&quot;initial  data: &quot;</span>, l.Slice())
 
-<h1 id="hydra"><a href="#hydra" class="headerlink" title="hydra"></a>hydra</h1><p>密码爆破工具</p>
-<pre><code class="hljs css"><span class="hljs-selector-tag">hydra</span> <span class="hljs-selector-tag">-l</span> <span class="hljs-selector-tag">root</span> <span class="hljs-selector-tag">-P</span> <span class="hljs-selector-tag">password</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">save</span><span class="hljs-selector-class">.log</span> <span class="hljs-selector-tag">-vV</span> <span class="hljs-selector-tag">RHOSTS</span> <span class="hljs-selector-tag">ssh</span> <span class="hljs-selector-tag">-t</span> 30</code></pre>
+	l.Insert(<span class="hljs-number">4</span>)
+	fmt.Println(<span class="hljs-string">&quot;first  insert: &quot;</span>, l.Slice())
 
+	l.Insert(<span class="hljs-number">5</span>)
+	fmt.Println(<span class="hljs-string">&quot;second insert: &quot;</span>, l.Slice())
 
+	l.Insert(<span class="hljs-number">6</span>)
+	fmt.Println(<span class="hljs-string">&quot;third  insert: &quot;</span>, l.Slice())
 
-<h1 id="开启远程连接"><a href="#开启远程连接" class="headerlink" title="开启远程连接"></a>开启远程连接</h1><ol>
-<li>vi /etc/ssh/sshd_config</li>
-<li>PermitRootLogin yes</li>
-<li>PasswordAuthentication yes</li>
-<li>wq</li>
-<li>systemctl restart ssh.service</li>
-<li>systemctl status ssh.service</li>
-</ol>
+&#125;
+</code></pre>
+
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><pre><code class="hljs shell">initial  data:  [1 2 3]
+first  insert:  [1 1 2 3]    
+second insert:  [5 1 1 2 3]  
+third  insert:  [6 5 1 1 2 3]</code></pre>
+
+<h2 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h2><ul>
+<li>当第一次调用 InsertAt 函数时，由于切片扩容，l.l[0] 并没有被成功修改，v 被分配给旧切片而不是新切片。</li>
+<li>之后执行  InsertAt 函数，v 成功插入，当切片再次扩容时又会触发此问题</li>
+</ul>
+<h2 id="Fix-code"><a href="#Fix-code" class="headerlink" title="Fix code"></a>Fix code</h2><pre><code class="hljs go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+	<span class="hljs-string">&quot;fmt&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> List[T comparable] <span class="hljs-keyword">struct</span> &#123;
+	l []T
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(l *List[T])</span> <span class="hljs-title">Insert</span><span class="hljs-params">(v T)</span></span> &#123;
+	l.InsertAt(<span class="hljs-number">0</span>, v)
+	<span class="hljs-keyword">return</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(l *List[T])</span> <span class="hljs-title">InsertAt</span><span class="hljs-params">(pos <span class="hljs-keyword">int</span>, v T)</span></span> &#123;
+	l.l = <span class="hljs-built_in">append</span>(l.l[:pos+<span class="hljs-number">1</span>], l.l[pos:]...)
+	l.l[<span class="hljs-number">0</span>] = v
+	<span class="hljs-keyword">return</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(l *List[T])</span> <span class="hljs-title">Slice</span><span class="hljs-params">()</span> []<span class="hljs-title">T</span></span> &#123;
+	<span class="hljs-keyword">return</span> l.l
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">NewList</span>[<span class="hljs-title">T</span> <span class="hljs-title">comparable</span>]<span class="hljs-params">(t []T)</span> *<span class="hljs-title">List</span>[<span class="hljs-title">T</span>]</span> &#123;
+	<span class="hljs-keyword">return</span> &amp;List[T]&#123;l: t&#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;
+	l := NewList([]<span class="hljs-keyword">int</span>&#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125;)
+	fmt.Println(<span class="hljs-string">&quot;initial  data: &quot;</span>, l.Slice())
+
+	l.Insert(<span class="hljs-number">4</span>)
+	fmt.Println(<span class="hljs-string">&quot;first  insert: &quot;</span>, l.Slice())
+
+	l.Insert(<span class="hljs-number">5</span>)
+	fmt.Println(<span class="hljs-string">&quot;second insert: &quot;</span>, l.Slice())
+
+	l.Insert(<span class="hljs-number">6</span>)
+	fmt.Println(<span class="hljs-string">&quot;third  insert: &quot;</span>, l.Slice())
+&#125;
+</code></pre>
+
+<h3 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h3><pre><code class="hljs shell">initial  data:  [1 2 3]
+first  insert:  [4 1 2 3]    
+second insert:  [5 4 1 2 3]  
+third  insert:  [6 5 4 1 2 3]</code></pre>
+
 
             </div>
             <hr>
@@ -281,9 +355,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
-                    
-                      <a class="hover-with-bg" href="/categories/Linux/Hack/">Hack</a>
+                      <a class="hover-with-bg" href="/categories/Go/">Go</a>
                     
                   </div>
                 
@@ -291,9 +363,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
-                    
-                      <a class="hover-with-bg" href="/tags/kali/">kali</a>
+                      <a class="hover-with-bg" href="/tags/go/">go</a>
                     
                   </div>
                 
@@ -306,18 +376,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/10/10/tmp/Hack/%E6%B8%97%E9%80%8F%E6%80%9D%E8%80%83/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">渗透思考</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/07/07/python/pip%E5%8D%87%E7%BA%A7%E9%97%AE%E9%A2%98/">
-                        <span class="hidden-mobile">pip升级问题</span>
+                      <a href="/2022/08/10/cloud/cncamp/module_02/">
+                        <span class="hidden-mobile">cncamp_module_02</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -455,7 +519,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "kali工具&nbsp;",
+        "Go 切片扩容&nbsp;",
       ],
       cursorChar: ".",
       typeSpeed: 100,

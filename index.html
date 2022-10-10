@@ -177,6 +177,76 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/10/10/go/finished/go_slice_2022-10-10/" target="_self">
+          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/go1.jpg" srcset="/img/loading.gif" alt="Go 切片扩容">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/10/10/go/finished/go_slice_2022-10-10/">Go 切片扩容</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/10/10/go/finished/go_slice_2022-10-10/">
+          
+          
+            
+          
+          Go 切片扩容
+分享一个最近遇到的切片扩容问题
+
+Error codeCodepackage main
+
+import (
+	&quot;fmt&quot;
+)
+
+type List[T comparable] struct &#123;
+	l []T
+&#125;
+
+func (l *List[T]) Insert(v T) &#123;
+	l.InsertAt(0, v)
+	return
+&#
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-10-10 18:01" pubdate>
+              2022-10-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Go/">Go</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/go/">go</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2022/08/10/cloud/cncamp/module_02/" target="_self">
           <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/go1.jpg" srcset="/img/loading.gif" alt="cncamp_module_02">
         </a>
@@ -789,88 +859,6 @@ Unknown
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/Python/">Python</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/07/13/cloud/cncamp/module_03/" target="_self">
-          <img src="https://raw.githubusercontent.com/1ch0/Figure-bed/main/img/Kubernetes1.png" srcset="/img/loading.gif" alt="Docker 核心技术">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/07/13/cloud/cncamp/module_03/">Docker 核心技术</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/07/13/cloud/cncamp/module_03/">
-          
-          
-            
-          
-          3. Docker 核心技术3.1 从系统架构谈起3.1.1 传统分层架构 vs 微服务架构
-传统分层架构
-优点：
-易部署
-易测试
-易横向拓展
-
-
-缺点：
-难以理解整体
-不易快速维护
-启动慢
-部署慢
-变更引起的回归问题多
-难以做持续集成和持续部署
-
-
-
-
-微服务
-优点：
-高内聚、松耦合
-复杂系统更加可维护
-服务独立部署，易于持续集成和持续部署
-每个微服务独立拓展
-
-
-缺点：
-增加了系统的复杂性，把
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-13 15:11" pubdate>
-              2022-07-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Cloud-Native/">Cloud Native</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/kubernetes/">kubernetes</a>
             
           </div>
         
