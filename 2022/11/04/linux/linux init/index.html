@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      93
+      95
        分钟
     </span>
   
@@ -236,7 +236,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 个月前
+                  本文最后更新于：3 天前
                 
               </p>
             
@@ -431,7 +431,7 @@ curl -fsSL https://get.docker.com | bash -s docker --mirror aliyun
 curl -sSL https://get.daocloud.io/docker | sh
 
 <span class="hljs-comment"># 安装 docker compose</span>
-curl -L https://get.daocloud.io/docker/compose/releases/download/v2.7.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/<span class="hljs-built_in">local</span>/bin/docker-compose
+curl -L https://get.daocloud.io/docker/compose/releases/download/v2.14.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/<span class="hljs-built_in">local</span>/bin/docker-compose
 chmod +x /usr/<span class="hljs-built_in">local</span>/bin/docker-compose
 docker-compose -v
 systemctl daemon-reload
@@ -971,6 +971,19 @@ sudo systemctl restart mongod
 sudo apt-get purge -y mongodb-org*
 sudo rm -r /var/log/mongodb
 sudo rm -r /var/lib/mongodb
+</code></pre>
+
+
+
+<h3 id="2-9-安装-zsh"><a href="#2-9-安装-zsh" class="headerlink" title="2.9 安装 zsh"></a>2.9 安装 zsh</h3><pre><code class="hljs shell">sudo apt update &amp;&amp; sudo apt install zsh git
+sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+chsh -s $(which zsh)
+
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+sed -i &#x27;s/ZSH_THEME=&quot;robbyrussell&quot;/ZSH_THEME=&quot;powerlevel10k\/powerlevel10k&quot;/&#x27; ~/.zshrc
+
+source ~/.zshrc
 </code></pre>
 
 
