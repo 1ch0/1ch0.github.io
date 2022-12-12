@@ -1304,31 +1304,6 @@
   
   
   <entry>
-    <title>Go Interview</title>
-    <link href="/2020/11/07/go/Interview/interview_01/"/>
-    <url>/2020/11/07/go/Interview/interview_01/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Go-面试题-B站"><a href="#Go-面试题-B站" class="headerlink" title="Go 面试题 B站"></a>Go 面试题 B站</h1><h2 id="中高级-Golang-面试"><a href="#中高级-Golang-面试" class="headerlink" title="中高级 Golang 面试"></a>中高级 Golang 面试</h2><p><a href="https://www.bilibili.com/video/BV12p4y1W7Dz/?spm_id_from=333.788.recommend_more_video.-1">B站面试视频</a></p><ol><li>自我介绍</li><li>代码效率分析，考察局部性原理</li><li>多核CPU场景下，cache如何保持一致、不冲突？</li><li>uint类型溢出</li><li>介绍rune类型</li><li>编程题：3个函数分别打印cat、dog、fish，要求每个函数都要起一个goroutine，按照cat、dog、fish顺序打印在屏幕上100次。</li><li>介绍一下channel，无缓冲和有缓冲区别</li><li>是否了解channel底层实现，比如实现channel的数据结构是什么？</li><li>channel是否线程安全？</li><li>Mutex是悲观锁还是乐观锁？悲观锁、乐观锁是什么？</li><li>Mutex几种模式？</li><li>Mutex可以做自旋锁吗？</li><li>介绍一下RWMutex</li><li>项目中用过的锁？</li><li>介绍一下线程安全的共享内存方式</li><li>介绍一下goroutine</li><li>goroutine自旋占用cpu如何解决（go调用、gmp）</li><li>介绍linux系统信号</li><li>goroutine抢占时机（gc 栈扫描）</li><li>Gc触发时机</li><li>是否了解其他gc机制</li><li>Go内存管理方式</li><li>Channel分配在栈上还是堆上？哪些对象分配在堆上，哪些对象分配在栈上？</li><li>介绍一下大对象小对象，为什么小对象多了会造成gc压力？</li><li>项目中遇到的oom情况？</li><li>项目中使用go遇到的坑？</li><li>工作遇到的难题、有挑战的事情，如何解决？</li><li>如何指定指令执行顺序？</li></ol><h2 id="初-中级-Golang-面试"><a href="#初-中级-Golang-面试" class="headerlink" title="初/中级 Golang 面试"></a>初/中级 Golang 面试</h2><ol><li>工作中Go遇到的问题—struct，内存不对齐，内存浪费</li></ol><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>\1. make 和 new 的区别﹖<br>\2. 了解过golang的内存管理吗?<br>\3. 调用函数传入结构体时，应该传值还是指针﹖说出你的理由?<br>\4. 线程有几种模型?Goroutine的原理了解过吗，讲一下实现和优势?<br>\5. Goroutine什么时候会发生阻塞?<br>\6. PMG模型中Goroutine有哪几种状态?<br>\7. 每个线程/协程占用多少内存知道吗?<br>\8. 如果Goroutine—直占用资源怎么办,PMG模型怎么解决的这个问题?<br>\9. 如果若干线程中一个线程OOM，会发生什么?如果是Goroutine 呢?<br>项目中出现过OOM吗，怎么解决的?<br>\10. 项目中错误处理是怎么做的?<br>\11. 如果若干个Goroutine,其中有一个panic，会发生什么?<br>\12. defer可以捕获到其Goroutine的子Goroutine 的panic吗?<br>\13. 开发用Gin框架吗?Gin怎么做参数校验?<br>\14. 中间件使用过吗?怎么使用的。Gin的错误处理使用过吗?Gin中自定义校验规则知道怎么做吗?自定义校验器的返回值呢?<br>\15. golang中解析tag是怎么实现的？反射原理是什么？通过反射调用函数<br>\16. golang的锁机制了解过吗? Mutex的锁有哪几种模式，分别介绍一下? Mutex锁底层如何实现了解过吗?<br>\17. channel、channel使用中需要注意的地方？<br>\18. 数据库用的什么？数据库锁有了解吗？mysql锁机制讲一下。mysql分库分表。<br>\19. 讲一下redis分布式锁？redis主从模式和集群模式的区别了解过吗？redis的数据类型有哪些？redis持久化怎么做的？<br>\20. 编程题：你了解的负载均衡算法有什么？实现一个负载均衡算法。</p><h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>\1. 自我介绍<br>\2. 代码效率分析，考察局部性原理<br>\3. 多核CPU场景下，cache如何保持一致、不冲突？<br>\4. uint类型溢出<br>\5. 介绍rune类型<br>\6. 编程题：3个函数分别打印cat、dog、fish，要求每个函数都要起一个goroutine，按照cat、dog、fish顺序打印在屏幕上100次。<br>\7. 介绍一下channel，无缓冲和有缓冲区别<br>\8. 是否了解channel底层实现，比如实现channel的数据结构是什么？<br>\9. channel是否线程安全？<br>\10. Mutex是悲观锁还是乐观锁？悲观锁、乐观锁是什么？<br>\11. Mutex几种模式？<br>\12. Mutex可以做自旋锁吗？<br>\13. 介绍一下RWMutex<br>\14. 项目中用过的锁？<br>\15. 介绍一下线程安全的共享内存方式<br>\16. 介绍一下goroutine<br>\17. goroutine自旋占用cpu如何解决（go调用、gmp）<br>\18. 介绍linux系统信号<br>\19. goroutine抢占时机（gc 栈扫描）<br>\20. Gc触发时机<br>\21. 是否了解其他gc机制<br>\22. Go内存管理方式<br>\23. Channel分配在栈上还是堆上？哪些对象分配在堆上，哪些对象分配在栈上？<br>\24. 介绍一下大对象小对象，为什么小对象多了会造成gc压力？<br>\25. 项目中遇到的oom情况？<br>\26. 项目中使用go遇到的坑？<br>\27. 工作遇到的难题、有挑战的事情，如何解决？<br>\28. 如何指定指令执行顺序？</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Go</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>interview,go</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Go Bug 合集</title>
     <link href="/2020/11/07/go/BUG/Go%20Bug%20%E5%90%88%E9%9B%86/"/>
     <url>/2020/11/07/go/BUG/Go%20Bug%20%E5%90%88%E9%9B%86/</url>
@@ -1346,6 +1321,31 @@
     <tags>
       
       <tag>go,bug</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Go Interview</title>
+    <link href="/2020/11/07/go/Interview/interview_01/"/>
+    <url>/2020/11/07/go/Interview/interview_01/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Go-面试题-B站"><a href="#Go-面试题-B站" class="headerlink" title="Go 面试题 B站"></a>Go 面试题 B站</h1><h2 id="中高级-Golang-面试"><a href="#中高级-Golang-面试" class="headerlink" title="中高级 Golang 面试"></a>中高级 Golang 面试</h2><p><a href="https://www.bilibili.com/video/BV12p4y1W7Dz/?spm_id_from=333.788.recommend_more_video.-1">B站面试视频</a></p><ol><li>自我介绍</li><li>代码效率分析，考察局部性原理</li><li>多核CPU场景下，cache如何保持一致、不冲突？</li><li>uint类型溢出</li><li>介绍rune类型</li><li>编程题：3个函数分别打印cat、dog、fish，要求每个函数都要起一个goroutine，按照cat、dog、fish顺序打印在屏幕上100次。</li><li>介绍一下channel，无缓冲和有缓冲区别</li><li>是否了解channel底层实现，比如实现channel的数据结构是什么？</li><li>channel是否线程安全？</li><li>Mutex是悲观锁还是乐观锁？悲观锁、乐观锁是什么？</li><li>Mutex几种模式？</li><li>Mutex可以做自旋锁吗？</li><li>介绍一下RWMutex</li><li>项目中用过的锁？</li><li>介绍一下线程安全的共享内存方式</li><li>介绍一下goroutine</li><li>goroutine自旋占用cpu如何解决（go调用、gmp）</li><li>介绍linux系统信号</li><li>goroutine抢占时机（gc 栈扫描）</li><li>Gc触发时机</li><li>是否了解其他gc机制</li><li>Go内存管理方式</li><li>Channel分配在栈上还是堆上？哪些对象分配在堆上，哪些对象分配在栈上？</li><li>介绍一下大对象小对象，为什么小对象多了会造成gc压力？</li><li>项目中遇到的oom情况？</li><li>项目中使用go遇到的坑？</li><li>工作遇到的难题、有挑战的事情，如何解决？</li><li>如何指定指令执行顺序？</li></ol><h2 id="初-中级-Golang-面试"><a href="#初-中级-Golang-面试" class="headerlink" title="初/中级 Golang 面试"></a>初/中级 Golang 面试</h2><ol><li>工作中Go遇到的问题—struct，内存不对齐，内存浪费</li></ol><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>\1. make 和 new 的区别﹖<br>\2. 了解过golang的内存管理吗?<br>\3. 调用函数传入结构体时，应该传值还是指针﹖说出你的理由?<br>\4. 线程有几种模型?Goroutine的原理了解过吗，讲一下实现和优势?<br>\5. Goroutine什么时候会发生阻塞?<br>\6. PMG模型中Goroutine有哪几种状态?<br>\7. 每个线程/协程占用多少内存知道吗?<br>\8. 如果Goroutine—直占用资源怎么办,PMG模型怎么解决的这个问题?<br>\9. 如果若干线程中一个线程OOM，会发生什么?如果是Goroutine 呢?<br>项目中出现过OOM吗，怎么解决的?<br>\10. 项目中错误处理是怎么做的?<br>\11. 如果若干个Goroutine,其中有一个panic，会发生什么?<br>\12. defer可以捕获到其Goroutine的子Goroutine 的panic吗?<br>\13. 开发用Gin框架吗?Gin怎么做参数校验?<br>\14. 中间件使用过吗?怎么使用的。Gin的错误处理使用过吗?Gin中自定义校验规则知道怎么做吗?自定义校验器的返回值呢?<br>\15. golang中解析tag是怎么实现的？反射原理是什么？通过反射调用函数<br>\16. golang的锁机制了解过吗? Mutex的锁有哪几种模式，分别介绍一下? Mutex锁底层如何实现了解过吗?<br>\17. channel、channel使用中需要注意的地方？<br>\18. 数据库用的什么？数据库锁有了解吗？mysql锁机制讲一下。mysql分库分表。<br>\19. 讲一下redis分布式锁？redis主从模式和集群模式的区别了解过吗？redis的数据类型有哪些？redis持久化怎么做的？<br>\20. 编程题：你了解的负载均衡算法有什么？实现一个负载均衡算法。</p><h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>\1. 自我介绍<br>\2. 代码效率分析，考察局部性原理<br>\3. 多核CPU场景下，cache如何保持一致、不冲突？<br>\4. uint类型溢出<br>\5. 介绍rune类型<br>\6. 编程题：3个函数分别打印cat、dog、fish，要求每个函数都要起一个goroutine，按照cat、dog、fish顺序打印在屏幕上100次。<br>\7. 介绍一下channel，无缓冲和有缓冲区别<br>\8. 是否了解channel底层实现，比如实现channel的数据结构是什么？<br>\9. channel是否线程安全？<br>\10. Mutex是悲观锁还是乐观锁？悲观锁、乐观锁是什么？<br>\11. Mutex几种模式？<br>\12. Mutex可以做自旋锁吗？<br>\13. 介绍一下RWMutex<br>\14. 项目中用过的锁？<br>\15. 介绍一下线程安全的共享内存方式<br>\16. 介绍一下goroutine<br>\17. goroutine自旋占用cpu如何解决（go调用、gmp）<br>\18. 介绍linux系统信号<br>\19. goroutine抢占时机（gc 栈扫描）<br>\20. Gc触发时机<br>\21. 是否了解其他gc机制<br>\22. Go内存管理方式<br>\23. Channel分配在栈上还是堆上？哪些对象分配在堆上，哪些对象分配在栈上？<br>\24. 介绍一下大对象小对象，为什么小对象多了会造成gc压力？<br>\25. 项目中遇到的oom情况？<br>\26. 项目中使用go遇到的坑？<br>\27. 工作遇到的难题、有挑战的事情，如何解决？<br>\28. 如何指定指令执行顺序？</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Go</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>interview,go</tag>
       
     </tags>
     
@@ -1479,6 +1479,31 @@
   
   
   <entry>
+    <title>渗透思考</title>
+    <link href="/2020/10/10/tmp/Hack/%E6%B8%97%E9%80%8F%E6%80%9D%E8%80%83/"/>
+    <url>/2020/10/10/tmp/Hack/%E6%B8%97%E9%80%8F%E6%80%9D%E8%80%83/</url>
+    
+    <content type="html"><![CDATA[<h1 id="公众号文章"><a href="#公众号文章" class="headerlink" title="公众号文章"></a>公众号文章</h1><p>​        知识化（对一流拦截的研究总结），体系化（对当时waf等的系统归纳），传递化（文章分享）。我把它简称渗透”三板斧”，更像是：学习，归纳，总结，分享的一个完整流程。并非知识太快，并非哪一安全方向领域就一定更有前景，而是这“三板斧”是否完整连接。</p><p>​        渗透的沉思非常重要，尤其是在后渗透阶段，需要有着一套非常完整周期计划，思考可能遇到的问题，或者通过已知的信息搜集，来推导可能面临的问题，这就是渗透的沉思。招式不在多，在于精，力道不在狠，在于寸。</p><p>​        渗透的本质是信息搜集，每一次的项目如果碰到迷茫无解的时候，请继续搜集。而信息搜集的本质是渗透的沉思，与线索“链”的关联。每一次真实的攻击演练项目，最难得并非是入侵攻击，也并非是得到域控或最高权限。而是如何把渗透攻击演变成一次对己有利的一个过程。后渗透需要沉淀，而沉淀需要给渗透留下沉思的时间。用“沉思”来化解五彩缤纷的工具，五颜六色的框架，日益骚奇的姿势，当戾气化解时，便形成一套了自我知识体系。<br>​        愿每一位读者能找到自己能融合贯通的“武功”，在结合吞噬其他“招式”，如行云流水，石便是器，枝便是剑</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Hack</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>webpentest</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>kali工具</title>
     <link href="/2020/10/10/linux/tmp/kali/"/>
     <url>/2020/10/10/linux/tmp/kali/</url>
@@ -1500,31 +1525,6 @@
       <tag>Linux</tag>
       
       <tag>kali</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>渗透思考</title>
-    <link href="/2020/10/10/tmp/Hack/%E6%B8%97%E9%80%8F%E6%80%9D%E8%80%83/"/>
-    <url>/2020/10/10/tmp/Hack/%E6%B8%97%E9%80%8F%E6%80%9D%E8%80%83/</url>
-    
-    <content type="html"><![CDATA[<h1 id="公众号文章"><a href="#公众号文章" class="headerlink" title="公众号文章"></a>公众号文章</h1><p>​        知识化（对一流拦截的研究总结），体系化（对当时waf等的系统归纳），传递化（文章分享）。我把它简称渗透”三板斧”，更像是：学习，归纳，总结，分享的一个完整流程。并非知识太快，并非哪一安全方向领域就一定更有前景，而是这“三板斧”是否完整连接。</p><p>​        渗透的沉思非常重要，尤其是在后渗透阶段，需要有着一套非常完整周期计划，思考可能遇到的问题，或者通过已知的信息搜集，来推导可能面临的问题，这就是渗透的沉思。招式不在多，在于精，力道不在狠，在于寸。</p><p>​        渗透的本质是信息搜集，每一次的项目如果碰到迷茫无解的时候，请继续搜集。而信息搜集的本质是渗透的沉思，与线索“链”的关联。每一次真实的攻击演练项目，最难得并非是入侵攻击，也并非是得到域控或最高权限。而是如何把渗透攻击演变成一次对己有利的一个过程。后渗透需要沉淀，而沉淀需要给渗透留下沉思的时间。用“沉思”来化解五彩缤纷的工具，五颜六色的框架，日益骚奇的姿势，当戾气化解时，便形成一套了自我知识体系。<br>​        愿每一位读者能找到自己能融合贯通的“武功”，在结合吞噬其他“招式”，如行云流水，石便是器，枝便是剑</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Hack</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>webpentest</tag>
       
     </tags>
     
