@@ -4,13 +4,25 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2023/01/11/%E6%91%98%E5%BD%95/"/>
-    <url>/2023/01/11/%E6%91%98%E5%BD%95/</url>
+    <title>摘录</title>
+    <link href="/2023/04/12/%E6%91%98%E5%BD%95/"/>
+    <url>/2023/04/12/%E6%91%98%E5%BD%95/</url>
     
     <content type="html"><![CDATA[<h1 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h1><h2 id="左耳听风"><a href="#左耳听风" class="headerlink" title="左耳听风"></a>左耳听风</h2><h3 id="01-Google-评分卡"><a href="#01-Google-评分卡" class="headerlink" title="01 Google 评分卡"></a>01 Google 评分卡</h3><p>0 - you are unfamiliar with the subject area.<br>1 - you can read / understand the most fundamental aspects of the subject area.<br>2 - ability to implement small changes, understand basic principles and able to<br>figure out additional details with minimal help.<br>3 - basic proficiency in a subject area without relying on help.<br>4 - you are comfortable with the subject area and all routine work on it:<br>For software areas - ability to develop medium programs using all basic language<br>features w/o book, awareness of more esoteric features (with book).<br>For systems areas - understanding of many fundamentals of networking and<br>systems administration, ability to run a small network of systems including<br>recovery, debugging and nontrivial troubleshooting that relies on the knowledge<br>of internals.<br>5 - an even lower degree of reliance on reference materials. Deeper skills in a field<br>or specific technology in the subject area.<br>6 - ability to develop large programs and systems from scratch. Understanding of<br>low level details and internals. Ability to design / deploy most large, distributed<br>systems from scratch.<br>7 - you understand and make use of most lesser known language features,<br>technologies, and associated internals. Ability to automate significant amounts of<br>systems administration.<br>8 - deep understanding of corner cases, esoteric features, protocols and systems<br>including “theory of operation”. Demonstrated ability to design, deploy and own</p>]]></content>
     
     
+    <categories>
+      
+      <category>IT</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>IT</tag>
+      
+    </tags>
     
   </entry>
   
@@ -1496,31 +1508,6 @@
   
   
   <entry>
-    <title>The Chrome Extensions I&#39;d like to use</title>
-    <link href="/2020/10/10/tmp/Daily/Chrome%20Extensions/"/>
-    <url>/2020/10/10/tmp/Daily/Chrome%20Extensions/</url>
-    
-    <content type="html"><![CDATA[<h3 id="DARK-READER"><a href="#DARK-READER" class="headerlink" title="DARK READER"></a>DARK READER</h3><!--切换背景--><h3 id="Wappalyzer"><a href="#Wappalyzer" class="headerlink" title="Wappalyzer"></a>Wappalyzer</h3><!--用于探测网站版本，结果可能不准确--><h3 id="Proxy-SwitchyOmega"><a href="#Proxy-SwitchyOmega" class="headerlink" title="Proxy SwitchyOmega"></a>Proxy SwitchyOmega</h3><!--代理切换软件-->]]></content>
-    
-    
-    <categories>
-      
-      <category>Life</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>ChromeExtensions</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>渗透思考</title>
     <link href="/2020/10/10/tmp/Hack/%E6%B8%97%E9%80%8F%E6%80%9D%E8%80%83/"/>
     <url>/2020/10/10/tmp/Hack/%E6%B8%97%E9%80%8F%E6%80%9D%E8%80%83/</url>
@@ -1538,6 +1525,31 @@
     <tags>
       
       <tag>webpentest</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>The Chrome Extensions I&#39;d like to use</title>
+    <link href="/2020/10/10/tmp/Daily/Chrome%20Extensions/"/>
+    <url>/2020/10/10/tmp/Daily/Chrome%20Extensions/</url>
+    
+    <content type="html"><![CDATA[<h3 id="DARK-READER"><a href="#DARK-READER" class="headerlink" title="DARK READER"></a>DARK READER</h3><!--切换背景--><h3 id="Wappalyzer"><a href="#Wappalyzer" class="headerlink" title="Wappalyzer"></a>Wappalyzer</h3><!--用于探测网站版本，结果可能不准确--><h3 id="Proxy-SwitchyOmega"><a href="#Proxy-SwitchyOmega" class="headerlink" title="Proxy SwitchyOmega"></a>Proxy SwitchyOmega</h3><!--代理切换软件-->]]></content>
+    
+    
+    <categories>
+      
+      <category>Life</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>ChromeExtensions</tag>
       
     </tags>
     
