@@ -236,7 +236,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：6 个月前
+                  本文最后更新于：1 分钟前
                 
               </p>
             
@@ -314,7 +314,7 @@ third  insert:  [6 5 1 1 2 3]</code></pre>
 
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(l *List[T])</span> <span class="hljs-title">InsertAt</span><span class="hljs-params">(pos <span class="hljs-keyword">int</span>, v T)</span></span> &#123;
 	l.l = <span class="hljs-built_in">append</span>(l.l[:pos+<span class="hljs-number">1</span>], l.l[pos:]...)
-	l.l[<span class="hljs-number">0</span>] = v
+	l.l[pos] = v
 	<span class="hljs-keyword">return</span>
 &#125;
 
