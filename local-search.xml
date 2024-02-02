@@ -1479,35 +1479,6 @@
   
   
   <entry>
-    <title>kali工具</title>
-    <link href="/2020/10/10/linux/tmp/kali/"/>
-    <url>/2020/10/10/linux/tmp/kali/</url>
-    
-    <content type="html"><![CDATA[<h1 id="dirb"><a href="#dirb" class="headerlink" title="dirb"></a>dirb</h1><pre><code class="hljs shell">dirb https://x.x.x.x/</code></pre><p>[^目录扫描工具]: </p><p><a href="https://sourceforge.net/projects/dirbuster/files/latest/download">https://sourceforge.net/projects/dirbuster/files/latest/download</a></p><h3 id="参数介绍"><a href="#参数介绍" class="headerlink" title="参数介绍"></a>参数介绍</h3><pre><code class="hljs shell">-a 设置ua-c 设置cookie带cookie扫描-N 忽略某些响应码-o 输出结果-p 使用代理-X 在每个测试目录上附加后缀-z 设置毫秒延迟</code></pre><h1 id="hydra"><a href="#hydra" class="headerlink" title="hydra"></a>hydra</h1><p>密码爆破工具</p><pre><code class="hljs css"><span class="hljs-selector-tag">hydra</span> <span class="hljs-selector-tag">-l</span> <span class="hljs-selector-tag">root</span> <span class="hljs-selector-tag">-P</span> <span class="hljs-selector-tag">password</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">save</span><span class="hljs-selector-class">.log</span> <span class="hljs-selector-tag">-vV</span> <span class="hljs-selector-tag">RHOSTS</span> <span class="hljs-selector-tag">ssh</span> <span class="hljs-selector-tag">-t</span> 30</code></pre><h1 id="开启远程连接"><a href="#开启远程连接" class="headerlink" title="开启远程连接"></a>开启远程连接</h1><ol><li>vi /etc/ssh/sshd_config</li><li>PermitRootLogin yes</li><li>PasswordAuthentication yes</li><li>wq</li><li>systemctl restart ssh.service</li><li>systemctl status ssh.service</li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>Linux</category>
-      
-      <category>Hack</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Linux</tag>
-      
-      <tag>kali</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>The Chrome Extensions I&#39;d like to use</title>
     <link href="/2020/10/10/tmp/Daily/Chrome%20Extensions/"/>
     <url>/2020/10/10/tmp/Daily/Chrome%20Extensions/</url>
@@ -1550,6 +1521,35 @@
     <tags>
       
       <tag>webpentest</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>kali工具</title>
+    <link href="/2020/10/10/linux/tmp/kali/"/>
+    <url>/2020/10/10/linux/tmp/kali/</url>
+    
+    <content type="html"><![CDATA[<h1 id="dirb"><a href="#dirb" class="headerlink" title="dirb"></a>dirb</h1><pre><code class="hljs shell">dirb https://x.x.x.x/</code></pre><p>[^目录扫描工具]: </p><p><a href="https://sourceforge.net/projects/dirbuster/files/latest/download">https://sourceforge.net/projects/dirbuster/files/latest/download</a></p><h3 id="参数介绍"><a href="#参数介绍" class="headerlink" title="参数介绍"></a>参数介绍</h3><pre><code class="hljs shell">-a 设置ua-c 设置cookie带cookie扫描-N 忽略某些响应码-o 输出结果-p 使用代理-X 在每个测试目录上附加后缀-z 设置毫秒延迟</code></pre><h1 id="hydra"><a href="#hydra" class="headerlink" title="hydra"></a>hydra</h1><p>密码爆破工具</p><pre><code class="hljs css"><span class="hljs-selector-tag">hydra</span> <span class="hljs-selector-tag">-l</span> <span class="hljs-selector-tag">root</span> <span class="hljs-selector-tag">-P</span> <span class="hljs-selector-tag">password</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">save</span><span class="hljs-selector-class">.log</span> <span class="hljs-selector-tag">-vV</span> <span class="hljs-selector-tag">RHOSTS</span> <span class="hljs-selector-tag">ssh</span> <span class="hljs-selector-tag">-t</span> 30</code></pre><h1 id="开启远程连接"><a href="#开启远程连接" class="headerlink" title="开启远程连接"></a>开启远程连接</h1><ol><li>vi /etc/ssh/sshd_config</li><li>PermitRootLogin yes</li><li>PasswordAuthentication yes</li><li>wq</li><li>systemctl restart ssh.service</li><li>systemctl status ssh.service</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+      <category>Hack</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>kali</tag>
       
     </tags>
     
