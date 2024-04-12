@@ -1429,6 +1429,31 @@
   
   
   <entry>
+    <title>Centos8修改密码</title>
+    <link href="/2020/10/23/linux/tmp/Centos8/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/"/>
+    <url>/2020/10/23/linux/tmp/Centos8/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</url>
+    
+    <content type="html"><![CDATA[<h3 id="1-重启linux系统按e"><a href="#1-重启linux系统按e" class="headerlink" title="1. 重启linux系统按e"></a>1. 重启linux系统按e</h3><h3 id="2-开头为linux-root-那行末尾加-rd-break"><a href="#2-开头为linux-root-那行末尾加-rd-break" class="headerlink" title="2. 开头为linux($root)那行末尾加 rd.break"></a>2. 开头为linux($root)那行末尾加 rd.break</h3><h3 id="3-mount-grep-sysroot"><a href="#3-mount-grep-sysroot" class="headerlink" title="3. mount | grep sysroot"></a>3. mount | grep sysroot</h3><h3 id="4-mount-o-remount-rw-sysroot"><a href="#4-mount-o-remount-rw-sysroot" class="headerlink" title="4. mount -o remount,rw /sysroot/"></a>4. mount -o remount,rw /sysroot/</h3><pre><code class="hljs shell">mount | grep sysroot</code></pre><h3 id="5-切换系统的根目录位置为"><a href="#5-切换系统的根目录位置为" class="headerlink" title="5. 切换系统的根目录位置为"></a>5. 切换系统的根目录位置为</h3><pre><code class="hljs shell">chroot /sysroot</code></pre><h3 id="6-输入passwd修改密码"><a href="#6-输入passwd修改密码" class="headerlink" title="6. 输入passwd修改密码"></a>6. 输入passwd修改密码</h3><p>注意：新密码需符合centos8密码复杂度要求</p><h3 id="7-touch-autorelabel"><a href="#7-touch-autorelabel" class="headerlink" title="7. touch /.autorelabel"></a>7. touch /.autorelabel</h3><p>执行下面的命令让文件系统强制重新relabeling</p><h3 id="8-exit"><a href="#8-exit" class="headerlink" title="8. exit"></a>8. exit</h3><h3 id="9-logout"><a href="#9-logout" class="headerlink" title="9. logout"></a>9. logout</h3><p>[参照]<a href="https://linuxconfig.org/redhat-8-recover-root-password">https://linuxconfig.org/redhat-8-recover-root-password</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux,Centos8</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Centos7防止暴力破解</title>
     <link href="/2020/10/23/linux/tmp/Centos7/centos7%E7%A6%81%E6%AD%A2ip/"/>
     <url>/2020/10/23/linux/tmp/Centos7/centos7%E7%A6%81%E6%AD%A2ip/</url>
@@ -1454,23 +1479,27 @@
   
   
   <entry>
-    <title>Centos8修改密码</title>
-    <link href="/2020/10/23/linux/tmp/Centos8/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/"/>
-    <url>/2020/10/23/linux/tmp/Centos8/centos8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</url>
+    <title>kali工具</title>
+    <link href="/2020/10/10/linux/tmp/kali/"/>
+    <url>/2020/10/10/linux/tmp/kali/</url>
     
-    <content type="html"><![CDATA[<h3 id="1-重启linux系统按e"><a href="#1-重启linux系统按e" class="headerlink" title="1. 重启linux系统按e"></a>1. 重启linux系统按e</h3><h3 id="2-开头为linux-root-那行末尾加-rd-break"><a href="#2-开头为linux-root-那行末尾加-rd-break" class="headerlink" title="2. 开头为linux($root)那行末尾加 rd.break"></a>2. 开头为linux($root)那行末尾加 rd.break</h3><h3 id="3-mount-grep-sysroot"><a href="#3-mount-grep-sysroot" class="headerlink" title="3. mount | grep sysroot"></a>3. mount | grep sysroot</h3><h3 id="4-mount-o-remount-rw-sysroot"><a href="#4-mount-o-remount-rw-sysroot" class="headerlink" title="4. mount -o remount,rw /sysroot/"></a>4. mount -o remount,rw /sysroot/</h3><pre><code class="hljs shell">mount | grep sysroot</code></pre><h3 id="5-切换系统的根目录位置为"><a href="#5-切换系统的根目录位置为" class="headerlink" title="5. 切换系统的根目录位置为"></a>5. 切换系统的根目录位置为</h3><pre><code class="hljs shell">chroot /sysroot</code></pre><h3 id="6-输入passwd修改密码"><a href="#6-输入passwd修改密码" class="headerlink" title="6. 输入passwd修改密码"></a>6. 输入passwd修改密码</h3><p>注意：新密码需符合centos8密码复杂度要求</p><h3 id="7-touch-autorelabel"><a href="#7-touch-autorelabel" class="headerlink" title="7. touch /.autorelabel"></a>7. touch /.autorelabel</h3><p>执行下面的命令让文件系统强制重新relabeling</p><h3 id="8-exit"><a href="#8-exit" class="headerlink" title="8. exit"></a>8. exit</h3><h3 id="9-logout"><a href="#9-logout" class="headerlink" title="9. logout"></a>9. logout</h3><p>[参照]<a href="https://linuxconfig.org/redhat-8-recover-root-password">https://linuxconfig.org/redhat-8-recover-root-password</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="dirb"><a href="#dirb" class="headerlink" title="dirb"></a>dirb</h1><pre><code class="hljs shell">dirb https://x.x.x.x/</code></pre><p>[^目录扫描工具]: </p><p><a href="https://sourceforge.net/projects/dirbuster/files/latest/download">https://sourceforge.net/projects/dirbuster/files/latest/download</a></p><h3 id="参数介绍"><a href="#参数介绍" class="headerlink" title="参数介绍"></a>参数介绍</h3><pre><code class="hljs shell">-a 设置ua-c 设置cookie带cookie扫描-N 忽略某些响应码-o 输出结果-p 使用代理-X 在每个测试目录上附加后缀-z 设置毫秒延迟</code></pre><h1 id="hydra"><a href="#hydra" class="headerlink" title="hydra"></a>hydra</h1><p>密码爆破工具</p><pre><code class="hljs css"><span class="hljs-selector-tag">hydra</span> <span class="hljs-selector-tag">-l</span> <span class="hljs-selector-tag">root</span> <span class="hljs-selector-tag">-P</span> <span class="hljs-selector-tag">password</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">save</span><span class="hljs-selector-class">.log</span> <span class="hljs-selector-tag">-vV</span> <span class="hljs-selector-tag">RHOSTS</span> <span class="hljs-selector-tag">ssh</span> <span class="hljs-selector-tag">-t</span> 30</code></pre><h1 id="开启远程连接"><a href="#开启远程连接" class="headerlink" title="开启远程连接"></a>开启远程连接</h1><ol><li>vi /etc/ssh/sshd_config</li><li>PermitRootLogin yes</li><li>PasswordAuthentication yes</li><li>wq</li><li>systemctl restart ssh.service</li><li>systemctl status ssh.service</li></ol>]]></content>
     
     
     <categories>
       
       <category>Linux</category>
       
+      <category>Hack</category>
+      
     </categories>
     
     
     <tags>
       
-      <tag>Linux,Centos8</tag>
+      <tag>Linux</tag>
+      
+      <tag>kali</tag>
       
     </tags>
     
@@ -1521,35 +1550,6 @@
     <tags>
       
       <tag>webpentest</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>kali工具</title>
-    <link href="/2020/10/10/linux/tmp/kali/"/>
-    <url>/2020/10/10/linux/tmp/kali/</url>
-    
-    <content type="html"><![CDATA[<h1 id="dirb"><a href="#dirb" class="headerlink" title="dirb"></a>dirb</h1><pre><code class="hljs shell">dirb https://x.x.x.x/</code></pre><p>[^目录扫描工具]: </p><p><a href="https://sourceforge.net/projects/dirbuster/files/latest/download">https://sourceforge.net/projects/dirbuster/files/latest/download</a></p><h3 id="参数介绍"><a href="#参数介绍" class="headerlink" title="参数介绍"></a>参数介绍</h3><pre><code class="hljs shell">-a 设置ua-c 设置cookie带cookie扫描-N 忽略某些响应码-o 输出结果-p 使用代理-X 在每个测试目录上附加后缀-z 设置毫秒延迟</code></pre><h1 id="hydra"><a href="#hydra" class="headerlink" title="hydra"></a>hydra</h1><p>密码爆破工具</p><pre><code class="hljs css"><span class="hljs-selector-tag">hydra</span> <span class="hljs-selector-tag">-l</span> <span class="hljs-selector-tag">root</span> <span class="hljs-selector-tag">-P</span> <span class="hljs-selector-tag">password</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">save</span><span class="hljs-selector-class">.log</span> <span class="hljs-selector-tag">-vV</span> <span class="hljs-selector-tag">RHOSTS</span> <span class="hljs-selector-tag">ssh</span> <span class="hljs-selector-tag">-t</span> 30</code></pre><h1 id="开启远程连接"><a href="#开启远程连接" class="headerlink" title="开启远程连接"></a>开启远程连接</h1><ol><li>vi /etc/ssh/sshd_config</li><li>PermitRootLogin yes</li><li>PasswordAuthentication yes</li><li>wq</li><li>systemctl restart ssh.service</li><li>systemctl status ssh.service</li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>Linux</category>
-      
-      <category>Hack</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Linux</tag>
-      
-      <tag>kali</tag>
       
     </tags>
     
